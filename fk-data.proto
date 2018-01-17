@@ -1,0 +1,26 @@
+syntax = "proto3";
+package fk_data;
+
+message DeviceLocation {
+  uint32 fix = 1;
+  uint64 time = 2;
+  float longitude = 3;
+  float latitude = 4;
+  float altitude = 5;
+}
+
+message SensorReading {
+  uint64 time = 1;
+  uint32 sensor = 2;
+  float value = 3;
+}
+
+message LoggedReading {
+  uint32 version = 1;
+  DeviceLocation location = 2;
+  SensorReading reading = 3;
+}
+
+message DataRecord {
+  LoggedReading loggedReading = 1;
+}
