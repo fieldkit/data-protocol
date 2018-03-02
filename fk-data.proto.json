@@ -68,9 +68,13 @@
               "type": "uint32",
               "id": 1
             },
+            "address": {
+              "type": "uint32",
+              "id": 2
+            },
             "name": {
               "type": "string",
-              "id": 2
+              "id": 3
             }
           }
         },
