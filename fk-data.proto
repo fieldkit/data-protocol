@@ -44,6 +44,14 @@ message Metadata {
   repeated ModuleInfo modules = 6;
 }
 
+message Status {
+  uint64 time = 1;
+  uint32 uptime = 2;
+  float battery = 3;
+  uint32 memory = 4;
+  uint64 busy = 5;
+}
+
 message LogMessage {
   uint64 time = 1;
   uint32 uptime = 2;
@@ -56,4 +64,5 @@ message DataRecord {
   LoggedReading loggedReading = 1;
   Metadata metadata = 2;
   LogMessage log = 3;
+  Status status = 4;
 }
