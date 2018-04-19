@@ -108,6 +108,10 @@
               "type": "string",
               "id": 3
             },
+            "build": {
+              "type": "string",
+              "id": 7
+            },
             "resetCause": {
               "type": "uint32",
               "id": 4

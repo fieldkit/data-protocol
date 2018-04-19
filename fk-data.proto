@@ -38,6 +38,7 @@ message Metadata {
   bytes deviceId = 1;
   uint64 time = 2;
   string git = 3;
+  string build = 7;
   uint32 resetCause = 4;
   repeated SensorInfo sensors = 5;
   repeated ModuleInfo modules = 6;
