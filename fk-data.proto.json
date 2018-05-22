@@ -62,6 +62,43 @@
             }
           }
         },
+        "SensorAndValue": {
+          "fields": {
+            "sensor": {
+              "type": "uint32",
+              "id": 1
+            },
+            "value": {
+              "type": "float",
+              "id": 2
+            }
+          }
+        },
+        "ReadingsGroup": {
+          "fields": {
+            "version": {
+              "type": "uint32",
+              "id": 1
+            },
+            "reading": {
+              "type": "uint32",
+              "id": 2
+            },
+            "time": {
+              "type": "uint64",
+              "id": 3
+            },
+            "location": {
+              "type": "DeviceLocation",
+              "id": 4
+            },
+            "readings": {
+              "rule": "repeated",
+              "type": "SensorAndValue",
+              "id": 5
+            }
+          }
+        },
         "ModuleInfo": {
           "fields": {
             "id": {
@@ -193,6 +230,10 @@
             "status": {
               "type": "Status",
               "id": 4
+            },
+            "readingsGroup": {
+              "type": "ReadingsGroup",
+              "id": 5
             }
           }
         }

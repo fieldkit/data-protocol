@@ -22,6 +22,19 @@ message LoggedReading {
   SensorReading reading = 3;
 }
 
+message SensorAndValue {
+  uint32 sensor = 1;
+  float value = 2;
+}
+
+message ReadingsGroup {
+  uint32 version = 1;
+  uint32 reading = 2;
+  uint64 time = 3;
+  DeviceLocation location = 4;
+  repeated SensorAndValue readings = 5;
+}
+
 message ModuleInfo {
   uint32 id = 1;
   uint32 address = 2;
@@ -65,4 +78,5 @@ message DataRecord {
   Metadata metadata = 2;
   LogMessage log = 3;
   Status status = 4;
+  ReadingsGroup readingsGroup = 5;
 }
