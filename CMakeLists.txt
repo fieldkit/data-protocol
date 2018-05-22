@@ -7,6 +7,8 @@ if(USE_SUPERBUILD)
   include(cmake/SuperBuild.cmake)
   return()
 else()
+  list(APPEND CMAKE_MODULE_PATH "${Nanopb_ROOT}")
+
   project(fk_data_protocol)
 endif()
 
