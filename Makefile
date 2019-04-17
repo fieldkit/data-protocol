@@ -1,4 +1,4 @@
-all: fk-data.proto.json fk-data.pb.go src/fk-data.pb.c src/fk-data.pb.h
+all: fk-data.proto.json fk-data.pb.go src/fk-data.pb.c src/fk-data.pb.h src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h
 
 node_modules/.bin/pbjs:
 	npm install
@@ -8,6 +8,9 @@ fk-data.proto.json: node_modules/.bin/pbjs fk-data.proto
 
 src/fk-data.pb.c src/fk-data.pb.h: fk-data.proto
 	protoc --nanopb_out=./src fk-data.proto
+
+src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h: fk-data.proto
+	protoc --cpp_out=./src/cpp fk-data.proto
 
 fk-data.pb.go: fk-data.proto
 	protoc --go_out=./ fk-data.proto
