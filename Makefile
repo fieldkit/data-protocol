@@ -18,3 +18,4 @@ fk-data.pb.go: fk-data.proto
 veryclean:
 
 clean:
+	rm -f *.go src/*.pb.? fk-data.proto.json
