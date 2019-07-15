@@ -1,12 +1,9 @@
 @Library('conservify') _
 
-properties([
-    [$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5']],
-    pipelineTriggers([[$class: 'GitHubPushTrigger']]),
-])
+conservifyProperties()
 
 timestamps {
     node () {
-        conservifyBuild(name: 'data-protocol', archive: false)
+        // conservifyBuild(name: 'data-protocol', archive: false)
     }
 }
