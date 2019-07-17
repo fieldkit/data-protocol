@@ -78,9 +78,9 @@ enum DownloadFlags {
   READING_FLAGS_MANUAL = 2;
 }
 
-message ReadingsGroup {
-  uint32 reading = 1;
-  uint64 time = 2;
+message Readings {
+  uint64 time = 1;
+  uint32 reading = 2;
   uint32 flags = 3;
   DeviceLocation location = 4;
   repeated SensorAndValue readings = 5;
@@ -92,5 +92,5 @@ message DataRecord {
   LogMessage log = 3;
   Status status = 4;
 
-  ReadingsGroup readings = 5;
+  Readings readings = 5;
 }

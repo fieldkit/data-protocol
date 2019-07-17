@@ -116,14 +116,14 @@ typedef struct _fk_data_LoggedReading {
 } fk_data_LoggedReading;
 
 
-typedef struct _fk_data_ReadingsGroup {
-    uint32_t reading;
+typedef struct _fk_data_Readings {
     uint64_t time;
+    uint32_t reading;
     uint32_t flags;
     fk_data_DeviceLocation location;
     pb_callback_t readings;
-/* @@protoc_insertion_point(struct:fk_data_ReadingsGroup) */
-} fk_data_ReadingsGroup;
+/* @@protoc_insertion_point(struct:fk_data_Readings) */
+} fk_data_Readings;
 
 
 typedef struct _fk_data_DataRecord {
@@ -131,7 +131,7 @@ typedef struct _fk_data_DataRecord {
     fk_data_Metadata metadata;
     fk_data_LogMessage log;
     fk_data_Status status;
-    fk_data_ReadingsGroup readings;
+    fk_data_Readings readings;
 /* @@protoc_insertion_point(struct:fk_data_DataRecord) */
 } fk_data_DataRecord;
 
@@ -147,8 +147,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Metadata_init_default            {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_default}
 #define fk_data_Status_init_default              {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_ReadingsGroup_init_default       {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
-#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_ReadingsGroup_init_default}
+#define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
+#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
@@ -159,8 +159,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Metadata_init_zero               {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_zero}
 #define fk_data_Status_init_zero                 {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_ReadingsGroup_init_zero          {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}}
-#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_ReadingsGroup_init_zero}
+#define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}}
+#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_Firmware_git_tag                 1
@@ -204,11 +204,11 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoggedReading_version_tag        1
 #define fk_data_LoggedReading_location_tag       2
 #define fk_data_LoggedReading_reading_tag        3
-#define fk_data_ReadingsGroup_reading_tag        1
-#define fk_data_ReadingsGroup_time_tag           2
-#define fk_data_ReadingsGroup_flags_tag          3
-#define fk_data_ReadingsGroup_location_tag       4
-#define fk_data_ReadingsGroup_readings_tag       5
+#define fk_data_Readings_time_tag                1
+#define fk_data_Readings_reading_tag             2
+#define fk_data_Readings_flags_tag               3
+#define fk_data_Readings_location_tag            4
+#define fk_data_Readings_readings_tag            5
 #define fk_data_DataRecord_loggedReading_tag     1
 #define fk_data_DataRecord_metadata_tag          2
 #define fk_data_DataRecord_log_tag               3
@@ -302,16 +302,16 @@ X(a, CALLBACK, SINGULAR, STRING, message, 5)
 #define fk_data_LogMessage_CALLBACK pb_default_field_callback
 #define fk_data_LogMessage_DEFAULT NULL
 
-#define fk_data_ReadingsGroup_FIELDLIST(X, a) \
-X(a, STATIC, SINGULAR, UINT32, reading, 1) \
-X(a, STATIC, SINGULAR, UINT64, time, 2) \
+#define fk_data_Readings_FIELDLIST(X, a) \
+X(a, STATIC, SINGULAR, UINT64, time, 1) \
+X(a, STATIC, SINGULAR, UINT32, reading, 2) \
 X(a, STATIC, SINGULAR, UINT32, flags, 3) \
 X(a, STATIC, SINGULAR, MESSAGE, location, 4) \
 X(a, CALLBACK, REPEATED, MESSAGE, readings, 5)
-#define fk_data_ReadingsGroup_CALLBACK pb_default_field_callback
-#define fk_data_ReadingsGroup_DEFAULT NULL
-#define fk_data_ReadingsGroup_location_MSGTYPE fk_data_DeviceLocation
-#define fk_data_ReadingsGroup_readings_MSGTYPE fk_data_SensorAndValue
+#define fk_data_Readings_CALLBACK pb_default_field_callback
+#define fk_data_Readings_DEFAULT NULL
+#define fk_data_Readings_location_MSGTYPE fk_data_DeviceLocation
+#define fk_data_Readings_readings_MSGTYPE fk_data_SensorAndValue
 
 #define fk_data_DataRecord_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, MESSAGE, loggedReading, 1) \
@@ -325,7 +325,7 @@ X(a, STATIC, SINGULAR, MESSAGE, readings, 5)
 #define fk_data_DataRecord_metadata_MSGTYPE fk_data_Metadata
 #define fk_data_DataRecord_log_MSGTYPE fk_data_LogMessage
 #define fk_data_DataRecord_status_MSGTYPE fk_data_Status
-#define fk_data_DataRecord_readings_MSGTYPE fk_data_ReadingsGroup
+#define fk_data_DataRecord_readings_MSGTYPE fk_data_Readings
 
 extern const pb_msgdesc_t fk_data_DeviceLocation_msg;
 extern const pb_msgdesc_t fk_data_SensorReading_msg;
@@ -337,7 +337,7 @@ extern const pb_msgdesc_t fk_data_Firmware_msg;
 extern const pb_msgdesc_t fk_data_Metadata_msg;
 extern const pb_msgdesc_t fk_data_Status_msg;
 extern const pb_msgdesc_t fk_data_LogMessage_msg;
-extern const pb_msgdesc_t fk_data_ReadingsGroup_msg;
+extern const pb_msgdesc_t fk_data_Readings_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
@@ -351,7 +351,7 @@ extern const pb_msgdesc_t fk_data_DataRecord_msg;
 #define fk_data_Metadata_fields &fk_data_Metadata_msg
 #define fk_data_Status_fields &fk_data_Status_msg
 #define fk_data_LogMessage_fields &fk_data_LogMessage_msg
-#define fk_data_ReadingsGroup_fields &fk_data_ReadingsGroup_msg
+#define fk_data_Readings_fields &fk_data_Readings_msg
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
 
 /* Maximum encoded size of messages (where known) */
@@ -365,7 +365,7 @@ extern const pb_msgdesc_t fk_data_DataRecord_msg;
 /* fk_data_Metadata_size depends on runtime parameters */
 #define fk_data_Status_size                      39
 /* fk_data_LogMessage_size depends on runtime parameters */
-/* fk_data_ReadingsGroup_size depends on runtime parameters */
+/* fk_data_Readings_size depends on runtime parameters */
 /* fk_data_DataRecord_size depends on runtime parameters */
 
 #ifdef __cplusplus

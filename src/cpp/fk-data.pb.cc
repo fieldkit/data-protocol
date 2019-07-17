@@ -68,11 +68,11 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<LogMessage>
      _instance;
 } _LogMessage_default_instance_;
-class ReadingsGroupDefaultTypeInternal {
+class ReadingsDefaultTypeInternal {
 public:
- ::google::protobuf::internal::ExplicitlyConstructed<ReadingsGroup>
+ ::google::protobuf::internal::ExplicitlyConstructed<Readings>
      _instance;
-} _ReadingsGroup_default_instance_;
+} _Readings_default_instance_;
 class DataRecordDefaultTypeInternal {
 public:
  ::google::protobuf::internal::ExplicitlyConstructed<DataRecord>
@@ -207,15 +207,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogMessage, facility_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogMessage, message_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadingsGroup, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadingsGroup, reading_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadingsGroup, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadingsGroup, flags_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadingsGroup, location_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReadingsGroup, readings_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, reading_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, flags_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, location_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, readings_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -238,7 +238,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 58, -1, sizeof(Metadata)},
   { 71, -1, sizeof(Status)},
   { 81, -1, sizeof(LogMessage)},
-  { 91, -1, sizeof(ReadingsGroup)},
+  { 91, -1, sizeof(Readings)},
   { 101, -1, sizeof(DataRecord)},
 };
 
@@ -253,7 +253,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_Metadata_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Status_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_LogMessage_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_ReadingsGroup_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Readings_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_DataRecord_default_instance_),
 };
 
@@ -303,9 +303,9 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_Status_default_instance_);_LogMessage_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_LogMessage_default_instance_);_ReadingsGroup_default_instance_._instance.DefaultConstruct();
+      &_LogMessage_default_instance_);_Readings_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_ReadingsGroup_default_instance_);_DataRecord_default_instance_._instance.DefaultConstruct();
+      &_Readings_default_instance_);_DataRecord_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_DataRecord_default_instance_);_LoggedReading_default_instance_._instance.get_mutable()->location_ = const_cast< ::fk_data::DeviceLocation*>(
       ::fk_data::DeviceLocation::internal_default_instance());
@@ -313,7 +313,7 @@ void TableStruct::InitDefaultsImpl() {
       ::fk_data::SensorReading::internal_default_instance());
   _Metadata_default_instance_._instance.get_mutable()->firmware_ = const_cast< ::fk_data::Firmware*>(
       ::fk_data::Firmware::internal_default_instance());
-  _ReadingsGroup_default_instance_._instance.get_mutable()->location_ = const_cast< ::fk_data::DeviceLocation*>(
+  _Readings_default_instance_._instance.get_mutable()->location_ = const_cast< ::fk_data::DeviceLocation*>(
       ::fk_data::DeviceLocation::internal_default_instance());
   _DataRecord_default_instance_._instance.get_mutable()->loggedreading_ = const_cast< ::fk_data::LoggedReading*>(
       ::fk_data::LoggedReading::internal_default_instance());
@@ -323,8 +323,8 @@ void TableStruct::InitDefaultsImpl() {
       ::fk_data::LogMessage::internal_default_instance());
   _DataRecord_default_instance_._instance.get_mutable()->status_ = const_cast< ::fk_data::Status*>(
       ::fk_data::Status::internal_default_instance());
-  _DataRecord_default_instance_._instance.get_mutable()->readings_ = const_cast< ::fk_data::ReadingsGroup*>(
-      ::fk_data::ReadingsGroup::internal_default_instance());
+  _DataRecord_default_instance_._instance.get_mutable()->readings_ = const_cast< ::fk_data::Readings*>(
+      ::fk_data::Readings::internal_default_instance());
 }
 
 void InitDefaults() {
@@ -358,22 +358,21 @@ void AddDescriptorsImpl() {
       "\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004bu"
       "sy\030\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016\n\006"
       "uptime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030"
-      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\223\001\n\rReadingsGroup"
-      "\022\017\n\007reading\030\001 \001(\r\022\014\n\004time\030\002 \001(\004\022\r\n\005flags"
-      "\030\003 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.Devic"
-      "eLocation\022)\n\010readings\030\005 \003(\0132\027.fk_data.Se"
-      "nsorAndValue\"\315\001\n\nDataRecord\022-\n\rloggedRea"
-      "ding\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010me"
-      "tadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003"
-      " \001(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004 \001("
-      "\0132\017.fk_data.Status\022(\n\010readings\030\005 \001(\0132\026.f"
-      "k_data.ReadingsGroup*b\n\rDownloadFlags\022\026\n"
-      "\022READING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_N"
-      "OT_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002"
-      "b\006proto3"
+      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\216\001\n\010Readings\022\014\n\004t"
+      "ime\030\001 \001(\004\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001("
+      "\r\022)\n\010location\030\004 \001(\0132\027.fk_data.DeviceLoca"
+      "tion\022)\n\010readings\030\005 \003(\0132\027.fk_data.SensorA"
+      "ndValue\"\310\001\n\nDataRecord\022-\n\rloggedReading\030"
+      "\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metadat"
+      "a\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132"
+      "\023.fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.f"
+      "k_data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_dat"
+      "a.Readings*b\n\rDownloadFlags\022\026\n\022READING_F"
+      "LAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDI"
+      "NG\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1408);
+      descriptor, 1398);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -5317,22 +5316,22 @@ void LogMessage::set_allocated_message(::std::string* message) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ReadingsGroup::kReadingFieldNumber;
-const int ReadingsGroup::kTimeFieldNumber;
-const int ReadingsGroup::kFlagsFieldNumber;
-const int ReadingsGroup::kLocationFieldNumber;
-const int ReadingsGroup::kReadingsFieldNumber;
+const int Readings::kTimeFieldNumber;
+const int Readings::kReadingFieldNumber;
+const int Readings::kFlagsFieldNumber;
+const int Readings::kLocationFieldNumber;
+const int Readings::kReadingsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-ReadingsGroup::ReadingsGroup()
+Readings::Readings()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_fk_2ddata_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(constructor:fk_data.Readings)
 }
-ReadingsGroup::ReadingsGroup(const ReadingsGroup& from)
+Readings::Readings(const Readings& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       readings_(from.readings_),
@@ -5346,50 +5345,50 @@ ReadingsGroup::ReadingsGroup(const ReadingsGroup& from)
   ::memcpy(&time_, &from.time_,
     static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
     reinterpret_cast<char*>(&time_)) + sizeof(flags_));
-  // @@protoc_insertion_point(copy_constructor:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(copy_constructor:fk_data.Readings)
 }
 
-void ReadingsGroup::SharedCtor() {
+void Readings::SharedCtor() {
   ::memset(&location_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&flags_) -
       reinterpret_cast<char*>(&location_)) + sizeof(flags_));
   _cached_size_ = 0;
 }
 
-ReadingsGroup::~ReadingsGroup() {
-  // @@protoc_insertion_point(destructor:fk_data.ReadingsGroup)
+Readings::~Readings() {
+  // @@protoc_insertion_point(destructor:fk_data.Readings)
   SharedDtor();
 }
 
-void ReadingsGroup::SharedDtor() {
+void Readings::SharedDtor() {
   if (this != internal_default_instance()) delete location_;
 }
 
-void ReadingsGroup::SetCachedSize(int size) const {
+void Readings::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* ReadingsGroup::descriptor() {
+const ::google::protobuf::Descriptor* Readings::descriptor() {
   protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const ReadingsGroup& ReadingsGroup::default_instance() {
+const Readings& Readings::default_instance() {
   protobuf_fk_2ddata_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-ReadingsGroup* ReadingsGroup::New(::google::protobuf::Arena* arena) const {
-  ReadingsGroup* n = new ReadingsGroup;
+Readings* Readings::New(::google::protobuf::Arena* arena) const {
+  Readings* n = new Readings;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void ReadingsGroup::Clear() {
-// @@protoc_insertion_point(message_clear_start:fk_data.ReadingsGroup)
+void Readings::Clear() {
+// @@protoc_insertion_point(message_clear_start:fk_data.Readings)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -5405,38 +5404,38 @@ void ReadingsGroup::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool ReadingsGroup::MergePartialFromCodedStream(
+bool Readings::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(parse_start:fk_data.Readings)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 reading = 1;
+      // uint64 time = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &reading_)));
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &time_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // uint64 time = 2;
+      // uint32 reading = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &time_)));
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &reading_)));
         } else {
           goto handle_unusual;
         }
@@ -5493,28 +5492,28 @@ bool ReadingsGroup::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(parse_success:fk_data.Readings)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(parse_failure:fk_data.Readings)
   return false;
 #undef DO_
 }
 
-void ReadingsGroup::SerializeWithCachedSizes(
+void Readings::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(serialize_start:fk_data.Readings)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 reading = 1;
-  if (this->reading() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->reading(), output);
+  // uint64 time = 1;
+  if (this->time() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->time(), output);
   }
 
-  // uint64 time = 2;
-  if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
+  // uint32 reading = 2;
+  if (this->reading() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->reading(), output);
   }
 
   // uint32 flags = 3;
@@ -5539,24 +5538,24 @@ void ReadingsGroup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(serialize_end:fk_data.Readings)
 }
 
-::google::protobuf::uint8* ReadingsGroup::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Readings::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(serialize_to_array_start:fk_data.Readings)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 reading = 1;
-  if (this->reading() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->reading(), target);
+  // uint64 time = 1;
+  if (this->time() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->time(), target);
   }
 
-  // uint64 time = 2;
-  if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+  // uint32 reading = 2;
+  if (this->reading() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->reading(), target);
   }
 
   // uint32 flags = 3;
@@ -5583,12 +5582,12 @@ void ReadingsGroup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(serialize_to_array_end:fk_data.Readings)
   return target;
 }
 
-size_t ReadingsGroup::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:fk_data.ReadingsGroup)
+size_t Readings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fk_data.Readings)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5614,14 +5613,14 @@ size_t ReadingsGroup::ByteSizeLong() const {
         *this->location_);
   }
 
-  // uint64 time = 2;
+  // uint64 time = 1;
   if (this->time() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->time());
   }
 
-  // uint32 reading = 1;
+  // uint32 reading = 2;
   if (this->reading() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -5642,23 +5641,23 @@ size_t ReadingsGroup::ByteSizeLong() const {
   return total_size;
 }
 
-void ReadingsGroup::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:fk_data.ReadingsGroup)
+void Readings::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fk_data.Readings)
   GOOGLE_DCHECK_NE(&from, this);
-  const ReadingsGroup* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const ReadingsGroup>(
+  const Readings* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Readings>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.Readings)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.Readings)
     MergeFrom(*source);
   }
 }
 
-void ReadingsGroup::MergeFrom(const ReadingsGroup& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.ReadingsGroup)
+void Readings::MergeFrom(const Readings& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.Readings)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -5679,29 +5678,29 @@ void ReadingsGroup::MergeFrom(const ReadingsGroup& from) {
   }
 }
 
-void ReadingsGroup::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:fk_data.ReadingsGroup)
+void Readings::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fk_data.Readings)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ReadingsGroup::CopyFrom(const ReadingsGroup& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.ReadingsGroup)
+void Readings::CopyFrom(const Readings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.Readings)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ReadingsGroup::IsInitialized() const {
+bool Readings::IsInitialized() const {
   return true;
 }
 
-void ReadingsGroup::Swap(ReadingsGroup* other) {
+void Readings::Swap(Readings* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void ReadingsGroup::InternalSwap(ReadingsGroup* other) {
+void Readings::InternalSwap(Readings* other) {
   using std::swap;
   readings_.InternalSwap(&other->readings_);
   swap(location_, other->location_);
@@ -5712,86 +5711,86 @@ void ReadingsGroup::InternalSwap(ReadingsGroup* other) {
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata ReadingsGroup::GetMetadata() const {
+::google::protobuf::Metadata Readings::GetMetadata() const {
   protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// ReadingsGroup
+// Readings
 
-// uint32 reading = 1;
-void ReadingsGroup::clear_reading() {
-  reading_ = 0u;
-}
-::google::protobuf::uint32 ReadingsGroup::reading() const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.reading)
-  return reading_;
-}
-void ReadingsGroup::set_reading(::google::protobuf::uint32 value) {
-  
-  reading_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ReadingsGroup.reading)
-}
-
-// uint64 time = 2;
-void ReadingsGroup::clear_time() {
+// uint64 time = 1;
+void Readings::clear_time() {
   time_ = GOOGLE_ULONGLONG(0);
 }
-::google::protobuf::uint64 ReadingsGroup::time() const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.time)
+::google::protobuf::uint64 Readings::time() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.time)
   return time_;
 }
-void ReadingsGroup::set_time(::google::protobuf::uint64 value) {
+void Readings::set_time(::google::protobuf::uint64 value) {
   
   time_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ReadingsGroup.time)
+  // @@protoc_insertion_point(field_set:fk_data.Readings.time)
+}
+
+// uint32 reading = 2;
+void Readings::clear_reading() {
+  reading_ = 0u;
+}
+::google::protobuf::uint32 Readings::reading() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.reading)
+  return reading_;
+}
+void Readings::set_reading(::google::protobuf::uint32 value) {
+  
+  reading_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Readings.reading)
 }
 
 // uint32 flags = 3;
-void ReadingsGroup::clear_flags() {
+void Readings::clear_flags() {
   flags_ = 0u;
 }
-::google::protobuf::uint32 ReadingsGroup::flags() const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.flags)
+::google::protobuf::uint32 Readings::flags() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.flags)
   return flags_;
 }
-void ReadingsGroup::set_flags(::google::protobuf::uint32 value) {
+void Readings::set_flags(::google::protobuf::uint32 value) {
   
   flags_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ReadingsGroup.flags)
+  // @@protoc_insertion_point(field_set:fk_data.Readings.flags)
 }
 
 // .fk_data.DeviceLocation location = 4;
-bool ReadingsGroup::has_location() const {
+bool Readings::has_location() const {
   return this != internal_default_instance() && location_ != NULL;
 }
-void ReadingsGroup::clear_location() {
+void Readings::clear_location() {
   if (GetArenaNoVirtual() == NULL && location_ != NULL) delete location_;
   location_ = NULL;
 }
-const ::fk_data::DeviceLocation& ReadingsGroup::location() const {
+const ::fk_data::DeviceLocation& Readings::location() const {
   const ::fk_data::DeviceLocation* p = location_;
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.location)
+  // @@protoc_insertion_point(field_get:fk_data.Readings.location)
   return p != NULL ? *p : *reinterpret_cast<const ::fk_data::DeviceLocation*>(
       &::fk_data::_DeviceLocation_default_instance_);
 }
-::fk_data::DeviceLocation* ReadingsGroup::mutable_location() {
+::fk_data::DeviceLocation* Readings::mutable_location() {
   
   if (location_ == NULL) {
     location_ = new ::fk_data::DeviceLocation;
   }
-  // @@protoc_insertion_point(field_mutable:fk_data.ReadingsGroup.location)
+  // @@protoc_insertion_point(field_mutable:fk_data.Readings.location)
   return location_;
 }
-::fk_data::DeviceLocation* ReadingsGroup::release_location() {
-  // @@protoc_insertion_point(field_release:fk_data.ReadingsGroup.location)
+::fk_data::DeviceLocation* Readings::release_location() {
+  // @@protoc_insertion_point(field_release:fk_data.Readings.location)
   
   ::fk_data::DeviceLocation* temp = location_;
   location_ = NULL;
   return temp;
 }
-void ReadingsGroup::set_allocated_location(::fk_data::DeviceLocation* location) {
+void Readings::set_allocated_location(::fk_data::DeviceLocation* location) {
   delete location_;
   location_ = location;
   if (location) {
@@ -5799,36 +5798,36 @@ void ReadingsGroup::set_allocated_location(::fk_data::DeviceLocation* location) 
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:fk_data.ReadingsGroup.location)
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Readings.location)
 }
 
 // repeated .fk_data.SensorAndValue readings = 5;
-int ReadingsGroup::readings_size() const {
+int Readings::readings_size() const {
   return readings_.size();
 }
-void ReadingsGroup::clear_readings() {
+void Readings::clear_readings() {
   readings_.Clear();
 }
-const ::fk_data::SensorAndValue& ReadingsGroup::readings(int index) const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.readings)
+const ::fk_data::SensorAndValue& Readings::readings(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.readings)
   return readings_.Get(index);
 }
-::fk_data::SensorAndValue* ReadingsGroup::mutable_readings(int index) {
-  // @@protoc_insertion_point(field_mutable:fk_data.ReadingsGroup.readings)
+::fk_data::SensorAndValue* Readings::mutable_readings(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.Readings.readings)
   return readings_.Mutable(index);
 }
-::fk_data::SensorAndValue* ReadingsGroup::add_readings() {
-  // @@protoc_insertion_point(field_add:fk_data.ReadingsGroup.readings)
+::fk_data::SensorAndValue* Readings::add_readings() {
+  // @@protoc_insertion_point(field_add:fk_data.Readings.readings)
   return readings_.Add();
 }
 ::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >*
-ReadingsGroup::mutable_readings() {
-  // @@protoc_insertion_point(field_mutable_list:fk_data.ReadingsGroup.readings)
+Readings::mutable_readings() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.Readings.readings)
   return &readings_;
 }
 const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >&
-ReadingsGroup::readings() const {
-  // @@protoc_insertion_point(field_list:fk_data.ReadingsGroup.readings)
+Readings::readings() const {
+  // @@protoc_insertion_point(field_list:fk_data.Readings.readings)
   return readings_;
 }
 
@@ -5878,7 +5877,7 @@ DataRecord::DataRecord(const DataRecord& from)
     status_ = NULL;
   }
   if (from.has_readings()) {
-    readings_ = new ::fk_data::ReadingsGroup(*from.readings_);
+    readings_ = new ::fk_data::Readings(*from.readings_);
   } else {
     readings_ = NULL;
   }
@@ -6015,7 +6014,7 @@ bool DataRecord::MergePartialFromCodedStream(
         break;
       }
 
-      // .fk_data.ReadingsGroup readings = 5;
+      // .fk_data.Readings readings = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
@@ -6077,7 +6076,7 @@ void DataRecord::SerializeWithCachedSizes(
       4, *this->status_, output);
   }
 
-  // .fk_data.ReadingsGroup readings = 5;
+  // .fk_data.Readings readings = 5;
   if (this->has_readings()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->readings_, output);
@@ -6125,7 +6124,7 @@ void DataRecord::SerializeWithCachedSizes(
         4, *this->status_, deterministic, target);
   }
 
-  // .fk_data.ReadingsGroup readings = 5;
+  // .fk_data.Readings readings = 5;
   if (this->has_readings()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -6177,7 +6176,7 @@ size_t DataRecord::ByteSizeLong() const {
         *this->status_);
   }
 
-  // .fk_data.ReadingsGroup readings = 5;
+  // .fk_data.Readings readings = 5;
   if (this->has_readings()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -6226,7 +6225,7 @@ void DataRecord::MergeFrom(const DataRecord& from) {
     mutable_status()->::fk_data::Status::MergeFrom(from.status());
   }
   if (from.has_readings()) {
-    mutable_readings()->::fk_data::ReadingsGroup::MergeFrom(from.readings());
+    mutable_readings()->::fk_data::Readings::MergeFrom(from.readings());
   }
 }
 
@@ -6431,7 +6430,7 @@ void DataRecord::set_allocated_status(::fk_data::Status* status) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.status)
 }
 
-// .fk_data.ReadingsGroup readings = 5;
+// .fk_data.Readings readings = 5;
 bool DataRecord::has_readings() const {
   return this != internal_default_instance() && readings_ != NULL;
 }
@@ -6439,28 +6438,28 @@ void DataRecord::clear_readings() {
   if (GetArenaNoVirtual() == NULL && readings_ != NULL) delete readings_;
   readings_ = NULL;
 }
-const ::fk_data::ReadingsGroup& DataRecord::readings() const {
-  const ::fk_data::ReadingsGroup* p = readings_;
+const ::fk_data::Readings& DataRecord::readings() const {
+  const ::fk_data::Readings* p = readings_;
   // @@protoc_insertion_point(field_get:fk_data.DataRecord.readings)
-  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::ReadingsGroup*>(
-      &::fk_data::_ReadingsGroup_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::Readings*>(
+      &::fk_data::_Readings_default_instance_);
 }
-::fk_data::ReadingsGroup* DataRecord::mutable_readings() {
+::fk_data::Readings* DataRecord::mutable_readings() {
   
   if (readings_ == NULL) {
-    readings_ = new ::fk_data::ReadingsGroup;
+    readings_ = new ::fk_data::Readings;
   }
   // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.readings)
   return readings_;
 }
-::fk_data::ReadingsGroup* DataRecord::release_readings() {
+::fk_data::Readings* DataRecord::release_readings() {
   // @@protoc_insertion_point(field_release:fk_data.DataRecord.readings)
   
-  ::fk_data::ReadingsGroup* temp = readings_;
+  ::fk_data::Readings* temp = readings_;
   readings_ = NULL;
   return temp;
 }
-void DataRecord::set_allocated_readings(::fk_data::ReadingsGroup* readings) {
+void DataRecord::set_allocated_readings(::fk_data::Readings* readings) {
   delete readings_;
   readings_ = readings;
   if (readings) {

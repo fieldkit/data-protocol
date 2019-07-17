@@ -38,7 +38,7 @@ PB_BIND(fk_data_Status, fk_data_Status, AUTO)
 PB_BIND(fk_data_LogMessage, fk_data_LogMessage, AUTO)
 
 
-PB_BIND(fk_data_ReadingsGroup, fk_data_ReadingsGroup, AUTO)
+PB_BIND(fk_data_Readings, fk_data_Readings, AUTO)
 
 
 PB_BIND(fk_data_DataRecord, fk_data_DataRecord, 2)

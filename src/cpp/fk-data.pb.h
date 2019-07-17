@@ -53,9 +53,9 @@ extern MetadataDefaultTypeInternal _Metadata_default_instance_;
 class ModuleInfo;
 class ModuleInfoDefaultTypeInternal;
 extern ModuleInfoDefaultTypeInternal _ModuleInfo_default_instance_;
-class ReadingsGroup;
-class ReadingsGroupDefaultTypeInternal;
-extern ReadingsGroupDefaultTypeInternal _ReadingsGroup_default_instance_;
+class Readings;
+class ReadingsDefaultTypeInternal;
+extern ReadingsDefaultTypeInternal _Readings_default_instance_;
 class SensorAndValue;
 class SensorAndValueDefaultTypeInternal;
 extern SensorAndValueDefaultTypeInternal _SensorAndValue_default_instance_;
@@ -1406,24 +1406,24 @@ class LogMessage : public ::google::protobuf::Message /* @@protoc_insertion_poin
 };
 // -------------------------------------------------------------------
 
-class ReadingsGroup : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.ReadingsGroup) */ {
+class Readings : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.Readings) */ {
  public:
-  ReadingsGroup();
-  virtual ~ReadingsGroup();
+  Readings();
+  virtual ~Readings();
 
-  ReadingsGroup(const ReadingsGroup& from);
+  Readings(const Readings& from);
 
-  inline ReadingsGroup& operator=(const ReadingsGroup& from) {
+  inline Readings& operator=(const Readings& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  ReadingsGroup(ReadingsGroup&& from) noexcept
-    : ReadingsGroup() {
+  Readings(Readings&& from) noexcept
+    : Readings() {
     *this = ::std::move(from);
   }
 
-  inline ReadingsGroup& operator=(ReadingsGroup&& from) noexcept {
+  inline Readings& operator=(Readings&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1433,29 +1433,29 @@ class ReadingsGroup : public ::google::protobuf::Message /* @@protoc_insertion_p
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ReadingsGroup& default_instance();
+  static const Readings& default_instance();
 
-  static inline const ReadingsGroup* internal_default_instance() {
-    return reinterpret_cast<const ReadingsGroup*>(
-               &_ReadingsGroup_default_instance_);
+  static inline const Readings* internal_default_instance() {
+    return reinterpret_cast<const Readings*>(
+               &_Readings_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     10;
 
-  void Swap(ReadingsGroup* other);
-  friend void swap(ReadingsGroup& a, ReadingsGroup& b) {
+  void Swap(Readings* other);
+  friend void swap(Readings& a, Readings& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline ReadingsGroup* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline Readings* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  ReadingsGroup* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  Readings* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const ReadingsGroup& from);
-  void MergeFrom(const ReadingsGroup& from);
+  void CopyFrom(const Readings& from);
+  void MergeFrom(const Readings& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -1471,7 +1471,7 @@ class ReadingsGroup : public ::google::protobuf::Message /* @@protoc_insertion_p
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(ReadingsGroup* other);
+  void InternalSwap(Readings* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -1508,15 +1508,15 @@ class ReadingsGroup : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::fk_data::DeviceLocation* release_location();
   void set_allocated_location(::fk_data::DeviceLocation* location);
 
-  // uint64 time = 2;
+  // uint64 time = 1;
   void clear_time();
-  static const int kTimeFieldNumber = 2;
+  static const int kTimeFieldNumber = 1;
   ::google::protobuf::uint64 time() const;
   void set_time(::google::protobuf::uint64 value);
 
-  // uint32 reading = 1;
+  // uint32 reading = 2;
   void clear_reading();
-  static const int kReadingFieldNumber = 1;
+  static const int kReadingFieldNumber = 2;
   ::google::protobuf::uint32 reading() const;
   void set_reading(::google::protobuf::uint32 value);
 
@@ -1526,7 +1526,7 @@ class ReadingsGroup : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::google::protobuf::uint32 flags() const;
   void set_flags(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:fk_data.ReadingsGroup)
+  // @@protoc_insertion_point(class_scope:fk_data.Readings)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -1657,14 +1657,14 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::Status* release_status();
   void set_allocated_status(::fk_data::Status* status);
 
-  // .fk_data.ReadingsGroup readings = 5;
+  // .fk_data.Readings readings = 5;
   bool has_readings() const;
   void clear_readings();
   static const int kReadingsFieldNumber = 5;
-  const ::fk_data::ReadingsGroup& readings() const;
-  ::fk_data::ReadingsGroup* mutable_readings();
-  ::fk_data::ReadingsGroup* release_readings();
-  void set_allocated_readings(::fk_data::ReadingsGroup* readings);
+  const ::fk_data::Readings& readings() const;
+  ::fk_data::Readings* mutable_readings();
+  ::fk_data::Readings* release_readings();
+  void set_allocated_readings(::fk_data::Readings* readings);
 
   // @@protoc_insertion_point(class_scope:fk_data.DataRecord)
  private:
@@ -1674,7 +1674,7 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::Metadata* metadata_;
   ::fk_data::LogMessage* log_;
   ::fk_data::Status* status_;
-  ::fk_data::ReadingsGroup* readings_;
+  ::fk_data::Readings* readings_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -2818,80 +2818,80 @@ inline void LogMessage::set_allocated_message(::std::string* message) {
 
 // -------------------------------------------------------------------
 
-// ReadingsGroup
+// Readings
 
-// uint32 reading = 1;
-inline void ReadingsGroup::clear_reading() {
-  reading_ = 0u;
-}
-inline ::google::protobuf::uint32 ReadingsGroup::reading() const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.reading)
-  return reading_;
-}
-inline void ReadingsGroup::set_reading(::google::protobuf::uint32 value) {
-  
-  reading_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ReadingsGroup.reading)
-}
-
-// uint64 time = 2;
-inline void ReadingsGroup::clear_time() {
+// uint64 time = 1;
+inline void Readings::clear_time() {
   time_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 ReadingsGroup::time() const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.time)
+inline ::google::protobuf::uint64 Readings::time() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.time)
   return time_;
 }
-inline void ReadingsGroup::set_time(::google::protobuf::uint64 value) {
+inline void Readings::set_time(::google::protobuf::uint64 value) {
   
   time_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ReadingsGroup.time)
+  // @@protoc_insertion_point(field_set:fk_data.Readings.time)
+}
+
+// uint32 reading = 2;
+inline void Readings::clear_reading() {
+  reading_ = 0u;
+}
+inline ::google::protobuf::uint32 Readings::reading() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.reading)
+  return reading_;
+}
+inline void Readings::set_reading(::google::protobuf::uint32 value) {
+  
+  reading_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Readings.reading)
 }
 
 // uint32 flags = 3;
-inline void ReadingsGroup::clear_flags() {
+inline void Readings::clear_flags() {
   flags_ = 0u;
 }
-inline ::google::protobuf::uint32 ReadingsGroup::flags() const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.flags)
+inline ::google::protobuf::uint32 Readings::flags() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.flags)
   return flags_;
 }
-inline void ReadingsGroup::set_flags(::google::protobuf::uint32 value) {
+inline void Readings::set_flags(::google::protobuf::uint32 value) {
   
   flags_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ReadingsGroup.flags)
+  // @@protoc_insertion_point(field_set:fk_data.Readings.flags)
 }
 
 // .fk_data.DeviceLocation location = 4;
-inline bool ReadingsGroup::has_location() const {
+inline bool Readings::has_location() const {
   return this != internal_default_instance() && location_ != NULL;
 }
-inline void ReadingsGroup::clear_location() {
+inline void Readings::clear_location() {
   if (GetArenaNoVirtual() == NULL && location_ != NULL) delete location_;
   location_ = NULL;
 }
-inline const ::fk_data::DeviceLocation& ReadingsGroup::location() const {
+inline const ::fk_data::DeviceLocation& Readings::location() const {
   const ::fk_data::DeviceLocation* p = location_;
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.location)
+  // @@protoc_insertion_point(field_get:fk_data.Readings.location)
   return p != NULL ? *p : *reinterpret_cast<const ::fk_data::DeviceLocation*>(
       &::fk_data::_DeviceLocation_default_instance_);
 }
-inline ::fk_data::DeviceLocation* ReadingsGroup::mutable_location() {
+inline ::fk_data::DeviceLocation* Readings::mutable_location() {
   
   if (location_ == NULL) {
     location_ = new ::fk_data::DeviceLocation;
   }
-  // @@protoc_insertion_point(field_mutable:fk_data.ReadingsGroup.location)
+  // @@protoc_insertion_point(field_mutable:fk_data.Readings.location)
   return location_;
 }
-inline ::fk_data::DeviceLocation* ReadingsGroup::release_location() {
-  // @@protoc_insertion_point(field_release:fk_data.ReadingsGroup.location)
+inline ::fk_data::DeviceLocation* Readings::release_location() {
+  // @@protoc_insertion_point(field_release:fk_data.Readings.location)
   
   ::fk_data::DeviceLocation* temp = location_;
   location_ = NULL;
   return temp;
 }
-inline void ReadingsGroup::set_allocated_location(::fk_data::DeviceLocation* location) {
+inline void Readings::set_allocated_location(::fk_data::DeviceLocation* location) {
   delete location_;
   location_ = location;
   if (location) {
@@ -2899,36 +2899,36 @@ inline void ReadingsGroup::set_allocated_location(::fk_data::DeviceLocation* loc
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:fk_data.ReadingsGroup.location)
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Readings.location)
 }
 
 // repeated .fk_data.SensorAndValue readings = 5;
-inline int ReadingsGroup::readings_size() const {
+inline int Readings::readings_size() const {
   return readings_.size();
 }
-inline void ReadingsGroup::clear_readings() {
+inline void Readings::clear_readings() {
   readings_.Clear();
 }
-inline const ::fk_data::SensorAndValue& ReadingsGroup::readings(int index) const {
-  // @@protoc_insertion_point(field_get:fk_data.ReadingsGroup.readings)
+inline const ::fk_data::SensorAndValue& Readings::readings(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.readings)
   return readings_.Get(index);
 }
-inline ::fk_data::SensorAndValue* ReadingsGroup::mutable_readings(int index) {
-  // @@protoc_insertion_point(field_mutable:fk_data.ReadingsGroup.readings)
+inline ::fk_data::SensorAndValue* Readings::mutable_readings(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.Readings.readings)
   return readings_.Mutable(index);
 }
-inline ::fk_data::SensorAndValue* ReadingsGroup::add_readings() {
-  // @@protoc_insertion_point(field_add:fk_data.ReadingsGroup.readings)
+inline ::fk_data::SensorAndValue* Readings::add_readings() {
+  // @@protoc_insertion_point(field_add:fk_data.Readings.readings)
   return readings_.Add();
 }
 inline ::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >*
-ReadingsGroup::mutable_readings() {
-  // @@protoc_insertion_point(field_mutable_list:fk_data.ReadingsGroup.readings)
+Readings::mutable_readings() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.Readings.readings)
   return &readings_;
 }
 inline const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >&
-ReadingsGroup::readings() const {
-  // @@protoc_insertion_point(field_list:fk_data.ReadingsGroup.readings)
+Readings::readings() const {
+  // @@protoc_insertion_point(field_list:fk_data.Readings.readings)
   return readings_;
 }
 
@@ -3096,7 +3096,7 @@ inline void DataRecord::set_allocated_status(::fk_data::Status* status) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.status)
 }
 
-// .fk_data.ReadingsGroup readings = 5;
+// .fk_data.Readings readings = 5;
 inline bool DataRecord::has_readings() const {
   return this != internal_default_instance() && readings_ != NULL;
 }
@@ -3104,28 +3104,28 @@ inline void DataRecord::clear_readings() {
   if (GetArenaNoVirtual() == NULL && readings_ != NULL) delete readings_;
   readings_ = NULL;
 }
-inline const ::fk_data::ReadingsGroup& DataRecord::readings() const {
-  const ::fk_data::ReadingsGroup* p = readings_;
+inline const ::fk_data::Readings& DataRecord::readings() const {
+  const ::fk_data::Readings* p = readings_;
   // @@protoc_insertion_point(field_get:fk_data.DataRecord.readings)
-  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::ReadingsGroup*>(
-      &::fk_data::_ReadingsGroup_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::Readings*>(
+      &::fk_data::_Readings_default_instance_);
 }
-inline ::fk_data::ReadingsGroup* DataRecord::mutable_readings() {
+inline ::fk_data::Readings* DataRecord::mutable_readings() {
   
   if (readings_ == NULL) {
-    readings_ = new ::fk_data::ReadingsGroup;
+    readings_ = new ::fk_data::Readings;
   }
   // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.readings)
   return readings_;
 }
-inline ::fk_data::ReadingsGroup* DataRecord::release_readings() {
+inline ::fk_data::Readings* DataRecord::release_readings() {
   // @@protoc_insertion_point(field_release:fk_data.DataRecord.readings)
   
-  ::fk_data::ReadingsGroup* temp = readings_;
+  ::fk_data::Readings* temp = readings_;
   readings_ = NULL;
   return temp;
 }
-inline void DataRecord::set_allocated_readings(::fk_data::ReadingsGroup* readings) {
+inline void DataRecord::set_allocated_readings(::fk_data::Readings* readings) {
   delete readings_;
   readings_ = readings;
   if (readings) {

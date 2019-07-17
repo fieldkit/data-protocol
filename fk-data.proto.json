@@ -216,14 +216,14 @@
             "READING_FLAGS_MANUAL": 2
           }
         },
-        "ReadingsGroup": {
+        "Readings": {
           "fields": {
-            "reading": {
-              "type": "uint32",
-              "id": 1
-            },
             "time": {
               "type": "uint64",
+              "id": 1
+            },
+            "reading": {
+              "type": "uint32",
               "id": 2
             },
             "flags": {
@@ -260,7 +260,7 @@
               "id": 4
             },
             "readings": {
-              "type": "ReadingsGroup",
+              "type": "Readings",
               "id": 5
             }
           }
