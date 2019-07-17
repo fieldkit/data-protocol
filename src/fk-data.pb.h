@@ -38,6 +38,7 @@ typedef struct _fk_data_DeviceLocation {
     float longitude;
     float latitude;
     float altitude;
+    pb_callback_t coordinates;
 /* @@protoc_insertion_point(struct:fk_data_DeviceLocation) */
 } fk_data_DeviceLocation;
 
@@ -136,7 +137,7 @@ typedef struct _fk_data_DataRecord {
 
 
 /* Initializer values for message structs */
-#define fk_data_DeviceLocation_init_default      {0, 0, 0, 0, 0}
+#define fk_data_DeviceLocation_init_default      {0, 0, 0, 0, 0, {{NULL}, NULL}}
 #define fk_data_SensorReading_init_default       {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_default       {0, fk_data_DeviceLocation_init_default, fk_data_SensorReading_init_default}
 #define fk_data_SensorAndValue_init_default      {0, 0}
@@ -148,7 +149,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_ReadingsGroup_init_default       {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
 #define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_ReadingsGroup_init_default}
-#define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0}
+#define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
 #define fk_data_SensorAndValue_init_zero         {0, 0}
@@ -169,6 +170,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DeviceLocation_longitude_tag     3
 #define fk_data_DeviceLocation_latitude_tag      4
 #define fk_data_DeviceLocation_altitude_tag      5
+#define fk_data_DeviceLocation_coordinates_tag   6
 #define fk_data_LogMessage_time_tag              1
 #define fk_data_LogMessage_uptime_tag            2
 #define fk_data_LogMessage_level_tag             3
@@ -219,8 +221,9 @@ X(a, STATIC, SINGULAR, UINT32, fix, 1) \
 X(a, STATIC, SINGULAR, UINT64, time, 2) \
 X(a, STATIC, SINGULAR, FLOAT, longitude, 3) \
 X(a, STATIC, SINGULAR, FLOAT, latitude, 4) \
-X(a, STATIC, SINGULAR, FLOAT, altitude, 5)
-#define fk_data_DeviceLocation_CALLBACK NULL
+X(a, STATIC, SINGULAR, FLOAT, altitude, 5) \
+X(a, CALLBACK, REPEATED, FLOAT, coordinates, 6)
+#define fk_data_DeviceLocation_CALLBACK pb_default_field_callback
 #define fk_data_DeviceLocation_DEFAULT NULL
 
 #define fk_data_SensorReading_FIELDLIST(X, a) \
@@ -352,9 +355,9 @@ extern const pb_msgdesc_t fk_data_DataRecord_msg;
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
 
 /* Maximum encoded size of messages (where known) */
-#define fk_data_DeviceLocation_size              32
+/* fk_data_DeviceLocation_size depends on runtime parameters */
 #define fk_data_SensorReading_size               28
-#define fk_data_LoggedReading_size               70
+/* fk_data_LoggedReading_size depends on runtime parameters */
 #define fk_data_SensorAndValue_size              11
 /* fk_data_ModuleInfo_size depends on runtime parameters */
 /* fk_data_SensorInfo_size depends on runtime parameters */

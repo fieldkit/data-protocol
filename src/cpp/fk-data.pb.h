@@ -192,6 +192,18 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
+  // repeated float coordinates = 6;
+  int coordinates_size() const;
+  void clear_coordinates();
+  static const int kCoordinatesFieldNumber = 6;
+  float coordinates(int index) const;
+  void set_coordinates(int index, float value);
+  void add_coordinates(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      coordinates() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_coordinates();
+
   // uint64 time = 2;
   void clear_time();
   static const int kTimeFieldNumber = 2;
@@ -226,6 +238,8 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< float > coordinates_;
+  mutable int _coordinates_cached_byte_size_;
   ::google::protobuf::uint64 time_;
   ::google::protobuf::uint32 fix_;
   float longitude_;
@@ -1744,6 +1758,36 @@ inline void DeviceLocation::set_altitude(float value) {
   
   altitude_ = value;
   // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.altitude)
+}
+
+// repeated float coordinates = 6;
+inline int DeviceLocation::coordinates_size() const {
+  return coordinates_.size();
+}
+inline void DeviceLocation::clear_coordinates() {
+  coordinates_.Clear();
+}
+inline float DeviceLocation::coordinates(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.coordinates)
+  return coordinates_.Get(index);
+}
+inline void DeviceLocation::set_coordinates(int index, float value) {
+  coordinates_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.coordinates)
+}
+inline void DeviceLocation::add_coordinates(float value) {
+  coordinates_.Add(value);
+  // @@protoc_insertion_point(field_add:fk_data.DeviceLocation.coordinates)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+DeviceLocation::coordinates() const {
+  // @@protoc_insertion_point(field_list:fk_data.DeviceLocation.coordinates)
+  return coordinates_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+DeviceLocation::mutable_coordinates() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.DeviceLocation.coordinates)
+  return &coordinates_;
 }
 
 // -------------------------------------------------------------------

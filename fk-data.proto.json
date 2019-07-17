@@ -23,6 +23,11 @@
             "altitude": {
               "type": "float",
               "id": 5
+            },
+            "coordinates": {
+              "rule": "repeated",
+              "type": "float",
+              "id": 6
             }
           }
         },

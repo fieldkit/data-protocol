@@ -125,6 +125,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, longitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, latitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, altitude_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, coordinates_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorReading, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -228,17 +229,17 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(DeviceLocation)},
-  { 10, -1, sizeof(SensorReading)},
-  { 19, -1, sizeof(LoggedReading)},
-  { 27, -1, sizeof(SensorAndValue)},
-  { 34, -1, sizeof(ModuleInfo)},
-  { 42, -1, sizeof(SensorInfo)},
-  { 50, -1, sizeof(Firmware)},
-  { 57, -1, sizeof(Metadata)},
-  { 70, -1, sizeof(Status)},
-  { 80, -1, sizeof(LogMessage)},
-  { 90, -1, sizeof(ReadingsGroup)},
-  { 100, -1, sizeof(DataRecord)},
+  { 11, -1, sizeof(SensorReading)},
+  { 20, -1, sizeof(LoggedReading)},
+  { 28, -1, sizeof(SensorAndValue)},
+  { 35, -1, sizeof(ModuleInfo)},
+  { 43, -1, sizeof(SensorInfo)},
+  { 51, -1, sizeof(Firmware)},
+  { 58, -1, sizeof(Metadata)},
+  { 71, -1, sizeof(Status)},
+  { 81, -1, sizeof(LogMessage)},
+  { 91, -1, sizeof(ReadingsGroup)},
+  { 101, -1, sizeof(DataRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -334,44 +335,45 @@ namespace {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rfk-data.proto\022\007fk_data\"b\n\016DeviceLocati"
+      "\n\rfk-data.proto\022\007fk_data\"w\n\016DeviceLocati"
       "on\022\013\n\003fix\030\001 \001(\r\022\014\n\004time\030\002 \001(\004\022\021\n\tlongitu"
       "de\030\003 \001(\002\022\020\n\010latitude\030\004 \001(\002\022\020\n\010altitude\030\005"
-      " \001(\002\"M\n\rSensorReading\022\017\n\007reading\030\001 \001(\r\022\014"
-      "\n\004time\030\002 \001(\004\022\016\n\006sensor\030\003 \001(\r\022\r\n\005value\030\004 "
-      "\001(\002\"t\n\rLoggedReading\022\017\n\007version\030\001 \001(\r\022)\n"
-      "\010location\030\002 \001(\0132\027.fk_data.DeviceLocation"
-      "\022\'\n\007reading\030\003 \001(\0132\026.fk_data.SensorReadin"
-      "g\"/\n\016SensorAndValue\022\016\n\006sensor\030\001 \001(\r\022\r\n\005v"
-      "alue\030\002 \001(\002\"7\n\nModuleInfo\022\n\n\002id\030\001 \001(\r\022\017\n\007"
-      "address\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"A\n\nSensorInf"
-      "o\022\016\n\006sensor\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\025\n\runitO"
-      "fMeasure\030\003 \001(\t\"&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022"
-      "\r\n\005build\030\002 \001(\t\"\313\001\n\010Metadata\022\020\n\010deviceId\030"
-      "\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005buil"
-      "d\030\007 \001(\t\022\022\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030\005"
-      " \003(\0132\023.fk_data.SensorInfo\022$\n\007modules\030\006 \003"
-      "(\0132\023.fk_data.ModuleInfo\022#\n\010firmware\030\010 \001("
-      "\0132\021.fk_data.Firmware\"U\n\006Status\022\014\n\004time\030\001"
-      " \001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001(\002\022\016\n"
-      "\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogMessag"
-      "e\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\r\n\005level"
-      "\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message\030\005 \001("
-      "\t\"\223\001\n\rReadingsGroup\022\017\n\007reading\030\001 \001(\r\022\014\n\004"
-      "time\030\002 \001(\004\022\r\n\005flags\030\003 \001(\r\022)\n\010location\030\004 "
-      "\001(\0132\027.fk_data.DeviceLocation\022)\n\010readings"
-      "\030\005 \003(\0132\027.fk_data.SensorAndValue\"\315\001\n\nData"
-      "Record\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data."
-      "LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.fk_dat"
-      "a.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMes"
-      "sage\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022(\n"
-      "\010readings\030\005 \001(\0132\026.fk_data.ReadingsGroup*"
-      "b\n\rDownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000"
-      "\022\037\n\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024REA"
-      "DING_FLAGS_MANUAL\020\002b\006proto3"
+      " \001(\002\022\023\n\013coordinates\030\006 \003(\002\"M\n\rSensorReadi"
+      "ng\022\017\n\007reading\030\001 \001(\r\022\014\n\004time\030\002 \001(\004\022\016\n\006sen"
+      "sor\030\003 \001(\r\022\r\n\005value\030\004 \001(\002\"t\n\rLoggedReadin"
+      "g\022\017\n\007version\030\001 \001(\r\022)\n\010location\030\002 \001(\0132\027.f"
+      "k_data.DeviceLocation\022\'\n\007reading\030\003 \001(\0132\026"
+      ".fk_data.SensorReading\"/\n\016SensorAndValue"
+      "\022\016\n\006sensor\030\001 \001(\r\022\r\n\005value\030\002 \001(\002\"7\n\nModul"
+      "eInfo\022\n\n\002id\030\001 \001(\r\022\017\n\007address\030\002 \001(\r\022\014\n\004na"
+      "me\030\003 \001(\t\"A\n\nSensorInfo\022\016\n\006sensor\030\001 \001(\r\022\014"
+      "\n\004name\030\002 \001(\t\022\025\n\runitOfMeasure\030\003 \001(\t\"&\n\010F"
+      "irmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030\002 \001(\t\"\313\001\n\010"
+      "Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\004"
+      "\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nresetCau"
+      "se\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk_data.Sens"
+      "orInfo\022$\n\007modules\030\006 \003(\0132\023.fk_data.Module"
+      "Info\022#\n\010firmware\030\010 \001(\0132\021.fk_data.Firmwar"
+      "e\"U\n\006Status\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001("
+      "\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004bu"
+      "sy\030\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016\n\006"
+      "uptime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030"
+      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\223\001\n\rReadingsGroup"
+      "\022\017\n\007reading\030\001 \001(\r\022\014\n\004time\030\002 \001(\004\022\r\n\005flags"
+      "\030\003 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.Devic"
+      "eLocation\022)\n\010readings\030\005 \003(\0132\027.fk_data.Se"
+      "nsorAndValue\"\315\001\n\nDataRecord\022-\n\rloggedRea"
+      "ding\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010me"
+      "tadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003"
+      " \001(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004 \001("
+      "\0132\017.fk_data.Status\022(\n\010readings\030\005 \001(\0132\026.f"
+      "k_data.ReadingsGroup*b\n\rDownloadFlags\022\026\n"
+      "\022READING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_N"
+      "OT_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002"
+      "b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1387);
+      descriptor, 1408);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -414,6 +416,7 @@ const int DeviceLocation::kTimeFieldNumber;
 const int DeviceLocation::kLongitudeFieldNumber;
 const int DeviceLocation::kLatitudeFieldNumber;
 const int DeviceLocation::kAltitudeFieldNumber;
+const int DeviceLocation::kCoordinatesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 DeviceLocation::DeviceLocation()
@@ -427,6 +430,7 @@ DeviceLocation::DeviceLocation()
 DeviceLocation::DeviceLocation(const DeviceLocation& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
+      coordinates_(from.coordinates_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&time_, &from.time_,
@@ -479,6 +483,7 @@ void DeviceLocation::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  coordinates_.Clear();
   ::memset(&time_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&altitude_) -
       reinterpret_cast<char*>(&time_)) + sizeof(altitude_));
@@ -565,6 +570,25 @@ bool DeviceLocation::MergePartialFromCodedStream(
         break;
       }
 
+      // repeated float coordinates = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_coordinates())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 50u, input, this->mutable_coordinates())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -616,6 +640,15 @@ void DeviceLocation::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->altitude(), output);
   }
 
+  // repeated float coordinates = 6;
+  if (this->coordinates_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(6, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _coordinates_cached_byte_size_));
+    ::google::protobuf::internal::WireFormatLite::WriteFloatArray(
+      this->coordinates().data(), this->coordinates_size(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -655,6 +688,19 @@ void DeviceLocation::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->altitude(), target);
   }
 
+  // repeated float coordinates = 6;
+  if (this->coordinates_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      6,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::uint32>(
+            _coordinates_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteFloatNoTagToArray(this->coordinates_, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -672,6 +718,22 @@ size_t DeviceLocation::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // repeated float coordinates = 6;
+  {
+    unsigned int count = static_cast<unsigned int>(this->coordinates_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _coordinates_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
   // uint64 time = 2;
   if (this->time() != 0) {
     total_size += 1 +
@@ -730,6 +792,7 @@ void DeviceLocation::MergeFrom(const DeviceLocation& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  coordinates_.MergeFrom(from.coordinates_);
   if (from.time() != 0) {
     set_time(from.time());
   }
@@ -771,6 +834,7 @@ void DeviceLocation::Swap(DeviceLocation* other) {
 }
 void DeviceLocation::InternalSwap(DeviceLocation* other) {
   using std::swap;
+  coordinates_.InternalSwap(&other->coordinates_);
   swap(time_, other->time_);
   swap(fix_, other->fix_);
   swap(longitude_, other->longitude_);
@@ -856,6 +920,36 @@ void DeviceLocation::set_altitude(float value) {
   
   altitude_ = value;
   // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.altitude)
+}
+
+// repeated float coordinates = 6;
+int DeviceLocation::coordinates_size() const {
+  return coordinates_.size();
+}
+void DeviceLocation::clear_coordinates() {
+  coordinates_.Clear();
+}
+float DeviceLocation::coordinates(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.coordinates)
+  return coordinates_.Get(index);
+}
+void DeviceLocation::set_coordinates(int index, float value) {
+  coordinates_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.coordinates)
+}
+void DeviceLocation::add_coordinates(float value) {
+  coordinates_.Add(value);
+  // @@protoc_insertion_point(field_add:fk_data.DeviceLocation.coordinates)
+}
+const ::google::protobuf::RepeatedField< float >&
+DeviceLocation::coordinates() const {
+  // @@protoc_insertion_point(field_list:fk_data.DeviceLocation.coordinates)
+  return coordinates_;
+}
+::google::protobuf::RepeatedField< float >*
+DeviceLocation::mutable_coordinates() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.DeviceLocation.coordinates)
+  return &coordinates_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
