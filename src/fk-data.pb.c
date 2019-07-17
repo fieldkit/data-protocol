@@ -20,9 +20,6 @@ PB_BIND(fk_data_LoggedReading, fk_data_LoggedReading, AUTO)
 PB_BIND(fk_data_SensorAndValue, fk_data_SensorAndValue, AUTO)
 
 
-PB_BIND(fk_data_ReadingsGroup, fk_data_ReadingsGroup, AUTO)
-
-
 PB_BIND(fk_data_ModuleInfo, fk_data_ModuleInfo, AUTO)
 
 
@@ -41,7 +38,11 @@ PB_BIND(fk_data_Status, fk_data_Status, AUTO)
 PB_BIND(fk_data_LogMessage, fk_data_LogMessage, AUTO)
 
 
+PB_BIND(fk_data_ReadingsGroup, fk_data_ReadingsGroup, AUTO)
+
+
 PB_BIND(fk_data_DataRecord, fk_data_DataRecord, 2)
+
 
 
 

@@ -27,14 +27,6 @@ message SensorAndValue {
   float value = 2;
 }
 
-message ReadingsGroup {
-  uint32 version = 1;
-  uint32 reading = 2;
-  uint64 time = 3;
-  DeviceLocation location = 4;
-  repeated SensorAndValue readings = 5;
-}
-
 message ModuleInfo {
   uint32 id = 1;
   uint32 address = 2;
@@ -79,10 +71,25 @@ message LogMessage {
   string message = 5;
 }
 
+enum DownloadFlags {
+  READING_FLAGS_NONE = 0;
+  READING_FLAGS_NOT_RECORDING = 1;
+  READING_FLAGS_MANUAL = 2;
+}
+
+message ReadingsGroup {
+  uint32 reading = 1;
+  uint64 time = 2;
+  uint32 flags = 3;
+  DeviceLocation location = 4;
+  repeated SensorAndValue readings = 5;
+}
+
 message DataRecord {
   LoggedReading loggedReading = 1;
   Metadata metadata = 2;
   LogMessage log = 3;
   Status status = 4;
-  ReadingsGroup readingsGroup = 5;
+
+  ReadingsGroup readings = 5;
 }

@@ -74,31 +74,6 @@
             }
           }
         },
-        "ReadingsGroup": {
-          "fields": {
-            "version": {
-              "type": "uint32",
-              "id": 1
-            },
-            "reading": {
-              "type": "uint32",
-              "id": 2
-            },
-            "time": {
-              "type": "uint64",
-              "id": 3
-            },
-            "location": {
-              "type": "DeviceLocation",
-              "id": 4
-            },
-            "readings": {
-              "rule": "repeated",
-              "type": "SensorAndValue",
-              "id": 5
-            }
-          }
-        },
         "ModuleInfo": {
           "fields": {
             "id": {
@@ -229,6 +204,38 @@
             }
           }
         },
+        "DownloadFlags": {
+          "values": {
+            "READING_FLAGS_NONE": 0,
+            "READING_FLAGS_NOT_RECORDING": 1,
+            "READING_FLAGS_MANUAL": 2
+          }
+        },
+        "ReadingsGroup": {
+          "fields": {
+            "reading": {
+              "type": "uint32",
+              "id": 1
+            },
+            "time": {
+              "type": "uint64",
+              "id": 2
+            },
+            "flags": {
+              "type": "uint32",
+              "id": 3
+            },
+            "location": {
+              "type": "DeviceLocation",
+              "id": 4
+            },
+            "readings": {
+              "rule": "repeated",
+              "type": "SensorAndValue",
+              "id": 5
+            }
+          }
+        },
         "DataRecord": {
           "fields": {
             "loggedReading": {
@@ -247,7 +254,7 @@
               "type": "Status",
               "id": 4
             },
-            "readingsGroup": {
+            "readings": {
               "type": "ReadingsGroup",
               "id": 5
             }
