@@ -5,5 +5,8 @@ conservifyProperties()
 timestamps {
     node () {
         // conservifyBuild(name: 'data-protocol', archive: false)
+        stage ('git') {
+            checkout scm
+        }
     }
 }
