@@ -216,6 +216,19 @@
             "READING_FLAGS_MANUAL": 2
           }
         },
+        "SensorGroup": {
+          "fields": {
+            "module": {
+              "type": "uint32",
+              "id": 1
+            },
+            "readings": {
+              "rule": "repeated",
+              "type": "SensorAndValue",
+              "id": 2
+            }
+          }
+        },
         "Readings": {
           "fields": {
             "time": {
@@ -234,9 +247,9 @@
               "type": "DeviceLocation",
               "id": 4
             },
-            "readings": {
+            "sensorGroups": {
               "rule": "repeated",
-              "type": "SensorAndValue",
+              "type": "SensorGroup",
               "id": 5
             }
           }

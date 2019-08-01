@@ -68,6 +68,11 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<LogMessage>
      _instance;
 } _LogMessage_default_instance_;
+class SensorGroupDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<SensorGroup>
+     _instance;
+} _SensorGroup_default_instance_;
 class ReadingsDefaultTypeInternal {
 public:
  ::google::protobuf::internal::ExplicitlyConstructed<Readings>
@@ -84,7 +89,7 @@ namespace protobuf_fk_2ddata_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[12];
+::google::protobuf::Metadata file_level_metadata[13];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 }  // namespace
@@ -100,6 +105,7 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
@@ -207,6 +213,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogMessage, facility_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LogMessage, message_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorGroup, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorGroup, module_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorGroup, readings_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -215,7 +228,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, reading_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, flags_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, location_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, readings_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, sensorgroups_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -238,8 +251,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 58, -1, sizeof(Metadata)},
   { 71, -1, sizeof(Status)},
   { 81, -1, sizeof(LogMessage)},
-  { 91, -1, sizeof(Readings)},
-  { 101, -1, sizeof(DataRecord)},
+  { 91, -1, sizeof(SensorGroup)},
+  { 98, -1, sizeof(Readings)},
+  { 108, -1, sizeof(DataRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -253,6 +267,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_Metadata_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Status_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_LogMessage_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_SensorGroup_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Readings_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_DataRecord_default_instance_),
 };
@@ -275,7 +290,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 12);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 13);
 }
 
 }  // namespace
@@ -303,7 +318,9 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_Status_default_instance_);_LogMessage_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_LogMessage_default_instance_);_Readings_default_instance_._instance.DefaultConstruct();
+      &_LogMessage_default_instance_);_SensorGroup_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_SensorGroup_default_instance_);_Readings_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_Readings_default_instance_);_DataRecord_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
@@ -358,21 +375,23 @@ void AddDescriptorsImpl() {
       "\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004bu"
       "sy\030\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016\n\006"
       "uptime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030"
-      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\216\001\n\010Readings\022\014\n\004t"
-      "ime\030\001 \001(\004\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001("
-      "\r\022)\n\010location\030\004 \001(\0132\027.fk_data.DeviceLoca"
-      "tion\022)\n\010readings\030\005 \003(\0132\027.fk_data.SensorA"
-      "ndValue\"\310\001\n\nDataRecord\022-\n\rloggedReading\030"
-      "\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metadat"
-      "a\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132"
-      "\023.fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.f"
-      "k_data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_dat"
-      "a.Readings*b\n\rDownloadFlags\022\026\n\022READING_F"
-      "LAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDI"
-      "NG\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002b\006proto3"
+      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022\016\n"
+      "\006module\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_dat"
+      "a.SensorAndValue\"\217\001\n\010Readings\022\014\n\004time\030\001 "
+      "\001(\004\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022)\n\010l"
+      "ocation\030\004 \001(\0132\027.fk_data.DeviceLocation\022*"
+      "\n\014sensorGroups\030\005 \003(\0132\024.fk_data.SensorGro"
+      "up\"\310\001\n\nDataRecord\022-\n\rloggedReading\030\001 \001(\013"
+      "2\026.fk_data.LoggedReading\022#\n\010metadata\030\002 \001"
+      "(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_"
+      "data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_dat"
+      "a.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data.Rea"
+      "dings*b\n\rDownloadFlags\022\026\n\022READING_FLAGS_"
+      "NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDING\020\001\022"
+      "\030\n\024READING_FLAGS_MANUAL\020\002b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1398);
+      descriptor, 1473);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -5316,11 +5335,338 @@ void LogMessage::set_allocated_message(::std::string* message) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SensorGroup::kModuleFieldNumber;
+const int SensorGroup::kReadingsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SensorGroup::SensorGroup()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fk_2ddata_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fk_data.SensorGroup)
+}
+SensorGroup::SensorGroup(const SensorGroup& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      readings_(from.readings_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  module_ = from.module_;
+  // @@protoc_insertion_point(copy_constructor:fk_data.SensorGroup)
+}
+
+void SensorGroup::SharedCtor() {
+  module_ = 0u;
+  _cached_size_ = 0;
+}
+
+SensorGroup::~SensorGroup() {
+  // @@protoc_insertion_point(destructor:fk_data.SensorGroup)
+  SharedDtor();
+}
+
+void SensorGroup::SharedDtor() {
+}
+
+void SensorGroup::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SensorGroup::descriptor() {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SensorGroup& SensorGroup::default_instance() {
+  protobuf_fk_2ddata_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+SensorGroup* SensorGroup::New(::google::protobuf::Arena* arena) const {
+  SensorGroup* n = new SensorGroup;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SensorGroup::Clear() {
+// @@protoc_insertion_point(message_clear_start:fk_data.SensorGroup)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  readings_.Clear();
+  module_ = 0u;
+  _internal_metadata_.Clear();
+}
+
+bool SensorGroup::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fk_data.SensorGroup)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 module = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &module_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .fk_data.SensorAndValue readings = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_readings()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fk_data.SensorGroup)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fk_data.SensorGroup)
+  return false;
+#undef DO_
+}
+
+void SensorGroup::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fk_data.SensorGroup)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 module = 1;
+  if (this->module() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->module(), output);
+  }
+
+  // repeated .fk_data.SensorAndValue readings = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->readings_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->readings(static_cast<int>(i)), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:fk_data.SensorGroup)
+}
+
+::google::protobuf::uint8* SensorGroup::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:fk_data.SensorGroup)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 module = 1;
+  if (this->module() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->module(), target);
+  }
+
+  // repeated .fk_data.SensorAndValue readings = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->readings_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, this->readings(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:fk_data.SensorGroup)
+  return target;
+}
+
+size_t SensorGroup::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fk_data.SensorGroup)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .fk_data.SensorAndValue readings = 2;
+  {
+    unsigned int count = static_cast<unsigned int>(this->readings_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->readings(static_cast<int>(i)));
+    }
+  }
+
+  // uint32 module = 1;
+  if (this->module() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->module());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SensorGroup::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fk_data.SensorGroup)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SensorGroup* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SensorGroup>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.SensorGroup)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.SensorGroup)
+    MergeFrom(*source);
+  }
+}
+
+void SensorGroup::MergeFrom(const SensorGroup& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.SensorGroup)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  readings_.MergeFrom(from.readings_);
+  if (from.module() != 0) {
+    set_module(from.module());
+  }
+}
+
+void SensorGroup::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fk_data.SensorGroup)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SensorGroup::CopyFrom(const SensorGroup& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.SensorGroup)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SensorGroup::IsInitialized() const {
+  return true;
+}
+
+void SensorGroup::Swap(SensorGroup* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SensorGroup::InternalSwap(SensorGroup* other) {
+  using std::swap;
+  readings_.InternalSwap(&other->readings_);
+  swap(module_, other->module_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SensorGroup::GetMetadata() const {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// SensorGroup
+
+// uint32 module = 1;
+void SensorGroup::clear_module() {
+  module_ = 0u;
+}
+::google::protobuf::uint32 SensorGroup::module() const {
+  // @@protoc_insertion_point(field_get:fk_data.SensorGroup.module)
+  return module_;
+}
+void SensorGroup::set_module(::google::protobuf::uint32 value) {
+  
+  module_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SensorGroup.module)
+}
+
+// repeated .fk_data.SensorAndValue readings = 2;
+int SensorGroup::readings_size() const {
+  return readings_.size();
+}
+void SensorGroup::clear_readings() {
+  readings_.Clear();
+}
+const ::fk_data::SensorAndValue& SensorGroup::readings(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.SensorGroup.readings)
+  return readings_.Get(index);
+}
+::fk_data::SensorAndValue* SensorGroup::mutable_readings(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.SensorGroup.readings)
+  return readings_.Mutable(index);
+}
+::fk_data::SensorAndValue* SensorGroup::add_readings() {
+  // @@protoc_insertion_point(field_add:fk_data.SensorGroup.readings)
+  return readings_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >*
+SensorGroup::mutable_readings() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.SensorGroup.readings)
+  return &readings_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >&
+SensorGroup::readings() const {
+  // @@protoc_insertion_point(field_list:fk_data.SensorGroup.readings)
+  return readings_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Readings::kTimeFieldNumber;
 const int Readings::kReadingFieldNumber;
 const int Readings::kFlagsFieldNumber;
 const int Readings::kLocationFieldNumber;
-const int Readings::kReadingsFieldNumber;
+const int Readings::kSensorGroupsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Readings::Readings()
@@ -5334,7 +5680,7 @@ Readings::Readings()
 Readings::Readings(const Readings& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      readings_(from.readings_),
+      sensorgroups_(from.sensorgroups_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_location()) {
@@ -5393,7 +5739,7 @@ void Readings::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  readings_.Clear();
+  sensorgroups_.Clear();
   if (GetArenaNoVirtual() == NULL && location_ != NULL) {
     delete location_;
   }
@@ -5468,12 +5814,12 @@ bool Readings::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .fk_data.SensorAndValue readings = 5;
+      // repeated .fk_data.SensorGroup sensorGroups = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_readings()));
+                input, add_sensorgroups()));
         } else {
           goto handle_unusual;
         }
@@ -5527,11 +5873,11 @@ void Readings::SerializeWithCachedSizes(
       4, *this->location_, output);
   }
 
-  // repeated .fk_data.SensorAndValue readings = 5;
+  // repeated .fk_data.SensorGroup sensorGroups = 5;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->readings_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->sensorgroups_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->readings(static_cast<int>(i)), output);
+      5, this->sensorgroups(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5570,12 +5916,12 @@ void Readings::SerializeWithCachedSizes(
         4, *this->location_, deterministic, target);
   }
 
-  // repeated .fk_data.SensorAndValue readings = 5;
+  // repeated .fk_data.SensorGroup sensorGroups = 5;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->readings_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->sensorgroups_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        5, this->readings(static_cast<int>(i)), deterministic, target);
+        5, this->sensorgroups(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5595,14 +5941,14 @@ size_t Readings::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .fk_data.SensorAndValue readings = 5;
+  // repeated .fk_data.SensorGroup sensorGroups = 5;
   {
-    unsigned int count = static_cast<unsigned int>(this->readings_size());
+    unsigned int count = static_cast<unsigned int>(this->sensorgroups_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->readings(static_cast<int>(i)));
+          this->sensorgroups(static_cast<int>(i)));
     }
   }
 
@@ -5663,7 +6009,7 @@ void Readings::MergeFrom(const Readings& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  readings_.MergeFrom(from.readings_);
+  sensorgroups_.MergeFrom(from.sensorgroups_);
   if (from.has_location()) {
     mutable_location()->::fk_data::DeviceLocation::MergeFrom(from.location());
   }
@@ -5702,7 +6048,7 @@ void Readings::Swap(Readings* other) {
 }
 void Readings::InternalSwap(Readings* other) {
   using std::swap;
-  readings_.InternalSwap(&other->readings_);
+  sensorgroups_.InternalSwap(&other->sensorgroups_);
   swap(location_, other->location_);
   swap(time_, other->time_);
   swap(reading_, other->reading_);
@@ -5801,34 +6147,34 @@ void Readings::set_allocated_location(::fk_data::DeviceLocation* location) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.Readings.location)
 }
 
-// repeated .fk_data.SensorAndValue readings = 5;
-int Readings::readings_size() const {
-  return readings_.size();
+// repeated .fk_data.SensorGroup sensorGroups = 5;
+int Readings::sensorgroups_size() const {
+  return sensorgroups_.size();
 }
-void Readings::clear_readings() {
-  readings_.Clear();
+void Readings::clear_sensorgroups() {
+  sensorgroups_.Clear();
 }
-const ::fk_data::SensorAndValue& Readings::readings(int index) const {
-  // @@protoc_insertion_point(field_get:fk_data.Readings.readings)
-  return readings_.Get(index);
+const ::fk_data::SensorGroup& Readings::sensorgroups(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.sensorGroups)
+  return sensorgroups_.Get(index);
 }
-::fk_data::SensorAndValue* Readings::mutable_readings(int index) {
-  // @@protoc_insertion_point(field_mutable:fk_data.Readings.readings)
-  return readings_.Mutable(index);
+::fk_data::SensorGroup* Readings::mutable_sensorgroups(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.Readings.sensorGroups)
+  return sensorgroups_.Mutable(index);
 }
-::fk_data::SensorAndValue* Readings::add_readings() {
-  // @@protoc_insertion_point(field_add:fk_data.Readings.readings)
-  return readings_.Add();
+::fk_data::SensorGroup* Readings::add_sensorgroups() {
+  // @@protoc_insertion_point(field_add:fk_data.Readings.sensorGroups)
+  return sensorgroups_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >*
-Readings::mutable_readings() {
-  // @@protoc_insertion_point(field_mutable_list:fk_data.Readings.readings)
-  return &readings_;
+::google::protobuf::RepeatedPtrField< ::fk_data::SensorGroup >*
+Readings::mutable_sensorgroups() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.Readings.sensorGroups)
+  return &sensorgroups_;
 }
-const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorAndValue >&
-Readings::readings() const {
-  // @@protoc_insertion_point(field_list:fk_data.Readings.readings)
-  return readings_;
+const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorGroup >&
+Readings::sensorgroups() const {
+  // @@protoc_insertion_point(field_list:fk_data.Readings.sensorGroups)
+  return sensorgroups_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
