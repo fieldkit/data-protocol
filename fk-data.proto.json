@@ -284,13 +284,17 @@
         },
         "SignedRecord": {
           "fields": {
+            "kind": {
+              "type": "uint32",
+              "id": 1
+            },
             "data": {
               "type": "bytes",
-              "id": 1
+              "id": 2
             },
             "hash": {
               "type": "bytes",
-              "id": 2
+              "id": 3
             }
           }
         }

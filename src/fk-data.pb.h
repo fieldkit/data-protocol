@@ -32,13 +32,6 @@ typedef struct _fk_data_Firmware {
 } fk_data_Firmware;
 
 
-typedef struct _fk_data_SignedRecord {
-    pb_callback_t data;
-    pb_callback_t hash;
-/* @@protoc_insertion_point(struct:fk_data_SignedRecord) */
-} fk_data_SignedRecord;
-
-
 typedef struct _fk_data_DeviceLocation {
     uint32_t fix;
     uint64_t time;
@@ -113,6 +106,14 @@ typedef struct _fk_data_SensorReading {
 } fk_data_SensorReading;
 
 
+typedef struct _fk_data_SignedRecord {
+    uint32_t kind;
+    pb_callback_t data;
+    pb_callback_t hash;
+/* @@protoc_insertion_point(struct:fk_data_SignedRecord) */
+} fk_data_SignedRecord;
+
+
 typedef struct _fk_data_Status {
     uint64_t time;
     uint32_t uptime;
@@ -165,7 +166,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
 #define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default}
-#define fk_data_SignedRecord_init_default        {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_SignedRecord_init_default        {0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
@@ -179,13 +180,11 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}}
 #define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero}
-#define fk_data_SignedRecord_init_zero           {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_SignedRecord_init_zero           {0, {{NULL}, NULL}, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_Firmware_git_tag                 1
 #define fk_data_Firmware_build_tag               2
-#define fk_data_SignedRecord_data_tag            1
-#define fk_data_SignedRecord_hash_tag            2
 #define fk_data_DeviceLocation_enabled_tag       7
 #define fk_data_DeviceLocation_fix_tag           1
 #define fk_data_DeviceLocation_time_tag          2
@@ -220,6 +219,9 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorReading_time_tag           2
 #define fk_data_SensorReading_sensor_tag         3
 #define fk_data_SensorReading_value_tag          4
+#define fk_data_SignedRecord_kind_tag            1
+#define fk_data_SignedRecord_data_tag            2
+#define fk_data_SignedRecord_hash_tag            3
 #define fk_data_Status_time_tag                  1
 #define fk_data_Status_uptime_tag                2
 #define fk_data_Status_battery_tag               3
@@ -360,8 +362,9 @@ X(a, STATIC, SINGULAR, MESSAGE, readings, 5)
 #define fk_data_DataRecord_readings_MSGTYPE fk_data_Readings
 
 #define fk_data_SignedRecord_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, BYTES, data, 1) \
-X(a, CALLBACK, SINGULAR, BYTES, hash, 2)
+X(a, STATIC, SINGULAR, UINT32, kind, 1) \
+X(a, CALLBACK, SINGULAR, BYTES, data, 2) \
+X(a, CALLBACK, SINGULAR, BYTES, hash, 3)
 #define fk_data_SignedRecord_CALLBACK pb_default_field_callback
 #define fk_data_SignedRecord_DEFAULT NULL
 

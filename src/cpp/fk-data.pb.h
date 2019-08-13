@@ -1884,9 +1884,9 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // bytes data = 1;
+  // bytes data = 2;
   void clear_data();
-  static const int kDataFieldNumber = 1;
+  static const int kDataFieldNumber = 2;
   const ::std::string& data() const;
   void set_data(const ::std::string& value);
   #if LANG_CXX11
@@ -1898,9 +1898,9 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // bytes hash = 2;
+  // bytes hash = 3;
   void clear_hash();
-  static const int kHashFieldNumber = 2;
+  static const int kHashFieldNumber = 3;
   const ::std::string& hash() const;
   void set_hash(const ::std::string& value);
   #if LANG_CXX11
@@ -1912,12 +1912,19 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_hash();
   void set_allocated_hash(::std::string* hash);
 
+  // uint32 kind = 1;
+  void clear_kind();
+  static const int kKindFieldNumber = 1;
+  ::google::protobuf::uint32 kind() const;
+  void set_kind(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.SignedRecord)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   ::google::protobuf::internal::ArenaStringPtr hash_;
+  ::google::protobuf::uint32 kind_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -3445,7 +3452,21 @@ inline void DataRecord::set_allocated_readings(::fk_data::Readings* readings) {
 
 // SignedRecord
 
-// bytes data = 1;
+// uint32 kind = 1;
+inline void SignedRecord::clear_kind() {
+  kind_ = 0u;
+}
+inline ::google::protobuf::uint32 SignedRecord::kind() const {
+  // @@protoc_insertion_point(field_get:fk_data.SignedRecord.kind)
+  return kind_;
+}
+inline void SignedRecord::set_kind(::google::protobuf::uint32 value) {
+  
+  kind_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SignedRecord.kind)
+}
+
+// bytes data = 2;
 inline void SignedRecord::clear_data() {
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3498,7 +3519,7 @@ inline void SignedRecord::set_allocated_data(::std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.SignedRecord.data)
 }
 
-// bytes hash = 2;
+// bytes hash = 3;
 inline void SignedRecord::clear_hash() {
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

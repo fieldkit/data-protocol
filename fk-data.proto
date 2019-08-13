@@ -101,6 +101,7 @@ message DataRecord {
 }
 
 message SignedRecord {
-  bytes data = 1;
-  bytes hash = 2;
+  uint32 kind = 1;
+  bytes data = 2;
+  bytes hash = 3;
 }
