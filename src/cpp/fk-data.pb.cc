@@ -252,6 +252,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, kind_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, data_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, hash_),
 };
@@ -405,14 +406,15 @@ void AddDescriptorsImpl() {
       "ng\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022"
       " \n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006sta"
       "tus\030\004 \001(\0132\017.fk_data.Status\022#\n\010readings\030\005"
-      " \001(\0132\021.fk_data.Readings\"8\n\014SignedRecord\022"
-      "\014\n\004kind\030\001 \001(\r\022\014\n\004data\030\002 \001(\014\022\014\n\004hash\030\003 \001("
-      "\014*b\n\rDownloadFlags\022\026\n\022READING_FLAGS_NONE"
-      "\020\000\022\037\n\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024R"
-      "EADING_FLAGS_MANUAL\020\002b\006proto3"
+      " \001(\0132\021.fk_data.Readings\"F\n\014SignedRecord\022"
+      "\014\n\004kind\030\001 \001(\r\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001("
+      "\014\022\014\n\004hash\030\004 \001(\014*b\n\rDownloadFlags\022\026\n\022READ"
+      "ING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RE"
+      "CORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002b\006pro"
+      "to3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1549);
+      descriptor, 1563);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -6893,6 +6895,7 @@ void DataRecord::set_allocated_readings(::fk_data::Readings* readings) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SignedRecord::kKindFieldNumber;
+const int SignedRecord::kTimeFieldNumber;
 const int SignedRecord::kDataFieldNumber;
 const int SignedRecord::kHashFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -6918,14 +6921,18 @@ SignedRecord::SignedRecord(const SignedRecord& from)
   if (from.hash().size() > 0) {
     hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
   }
-  kind_ = from.kind_;
+  ::memcpy(&time_, &from.time_,
+    static_cast<size_t>(reinterpret_cast<char*>(&kind_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(kind_));
   // @@protoc_insertion_point(copy_constructor:fk_data.SignedRecord)
 }
 
 void SignedRecord::SharedCtor() {
   data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  kind_ = 0u;
+  ::memset(&time_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&kind_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(kind_));
   _cached_size_ = 0;
 }
 
@@ -6970,7 +6977,9 @@ void SignedRecord::Clear() {
 
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  kind_ = 0u;
+  ::memset(&time_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&kind_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(kind_));
   _internal_metadata_.Clear();
 }
 
@@ -6998,10 +7007,24 @@ bool SignedRecord::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes data = 2;
+      // uint64 time = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes data = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_data()));
         } else {
@@ -7010,10 +7033,10 @@ bool SignedRecord::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes hash = 3;
-      case 3: {
+      // bytes hash = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_hash()));
         } else {
@@ -7053,16 +7076,21 @@ void SignedRecord::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->kind(), output);
   }
 
-  // bytes data = 2;
-  if (this->data().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->data(), output);
+  // uint64 time = 2;
+  if (this->time() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
   }
 
-  // bytes hash = 3;
+  // bytes data = 3;
+  if (this->data().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->data(), output);
+  }
+
+  // bytes hash = 4;
   if (this->hash().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      3, this->hash(), output);
+      4, this->hash(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7084,18 +7112,23 @@ void SignedRecord::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->kind(), target);
   }
 
-  // bytes data = 2;
+  // uint64 time = 2;
+  if (this->time() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+  }
+
+  // bytes data = 3;
   if (this->data().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->data(), target);
+        3, this->data(), target);
   }
 
-  // bytes hash = 3;
+  // bytes hash = 4;
   if (this->hash().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->hash(), target);
+        4, this->hash(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7115,18 +7148,25 @@ size_t SignedRecord::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // bytes data = 2;
+  // bytes data = 3;
   if (this->data().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->data());
   }
 
-  // bytes hash = 3;
+  // bytes hash = 4;
   if (this->hash().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->hash());
+  }
+
+  // uint64 time = 2;
+  if (this->time() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->time());
   }
 
   // uint32 kind = 1;
@@ -7173,6 +7213,9 @@ void SignedRecord::MergeFrom(const SignedRecord& from) {
 
     hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
   }
+  if (from.time() != 0) {
+    set_time(from.time());
+  }
   if (from.kind() != 0) {
     set_kind(from.kind());
   }
@@ -7204,6 +7247,7 @@ void SignedRecord::InternalSwap(SignedRecord* other) {
   using std::swap;
   data_.Swap(&other->data_);
   hash_.Swap(&other->hash_);
+  swap(time_, other->time_);
   swap(kind_, other->kind_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -7231,7 +7275,21 @@ void SignedRecord::set_kind(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.kind)
 }
 
-// bytes data = 2;
+// uint64 time = 2;
+void SignedRecord::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+}
+::google::protobuf::uint64 SignedRecord::time() const {
+  // @@protoc_insertion_point(field_get:fk_data.SignedRecord.time)
+  return time_;
+}
+void SignedRecord::set_time(::google::protobuf::uint64 value) {
+  
+  time_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SignedRecord.time)
+}
+
+// bytes data = 3;
 void SignedRecord::clear_data() {
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7284,7 +7342,7 @@ void SignedRecord::set_allocated_data(::std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.SignedRecord.data)
 }
 
-// bytes hash = 3;
+// bytes hash = 4;
 void SignedRecord::clear_hash() {
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

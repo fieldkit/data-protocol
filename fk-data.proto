@@ -102,6 +102,7 @@ message DataRecord {
 
 message SignedRecord {
   uint32 kind = 1;
-  bytes data = 2;
-  bytes hash = 3;
+  uint64 time = 2;
+  bytes data = 3;
+  bytes hash = 4;
 }

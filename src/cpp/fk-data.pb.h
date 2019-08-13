@@ -1884,9 +1884,9 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // bytes data = 2;
+  // bytes data = 3;
   void clear_data();
-  static const int kDataFieldNumber = 2;
+  static const int kDataFieldNumber = 3;
   const ::std::string& data() const;
   void set_data(const ::std::string& value);
   #if LANG_CXX11
@@ -1898,9 +1898,9 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // bytes hash = 3;
+  // bytes hash = 4;
   void clear_hash();
-  static const int kHashFieldNumber = 3;
+  static const int kHashFieldNumber = 4;
   const ::std::string& hash() const;
   void set_hash(const ::std::string& value);
   #if LANG_CXX11
@@ -1911,6 +1911,12 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* mutable_hash();
   ::std::string* release_hash();
   void set_allocated_hash(::std::string* hash);
+
+  // uint64 time = 2;
+  void clear_time();
+  static const int kTimeFieldNumber = 2;
+  ::google::protobuf::uint64 time() const;
+  void set_time(::google::protobuf::uint64 value);
 
   // uint32 kind = 1;
   void clear_kind();
@@ -1924,6 +1930,7 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   ::google::protobuf::internal::ArenaStringPtr hash_;
+  ::google::protobuf::uint64 time_;
   ::google::protobuf::uint32 kind_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
@@ -3466,7 +3473,21 @@ inline void SignedRecord::set_kind(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.kind)
 }
 
-// bytes data = 2;
+// uint64 time = 2;
+inline void SignedRecord::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 SignedRecord::time() const {
+  // @@protoc_insertion_point(field_get:fk_data.SignedRecord.time)
+  return time_;
+}
+inline void SignedRecord::set_time(::google::protobuf::uint64 value) {
+  
+  time_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SignedRecord.time)
+}
+
+// bytes data = 3;
 inline void SignedRecord::clear_data() {
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3519,7 +3540,7 @@ inline void SignedRecord::set_allocated_data(::std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.SignedRecord.data)
 }
 
-// bytes hash = 3;
+// bytes hash = 4;
 inline void SignedRecord::clear_hash() {
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
