@@ -281,6 +281,18 @@
               "id": 5
             }
           }
+        },
+        "SignedRecord": {
+          "fields": {
+            "data": {
+              "type": "bytes",
+              "id": 1
+            },
+            "hash": {
+              "type": "bytes",
+              "id": 2
+            }
+          }
         }
       }
     }

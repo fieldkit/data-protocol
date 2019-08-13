@@ -47,6 +47,9 @@ PB_BIND(fk_data_Readings, fk_data_Readings, AUTO)
 PB_BIND(fk_data_DataRecord, fk_data_DataRecord, 2)
 
 
+PB_BIND(fk_data_SignedRecord, fk_data_SignedRecord, AUTO)
+
+
 
 
 /* @@protoc_insertion_point(eof) */

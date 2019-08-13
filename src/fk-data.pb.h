@@ -32,6 +32,13 @@ typedef struct _fk_data_Firmware {
 } fk_data_Firmware;
 
 
+typedef struct _fk_data_SignedRecord {
+    pb_callback_t data;
+    pb_callback_t hash;
+/* @@protoc_insertion_point(struct:fk_data_SignedRecord) */
+} fk_data_SignedRecord;
+
+
 typedef struct _fk_data_DeviceLocation {
     uint32_t fix;
     uint64_t time;
@@ -158,6 +165,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
 #define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default}
+#define fk_data_SignedRecord_init_default        {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
@@ -171,10 +179,13 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}}
 #define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero}
+#define fk_data_SignedRecord_init_zero           {{{NULL}, NULL}, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_Firmware_git_tag                 1
 #define fk_data_Firmware_build_tag               2
+#define fk_data_SignedRecord_data_tag            1
+#define fk_data_SignedRecord_hash_tag            2
 #define fk_data_DeviceLocation_enabled_tag       7
 #define fk_data_DeviceLocation_fix_tag           1
 #define fk_data_DeviceLocation_time_tag          2
@@ -348,6 +359,12 @@ X(a, STATIC, SINGULAR, MESSAGE, readings, 5)
 #define fk_data_DataRecord_status_MSGTYPE fk_data_Status
 #define fk_data_DataRecord_readings_MSGTYPE fk_data_Readings
 
+#define fk_data_SignedRecord_FIELDLIST(X, a) \
+X(a, CALLBACK, SINGULAR, BYTES, data, 1) \
+X(a, CALLBACK, SINGULAR, BYTES, hash, 2)
+#define fk_data_SignedRecord_CALLBACK pb_default_field_callback
+#define fk_data_SignedRecord_DEFAULT NULL
+
 extern const pb_msgdesc_t fk_data_DeviceLocation_msg;
 extern const pb_msgdesc_t fk_data_SensorReading_msg;
 extern const pb_msgdesc_t fk_data_LoggedReading_msg;
@@ -361,6 +378,7 @@ extern const pb_msgdesc_t fk_data_LogMessage_msg;
 extern const pb_msgdesc_t fk_data_SensorGroup_msg;
 extern const pb_msgdesc_t fk_data_Readings_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
+extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define fk_data_DeviceLocation_fields &fk_data_DeviceLocation_msg
@@ -376,6 +394,7 @@ extern const pb_msgdesc_t fk_data_DataRecord_msg;
 #define fk_data_SensorGroup_fields &fk_data_SensorGroup_msg
 #define fk_data_Readings_fields &fk_data_Readings_msg
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
+#define fk_data_SignedRecord_fields &fk_data_SignedRecord_msg
 
 /* Maximum encoded size of messages (where known) */
 /* fk_data_DeviceLocation_size depends on runtime parameters */
@@ -391,6 +410,7 @@ extern const pb_msgdesc_t fk_data_DataRecord_msg;
 /* fk_data_SensorGroup_size depends on runtime parameters */
 /* fk_data_Readings_size depends on runtime parameters */
 /* fk_data_DataRecord_size depends on runtime parameters */
+/* fk_data_SignedRecord_size depends on runtime parameters */
 
 #ifdef __cplusplus
 } /* extern "C" */

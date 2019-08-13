@@ -68,6 +68,9 @@ extern SensorInfoDefaultTypeInternal _SensorInfo_default_instance_;
 class SensorReading;
 class SensorReadingDefaultTypeInternal;
 extern SensorReadingDefaultTypeInternal _SensorReading_default_instance_;
+class SignedRecord;
+class SignedRecordDefaultTypeInternal;
+extern SignedRecordDefaultTypeInternal _SignedRecord_default_instance_;
 class Status;
 class StatusDefaultTypeInternal;
 extern StatusDefaultTypeInternal _Status_default_instance_;
@@ -1798,6 +1801,126 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.SignedRecord) */ {
+ public:
+  SignedRecord();
+  virtual ~SignedRecord();
+
+  SignedRecord(const SignedRecord& from);
+
+  inline SignedRecord& operator=(const SignedRecord& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SignedRecord(SignedRecord&& from) noexcept
+    : SignedRecord() {
+    *this = ::std::move(from);
+  }
+
+  inline SignedRecord& operator=(SignedRecord&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SignedRecord& default_instance();
+
+  static inline const SignedRecord* internal_default_instance() {
+    return reinterpret_cast<const SignedRecord*>(
+               &_SignedRecord_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    13;
+
+  void Swap(SignedRecord* other);
+  friend void swap(SignedRecord& a, SignedRecord& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SignedRecord* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SignedRecord* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SignedRecord& from);
+  void MergeFrom(const SignedRecord& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SignedRecord* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes data = 1;
+  void clear_data();
+  static const int kDataFieldNumber = 1;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // bytes hash = 2;
+  void clear_hash();
+  static const int kHashFieldNumber = 2;
+  const ::std::string& hash() const;
+  void set_hash(const ::std::string& value);
+  #if LANG_CXX11
+  void set_hash(::std::string&& value);
+  #endif
+  void set_hash(const char* value);
+  void set_hash(const void* value, size_t size);
+  ::std::string* mutable_hash();
+  ::std::string* release_hash();
+  void set_allocated_hash(::std::string* hash);
+
+  // @@protoc_insertion_point(class_scope:fk_data.SignedRecord)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  ::google::protobuf::internal::ArenaStringPtr hash_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -3318,10 +3441,122 @@ inline void DataRecord::set_allocated_readings(::fk_data::Readings* readings) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.readings)
 }
 
+// -------------------------------------------------------------------
+
+// SignedRecord
+
+// bytes data = 1;
+inline void SignedRecord::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SignedRecord::data() const {
+  // @@protoc_insertion_point(field_get:fk_data.SignedRecord.data)
+  return data_.GetNoArena();
+}
+inline void SignedRecord::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.SignedRecord.data)
+}
+#if LANG_CXX11
+inline void SignedRecord::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.SignedRecord.data)
+}
+#endif
+inline void SignedRecord::set_data(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.SignedRecord.data)
+}
+inline void SignedRecord::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.SignedRecord.data)
+}
+inline ::std::string* SignedRecord::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.SignedRecord.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SignedRecord::release_data() {
+  // @@protoc_insertion_point(field_release:fk_data.SignedRecord.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SignedRecord::set_allocated_data(::std::string* data) {
+  if (data != NULL) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.SignedRecord.data)
+}
+
+// bytes hash = 2;
+inline void SignedRecord::clear_hash() {
+  hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SignedRecord::hash() const {
+  // @@protoc_insertion_point(field_get:fk_data.SignedRecord.hash)
+  return hash_.GetNoArena();
+}
+inline void SignedRecord::set_hash(const ::std::string& value) {
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.SignedRecord.hash)
+}
+#if LANG_CXX11
+inline void SignedRecord::set_hash(::std::string&& value) {
+  
+  hash_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.SignedRecord.hash)
+}
+#endif
+inline void SignedRecord::set_hash(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.SignedRecord.hash)
+}
+inline void SignedRecord::set_hash(const void* value, size_t size) {
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.SignedRecord.hash)
+}
+inline ::std::string* SignedRecord::mutable_hash() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.SignedRecord.hash)
+  return hash_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SignedRecord::release_hash() {
+  // @@protoc_insertion_point(field_release:fk_data.SignedRecord.hash)
+  
+  return hash_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SignedRecord::set_allocated_hash(::std::string* hash) {
+  if (hash != NULL) {
+    
+  } else {
+    
+  }
+  hash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hash);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.SignedRecord.hash)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
