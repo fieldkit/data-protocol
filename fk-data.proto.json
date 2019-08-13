@@ -4,6 +4,10 @@
       "nested": {
         "DeviceLocation": {
           "fields": {
+            "enabled": {
+              "type": "uint32",
+              "id": 7
+            },
             "fix": {
               "type": "uint32",
               "id": 1

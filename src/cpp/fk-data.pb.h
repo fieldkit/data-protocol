@@ -237,6 +237,12 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
   float altitude() const;
   void set_altitude(float value);
 
+  // uint32 enabled = 7;
+  void clear_enabled();
+  static const int kEnabledFieldNumber = 7;
+  ::google::protobuf::uint32 enabled() const;
+  void set_enabled(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.DeviceLocation)
  private:
 
@@ -248,6 +254,7 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
   float longitude_;
   float latitude_;
   float altitude_;
+  ::google::protobuf::uint32 enabled_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -1802,6 +1809,20 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
 // DeviceLocation
+
+// uint32 enabled = 7;
+inline void DeviceLocation::clear_enabled() {
+  enabled_ = 0u;
+}
+inline ::google::protobuf::uint32 DeviceLocation::enabled() const {
+  // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.enabled)
+  return enabled_;
+}
+inline void DeviceLocation::set_enabled(::google::protobuf::uint32 value) {
+  
+  enabled_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.enabled)
+}
 
 // uint32 fix = 1;
 inline void DeviceLocation::clear_fix() {
