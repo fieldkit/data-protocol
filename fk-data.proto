@@ -29,10 +29,19 @@ message SensorAndValue {
   float value = 2;
 }
 
+message ModuleHeader {
+  uint32 manufacturer = 1;
+  uint32 kind = 2;
+  uint32 version = 3;
+}
+
 message ModuleInfo {
   uint32 id = 1;
   uint32 address = 2;
   string name = 3;
+  ModuleHeader header = 4;
+  Firmware firmware = 5;
+  repeated SensorInfo sensors = 6;
 }
 
 message SensorInfo {
@@ -98,6 +107,7 @@ message DataRecord {
   LogMessage log = 3;
   Status status = 4;
   Readings readings = 5;
+  repeated ModuleInfo modules = 6;
 }
 
 message SignedRecord {

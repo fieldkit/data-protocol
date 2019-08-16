@@ -38,6 +38,11 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<SensorAndValue>
      _instance;
 } _SensorAndValue_default_instance_;
+class ModuleHeaderDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ModuleHeader>
+     _instance;
+} _ModuleHeader_default_instance_;
 class ModuleInfoDefaultTypeInternal {
 public:
  ::google::protobuf::internal::ExplicitlyConstructed<ModuleInfo>
@@ -94,7 +99,7 @@ namespace protobuf_fk_2ddata_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[14];
+::google::protobuf::Metadata file_level_metadata[15];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 }  // namespace
@@ -110,6 +115,7 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
@@ -164,6 +170,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorAndValue, sensor_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorAndValue, value_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleHeader, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleHeader, manufacturer_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleHeader, kind_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleHeader, version_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -171,6 +185,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, address_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, header_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, firmware_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, sensors_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -246,6 +263,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, log_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, status_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, readings_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, modules_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -261,16 +279,17 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 12, -1, sizeof(SensorReading)},
   { 21, -1, sizeof(LoggedReading)},
   { 29, -1, sizeof(SensorAndValue)},
-  { 36, -1, sizeof(ModuleInfo)},
-  { 44, -1, sizeof(SensorInfo)},
-  { 52, -1, sizeof(Firmware)},
-  { 59, -1, sizeof(Metadata)},
-  { 72, -1, sizeof(Status)},
-  { 82, -1, sizeof(LogMessage)},
-  { 92, -1, sizeof(SensorGroup)},
-  { 99, -1, sizeof(Readings)},
-  { 109, -1, sizeof(DataRecord)},
-  { 119, -1, sizeof(SignedRecord)},
+  { 36, -1, sizeof(ModuleHeader)},
+  { 44, -1, sizeof(ModuleInfo)},
+  { 55, -1, sizeof(SensorInfo)},
+  { 63, -1, sizeof(Firmware)},
+  { 70, -1, sizeof(Metadata)},
+  { 83, -1, sizeof(Status)},
+  { 93, -1, sizeof(LogMessage)},
+  { 103, -1, sizeof(SensorGroup)},
+  { 110, -1, sizeof(Readings)},
+  { 120, -1, sizeof(DataRecord)},
+  { 131, -1, sizeof(SignedRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -278,6 +297,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_SensorReading_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_LoggedReading_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_SensorAndValue_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_ModuleHeader_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_ModuleInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_SensorInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Firmware_default_instance_),
@@ -308,7 +328,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 14);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 15);
 }
 
 }  // namespace
@@ -324,7 +344,9 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_LoggedReading_default_instance_);_SensorAndValue_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_SensorAndValue_default_instance_);_ModuleInfo_default_instance_._instance.DefaultConstruct();
+      &_SensorAndValue_default_instance_);_ModuleHeader_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ModuleHeader_default_instance_);_ModuleInfo_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_ModuleInfo_default_instance_);_SensorInfo_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
@@ -348,6 +370,10 @@ void TableStruct::InitDefaultsImpl() {
       ::fk_data::DeviceLocation::internal_default_instance());
   _LoggedReading_default_instance_._instance.get_mutable()->reading_ = const_cast< ::fk_data::SensorReading*>(
       ::fk_data::SensorReading::internal_default_instance());
+  _ModuleInfo_default_instance_._instance.get_mutable()->header_ = const_cast< ::fk_data::ModuleHeader*>(
+      ::fk_data::ModuleHeader::internal_default_instance());
+  _ModuleInfo_default_instance_._instance.get_mutable()->firmware_ = const_cast< ::fk_data::Firmware*>(
+      ::fk_data::Firmware::internal_default_instance());
   _Metadata_default_instance_._instance.get_mutable()->firmware_ = const_cast< ::fk_data::Firmware*>(
       ::fk_data::Firmware::internal_default_instance());
   _Readings_default_instance_._instance.get_mutable()->location_ = const_cast< ::fk_data::DeviceLocation*>(
@@ -382,39 +408,44 @@ void AddDescriptorsImpl() {
       "location\030\002 \001(\0132\027.fk_data.DeviceLocation\022"
       "\'\n\007reading\030\003 \001(\0132\026.fk_data.SensorReading"
       "\"/\n\016SensorAndValue\022\016\n\006sensor\030\001 \001(\r\022\r\n\005va"
-      "lue\030\002 \001(\002\"7\n\nModuleInfo\022\n\n\002id\030\001 \001(\r\022\017\n\007a"
-      "ddress\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\"A\n\nSensorInfo"
-      "\022\016\n\006sensor\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\025\n\runitOf"
-      "Measure\030\003 \001(\t\"&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022\r"
-      "\n\005build\030\002 \001(\t\"\313\001\n\010Metadata\022\020\n\010deviceId\030\001"
-      " \001(\014\022\014\n\004time\030\002 \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005build"
-      "\030\007 \001(\t\022\022\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030\005 "
-      "\003(\0132\023.fk_data.SensorInfo\022$\n\007modules\030\006 \003("
-      "\0132\023.fk_data.ModuleInfo\022#\n\010firmware\030\010 \001(\013"
-      "2\021.fk_data.Firmware\"U\n\006Status\022\014\n\004time\030\001 "
-      "\001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006"
-      "memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogMessage"
-      "\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\r\n\005level\030"
-      "\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message\030\005 \001(\t"
-      "\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n\010readi"
-      "ngs\030\002 \003(\0132\027.fk_data.SensorAndValue\"\217\001\n\010R"
-      "eadings\022\014\n\004time\030\001 \001(\004\022\017\n\007reading\030\002 \001(\r\022\r"
-      "\n\005flags\030\003 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_dat"
-      "a.DeviceLocation\022*\n\014sensorGroups\030\005 \003(\0132\024"
-      ".fk_data.SensorGroup\"\310\001\n\nDataRecord\022-\n\rl"
-      "oggedReading\030\001 \001(\0132\026.fk_data.LoggedReadi"
-      "ng\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022"
-      " \n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006sta"
-      "tus\030\004 \001(\0132\017.fk_data.Status\022#\n\010readings\030\005"
-      " \001(\0132\021.fk_data.Readings\"F\n\014SignedRecord\022"
-      "\014\n\004kind\030\001 \001(\r\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001("
-      "\014\022\014\n\004hash\030\004 \001(\014*b\n\rDownloadFlags\022\026\n\022READ"
-      "ING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RE"
-      "CORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002b\006pro"
-      "to3"
+      "lue\030\002 \001(\002\"C\n\014ModuleHeader\022\024\n\014manufacture"
+      "r\030\001 \001(\r\022\014\n\004kind\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"\251"
+      "\001\n\nModuleInfo\022\n\n\002id\030\001 \001(\r\022\017\n\007address\030\002 \001"
+      "(\r\022\014\n\004name\030\003 \001(\t\022%\n\006header\030\004 \001(\0132\025.fk_da"
+      "ta.ModuleHeader\022#\n\010firmware\030\005 \001(\0132\021.fk_d"
+      "ata.Firmware\022$\n\007sensors\030\006 \003(\0132\023.fk_data."
+      "SensorInfo\"A\n\nSensorInfo\022\016\n\006sensor\030\001 \001(\r"
+      "\022\014\n\004name\030\002 \001(\t\022\025\n\runitOfMeasure\030\003 \001(\t\"&\n"
+      "\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030\002 \001(\t\"\313\001"
+      "\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001"
+      "(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nresetC"
+      "ause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk_data.Se"
+      "nsorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_data.Modu"
+      "leInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_data.Firmw"
+      "are\"U\n\006Status\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 "
+      "\001(\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004"
+      "busy\030\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016"
+      "\n\006uptime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facilit"
+      "y\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022"
+      "\016\n\006module\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_d"
+      "ata.SensorAndValue\"\217\001\n\010Readings\022\014\n\004time\030"
+      "\001 \001(\004\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022)\n"
+      "\010location\030\004 \001(\0132\027.fk_data.DeviceLocation"
+      "\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_data.SensorG"
+      "roup\"\356\001\n\nDataRecord\022-\n\rloggedReading\030\001 \001"
+      "(\0132\026.fk_data.LoggedReading\022#\n\010metadata\030\002"
+      " \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132\023.f"
+      "k_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_d"
+      "ata.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data.R"
+      "eadings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Modul"
+      "eInfo\"F\n\014SignedRecord\022\014\n\004kind\030\001 \001(\r\022\014\n\004t"
+      "ime\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014*b\n"
+      "\rDownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037"
+      "\n\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READI"
+      "NG_FLAGS_MANUAL\020\002b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1563);
+      descriptor, 1785);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -2194,9 +2225,372 @@ void SensorAndValue::set_value(float value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ModuleHeader::kManufacturerFieldNumber;
+const int ModuleHeader::kKindFieldNumber;
+const int ModuleHeader::kVersionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ModuleHeader::ModuleHeader()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fk_2ddata_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fk_data.ModuleHeader)
+}
+ModuleHeader::ModuleHeader(const ModuleHeader& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&manufacturer_, &from.manufacturer_,
+    static_cast<size_t>(reinterpret_cast<char*>(&version_) -
+    reinterpret_cast<char*>(&manufacturer_)) + sizeof(version_));
+  // @@protoc_insertion_point(copy_constructor:fk_data.ModuleHeader)
+}
+
+void ModuleHeader::SharedCtor() {
+  ::memset(&manufacturer_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&version_) -
+      reinterpret_cast<char*>(&manufacturer_)) + sizeof(version_));
+  _cached_size_ = 0;
+}
+
+ModuleHeader::~ModuleHeader() {
+  // @@protoc_insertion_point(destructor:fk_data.ModuleHeader)
+  SharedDtor();
+}
+
+void ModuleHeader::SharedDtor() {
+}
+
+void ModuleHeader::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ModuleHeader::descriptor() {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const ModuleHeader& ModuleHeader::default_instance() {
+  protobuf_fk_2ddata_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+ModuleHeader* ModuleHeader::New(::google::protobuf::Arena* arena) const {
+  ModuleHeader* n = new ModuleHeader;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void ModuleHeader::Clear() {
+// @@protoc_insertion_point(message_clear_start:fk_data.ModuleHeader)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&manufacturer_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&version_) -
+      reinterpret_cast<char*>(&manufacturer_)) + sizeof(version_));
+  _internal_metadata_.Clear();
+}
+
+bool ModuleHeader::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fk_data.ModuleHeader)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 manufacturer = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &manufacturer_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 kind = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &kind_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 version = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &version_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fk_data.ModuleHeader)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fk_data.ModuleHeader)
+  return false;
+#undef DO_
+}
+
+void ModuleHeader::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fk_data.ModuleHeader)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 manufacturer = 1;
+  if (this->manufacturer() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->manufacturer(), output);
+  }
+
+  // uint32 kind = 2;
+  if (this->kind() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->kind(), output);
+  }
+
+  // uint32 version = 3;
+  if (this->version() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->version(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:fk_data.ModuleHeader)
+}
+
+::google::protobuf::uint8* ModuleHeader::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:fk_data.ModuleHeader)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 manufacturer = 1;
+  if (this->manufacturer() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->manufacturer(), target);
+  }
+
+  // uint32 kind = 2;
+  if (this->kind() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->kind(), target);
+  }
+
+  // uint32 version = 3;
+  if (this->version() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->version(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:fk_data.ModuleHeader)
+  return target;
+}
+
+size_t ModuleHeader::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fk_data.ModuleHeader)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint32 manufacturer = 1;
+  if (this->manufacturer() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->manufacturer());
+  }
+
+  // uint32 kind = 2;
+  if (this->kind() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->kind());
+  }
+
+  // uint32 version = 3;
+  if (this->version() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->version());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ModuleHeader::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fk_data.ModuleHeader)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ModuleHeader* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ModuleHeader>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.ModuleHeader)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.ModuleHeader)
+    MergeFrom(*source);
+  }
+}
+
+void ModuleHeader::MergeFrom(const ModuleHeader& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.ModuleHeader)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.manufacturer() != 0) {
+    set_manufacturer(from.manufacturer());
+  }
+  if (from.kind() != 0) {
+    set_kind(from.kind());
+  }
+  if (from.version() != 0) {
+    set_version(from.version());
+  }
+}
+
+void ModuleHeader::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fk_data.ModuleHeader)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ModuleHeader::CopyFrom(const ModuleHeader& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.ModuleHeader)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ModuleHeader::IsInitialized() const {
+  return true;
+}
+
+void ModuleHeader::Swap(ModuleHeader* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ModuleHeader::InternalSwap(ModuleHeader* other) {
+  using std::swap;
+  swap(manufacturer_, other->manufacturer_);
+  swap(kind_, other->kind_);
+  swap(version_, other->version_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata ModuleHeader::GetMetadata() const {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// ModuleHeader
+
+// uint32 manufacturer = 1;
+void ModuleHeader::clear_manufacturer() {
+  manufacturer_ = 0u;
+}
+::google::protobuf::uint32 ModuleHeader::manufacturer() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleHeader.manufacturer)
+  return manufacturer_;
+}
+void ModuleHeader::set_manufacturer(::google::protobuf::uint32 value) {
+  
+  manufacturer_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleHeader.manufacturer)
+}
+
+// uint32 kind = 2;
+void ModuleHeader::clear_kind() {
+  kind_ = 0u;
+}
+::google::protobuf::uint32 ModuleHeader::kind() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleHeader.kind)
+  return kind_;
+}
+void ModuleHeader::set_kind(::google::protobuf::uint32 value) {
+  
+  kind_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleHeader.kind)
+}
+
+// uint32 version = 3;
+void ModuleHeader::clear_version() {
+  version_ = 0u;
+}
+::google::protobuf::uint32 ModuleHeader::version() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleHeader.version)
+  return version_;
+}
+void ModuleHeader::set_version(::google::protobuf::uint32 value) {
+  
+  version_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleHeader.version)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ModuleInfo::kIdFieldNumber;
 const int ModuleInfo::kAddressFieldNumber;
 const int ModuleInfo::kNameFieldNumber;
+const int ModuleInfo::kHeaderFieldNumber;
+const int ModuleInfo::kFirmwareFieldNumber;
+const int ModuleInfo::kSensorsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ModuleInfo::ModuleInfo()
@@ -2210,11 +2604,22 @@ ModuleInfo::ModuleInfo()
 ModuleInfo::ModuleInfo(const ModuleInfo& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
+      sensors_(from.sensors_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.name().size() > 0) {
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.has_header()) {
+    header_ = new ::fk_data::ModuleHeader(*from.header_);
+  } else {
+    header_ = NULL;
+  }
+  if (from.has_firmware()) {
+    firmware_ = new ::fk_data::Firmware(*from.firmware_);
+  } else {
+    firmware_ = NULL;
   }
   ::memcpy(&id_, &from.id_,
     static_cast<size_t>(reinterpret_cast<char*>(&address_) -
@@ -2224,9 +2629,9 @@ ModuleInfo::ModuleInfo(const ModuleInfo& from)
 
 void ModuleInfo::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&id_, 0, static_cast<size_t>(
+  ::memset(&header_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&address_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(address_));
+      reinterpret_cast<char*>(&header_)) + sizeof(address_));
   _cached_size_ = 0;
 }
 
@@ -2237,6 +2642,8 @@ ModuleInfo::~ModuleInfo() {
 
 void ModuleInfo::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete header_;
+  if (this != internal_default_instance()) delete firmware_;
 }
 
 void ModuleInfo::SetCachedSize(int size) const {
@@ -2268,7 +2675,16 @@ void ModuleInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  sensors_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && header_ != NULL) {
+    delete header_;
+  }
+  header_ = NULL;
+  if (GetArenaNoVirtual() == NULL && firmware_ != NULL) {
+    delete firmware_;
+  }
+  firmware_ = NULL;
   ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&address_) -
       reinterpret_cast<char*>(&id_)) + sizeof(address_));
@@ -2329,6 +2745,42 @@ bool ModuleInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // .fk_data.ModuleHeader header = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_header()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fk_data.Firmware firmware = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_firmware()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .fk_data.SensorInfo sensors = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_sensors()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2375,6 +2827,25 @@ void ModuleInfo::SerializeWithCachedSizes(
       3, this->name(), output);
   }
 
+  // .fk_data.ModuleHeader header = 4;
+  if (this->has_header()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, *this->header_, output);
+  }
+
+  // .fk_data.Firmware firmware = 5;
+  if (this->has_firmware()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *this->firmware_, output);
+  }
+
+  // repeated .fk_data.SensorInfo sensors = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->sensors_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, this->sensors(static_cast<int>(i)), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -2410,6 +2881,28 @@ void ModuleInfo::SerializeWithCachedSizes(
         3, this->name(), target);
   }
 
+  // .fk_data.ModuleHeader header = 4;
+  if (this->has_header()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, *this->header_, deterministic, target);
+  }
+
+  // .fk_data.Firmware firmware = 5;
+  if (this->has_firmware()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, *this->firmware_, deterministic, target);
+  }
+
+  // repeated .fk_data.SensorInfo sensors = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->sensors_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        6, this->sensors(static_cast<int>(i)), deterministic, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -2427,11 +2920,36 @@ size_t ModuleInfo::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // repeated .fk_data.SensorInfo sensors = 6;
+  {
+    unsigned int count = static_cast<unsigned int>(this->sensors_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->sensors(static_cast<int>(i)));
+    }
+  }
+
   // string name = 3;
   if (this->name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
+  }
+
+  // .fk_data.ModuleHeader header = 4;
+  if (this->has_header()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->header_);
+  }
+
+  // .fk_data.Firmware firmware = 5;
+  if (this->has_firmware()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->firmware_);
   }
 
   // uint32 id = 1;
@@ -2477,9 +2995,16 @@ void ModuleInfo::MergeFrom(const ModuleInfo& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  sensors_.MergeFrom(from.sensors_);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.has_header()) {
+    mutable_header()->::fk_data::ModuleHeader::MergeFrom(from.header());
+  }
+  if (from.has_firmware()) {
+    mutable_firmware()->::fk_data::Firmware::MergeFrom(from.firmware());
   }
   if (from.id() != 0) {
     set_id(from.id());
@@ -2513,7 +3038,10 @@ void ModuleInfo::Swap(ModuleInfo* other) {
 }
 void ModuleInfo::InternalSwap(ModuleInfo* other) {
   using std::swap;
+  sensors_.InternalSwap(&other->sensors_);
   name_.Swap(&other->name_);
+  swap(header_, other->header_);
+  swap(firmware_, other->firmware_);
   swap(id_, other->id_);
   swap(address_, other->address_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -2607,6 +3135,116 @@ void ModuleInfo::set_allocated_name(::std::string* name) {
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.name)
+}
+
+// .fk_data.ModuleHeader header = 4;
+bool ModuleInfo::has_header() const {
+  return this != internal_default_instance() && header_ != NULL;
+}
+void ModuleInfo::clear_header() {
+  if (GetArenaNoVirtual() == NULL && header_ != NULL) delete header_;
+  header_ = NULL;
+}
+const ::fk_data::ModuleHeader& ModuleInfo::header() const {
+  const ::fk_data::ModuleHeader* p = header_;
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.header)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::ModuleHeader*>(
+      &::fk_data::_ModuleHeader_default_instance_);
+}
+::fk_data::ModuleHeader* ModuleInfo::mutable_header() {
+  
+  if (header_ == NULL) {
+    header_ = new ::fk_data::ModuleHeader;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.header)
+  return header_;
+}
+::fk_data::ModuleHeader* ModuleInfo::release_header() {
+  // @@protoc_insertion_point(field_release:fk_data.ModuleInfo.header)
+  
+  ::fk_data::ModuleHeader* temp = header_;
+  header_ = NULL;
+  return temp;
+}
+void ModuleInfo::set_allocated_header(::fk_data::ModuleHeader* header) {
+  delete header_;
+  header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.header)
+}
+
+// .fk_data.Firmware firmware = 5;
+bool ModuleInfo::has_firmware() const {
+  return this != internal_default_instance() && firmware_ != NULL;
+}
+void ModuleInfo::clear_firmware() {
+  if (GetArenaNoVirtual() == NULL && firmware_ != NULL) delete firmware_;
+  firmware_ = NULL;
+}
+const ::fk_data::Firmware& ModuleInfo::firmware() const {
+  const ::fk_data::Firmware* p = firmware_;
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.firmware)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::Firmware*>(
+      &::fk_data::_Firmware_default_instance_);
+}
+::fk_data::Firmware* ModuleInfo::mutable_firmware() {
+  
+  if (firmware_ == NULL) {
+    firmware_ = new ::fk_data::Firmware;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.firmware)
+  return firmware_;
+}
+::fk_data::Firmware* ModuleInfo::release_firmware() {
+  // @@protoc_insertion_point(field_release:fk_data.ModuleInfo.firmware)
+  
+  ::fk_data::Firmware* temp = firmware_;
+  firmware_ = NULL;
+  return temp;
+}
+void ModuleInfo::set_allocated_firmware(::fk_data::Firmware* firmware) {
+  delete firmware_;
+  firmware_ = firmware;
+  if (firmware) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.firmware)
+}
+
+// repeated .fk_data.SensorInfo sensors = 6;
+int ModuleInfo::sensors_size() const {
+  return sensors_.size();
+}
+void ModuleInfo::clear_sensors() {
+  sensors_.Clear();
+}
+const ::fk_data::SensorInfo& ModuleInfo::sensors(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.sensors)
+  return sensors_.Get(index);
+}
+::fk_data::SensorInfo* ModuleInfo::mutable_sensors(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.sensors)
+  return sensors_.Mutable(index);
+}
+::fk_data::SensorInfo* ModuleInfo::add_sensors() {
+  // @@protoc_insertion_point(field_add:fk_data.ModuleInfo.sensors)
+  return sensors_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo >*
+ModuleInfo::mutable_sensors() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.ModuleInfo.sensors)
+  return &sensors_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo >&
+ModuleInfo::sensors() const {
+  // @@protoc_insertion_point(field_list:fk_data.ModuleInfo.sensors)
+  return sensors_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -6260,6 +6898,7 @@ const int DataRecord::kMetadataFieldNumber;
 const int DataRecord::kLogFieldNumber;
 const int DataRecord::kStatusFieldNumber;
 const int DataRecord::kReadingsFieldNumber;
+const int DataRecord::kModulesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 DataRecord::DataRecord()
@@ -6273,6 +6912,7 @@ DataRecord::DataRecord()
 DataRecord::DataRecord(const DataRecord& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
+      modules_(from.modules_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_loggedreading()) {
@@ -6352,6 +6992,7 @@ void DataRecord::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  modules_.Clear();
   if (GetArenaNoVirtual() == NULL && loggedreading_ != NULL) {
     delete loggedreading_;
   }
@@ -6445,6 +7086,18 @@ bool DataRecord::MergePartialFromCodedStream(
         break;
       }
 
+      // repeated .fk_data.ModuleInfo modules = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_modules()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -6501,6 +7154,13 @@ void DataRecord::SerializeWithCachedSizes(
       5, *this->readings_, output);
   }
 
+  // repeated .fk_data.ModuleInfo modules = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->modules_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, this->modules(static_cast<int>(i)), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -6550,6 +7210,14 @@ void DataRecord::SerializeWithCachedSizes(
         5, *this->readings_, deterministic, target);
   }
 
+  // repeated .fk_data.ModuleInfo modules = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->modules_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        6, this->modules(static_cast<int>(i)), deterministic, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -6567,6 +7235,17 @@ size_t DataRecord::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // repeated .fk_data.ModuleInfo modules = 6;
+  {
+    unsigned int count = static_cast<unsigned int>(this->modules_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->modules(static_cast<int>(i)));
+    }
+  }
+
   // .fk_data.LoggedReading loggedReading = 1;
   if (this->has_loggedreading()) {
     total_size += 1 +
@@ -6631,6 +7310,7 @@ void DataRecord::MergeFrom(const DataRecord& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  modules_.MergeFrom(from.modules_);
   if (from.has_loggedreading()) {
     mutable_loggedreading()->::fk_data::LoggedReading::MergeFrom(from.loggedreading());
   }
@@ -6672,6 +7352,7 @@ void DataRecord::Swap(DataRecord* other) {
 }
 void DataRecord::InternalSwap(DataRecord* other) {
   using std::swap;
+  modules_.InternalSwap(&other->modules_);
   swap(loggedreading_, other->loggedreading_);
   swap(metadata_, other->metadata_);
   swap(log_, other->log_);
@@ -6887,6 +7568,36 @@ void DataRecord::set_allocated_readings(::fk_data::Readings* readings) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.readings)
+}
+
+// repeated .fk_data.ModuleInfo modules = 6;
+int DataRecord::modules_size() const {
+  return modules_.size();
+}
+void DataRecord::clear_modules() {
+  modules_.Clear();
+}
+const ::fk_data::ModuleInfo& DataRecord::modules(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.modules)
+  return modules_.Get(index);
+}
+::fk_data::ModuleInfo* DataRecord::mutable_modules(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.modules)
+  return modules_.Mutable(index);
+}
+::fk_data::ModuleInfo* DataRecord::add_modules() {
+  // @@protoc_insertion_point(field_add:fk_data.DataRecord.modules)
+  return modules_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo >*
+DataRecord::mutable_modules() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.DataRecord.modules)
+  return &modules_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo >&
+DataRecord::modules() const {
+  // @@protoc_insertion_point(field_list:fk_data.DataRecord.modules)
+  return modules_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

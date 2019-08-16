@@ -20,6 +20,9 @@ PB_BIND(fk_data_LoggedReading, fk_data_LoggedReading, AUTO)
 PB_BIND(fk_data_SensorAndValue, fk_data_SensorAndValue, AUTO)
 
 
+PB_BIND(fk_data_ModuleHeader, fk_data_ModuleHeader, AUTO)
+
+
 PB_BIND(fk_data_ModuleInfo, fk_data_ModuleInfo, AUTO)
 
 

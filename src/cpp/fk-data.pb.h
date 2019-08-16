@@ -50,6 +50,9 @@ extern LoggedReadingDefaultTypeInternal _LoggedReading_default_instance_;
 class Metadata;
 class MetadataDefaultTypeInternal;
 extern MetadataDefaultTypeInternal _Metadata_default_instance_;
+class ModuleHeader;
+class ModuleHeaderDefaultTypeInternal;
+extern ModuleHeaderDefaultTypeInternal _ModuleHeader_default_instance_;
 class ModuleInfo;
 class ModuleInfoDefaultTypeInternal;
 extern ModuleInfoDefaultTypeInternal _ModuleInfo_default_instance_;
@@ -602,6 +605,117 @@ class SensorAndValue : public ::google::protobuf::Message /* @@protoc_insertion_
 };
 // -------------------------------------------------------------------
 
+class ModuleHeader : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.ModuleHeader) */ {
+ public:
+  ModuleHeader();
+  virtual ~ModuleHeader();
+
+  ModuleHeader(const ModuleHeader& from);
+
+  inline ModuleHeader& operator=(const ModuleHeader& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ModuleHeader(ModuleHeader&& from) noexcept
+    : ModuleHeader() {
+    *this = ::std::move(from);
+  }
+
+  inline ModuleHeader& operator=(ModuleHeader&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ModuleHeader& default_instance();
+
+  static inline const ModuleHeader* internal_default_instance() {
+    return reinterpret_cast<const ModuleHeader*>(
+               &_ModuleHeader_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(ModuleHeader* other);
+  friend void swap(ModuleHeader& a, ModuleHeader& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ModuleHeader* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  ModuleHeader* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const ModuleHeader& from);
+  void MergeFrom(const ModuleHeader& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(ModuleHeader* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint32 manufacturer = 1;
+  void clear_manufacturer();
+  static const int kManufacturerFieldNumber = 1;
+  ::google::protobuf::uint32 manufacturer() const;
+  void set_manufacturer(::google::protobuf::uint32 value);
+
+  // uint32 kind = 2;
+  void clear_kind();
+  static const int kKindFieldNumber = 2;
+  ::google::protobuf::uint32 kind() const;
+  void set_kind(::google::protobuf::uint32 value);
+
+  // uint32 version = 3;
+  void clear_version();
+  static const int kVersionFieldNumber = 3;
+  ::google::protobuf::uint32 version() const;
+  void set_version(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:fk_data.ModuleHeader)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 manufacturer_;
+  ::google::protobuf::uint32 kind_;
+  ::google::protobuf::uint32 version_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.ModuleInfo) */ {
  public:
   ModuleInfo();
@@ -636,7 +750,7 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_ModuleInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(ModuleInfo* other);
   friend void swap(ModuleInfo& a, ModuleInfo& b) {
@@ -683,6 +797,18 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
+  // repeated .fk_data.SensorInfo sensors = 6;
+  int sensors_size() const;
+  void clear_sensors();
+  static const int kSensorsFieldNumber = 6;
+  const ::fk_data::SensorInfo& sensors(int index) const;
+  ::fk_data::SensorInfo* mutable_sensors(int index);
+  ::fk_data::SensorInfo* add_sensors();
+  ::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo >*
+      mutable_sensors();
+  const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo >&
+      sensors() const;
+
   // string name = 3;
   void clear_name();
   static const int kNameFieldNumber = 3;
@@ -696,6 +822,24 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* mutable_name();
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
+
+  // .fk_data.ModuleHeader header = 4;
+  bool has_header() const;
+  void clear_header();
+  static const int kHeaderFieldNumber = 4;
+  const ::fk_data::ModuleHeader& header() const;
+  ::fk_data::ModuleHeader* mutable_header();
+  ::fk_data::ModuleHeader* release_header();
+  void set_allocated_header(::fk_data::ModuleHeader* header);
+
+  // .fk_data.Firmware firmware = 5;
+  bool has_firmware() const;
+  void clear_firmware();
+  static const int kFirmwareFieldNumber = 5;
+  const ::fk_data::Firmware& firmware() const;
+  ::fk_data::Firmware* mutable_firmware();
+  ::fk_data::Firmware* release_firmware();
+  void set_allocated_firmware(::fk_data::Firmware* firmware);
 
   // uint32 id = 1;
   void clear_id();
@@ -713,7 +857,10 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo > sensors_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::fk_data::ModuleHeader* header_;
+  ::fk_data::Firmware* firmware_;
   ::google::protobuf::uint32 id_;
   ::google::protobuf::uint32 address_;
   mutable int _cached_size_;
@@ -755,7 +902,7 @@ class SensorInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_SensorInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(SensorInfo* other);
   friend void swap(SensorInfo& a, SensorInfo& b) {
@@ -882,7 +1029,7 @@ class Firmware : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_Firmware_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(Firmware* other);
   friend void swap(Firmware& a, Firmware& b) {
@@ -1002,7 +1149,7 @@ class Metadata : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_Metadata_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(Metadata* other);
   friend void swap(Metadata& a, Metadata& b) {
@@ -1187,7 +1334,7 @@ class Status : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
                &_Status_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    8;
+    9;
 
   void Swap(Status* other);
   friend void swap(Status& a, Status& b) {
@@ -1312,7 +1459,7 @@ class LogMessage : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_LogMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    9;
+    10;
 
   void Swap(LogMessage* other);
   friend void swap(LogMessage& a, LogMessage& b) {
@@ -1453,7 +1600,7 @@ class SensorGroup : public ::google::protobuf::Message /* @@protoc_insertion_poi
                &_SensorGroup_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    10;
+    11;
 
   void Swap(SensorGroup* other);
   friend void swap(SensorGroup& a, SensorGroup& b) {
@@ -1563,7 +1710,7 @@ class Readings : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_Readings_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
+    12;
 
   void Swap(Readings* other);
   friend void swap(Readings& a, Readings& b) {
@@ -1697,7 +1844,7 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_DataRecord_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(DataRecord* other);
   friend void swap(DataRecord& a, DataRecord& b) {
@@ -1743,6 +1890,18 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   // nested types ----------------------------------------------------
 
   // accessors -------------------------------------------------------
+
+  // repeated .fk_data.ModuleInfo modules = 6;
+  int modules_size() const;
+  void clear_modules();
+  static const int kModulesFieldNumber = 6;
+  const ::fk_data::ModuleInfo& modules(int index) const;
+  ::fk_data::ModuleInfo* mutable_modules(int index);
+  ::fk_data::ModuleInfo* add_modules();
+  ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo >*
+      mutable_modules();
+  const ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo >&
+      modules() const;
 
   // .fk_data.LoggedReading loggedReading = 1;
   bool has_loggedreading() const;
@@ -1793,6 +1952,7 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo > modules_;
   ::fk_data::LoggedReading* loggedreading_;
   ::fk_data::Metadata* metadata_;
   ::fk_data::LogMessage* log_;
@@ -1837,7 +1997,7 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_SignedRecord_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(SignedRecord* other);
   friend void swap(SignedRecord& a, SignedRecord& b) {
@@ -2253,6 +2413,52 @@ inline void SensorAndValue::set_value(float value) {
 
 // -------------------------------------------------------------------
 
+// ModuleHeader
+
+// uint32 manufacturer = 1;
+inline void ModuleHeader::clear_manufacturer() {
+  manufacturer_ = 0u;
+}
+inline ::google::protobuf::uint32 ModuleHeader::manufacturer() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleHeader.manufacturer)
+  return manufacturer_;
+}
+inline void ModuleHeader::set_manufacturer(::google::protobuf::uint32 value) {
+  
+  manufacturer_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleHeader.manufacturer)
+}
+
+// uint32 kind = 2;
+inline void ModuleHeader::clear_kind() {
+  kind_ = 0u;
+}
+inline ::google::protobuf::uint32 ModuleHeader::kind() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleHeader.kind)
+  return kind_;
+}
+inline void ModuleHeader::set_kind(::google::protobuf::uint32 value) {
+  
+  kind_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleHeader.kind)
+}
+
+// uint32 version = 3;
+inline void ModuleHeader::clear_version() {
+  version_ = 0u;
+}
+inline ::google::protobuf::uint32 ModuleHeader::version() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleHeader.version)
+  return version_;
+}
+inline void ModuleHeader::set_version(::google::protobuf::uint32 value) {
+  
+  version_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleHeader.version)
+}
+
+// -------------------------------------------------------------------
+
 // ModuleInfo
 
 // uint32 id = 1;
@@ -2334,6 +2540,116 @@ inline void ModuleInfo::set_allocated_name(::std::string* name) {
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.name)
+}
+
+// .fk_data.ModuleHeader header = 4;
+inline bool ModuleInfo::has_header() const {
+  return this != internal_default_instance() && header_ != NULL;
+}
+inline void ModuleInfo::clear_header() {
+  if (GetArenaNoVirtual() == NULL && header_ != NULL) delete header_;
+  header_ = NULL;
+}
+inline const ::fk_data::ModuleHeader& ModuleInfo::header() const {
+  const ::fk_data::ModuleHeader* p = header_;
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.header)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::ModuleHeader*>(
+      &::fk_data::_ModuleHeader_default_instance_);
+}
+inline ::fk_data::ModuleHeader* ModuleInfo::mutable_header() {
+  
+  if (header_ == NULL) {
+    header_ = new ::fk_data::ModuleHeader;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.header)
+  return header_;
+}
+inline ::fk_data::ModuleHeader* ModuleInfo::release_header() {
+  // @@protoc_insertion_point(field_release:fk_data.ModuleInfo.header)
+  
+  ::fk_data::ModuleHeader* temp = header_;
+  header_ = NULL;
+  return temp;
+}
+inline void ModuleInfo::set_allocated_header(::fk_data::ModuleHeader* header) {
+  delete header_;
+  header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.header)
+}
+
+// .fk_data.Firmware firmware = 5;
+inline bool ModuleInfo::has_firmware() const {
+  return this != internal_default_instance() && firmware_ != NULL;
+}
+inline void ModuleInfo::clear_firmware() {
+  if (GetArenaNoVirtual() == NULL && firmware_ != NULL) delete firmware_;
+  firmware_ = NULL;
+}
+inline const ::fk_data::Firmware& ModuleInfo::firmware() const {
+  const ::fk_data::Firmware* p = firmware_;
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.firmware)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::Firmware*>(
+      &::fk_data::_Firmware_default_instance_);
+}
+inline ::fk_data::Firmware* ModuleInfo::mutable_firmware() {
+  
+  if (firmware_ == NULL) {
+    firmware_ = new ::fk_data::Firmware;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.firmware)
+  return firmware_;
+}
+inline ::fk_data::Firmware* ModuleInfo::release_firmware() {
+  // @@protoc_insertion_point(field_release:fk_data.ModuleInfo.firmware)
+  
+  ::fk_data::Firmware* temp = firmware_;
+  firmware_ = NULL;
+  return temp;
+}
+inline void ModuleInfo::set_allocated_firmware(::fk_data::Firmware* firmware) {
+  delete firmware_;
+  firmware_ = firmware;
+  if (firmware) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.firmware)
+}
+
+// repeated .fk_data.SensorInfo sensors = 6;
+inline int ModuleInfo::sensors_size() const {
+  return sensors_.size();
+}
+inline void ModuleInfo::clear_sensors() {
+  sensors_.Clear();
+}
+inline const ::fk_data::SensorInfo& ModuleInfo::sensors(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.sensors)
+  return sensors_.Get(index);
+}
+inline ::fk_data::SensorInfo* ModuleInfo::mutable_sensors(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.sensors)
+  return sensors_.Mutable(index);
+}
+inline ::fk_data::SensorInfo* ModuleInfo::add_sensors() {
+  // @@protoc_insertion_point(field_add:fk_data.ModuleInfo.sensors)
+  return sensors_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo >*
+ModuleInfo::mutable_sensors() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.ModuleInfo.sensors)
+  return &sensors_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo >&
+ModuleInfo::sensors() const {
+  // @@protoc_insertion_point(field_list:fk_data.ModuleInfo.sensors)
+  return sensors_;
 }
 
 // -------------------------------------------------------------------
@@ -3455,6 +3771,36 @@ inline void DataRecord::set_allocated_readings(::fk_data::Readings* readings) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.readings)
 }
 
+// repeated .fk_data.ModuleInfo modules = 6;
+inline int DataRecord::modules_size() const {
+  return modules_.size();
+}
+inline void DataRecord::clear_modules() {
+  modules_.Clear();
+}
+inline const ::fk_data::ModuleInfo& DataRecord::modules(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.modules)
+  return modules_.Get(index);
+}
+inline ::fk_data::ModuleInfo* DataRecord::mutable_modules(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.modules)
+  return modules_.Mutable(index);
+}
+inline ::fk_data::ModuleInfo* DataRecord::add_modules() {
+  // @@protoc_insertion_point(field_add:fk_data.DataRecord.modules)
+  return modules_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo >*
+DataRecord::mutable_modules() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.DataRecord.modules)
+  return &modules_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo >&
+DataRecord::modules() const {
+  // @@protoc_insertion_point(field_list:fk_data.DataRecord.modules)
+  return modules_;
+}
+
 // -------------------------------------------------------------------
 
 // SignedRecord
@@ -3597,6 +3943,8 @@ inline void SignedRecord::set_allocated_hash(::std::string* hash) {
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -67,12 +67,12 @@ typedef struct _fk_data_Metadata {
 } fk_data_Metadata;
 
 
-typedef struct _fk_data_ModuleInfo {
-    uint32_t id;
-    uint32_t address;
-    pb_callback_t name;
-/* @@protoc_insertion_point(struct:fk_data_ModuleInfo) */
-} fk_data_ModuleInfo;
+typedef struct _fk_data_ModuleHeader {
+    uint32_t manufacturer;
+    uint32_t kind;
+    uint32_t version;
+/* @@protoc_insertion_point(struct:fk_data_ModuleHeader) */
+} fk_data_ModuleHeader;
 
 
 typedef struct _fk_data_SensorAndValue {
@@ -133,6 +133,17 @@ typedef struct _fk_data_LoggedReading {
 } fk_data_LoggedReading;
 
 
+typedef struct _fk_data_ModuleInfo {
+    uint32_t id;
+    uint32_t address;
+    pb_callback_t name;
+    fk_data_ModuleHeader header;
+    fk_data_Firmware firmware;
+    pb_callback_t sensors;
+/* @@protoc_insertion_point(struct:fk_data_ModuleInfo) */
+} fk_data_ModuleInfo;
+
+
 typedef struct _fk_data_Readings {
     uint64_t time;
     uint32_t reading;
@@ -149,6 +160,7 @@ typedef struct _fk_data_DataRecord {
     fk_data_LogMessage log;
     fk_data_Status status;
     fk_data_Readings readings;
+    pb_callback_t modules;
 /* @@protoc_insertion_point(struct:fk_data_DataRecord) */
 } fk_data_DataRecord;
 
@@ -158,7 +170,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorReading_init_default       {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_default       {0, fk_data_DeviceLocation_init_default, fk_data_SensorReading_init_default}
 #define fk_data_SensorAndValue_init_default      {0, 0}
-#define fk_data_ModuleInfo_init_default          {0, 0, {{NULL}, NULL}}
+#define fk_data_ModuleHeader_init_default        {0, 0, 0}
+#define fk_data_ModuleInfo_init_default          {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_default, fk_data_Firmware_init_default, {{NULL}, NULL}}
 #define fk_data_SensorInfo_init_default          {0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Firmware_init_default            {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Metadata_init_default            {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_default}
@@ -166,13 +179,14 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
-#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default}
+#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default, {{NULL}, NULL}}
 #define fk_data_SignedRecord_init_default        {0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
 #define fk_data_SensorAndValue_init_zero         {0, 0}
-#define fk_data_ModuleInfo_init_zero             {0, 0, {{NULL}, NULL}}
+#define fk_data_ModuleHeader_init_zero           {0, 0, 0}
+#define fk_data_ModuleInfo_init_zero             {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_zero, fk_data_Firmware_init_zero, {{NULL}, NULL}}
 #define fk_data_SensorInfo_init_zero             {0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Firmware_init_zero               {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Metadata_init_zero               {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_zero}
@@ -180,7 +194,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}}
-#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero}
+#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero, {{NULL}, NULL}}
 #define fk_data_SignedRecord_init_zero           {0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
@@ -206,9 +220,9 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Metadata_sensors_tag             5
 #define fk_data_Metadata_modules_tag             6
 #define fk_data_Metadata_firmware_tag            8
-#define fk_data_ModuleInfo_id_tag                1
-#define fk_data_ModuleInfo_address_tag           2
-#define fk_data_ModuleInfo_name_tag              3
+#define fk_data_ModuleHeader_manufacturer_tag    1
+#define fk_data_ModuleHeader_kind_tag            2
+#define fk_data_ModuleHeader_version_tag         3
 #define fk_data_SensorAndValue_sensor_tag        1
 #define fk_data_SensorAndValue_value_tag         2
 #define fk_data_SensorGroup_module_tag           1
@@ -232,6 +246,12 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoggedReading_version_tag        1
 #define fk_data_LoggedReading_location_tag       2
 #define fk_data_LoggedReading_reading_tag        3
+#define fk_data_ModuleInfo_id_tag                1
+#define fk_data_ModuleInfo_address_tag           2
+#define fk_data_ModuleInfo_name_tag              3
+#define fk_data_ModuleInfo_header_tag            4
+#define fk_data_ModuleInfo_firmware_tag          5
+#define fk_data_ModuleInfo_sensors_tag           6
 #define fk_data_Readings_time_tag                1
 #define fk_data_Readings_reading_tag             2
 #define fk_data_Readings_flags_tag               3
@@ -242,6 +262,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DataRecord_log_tag               3
 #define fk_data_DataRecord_status_tag            4
 #define fk_data_DataRecord_readings_tag          5
+#define fk_data_DataRecord_modules_tag           6
 
 /* Struct field encoding specification for nanopb */
 #define fk_data_DeviceLocation_FIELDLIST(X, a) \
@@ -278,12 +299,25 @@ X(a, STATIC, SINGULAR, FLOAT, value, 2)
 #define fk_data_SensorAndValue_CALLBACK NULL
 #define fk_data_SensorAndValue_DEFAULT NULL
 
+#define fk_data_ModuleHeader_FIELDLIST(X, a) \
+X(a, STATIC, SINGULAR, UINT32, manufacturer, 1) \
+X(a, STATIC, SINGULAR, UINT32, kind, 2) \
+X(a, STATIC, SINGULAR, UINT32, version, 3)
+#define fk_data_ModuleHeader_CALLBACK NULL
+#define fk_data_ModuleHeader_DEFAULT NULL
+
 #define fk_data_ModuleInfo_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UINT32, id, 1) \
 X(a, STATIC, SINGULAR, UINT32, address, 2) \
-X(a, CALLBACK, SINGULAR, STRING, name, 3)
+X(a, CALLBACK, SINGULAR, STRING, name, 3) \
+X(a, STATIC, SINGULAR, MESSAGE, header, 4) \
+X(a, STATIC, SINGULAR, MESSAGE, firmware, 5) \
+X(a, CALLBACK, REPEATED, MESSAGE, sensors, 6)
 #define fk_data_ModuleInfo_CALLBACK pb_default_field_callback
 #define fk_data_ModuleInfo_DEFAULT NULL
+#define fk_data_ModuleInfo_header_MSGTYPE fk_data_ModuleHeader
+#define fk_data_ModuleInfo_firmware_MSGTYPE fk_data_Firmware
+#define fk_data_ModuleInfo_sensors_MSGTYPE fk_data_SensorInfo
 
 #define fk_data_SensorInfo_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UINT32, sensor, 1) \
@@ -354,14 +388,16 @@ X(a, STATIC, SINGULAR, MESSAGE, loggedReading, 1) \
 X(a, STATIC, SINGULAR, MESSAGE, metadata, 2) \
 X(a, STATIC, SINGULAR, MESSAGE, log, 3) \
 X(a, STATIC, SINGULAR, MESSAGE, status, 4) \
-X(a, STATIC, SINGULAR, MESSAGE, readings, 5)
-#define fk_data_DataRecord_CALLBACK NULL
+X(a, STATIC, SINGULAR, MESSAGE, readings, 5) \
+X(a, CALLBACK, REPEATED, MESSAGE, modules, 6)
+#define fk_data_DataRecord_CALLBACK pb_default_field_callback
 #define fk_data_DataRecord_DEFAULT NULL
 #define fk_data_DataRecord_loggedReading_MSGTYPE fk_data_LoggedReading
 #define fk_data_DataRecord_metadata_MSGTYPE fk_data_Metadata
 #define fk_data_DataRecord_log_MSGTYPE fk_data_LogMessage
 #define fk_data_DataRecord_status_MSGTYPE fk_data_Status
 #define fk_data_DataRecord_readings_MSGTYPE fk_data_Readings
+#define fk_data_DataRecord_modules_MSGTYPE fk_data_ModuleInfo
 
 #define fk_data_SignedRecord_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UINT32, kind, 1) \
@@ -375,6 +411,7 @@ extern const pb_msgdesc_t fk_data_DeviceLocation_msg;
 extern const pb_msgdesc_t fk_data_SensorReading_msg;
 extern const pb_msgdesc_t fk_data_LoggedReading_msg;
 extern const pb_msgdesc_t fk_data_SensorAndValue_msg;
+extern const pb_msgdesc_t fk_data_ModuleHeader_msg;
 extern const pb_msgdesc_t fk_data_ModuleInfo_msg;
 extern const pb_msgdesc_t fk_data_SensorInfo_msg;
 extern const pb_msgdesc_t fk_data_Firmware_msg;
@@ -391,6 +428,7 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 #define fk_data_SensorReading_fields &fk_data_SensorReading_msg
 #define fk_data_LoggedReading_fields &fk_data_LoggedReading_msg
 #define fk_data_SensorAndValue_fields &fk_data_SensorAndValue_msg
+#define fk_data_ModuleHeader_fields &fk_data_ModuleHeader_msg
 #define fk_data_ModuleInfo_fields &fk_data_ModuleInfo_msg
 #define fk_data_SensorInfo_fields &fk_data_SensorInfo_msg
 #define fk_data_Firmware_fields &fk_data_Firmware_msg
@@ -407,6 +445,7 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 #define fk_data_SensorReading_size               28
 /* fk_data_LoggedReading_size depends on runtime parameters */
 #define fk_data_SensorAndValue_size              11
+#define fk_data_ModuleHeader_size                18
 /* fk_data_ModuleInfo_size depends on runtime parameters */
 /* fk_data_SensorInfo_size depends on runtime parameters */
 /* fk_data_Firmware_size depends on runtime parameters */

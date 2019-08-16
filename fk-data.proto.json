@@ -83,6 +83,22 @@
             }
           }
         },
+        "ModuleHeader": {
+          "fields": {
+            "manufacturer": {
+              "type": "uint32",
+              "id": 1
+            },
+            "kind": {
+              "type": "uint32",
+              "id": 2
+            },
+            "version": {
+              "type": "uint32",
+              "id": 3
+            }
+          }
+        },
         "ModuleInfo": {
           "fields": {
             "id": {
@@ -96,6 +112,19 @@
             "name": {
               "type": "string",
               "id": 3
+            },
+            "header": {
+              "type": "ModuleHeader",
+              "id": 4
+            },
+            "firmware": {
+              "type": "Firmware",
+              "id": 5
+            },
+            "sensors": {
+              "rule": "repeated",
+              "type": "SensorInfo",
+              "id": 6
             }
           }
         },
@@ -279,6 +308,11 @@
             "readings": {
               "type": "Readings",
               "id": 5
+            },
+            "modules": {
+              "rule": "repeated",
+              "type": "ModuleInfo",
+              "id": 6
             }
           }
         },
