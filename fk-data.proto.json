@@ -287,6 +287,42 @@
             }
           }
         },
+        "JobSchedule": {
+          "fields": {
+            "cron": {
+              "type": "bytes",
+              "id": 1
+            }
+          }
+        },
+        "Schedule": {
+          "fields": {
+            "readings": {
+              "type": "JobSchedule",
+              "id": 1
+            },
+            "misc": {
+              "type": "JobSchedule",
+              "id": 2
+            }
+          }
+        },
+        "Identity": {
+          "fields": {
+            "name": {
+              "type": "string",
+              "id": 1
+            }
+          }
+        },
+        "Condition": {
+          "fields": {
+            "flags": {
+              "type": "uint32",
+              "id": 1
+            }
+          }
+        },
         "DataRecord": {
           "fields": {
             "loggedReading": {
@@ -313,13 +349,38 @@
               "rule": "repeated",
               "type": "ModuleInfo",
               "id": 6
+            },
+            "schedule": {
+              "type": "Schedule",
+              "id": 7
+            },
+            "meta": {
+              "type": "uint64",
+              "id": 8
+            },
+            "identity": {
+              "type": "Identity",
+              "id": 9
+            },
+            "condition": {
+              "type": "Condition",
+              "id": 10
             }
+          }
+        },
+        "SignedRecordKind": {
+          "values": {
+            "SIGNED_RECORD_KIND_NONE": 0,
+            "SIGNED_RECORD_KIND_MODULES": 1,
+            "SIGNED_RECORD_KIND_SCHEDULE": 2,
+            "SIGNED_RECORD_KIND_STATE": 3,
+            "SIGNED_RECORD_KIND_OTHER": 255
           }
         },
         "SignedRecord": {
           "fields": {
             "kind": {
-              "type": "uint32",
+              "type": "SignedRecordKind",
               "id": 1
             },
             "time": {
@@ -333,6 +394,10 @@
             "hash": {
               "type": "bytes",
               "id": 4
+            },
+            "record": {
+              "type": "uint64",
+              "id": 5
             }
           }
         }

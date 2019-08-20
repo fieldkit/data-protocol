@@ -32,6 +32,9 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 namespace fk_data {
+class Condition;
+class ConditionDefaultTypeInternal;
+extern ConditionDefaultTypeInternal _Condition_default_instance_;
 class DataRecord;
 class DataRecordDefaultTypeInternal;
 extern DataRecordDefaultTypeInternal _DataRecord_default_instance_;
@@ -41,6 +44,12 @@ extern DeviceLocationDefaultTypeInternal _DeviceLocation_default_instance_;
 class Firmware;
 class FirmwareDefaultTypeInternal;
 extern FirmwareDefaultTypeInternal _Firmware_default_instance_;
+class Identity;
+class IdentityDefaultTypeInternal;
+extern IdentityDefaultTypeInternal _Identity_default_instance_;
+class JobSchedule;
+class JobScheduleDefaultTypeInternal;
+extern JobScheduleDefaultTypeInternal _JobSchedule_default_instance_;
 class LogMessage;
 class LogMessageDefaultTypeInternal;
 extern LogMessageDefaultTypeInternal _LogMessage_default_instance_;
@@ -59,6 +68,9 @@ extern ModuleInfoDefaultTypeInternal _ModuleInfo_default_instance_;
 class Readings;
 class ReadingsDefaultTypeInternal;
 extern ReadingsDefaultTypeInternal _Readings_default_instance_;
+class Schedule;
+class ScheduleDefaultTypeInternal;
+extern ScheduleDefaultTypeInternal _Schedule_default_instance_;
 class SensorAndValue;
 class SensorAndValueDefaultTypeInternal;
 extern SensorAndValueDefaultTypeInternal _SensorAndValue_default_instance_;
@@ -117,6 +129,30 @@ inline bool DownloadFlags_Parse(
     const ::std::string& name, DownloadFlags* value) {
   return ::google::protobuf::internal::ParseNamedEnum<DownloadFlags>(
     DownloadFlags_descriptor(), name, value);
+}
+enum SignedRecordKind {
+  SIGNED_RECORD_KIND_NONE = 0,
+  SIGNED_RECORD_KIND_MODULES = 1,
+  SIGNED_RECORD_KIND_SCHEDULE = 2,
+  SIGNED_RECORD_KIND_STATE = 3,
+  SIGNED_RECORD_KIND_OTHER = 255,
+  SignedRecordKind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  SignedRecordKind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool SignedRecordKind_IsValid(int value);
+const SignedRecordKind SignedRecordKind_MIN = SIGNED_RECORD_KIND_NONE;
+const SignedRecordKind SignedRecordKind_MAX = SIGNED_RECORD_KIND_OTHER;
+const int SignedRecordKind_ARRAYSIZE = SignedRecordKind_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* SignedRecordKind_descriptor();
+inline const ::std::string& SignedRecordKind_Name(SignedRecordKind value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    SignedRecordKind_descriptor(), value);
+}
+inline bool SignedRecordKind_Parse(
+    const ::std::string& name, SignedRecordKind* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SignedRecordKind>(
+    SignedRecordKind_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1810,6 +1846,423 @@ class Readings : public ::google::protobuf::Message /* @@protoc_insertion_point(
 };
 // -------------------------------------------------------------------
 
+class JobSchedule : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.JobSchedule) */ {
+ public:
+  JobSchedule();
+  virtual ~JobSchedule();
+
+  JobSchedule(const JobSchedule& from);
+
+  inline JobSchedule& operator=(const JobSchedule& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  JobSchedule(JobSchedule&& from) noexcept
+    : JobSchedule() {
+    *this = ::std::move(from);
+  }
+
+  inline JobSchedule& operator=(JobSchedule&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const JobSchedule& default_instance();
+
+  static inline const JobSchedule* internal_default_instance() {
+    return reinterpret_cast<const JobSchedule*>(
+               &_JobSchedule_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    13;
+
+  void Swap(JobSchedule* other);
+  friend void swap(JobSchedule& a, JobSchedule& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline JobSchedule* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  JobSchedule* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const JobSchedule& from);
+  void MergeFrom(const JobSchedule& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(JobSchedule* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes cron = 1;
+  void clear_cron();
+  static const int kCronFieldNumber = 1;
+  const ::std::string& cron() const;
+  void set_cron(const ::std::string& value);
+  #if LANG_CXX11
+  void set_cron(::std::string&& value);
+  #endif
+  void set_cron(const char* value);
+  void set_cron(const void* value, size_t size);
+  ::std::string* mutable_cron();
+  ::std::string* release_cron();
+  void set_allocated_cron(::std::string* cron);
+
+  // @@protoc_insertion_point(class_scope:fk_data.JobSchedule)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr cron_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Schedule : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.Schedule) */ {
+ public:
+  Schedule();
+  virtual ~Schedule();
+
+  Schedule(const Schedule& from);
+
+  inline Schedule& operator=(const Schedule& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Schedule(Schedule&& from) noexcept
+    : Schedule() {
+    *this = ::std::move(from);
+  }
+
+  inline Schedule& operator=(Schedule&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Schedule& default_instance();
+
+  static inline const Schedule* internal_default_instance() {
+    return reinterpret_cast<const Schedule*>(
+               &_Schedule_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    14;
+
+  void Swap(Schedule* other);
+  friend void swap(Schedule& a, Schedule& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Schedule* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Schedule* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Schedule& from);
+  void MergeFrom(const Schedule& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Schedule* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .fk_data.JobSchedule readings = 1;
+  bool has_readings() const;
+  void clear_readings();
+  static const int kReadingsFieldNumber = 1;
+  const ::fk_data::JobSchedule& readings() const;
+  ::fk_data::JobSchedule* mutable_readings();
+  ::fk_data::JobSchedule* release_readings();
+  void set_allocated_readings(::fk_data::JobSchedule* readings);
+
+  // .fk_data.JobSchedule misc = 2;
+  bool has_misc() const;
+  void clear_misc();
+  static const int kMiscFieldNumber = 2;
+  const ::fk_data::JobSchedule& misc() const;
+  ::fk_data::JobSchedule* mutable_misc();
+  ::fk_data::JobSchedule* release_misc();
+  void set_allocated_misc(::fk_data::JobSchedule* misc);
+
+  // @@protoc_insertion_point(class_scope:fk_data.Schedule)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::fk_data::JobSchedule* readings_;
+  ::fk_data::JobSchedule* misc_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Identity : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.Identity) */ {
+ public:
+  Identity();
+  virtual ~Identity();
+
+  Identity(const Identity& from);
+
+  inline Identity& operator=(const Identity& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Identity(Identity&& from) noexcept
+    : Identity() {
+    *this = ::std::move(from);
+  }
+
+  inline Identity& operator=(Identity&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Identity& default_instance();
+
+  static inline const Identity* internal_default_instance() {
+    return reinterpret_cast<const Identity*>(
+               &_Identity_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    15;
+
+  void Swap(Identity* other);
+  friend void swap(Identity& a, Identity& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Identity* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Identity* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Identity& from);
+  void MergeFrom(const Identity& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Identity* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string name = 1;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:fk_data.Identity)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Condition : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.Condition) */ {
+ public:
+  Condition();
+  virtual ~Condition();
+
+  Condition(const Condition& from);
+
+  inline Condition& operator=(const Condition& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Condition(Condition&& from) noexcept
+    : Condition() {
+    *this = ::std::move(from);
+  }
+
+  inline Condition& operator=(Condition&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Condition& default_instance();
+
+  static inline const Condition* internal_default_instance() {
+    return reinterpret_cast<const Condition*>(
+               &_Condition_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    16;
+
+  void Swap(Condition* other);
+  friend void swap(Condition& a, Condition& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Condition* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Condition* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Condition& from);
+  void MergeFrom(const Condition& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Condition* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint32 flags = 1;
+  void clear_flags();
+  static const int kFlagsFieldNumber = 1;
+  ::google::protobuf::uint32 flags() const;
+  void set_flags(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:fk_data.Condition)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 flags_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.DataRecord) */ {
  public:
   DataRecord();
@@ -1844,7 +2297,7 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_DataRecord_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    17;
 
   void Swap(DataRecord* other);
   friend void swap(DataRecord& a, DataRecord& b) {
@@ -1948,6 +2401,39 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::Readings* release_readings();
   void set_allocated_readings(::fk_data::Readings* readings);
 
+  // .fk_data.Schedule schedule = 7;
+  bool has_schedule() const;
+  void clear_schedule();
+  static const int kScheduleFieldNumber = 7;
+  const ::fk_data::Schedule& schedule() const;
+  ::fk_data::Schedule* mutable_schedule();
+  ::fk_data::Schedule* release_schedule();
+  void set_allocated_schedule(::fk_data::Schedule* schedule);
+
+  // .fk_data.Identity identity = 9;
+  bool has_identity() const;
+  void clear_identity();
+  static const int kIdentityFieldNumber = 9;
+  const ::fk_data::Identity& identity() const;
+  ::fk_data::Identity* mutable_identity();
+  ::fk_data::Identity* release_identity();
+  void set_allocated_identity(::fk_data::Identity* identity);
+
+  // .fk_data.Condition condition = 10;
+  bool has_condition() const;
+  void clear_condition();
+  static const int kConditionFieldNumber = 10;
+  const ::fk_data::Condition& condition() const;
+  ::fk_data::Condition* mutable_condition();
+  ::fk_data::Condition* release_condition();
+  void set_allocated_condition(::fk_data::Condition* condition);
+
+  // uint64 meta = 8;
+  void clear_meta();
+  static const int kMetaFieldNumber = 8;
+  ::google::protobuf::uint64 meta() const;
+  void set_meta(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.DataRecord)
  private:
 
@@ -1958,6 +2444,10 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::LogMessage* log_;
   ::fk_data::Status* status_;
   ::fk_data::Readings* readings_;
+  ::fk_data::Schedule* schedule_;
+  ::fk_data::Identity* identity_;
+  ::fk_data::Condition* condition_;
+  ::google::protobuf::uint64 meta_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -1997,7 +2487,7 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_SignedRecord_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    18;
 
   void Swap(SignedRecord* other);
   friend void swap(SignedRecord& a, SignedRecord& b) {
@@ -2078,11 +2568,17 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::uint64 time() const;
   void set_time(::google::protobuf::uint64 value);
 
-  // uint32 kind = 1;
+  // uint64 record = 5;
+  void clear_record();
+  static const int kRecordFieldNumber = 5;
+  ::google::protobuf::uint64 record() const;
+  void set_record(::google::protobuf::uint64 value);
+
+  // .fk_data.SignedRecordKind kind = 1;
   void clear_kind();
   static const int kKindFieldNumber = 1;
-  ::google::protobuf::uint32 kind() const;
-  void set_kind(::google::protobuf::uint32 value);
+  ::fk_data::SignedRecordKind kind() const;
+  void set_kind(::fk_data::SignedRecordKind value);
 
   // @@protoc_insertion_point(class_scope:fk_data.SignedRecord)
  private:
@@ -2091,7 +2587,8 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::ArenaStringPtr data_;
   ::google::protobuf::internal::ArenaStringPtr hash_;
   ::google::protobuf::uint64 time_;
-  ::google::protobuf::uint32 kind_;
+  ::google::protobuf::uint64 record_;
+  int kind_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -3569,6 +4066,222 @@ Readings::sensorgroups() const {
 
 // -------------------------------------------------------------------
 
+// JobSchedule
+
+// bytes cron = 1;
+inline void JobSchedule::clear_cron() {
+  cron_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& JobSchedule::cron() const {
+  // @@protoc_insertion_point(field_get:fk_data.JobSchedule.cron)
+  return cron_.GetNoArena();
+}
+inline void JobSchedule::set_cron(const ::std::string& value) {
+  
+  cron_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.JobSchedule.cron)
+}
+#if LANG_CXX11
+inline void JobSchedule::set_cron(::std::string&& value) {
+  
+  cron_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.JobSchedule.cron)
+}
+#endif
+inline void JobSchedule::set_cron(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  cron_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.JobSchedule.cron)
+}
+inline void JobSchedule::set_cron(const void* value, size_t size) {
+  
+  cron_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.JobSchedule.cron)
+}
+inline ::std::string* JobSchedule::mutable_cron() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.JobSchedule.cron)
+  return cron_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* JobSchedule::release_cron() {
+  // @@protoc_insertion_point(field_release:fk_data.JobSchedule.cron)
+  
+  return cron_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void JobSchedule::set_allocated_cron(::std::string* cron) {
+  if (cron != NULL) {
+    
+  } else {
+    
+  }
+  cron_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cron);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.JobSchedule.cron)
+}
+
+// -------------------------------------------------------------------
+
+// Schedule
+
+// .fk_data.JobSchedule readings = 1;
+inline bool Schedule::has_readings() const {
+  return this != internal_default_instance() && readings_ != NULL;
+}
+inline void Schedule::clear_readings() {
+  if (GetArenaNoVirtual() == NULL && readings_ != NULL) delete readings_;
+  readings_ = NULL;
+}
+inline const ::fk_data::JobSchedule& Schedule::readings() const {
+  const ::fk_data::JobSchedule* p = readings_;
+  // @@protoc_insertion_point(field_get:fk_data.Schedule.readings)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::JobSchedule*>(
+      &::fk_data::_JobSchedule_default_instance_);
+}
+inline ::fk_data::JobSchedule* Schedule::mutable_readings() {
+  
+  if (readings_ == NULL) {
+    readings_ = new ::fk_data::JobSchedule;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.readings)
+  return readings_;
+}
+inline ::fk_data::JobSchedule* Schedule::release_readings() {
+  // @@protoc_insertion_point(field_release:fk_data.Schedule.readings)
+  
+  ::fk_data::JobSchedule* temp = readings_;
+  readings_ = NULL;
+  return temp;
+}
+inline void Schedule::set_allocated_readings(::fk_data::JobSchedule* readings) {
+  delete readings_;
+  readings_ = readings;
+  if (readings) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.readings)
+}
+
+// .fk_data.JobSchedule misc = 2;
+inline bool Schedule::has_misc() const {
+  return this != internal_default_instance() && misc_ != NULL;
+}
+inline void Schedule::clear_misc() {
+  if (GetArenaNoVirtual() == NULL && misc_ != NULL) delete misc_;
+  misc_ = NULL;
+}
+inline const ::fk_data::JobSchedule& Schedule::misc() const {
+  const ::fk_data::JobSchedule* p = misc_;
+  // @@protoc_insertion_point(field_get:fk_data.Schedule.misc)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::JobSchedule*>(
+      &::fk_data::_JobSchedule_default_instance_);
+}
+inline ::fk_data::JobSchedule* Schedule::mutable_misc() {
+  
+  if (misc_ == NULL) {
+    misc_ = new ::fk_data::JobSchedule;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.misc)
+  return misc_;
+}
+inline ::fk_data::JobSchedule* Schedule::release_misc() {
+  // @@protoc_insertion_point(field_release:fk_data.Schedule.misc)
+  
+  ::fk_data::JobSchedule* temp = misc_;
+  misc_ = NULL;
+  return temp;
+}
+inline void Schedule::set_allocated_misc(::fk_data::JobSchedule* misc) {
+  delete misc_;
+  misc_ = misc;
+  if (misc) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.misc)
+}
+
+// -------------------------------------------------------------------
+
+// Identity
+
+// string name = 1;
+inline void Identity::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Identity::name() const {
+  // @@protoc_insertion_point(field_get:fk_data.Identity.name)
+  return name_.GetNoArena();
+}
+inline void Identity::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.Identity.name)
+}
+#if LANG_CXX11
+inline void Identity::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.Identity.name)
+}
+#endif
+inline void Identity::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.Identity.name)
+}
+inline void Identity::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.Identity.name)
+}
+inline ::std::string* Identity::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.Identity.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Identity::release_name() {
+  // @@protoc_insertion_point(field_release:fk_data.Identity.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Identity::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Identity.name)
+}
+
+// -------------------------------------------------------------------
+
+// Condition
+
+// uint32 flags = 1;
+inline void Condition::clear_flags() {
+  flags_ = 0u;
+}
+inline ::google::protobuf::uint32 Condition::flags() const {
+  // @@protoc_insertion_point(field_get:fk_data.Condition.flags)
+  return flags_;
+}
+inline void Condition::set_flags(::google::protobuf::uint32 value) {
+  
+  flags_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Condition.flags)
+}
+
+// -------------------------------------------------------------------
+
 // DataRecord
 
 // .fk_data.LoggedReading loggedReading = 1;
@@ -3801,19 +4514,153 @@ DataRecord::modules() const {
   return modules_;
 }
 
+// .fk_data.Schedule schedule = 7;
+inline bool DataRecord::has_schedule() const {
+  return this != internal_default_instance() && schedule_ != NULL;
+}
+inline void DataRecord::clear_schedule() {
+  if (GetArenaNoVirtual() == NULL && schedule_ != NULL) delete schedule_;
+  schedule_ = NULL;
+}
+inline const ::fk_data::Schedule& DataRecord::schedule() const {
+  const ::fk_data::Schedule* p = schedule_;
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.schedule)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::Schedule*>(
+      &::fk_data::_Schedule_default_instance_);
+}
+inline ::fk_data::Schedule* DataRecord::mutable_schedule() {
+  
+  if (schedule_ == NULL) {
+    schedule_ = new ::fk_data::Schedule;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.schedule)
+  return schedule_;
+}
+inline ::fk_data::Schedule* DataRecord::release_schedule() {
+  // @@protoc_insertion_point(field_release:fk_data.DataRecord.schedule)
+  
+  ::fk_data::Schedule* temp = schedule_;
+  schedule_ = NULL;
+  return temp;
+}
+inline void DataRecord::set_allocated_schedule(::fk_data::Schedule* schedule) {
+  delete schedule_;
+  schedule_ = schedule;
+  if (schedule) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.schedule)
+}
+
+// uint64 meta = 8;
+inline void DataRecord::clear_meta() {
+  meta_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 DataRecord::meta() const {
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.meta)
+  return meta_;
+}
+inline void DataRecord::set_meta(::google::protobuf::uint64 value) {
+  
+  meta_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.DataRecord.meta)
+}
+
+// .fk_data.Identity identity = 9;
+inline bool DataRecord::has_identity() const {
+  return this != internal_default_instance() && identity_ != NULL;
+}
+inline void DataRecord::clear_identity() {
+  if (GetArenaNoVirtual() == NULL && identity_ != NULL) delete identity_;
+  identity_ = NULL;
+}
+inline const ::fk_data::Identity& DataRecord::identity() const {
+  const ::fk_data::Identity* p = identity_;
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.identity)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::Identity*>(
+      &::fk_data::_Identity_default_instance_);
+}
+inline ::fk_data::Identity* DataRecord::mutable_identity() {
+  
+  if (identity_ == NULL) {
+    identity_ = new ::fk_data::Identity;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.identity)
+  return identity_;
+}
+inline ::fk_data::Identity* DataRecord::release_identity() {
+  // @@protoc_insertion_point(field_release:fk_data.DataRecord.identity)
+  
+  ::fk_data::Identity* temp = identity_;
+  identity_ = NULL;
+  return temp;
+}
+inline void DataRecord::set_allocated_identity(::fk_data::Identity* identity) {
+  delete identity_;
+  identity_ = identity;
+  if (identity) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.identity)
+}
+
+// .fk_data.Condition condition = 10;
+inline bool DataRecord::has_condition() const {
+  return this != internal_default_instance() && condition_ != NULL;
+}
+inline void DataRecord::clear_condition() {
+  if (GetArenaNoVirtual() == NULL && condition_ != NULL) delete condition_;
+  condition_ = NULL;
+}
+inline const ::fk_data::Condition& DataRecord::condition() const {
+  const ::fk_data::Condition* p = condition_;
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.condition)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::Condition*>(
+      &::fk_data::_Condition_default_instance_);
+}
+inline ::fk_data::Condition* DataRecord::mutable_condition() {
+  
+  if (condition_ == NULL) {
+    condition_ = new ::fk_data::Condition;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.condition)
+  return condition_;
+}
+inline ::fk_data::Condition* DataRecord::release_condition() {
+  // @@protoc_insertion_point(field_release:fk_data.DataRecord.condition)
+  
+  ::fk_data::Condition* temp = condition_;
+  condition_ = NULL;
+  return temp;
+}
+inline void DataRecord::set_allocated_condition(::fk_data::Condition* condition) {
+  delete condition_;
+  condition_ = condition;
+  if (condition) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.condition)
+}
+
 // -------------------------------------------------------------------
 
 // SignedRecord
 
-// uint32 kind = 1;
+// .fk_data.SignedRecordKind kind = 1;
 inline void SignedRecord::clear_kind() {
-  kind_ = 0u;
+  kind_ = 0;
 }
-inline ::google::protobuf::uint32 SignedRecord::kind() const {
+inline ::fk_data::SignedRecordKind SignedRecord::kind() const {
   // @@protoc_insertion_point(field_get:fk_data.SignedRecord.kind)
-  return kind_;
+  return static_cast< ::fk_data::SignedRecordKind >(kind_);
 }
-inline void SignedRecord::set_kind(::google::protobuf::uint32 value) {
+inline void SignedRecord::set_kind(::fk_data::SignedRecordKind value) {
   
   kind_ = value;
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.kind)
@@ -3939,10 +4786,32 @@ inline void SignedRecord::set_allocated_hash(::std::string* hash) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.SignedRecord.hash)
 }
 
+// uint64 record = 5;
+inline void SignedRecord::clear_record() {
+  record_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 SignedRecord::record() const {
+  // @@protoc_insertion_point(field_get:fk_data.SignedRecord.record)
+  return record_;
+}
+inline void SignedRecord::set_record(::google::protobuf::uint64 value) {
+  
+  record_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SignedRecord.record)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -3984,6 +4853,11 @@ template <> struct is_proto_enum< ::fk_data::DownloadFlags> : ::google::protobuf
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::fk_data::DownloadFlags>() {
   return ::fk_data::DownloadFlags_descriptor();
+}
+template <> struct is_proto_enum< ::fk_data::SignedRecordKind> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::fk_data::SignedRecordKind>() {
+  return ::fk_data::SignedRecordKind_descriptor();
 }
 
 }  // namespace protobuf

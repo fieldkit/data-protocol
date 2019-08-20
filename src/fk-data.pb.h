@@ -24,12 +24,41 @@ typedef enum _fk_data_DownloadFlags {
 #define _fk_data_DownloadFlags_MAX fk_data_DownloadFlags_READING_FLAGS_MANUAL
 #define _fk_data_DownloadFlags_ARRAYSIZE ((fk_data_DownloadFlags)(fk_data_DownloadFlags_READING_FLAGS_MANUAL+1))
 
+typedef enum _fk_data_SignedRecordKind {
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_NONE = 0,
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_MODULES = 1,
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_SCHEDULE = 2,
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_STATE = 3,
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER = 255
+} fk_data_SignedRecordKind;
+#define _fk_data_SignedRecordKind_MIN fk_data_SignedRecordKind_SIGNED_RECORD_KIND_NONE
+#define _fk_data_SignedRecordKind_MAX fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER
+#define _fk_data_SignedRecordKind_ARRAYSIZE ((fk_data_SignedRecordKind)(fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER+1))
+
 /* Struct definitions */
 typedef struct _fk_data_Firmware {
     pb_callback_t git;
     pb_callback_t build;
 /* @@protoc_insertion_point(struct:fk_data_Firmware) */
 } fk_data_Firmware;
+
+
+typedef struct _fk_data_Identity {
+    pb_callback_t name;
+/* @@protoc_insertion_point(struct:fk_data_Identity) */
+} fk_data_Identity;
+
+
+typedef struct _fk_data_JobSchedule {
+    pb_callback_t cron;
+/* @@protoc_insertion_point(struct:fk_data_JobSchedule) */
+} fk_data_JobSchedule;
+
+
+typedef struct _fk_data_Condition {
+    uint32_t flags;
+/* @@protoc_insertion_point(struct:fk_data_Condition) */
+} fk_data_Condition;
 
 
 typedef struct _fk_data_DeviceLocation {
@@ -75,6 +104,13 @@ typedef struct _fk_data_ModuleHeader {
 } fk_data_ModuleHeader;
 
 
+typedef struct _fk_data_Schedule {
+    fk_data_JobSchedule readings;
+    fk_data_JobSchedule misc;
+/* @@protoc_insertion_point(struct:fk_data_Schedule) */
+} fk_data_Schedule;
+
+
 typedef struct _fk_data_SensorAndValue {
     uint32_t sensor;
     float value;
@@ -107,10 +143,11 @@ typedef struct _fk_data_SensorReading {
 
 
 typedef struct _fk_data_SignedRecord {
-    uint32_t kind;
+    fk_data_SignedRecordKind kind;
     uint64_t time;
     pb_callback_t data;
     pb_callback_t hash;
+    uint64_t record;
 /* @@protoc_insertion_point(struct:fk_data_SignedRecord) */
 } fk_data_SignedRecord;
 
@@ -161,6 +198,10 @@ typedef struct _fk_data_DataRecord {
     fk_data_Status status;
     fk_data_Readings readings;
     pb_callback_t modules;
+    fk_data_Schedule schedule;
+    uint64_t meta;
+    fk_data_Identity identity;
+    fk_data_Condition condition;
 /* @@protoc_insertion_point(struct:fk_data_DataRecord) */
 } fk_data_DataRecord;
 
@@ -179,8 +220,12 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
-#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default, {{NULL}, NULL}}
-#define fk_data_SignedRecord_init_default        {0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_JobSchedule_init_default         {{{NULL}, NULL}}
+#define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
+#define fk_data_Identity_init_default            {{{NULL}, NULL}}
+#define fk_data_Condition_init_default           {0}
+#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default, {{NULL}, NULL}, fk_data_Schedule_init_default, 0, fk_data_Identity_init_default, fk_data_Condition_init_default}
+#define fk_data_SignedRecord_init_default        {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
@@ -194,12 +239,19 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}}
-#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero, {{NULL}, NULL}}
-#define fk_data_SignedRecord_init_zero           {0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}}
+#define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
+#define fk_data_Identity_init_zero               {{{NULL}, NULL}}
+#define fk_data_Condition_init_zero              {0}
+#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero, {{NULL}, NULL}, fk_data_Schedule_init_zero, 0, fk_data_Identity_init_zero, fk_data_Condition_init_zero}
+#define fk_data_SignedRecord_init_zero           {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_Firmware_git_tag                 1
 #define fk_data_Firmware_build_tag               2
+#define fk_data_Identity_name_tag                1
+#define fk_data_JobSchedule_cron_tag             1
+#define fk_data_Condition_flags_tag              1
 #define fk_data_DeviceLocation_enabled_tag       7
 #define fk_data_DeviceLocation_fix_tag           1
 #define fk_data_DeviceLocation_time_tag          2
@@ -223,6 +275,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleHeader_manufacturer_tag    1
 #define fk_data_ModuleHeader_kind_tag            2
 #define fk_data_ModuleHeader_version_tag         3
+#define fk_data_Schedule_readings_tag            1
+#define fk_data_Schedule_misc_tag                2
 #define fk_data_SensorAndValue_sensor_tag        1
 #define fk_data_SensorAndValue_value_tag         2
 #define fk_data_SensorGroup_module_tag           1
@@ -238,6 +292,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SignedRecord_time_tag            2
 #define fk_data_SignedRecord_data_tag            3
 #define fk_data_SignedRecord_hash_tag            4
+#define fk_data_SignedRecord_record_tag          5
 #define fk_data_Status_time_tag                  1
 #define fk_data_Status_uptime_tag                2
 #define fk_data_Status_battery_tag               3
@@ -263,6 +318,10 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DataRecord_status_tag            4
 #define fk_data_DataRecord_readings_tag          5
 #define fk_data_DataRecord_modules_tag           6
+#define fk_data_DataRecord_schedule_tag          7
+#define fk_data_DataRecord_meta_tag              8
+#define fk_data_DataRecord_identity_tag          9
+#define fk_data_DataRecord_condition_tag         10
 
 /* Struct field encoding specification for nanopb */
 #define fk_data_DeviceLocation_FIELDLIST(X, a) \
@@ -383,13 +442,40 @@ X(a, CALLBACK, REPEATED, MESSAGE, sensorGroups, 5)
 #define fk_data_Readings_location_MSGTYPE fk_data_DeviceLocation
 #define fk_data_Readings_sensorGroups_MSGTYPE fk_data_SensorGroup
 
+#define fk_data_JobSchedule_FIELDLIST(X, a) \
+X(a, CALLBACK, SINGULAR, BYTES, cron, 1)
+#define fk_data_JobSchedule_CALLBACK pb_default_field_callback
+#define fk_data_JobSchedule_DEFAULT NULL
+
+#define fk_data_Schedule_FIELDLIST(X, a) \
+X(a, STATIC, SINGULAR, MESSAGE, readings, 1) \
+X(a, STATIC, SINGULAR, MESSAGE, misc, 2)
+#define fk_data_Schedule_CALLBACK NULL
+#define fk_data_Schedule_DEFAULT NULL
+#define fk_data_Schedule_readings_MSGTYPE fk_data_JobSchedule
+#define fk_data_Schedule_misc_MSGTYPE fk_data_JobSchedule
+
+#define fk_data_Identity_FIELDLIST(X, a) \
+X(a, CALLBACK, SINGULAR, STRING, name, 1)
+#define fk_data_Identity_CALLBACK pb_default_field_callback
+#define fk_data_Identity_DEFAULT NULL
+
+#define fk_data_Condition_FIELDLIST(X, a) \
+X(a, STATIC, SINGULAR, UINT32, flags, 1)
+#define fk_data_Condition_CALLBACK NULL
+#define fk_data_Condition_DEFAULT NULL
+
 #define fk_data_DataRecord_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, MESSAGE, loggedReading, 1) \
 X(a, STATIC, SINGULAR, MESSAGE, metadata, 2) \
 X(a, STATIC, SINGULAR, MESSAGE, log, 3) \
 X(a, STATIC, SINGULAR, MESSAGE, status, 4) \
 X(a, STATIC, SINGULAR, MESSAGE, readings, 5) \
-X(a, CALLBACK, REPEATED, MESSAGE, modules, 6)
+X(a, CALLBACK, REPEATED, MESSAGE, modules, 6) \
+X(a, STATIC, SINGULAR, MESSAGE, schedule, 7) \
+X(a, STATIC, SINGULAR, UINT64, meta, 8) \
+X(a, STATIC, SINGULAR, MESSAGE, identity, 9) \
+X(a, STATIC, SINGULAR, MESSAGE, condition, 10)
 #define fk_data_DataRecord_CALLBACK pb_default_field_callback
 #define fk_data_DataRecord_DEFAULT NULL
 #define fk_data_DataRecord_loggedReading_MSGTYPE fk_data_LoggedReading
@@ -398,12 +484,16 @@ X(a, CALLBACK, REPEATED, MESSAGE, modules, 6)
 #define fk_data_DataRecord_status_MSGTYPE fk_data_Status
 #define fk_data_DataRecord_readings_MSGTYPE fk_data_Readings
 #define fk_data_DataRecord_modules_MSGTYPE fk_data_ModuleInfo
+#define fk_data_DataRecord_schedule_MSGTYPE fk_data_Schedule
+#define fk_data_DataRecord_identity_MSGTYPE fk_data_Identity
+#define fk_data_DataRecord_condition_MSGTYPE fk_data_Condition
 
 #define fk_data_SignedRecord_FIELDLIST(X, a) \
-X(a, STATIC, SINGULAR, UINT32, kind, 1) \
+X(a, STATIC, SINGULAR, UENUM, kind, 1) \
 X(a, STATIC, SINGULAR, UINT64, time, 2) \
 X(a, CALLBACK, SINGULAR, BYTES, data, 3) \
-X(a, CALLBACK, SINGULAR, BYTES, hash, 4)
+X(a, CALLBACK, SINGULAR, BYTES, hash, 4) \
+X(a, STATIC, SINGULAR, UINT64, record, 5)
 #define fk_data_SignedRecord_CALLBACK pb_default_field_callback
 #define fk_data_SignedRecord_DEFAULT NULL
 
@@ -420,6 +510,10 @@ extern const pb_msgdesc_t fk_data_Status_msg;
 extern const pb_msgdesc_t fk_data_LogMessage_msg;
 extern const pb_msgdesc_t fk_data_SensorGroup_msg;
 extern const pb_msgdesc_t fk_data_Readings_msg;
+extern const pb_msgdesc_t fk_data_JobSchedule_msg;
+extern const pb_msgdesc_t fk_data_Schedule_msg;
+extern const pb_msgdesc_t fk_data_Identity_msg;
+extern const pb_msgdesc_t fk_data_Condition_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
 extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 
@@ -437,6 +531,10 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 #define fk_data_LogMessage_fields &fk_data_LogMessage_msg
 #define fk_data_SensorGroup_fields &fk_data_SensorGroup_msg
 #define fk_data_Readings_fields &fk_data_Readings_msg
+#define fk_data_JobSchedule_fields &fk_data_JobSchedule_msg
+#define fk_data_Schedule_fields &fk_data_Schedule_msg
+#define fk_data_Identity_fields &fk_data_Identity_msg
+#define fk_data_Condition_fields &fk_data_Condition_msg
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
 #define fk_data_SignedRecord_fields &fk_data_SignedRecord_msg
 
@@ -454,6 +552,10 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 /* fk_data_LogMessage_size depends on runtime parameters */
 /* fk_data_SensorGroup_size depends on runtime parameters */
 /* fk_data_Readings_size depends on runtime parameters */
+/* fk_data_JobSchedule_size depends on runtime parameters */
+/* fk_data_Schedule_size depends on runtime parameters */
+/* fk_data_Identity_size depends on runtime parameters */
+#define fk_data_Condition_size                   6
 /* fk_data_DataRecord_size depends on runtime parameters */
 /* fk_data_SignedRecord_size depends on runtime parameters */
 

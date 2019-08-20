@@ -47,10 +47,23 @@ PB_BIND(fk_data_SensorGroup, fk_data_SensorGroup, AUTO)
 PB_BIND(fk_data_Readings, fk_data_Readings, AUTO)
 
 
+PB_BIND(fk_data_JobSchedule, fk_data_JobSchedule, AUTO)
+
+
+PB_BIND(fk_data_Schedule, fk_data_Schedule, AUTO)
+
+
+PB_BIND(fk_data_Identity, fk_data_Identity, AUTO)
+
+
+PB_BIND(fk_data_Condition, fk_data_Condition, AUTO)
+
+
 PB_BIND(fk_data_DataRecord, fk_data_DataRecord, 2)
 
 
 PB_BIND(fk_data_SignedRecord, fk_data_SignedRecord, AUTO)
+
 
 
 

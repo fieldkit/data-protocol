@@ -101,6 +101,26 @@ message Readings {
   repeated SensorGroup sensorGroups = 5;
 }
 
+message JobSchedule {
+  bytes cron = 1;
+}
+
+message Schedule {
+  JobSchedule readings = 1;
+  JobSchedule misc = 2;
+}
+
+message Identity {
+  string name = 1;
+}
+
+message Condition {
+  uint32 flags = 1;
+}
+
+/**
+ * I may break this into a MetaRecord.
+ */
 message DataRecord {
   LoggedReading loggedReading = 1;
   Metadata metadata = 2;
@@ -108,11 +128,24 @@ message DataRecord {
   Status status = 4;
   Readings readings = 5;
   repeated ModuleInfo modules = 6;
+  Schedule schedule = 7;
+  uint64 meta = 8;
+  Identity identity = 9;
+  Condition condition = 10;
+}
+
+enum SignedRecordKind {
+  SIGNED_RECORD_KIND_NONE = 0;
+  SIGNED_RECORD_KIND_MODULES = 1;
+  SIGNED_RECORD_KIND_SCHEDULE = 2;
+  SIGNED_RECORD_KIND_STATE = 3;
+  SIGNED_RECORD_KIND_OTHER = 0xff;
 }
 
 message SignedRecord {
-  uint32 kind = 1;
+  SignedRecordKind kind = 1;
   uint64 time = 2;
   bytes data = 3;
   bytes hash = 4;
+  uint64 record = 5;
 }
