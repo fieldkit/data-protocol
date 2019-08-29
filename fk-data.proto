@@ -36,16 +36,17 @@ message ModuleHeader {
 }
 
 message ModuleInfo {
-  uint32 id = 1;
+  uint32 position = 1;
   uint32 address = 2;
   string name = 3;
   ModuleHeader header = 4;
   Firmware firmware = 5;
   repeated SensorInfo sensors = 6;
+  bytes id = 7;
 }
 
 message SensorInfo {
-  uint32 sensor = 1;
+  uint32 number = 1;
   string name = 2;
   string unitOfMeasure = 3;
 }

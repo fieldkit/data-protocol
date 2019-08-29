@@ -101,7 +101,7 @@
         },
         "ModuleInfo": {
           "fields": {
-            "id": {
+            "position": {
               "type": "uint32",
               "id": 1
             },
@@ -125,12 +125,16 @@
               "rule": "repeated",
               "type": "SensorInfo",
               "id": 6
+            },
+            "id": {
+              "type": "bytes",
+              "id": 7
             }
           }
         },
         "SensorInfo": {
           "fields": {
-            "sensor": {
+            "number": {
               "type": "uint32",
               "id": 1
             },

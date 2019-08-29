@@ -206,18 +206,19 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, position_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, address_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, header_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, firmware_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, sensors_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, id_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, sensor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, number_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, unitofmeasure_),
   ~0u,  // no _has_bits_
@@ -335,19 +336,19 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 29, -1, sizeof(SensorAndValue)},
   { 36, -1, sizeof(ModuleHeader)},
   { 44, -1, sizeof(ModuleInfo)},
-  { 55, -1, sizeof(SensorInfo)},
-  { 63, -1, sizeof(Firmware)},
-  { 70, -1, sizeof(Metadata)},
-  { 83, -1, sizeof(Status)},
-  { 93, -1, sizeof(LogMessage)},
-  { 103, -1, sizeof(SensorGroup)},
-  { 110, -1, sizeof(Readings)},
-  { 120, -1, sizeof(JobSchedule)},
-  { 126, -1, sizeof(Schedule)},
-  { 133, -1, sizeof(Identity)},
-  { 139, -1, sizeof(Condition)},
-  { 145, -1, sizeof(DataRecord)},
-  { 160, -1, sizeof(SignedRecord)},
+  { 56, -1, sizeof(SensorInfo)},
+  { 64, -1, sizeof(Firmware)},
+  { 71, -1, sizeof(Metadata)},
+  { 84, -1, sizeof(Status)},
+  { 94, -1, sizeof(LogMessage)},
+  { 104, -1, sizeof(SensorGroup)},
+  { 111, -1, sizeof(Readings)},
+  { 121, -1, sizeof(JobSchedule)},
+  { 127, -1, sizeof(Schedule)},
+  { 134, -1, sizeof(Identity)},
+  { 140, -1, sizeof(Condition)},
+  { 146, -1, sizeof(DataRecord)},
+  { 161, -1, sizeof(SignedRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -489,56 +490,56 @@ void AddDescriptorsImpl() {
       "\'\n\007reading\030\003 \001(\0132\026.fk_data.SensorReading"
       "\"/\n\016SensorAndValue\022\016\n\006sensor\030\001 \001(\r\022\r\n\005va"
       "lue\030\002 \001(\002\"C\n\014ModuleHeader\022\024\n\014manufacture"
-      "r\030\001 \001(\r\022\014\n\004kind\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"\251"
-      "\001\n\nModuleInfo\022\n\n\002id\030\001 \001(\r\022\017\n\007address\030\002 \001"
-      "(\r\022\014\n\004name\030\003 \001(\t\022%\n\006header\030\004 \001(\0132\025.fk_da"
-      "ta.ModuleHeader\022#\n\010firmware\030\005 \001(\0132\021.fk_d"
-      "ata.Firmware\022$\n\007sensors\030\006 \003(\0132\023.fk_data."
-      "SensorInfo\"A\n\nSensorInfo\022\016\n\006sensor\030\001 \001(\r"
-      "\022\014\n\004name\030\002 \001(\t\022\025\n\runitOfMeasure\030\003 \001(\t\"&\n"
-      "\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030\002 \001(\t\"\313\001"
-      "\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001"
-      "(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nresetC"
-      "ause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk_data.Se"
-      "nsorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_data.Modu"
-      "leInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_data.Firmw"
-      "are\"U\n\006Status\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 "
-      "\001(\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004"
-      "busy\030\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016"
-      "\n\006uptime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facilit"
-      "y\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022"
-      "\016\n\006module\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_d"
-      "ata.SensorAndValue\"\217\001\n\010Readings\022\014\n\004time\030"
-      "\001 \001(\004\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022)\n"
-      "\010location\030\004 \001(\0132\027.fk_data.DeviceLocation"
-      "\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_data.SensorG"
-      "roup\"\033\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\"V\n\010Sch"
-      "edule\022&\n\010readings\030\001 \001(\0132\024.fk_data.JobSch"
-      "edule\022\"\n\004misc\030\002 \001(\0132\024.fk_data.JobSchedul"
-      "e\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"\032\n\tCondition"
-      "\022\r\n\005flags\030\001 \001(\r\"\355\002\n\nDataRecord\022-\n\rlogged"
-      "Reading\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n"
-      "\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003lo"
-      "g\030\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004"
-      " \001(\0132\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132"
-      "\021.fk_data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk"
-      "_data.ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_"
-      "data.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030"
-      "\t \001(\0132\021.fk_data.Identity\022%\n\tcondition\030\n "
-      "\001(\0132\022.fk_data.Condition\"q\n\014SignedRecord\022"
-      "\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedRecordKind"
-      "\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001"
-      "(\014\022\016\n\006record\030\005 \001(\004*b\n\rDownloadFlags\022\026\n\022R"
-      "EADING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT"
-      "_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*\255"
-      "\001\n\020SignedRecordKind\022\033\n\027SIGNED_RECORD_KIN"
-      "D_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001"
-      "\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIG"
-      "NED_RECORD_KIND_STATE\020\003\022\035\n\030SIGNED_RECORD"
-      "_KIND_OTHER\020\377\001b\006proto3"
+      "r\030\001 \001(\r\022\014\n\004kind\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"\273"
+      "\001\n\nModuleInfo\022\020\n\010position\030\001 \001(\r\022\017\n\007addre"
+      "ss\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022%\n\006header\030\004 \001(\0132\025"
+      ".fk_data.ModuleHeader\022#\n\010firmware\030\005 \001(\0132"
+      "\021.fk_data.Firmware\022$\n\007sensors\030\006 \003(\0132\023.fk"
+      "_data.SensorInfo\022\n\n\002id\030\007 \001(\014\"A\n\nSensorIn"
+      "fo\022\016\n\006number\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\025\n\runit"
+      "OfMeasure\030\003 \001(\t\"&\n\010Firmware\022\013\n\003git\030\001 \001(\t"
+      "\022\r\n\005build\030\002 \001(\t\"\313\001\n\010Metadata\022\020\n\010deviceId"
+      "\030\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005bui"
+      "ld\030\007 \001(\t\022\022\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030"
+      "\005 \003(\0132\023.fk_data.SensorInfo\022$\n\007modules\030\006 "
+      "\003(\0132\023.fk_data.ModuleInfo\022#\n\010firmware\030\010 \001"
+      "(\0132\021.fk_data.Firmware\"U\n\006Status\022\014\n\004time\030"
+      "\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001(\002\022\016"
+      "\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogMessa"
+      "ge\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\r\n\005leve"
+      "l\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message\030\005 \001"
+      "(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n\010rea"
+      "dings\030\002 \003(\0132\027.fk_data.SensorAndValue\"\217\001\n"
+      "\010Readings\022\014\n\004time\030\001 \001(\004\022\017\n\007reading\030\002 \001(\r"
+      "\022\r\n\005flags\030\003 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_d"
+      "ata.DeviceLocation\022*\n\014sensorGroups\030\005 \003(\013"
+      "2\024.fk_data.SensorGroup\"\033\n\013JobSchedule\022\014\n"
+      "\004cron\030\001 \001(\014\"V\n\010Schedule\022&\n\010readings\030\001 \001("
+      "\0132\024.fk_data.JobSchedule\022\"\n\004misc\030\002 \001(\0132\024."
+      "fk_data.JobSchedule\"\030\n\010Identity\022\014\n\004name\030"
+      "\001 \001(\t\"\032\n\tCondition\022\r\n\005flags\030\001 \001(\r\"\355\002\n\nDa"
+      "taRecord\022-\n\rloggedReading\030\001 \001(\0132\026.fk_dat"
+      "a.LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.fk_d"
+      "ata.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogM"
+      "essage\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022"
+      "#\n\010readings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007"
+      "modules\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010sc"
+      "hedule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030"
+      "\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_data.Identi"
+      "ty\022%\n\tcondition\030\n \001(\0132\022.fk_data.Conditio"
+      "n\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_dat"
+      "a.SignedRecordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data"
+      "\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004*b\n\r"
+      "DownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n"
+      "\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READIN"
+      "G_FLAGS_MANUAL\020\002*\255\001\n\020SignedRecordKind\022\033\n"
+      "\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_REC"
+      "ORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND"
+      "_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020"
+      "\003\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2302);
+      descriptor, 2320);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -2695,12 +2696,13 @@ void ModuleHeader::set_version(::google::protobuf::uint32 value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ModuleInfo::kIdFieldNumber;
+const int ModuleInfo::kPositionFieldNumber;
 const int ModuleInfo::kAddressFieldNumber;
 const int ModuleInfo::kNameFieldNumber;
 const int ModuleInfo::kHeaderFieldNumber;
 const int ModuleInfo::kFirmwareFieldNumber;
 const int ModuleInfo::kSensorsFieldNumber;
+const int ModuleInfo::kIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ModuleInfo::ModuleInfo()
@@ -2721,6 +2723,10 @@ ModuleInfo::ModuleInfo(const ModuleInfo& from)
   if (from.name().size() > 0) {
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.id().size() > 0) {
+    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  }
   if (from.has_header()) {
     header_ = new ::fk_data::ModuleHeader(*from.header_);
   } else {
@@ -2731,14 +2737,15 @@ ModuleInfo::ModuleInfo(const ModuleInfo& from)
   } else {
     firmware_ = NULL;
   }
-  ::memcpy(&id_, &from.id_,
+  ::memcpy(&position_, &from.position_,
     static_cast<size_t>(reinterpret_cast<char*>(&address_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(address_));
+    reinterpret_cast<char*>(&position_)) + sizeof(address_));
   // @@protoc_insertion_point(copy_constructor:fk_data.ModuleInfo)
 }
 
 void ModuleInfo::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&header_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&address_) -
       reinterpret_cast<char*>(&header_)) + sizeof(address_));
@@ -2752,6 +2759,7 @@ ModuleInfo::~ModuleInfo() {
 
 void ModuleInfo::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete header_;
   if (this != internal_default_instance()) delete firmware_;
 }
@@ -2787,6 +2795,7 @@ void ModuleInfo::Clear() {
 
   sensors_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && header_ != NULL) {
     delete header_;
   }
@@ -2795,9 +2804,9 @@ void ModuleInfo::Clear() {
     delete firmware_;
   }
   firmware_ = NULL;
-  ::memset(&id_, 0, static_cast<size_t>(
+  ::memset(&position_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&address_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(address_));
+      reinterpret_cast<char*>(&position_)) + sizeof(address_));
   _internal_metadata_.Clear();
 }
 
@@ -2811,14 +2820,14 @@ bool ModuleInfo::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 id = 1;
+      // uint32 position = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &id_)));
+                 input, &position_)));
         } else {
           goto handle_unusual;
         }
@@ -2891,6 +2900,18 @@ bool ModuleInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes id = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_id()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2917,9 +2938,9 @@ void ModuleInfo::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 id = 1;
-  if (this->id() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  // uint32 position = 1;
+  if (this->position() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->position(), output);
   }
 
   // uint32 address = 2;
@@ -2956,6 +2977,12 @@ void ModuleInfo::SerializeWithCachedSizes(
       6, this->sensors(static_cast<int>(i)), output);
   }
 
+  // bytes id = 7;
+  if (this->id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->id(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -2970,9 +2997,9 @@ void ModuleInfo::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 id = 1;
-  if (this->id() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  // uint32 position = 1;
+  if (this->position() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->position(), target);
   }
 
   // uint32 address = 2;
@@ -3013,6 +3040,13 @@ void ModuleInfo::SerializeWithCachedSizes(
         6, this->sensors(static_cast<int>(i)), deterministic, target);
   }
 
+  // bytes id = 7;
+  if (this->id().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->id(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -3048,6 +3082,13 @@ size_t ModuleInfo::ByteSizeLong() const {
         this->name());
   }
 
+  // bytes id = 7;
+  if (this->id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->id());
+  }
+
   // .fk_data.ModuleHeader header = 4;
   if (this->has_header()) {
     total_size += 1 +
@@ -3062,11 +3103,11 @@ size_t ModuleInfo::ByteSizeLong() const {
         *this->firmware_);
   }
 
-  // uint32 id = 1;
-  if (this->id() != 0) {
+  // uint32 position = 1;
+  if (this->position() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->id());
+        this->position());
   }
 
   // uint32 address = 2;
@@ -3110,14 +3151,18 @@ void ModuleInfo::MergeFrom(const ModuleInfo& from) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  if (from.id().size() > 0) {
+
+    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  }
   if (from.has_header()) {
     mutable_header()->::fk_data::ModuleHeader::MergeFrom(from.header());
   }
   if (from.has_firmware()) {
     mutable_firmware()->::fk_data::Firmware::MergeFrom(from.firmware());
   }
-  if (from.id() != 0) {
-    set_id(from.id());
+  if (from.position() != 0) {
+    set_position(from.position());
   }
   if (from.address() != 0) {
     set_address(from.address());
@@ -3150,9 +3195,10 @@ void ModuleInfo::InternalSwap(ModuleInfo* other) {
   using std::swap;
   sensors_.InternalSwap(&other->sensors_);
   name_.Swap(&other->name_);
+  id_.Swap(&other->id_);
   swap(header_, other->header_);
   swap(firmware_, other->firmware_);
-  swap(id_, other->id_);
+  swap(position_, other->position_);
   swap(address_, other->address_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -3166,18 +3212,18 @@ void ModuleInfo::InternalSwap(ModuleInfo* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // ModuleInfo
 
-// uint32 id = 1;
-void ModuleInfo::clear_id() {
-  id_ = 0u;
+// uint32 position = 1;
+void ModuleInfo::clear_position() {
+  position_ = 0u;
 }
-::google::protobuf::uint32 ModuleInfo::id() const {
-  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.id)
-  return id_;
+::google::protobuf::uint32 ModuleInfo::position() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.position)
+  return position_;
 }
-void ModuleInfo::set_id(::google::protobuf::uint32 value) {
+void ModuleInfo::set_position(::google::protobuf::uint32 value) {
   
-  id_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.id)
+  position_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.position)
 }
 
 // uint32 address = 2;
@@ -3357,12 +3403,65 @@ ModuleInfo::sensors() const {
   return sensors_;
 }
 
+// bytes id = 7;
+void ModuleInfo::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& ModuleInfo::id() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.id)
+  return id_.GetNoArena();
+}
+void ModuleInfo::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.id)
+}
+#if LANG_CXX11
+void ModuleInfo::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.ModuleInfo.id)
+}
+#endif
+void ModuleInfo::set_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.ModuleInfo.id)
+}
+void ModuleInfo::set_id(const void* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.ModuleInfo.id)
+}
+::std::string* ModuleInfo::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* ModuleInfo::release_id() {
+  // @@protoc_insertion_point(field_release:fk_data.ModuleInfo.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void ModuleInfo::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.id)
+}
+
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SensorInfo::kSensorFieldNumber;
+const int SensorInfo::kNumberFieldNumber;
 const int SensorInfo::kNameFieldNumber;
 const int SensorInfo::kUnitOfMeasureFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -3388,14 +3487,14 @@ SensorInfo::SensorInfo(const SensorInfo& from)
   if (from.unitofmeasure().size() > 0) {
     unitofmeasure_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.unitofmeasure_);
   }
-  sensor_ = from.sensor_;
+  number_ = from.number_;
   // @@protoc_insertion_point(copy_constructor:fk_data.SensorInfo)
 }
 
 void SensorInfo::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   unitofmeasure_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  sensor_ = 0u;
+  number_ = 0u;
   _cached_size_ = 0;
 }
 
@@ -3440,7 +3539,7 @@ void SensorInfo::Clear() {
 
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   unitofmeasure_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  sensor_ = 0u;
+  number_ = 0u;
   _internal_metadata_.Clear();
 }
 
@@ -3454,14 +3553,14 @@ bool SensorInfo::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 sensor = 1;
+      // uint32 number = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &sensor_)));
+                 input, &number_)));
         } else {
           goto handle_unusual;
         }
@@ -3526,9 +3625,9 @@ void SensorInfo::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 sensor = 1;
-  if (this->sensor() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->sensor(), output);
+  // uint32 number = 1;
+  if (this->number() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->number(), output);
   }
 
   // string name = 2;
@@ -3565,9 +3664,9 @@ void SensorInfo::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 sensor = 1;
-  if (this->sensor() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->sensor(), target);
+  // uint32 number = 1;
+  if (this->number() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->number(), target);
   }
 
   // string name = 2;
@@ -3623,11 +3722,11 @@ size_t SensorInfo::ByteSizeLong() const {
         this->unitofmeasure());
   }
 
-  // uint32 sensor = 1;
-  if (this->sensor() != 0) {
+  // uint32 number = 1;
+  if (this->number() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->sensor());
+        this->number());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -3667,8 +3766,8 @@ void SensorInfo::MergeFrom(const SensorInfo& from) {
 
     unitofmeasure_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.unitofmeasure_);
   }
-  if (from.sensor() != 0) {
-    set_sensor(from.sensor());
+  if (from.number() != 0) {
+    set_number(from.number());
   }
 }
 
@@ -3698,7 +3797,7 @@ void SensorInfo::InternalSwap(SensorInfo* other) {
   using std::swap;
   name_.Swap(&other->name_);
   unitofmeasure_.Swap(&other->unitofmeasure_);
-  swap(sensor_, other->sensor_);
+  swap(number_, other->number_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -3711,18 +3810,18 @@ void SensorInfo::InternalSwap(SensorInfo* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // SensorInfo
 
-// uint32 sensor = 1;
-void SensorInfo::clear_sensor() {
-  sensor_ = 0u;
+// uint32 number = 1;
+void SensorInfo::clear_number() {
+  number_ = 0u;
 }
-::google::protobuf::uint32 SensorInfo::sensor() const {
-  // @@protoc_insertion_point(field_get:fk_data.SensorInfo.sensor)
-  return sensor_;
+::google::protobuf::uint32 SensorInfo::number() const {
+  // @@protoc_insertion_point(field_get:fk_data.SensorInfo.number)
+  return number_;
 }
-void SensorInfo::set_sensor(::google::protobuf::uint32 value) {
+void SensorInfo::set_number(::google::protobuf::uint32 value) {
   
-  sensor_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.SensorInfo.sensor)
+  number_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SensorInfo.number)
 }
 
 // string name = 2;

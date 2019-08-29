@@ -859,6 +859,20 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
+  // bytes id = 7;
+  void clear_id();
+  static const int kIdFieldNumber = 7;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const void* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
   // .fk_data.ModuleHeader header = 4;
   bool has_header() const;
   void clear_header();
@@ -877,11 +891,11 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::Firmware* release_firmware();
   void set_allocated_firmware(::fk_data::Firmware* firmware);
 
-  // uint32 id = 1;
-  void clear_id();
-  static const int kIdFieldNumber = 1;
-  ::google::protobuf::uint32 id() const;
-  void set_id(::google::protobuf::uint32 value);
+  // uint32 position = 1;
+  void clear_position();
+  static const int kPositionFieldNumber = 1;
+  ::google::protobuf::uint32 position() const;
+  void set_position(::google::protobuf::uint32 value);
 
   // uint32 address = 2;
   void clear_address();
@@ -895,9 +909,10 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::fk_data::SensorInfo > sensors_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
   ::fk_data::ModuleHeader* header_;
   ::fk_data::Firmware* firmware_;
-  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 position_;
   ::google::protobuf::uint32 address_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
@@ -1013,11 +1028,11 @@ class SensorInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_unitofmeasure();
   void set_allocated_unitofmeasure(::std::string* unitofmeasure);
 
-  // uint32 sensor = 1;
-  void clear_sensor();
-  static const int kSensorFieldNumber = 1;
-  ::google::protobuf::uint32 sensor() const;
-  void set_sensor(::google::protobuf::uint32 value);
+  // uint32 number = 1;
+  void clear_number();
+  static const int kNumberFieldNumber = 1;
+  ::google::protobuf::uint32 number() const;
+  void set_number(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:fk_data.SensorInfo)
  private:
@@ -1025,7 +1040,7 @@ class SensorInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr unitofmeasure_;
-  ::google::protobuf::uint32 sensor_;
+  ::google::protobuf::uint32 number_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -2958,18 +2973,18 @@ inline void ModuleHeader::set_version(::google::protobuf::uint32 value) {
 
 // ModuleInfo
 
-// uint32 id = 1;
-inline void ModuleInfo::clear_id() {
-  id_ = 0u;
+// uint32 position = 1;
+inline void ModuleInfo::clear_position() {
+  position_ = 0u;
 }
-inline ::google::protobuf::uint32 ModuleInfo::id() const {
-  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.id)
-  return id_;
+inline ::google::protobuf::uint32 ModuleInfo::position() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.position)
+  return position_;
 }
-inline void ModuleInfo::set_id(::google::protobuf::uint32 value) {
+inline void ModuleInfo::set_position(::google::protobuf::uint32 value) {
   
-  id_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.id)
+  position_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.position)
 }
 
 // uint32 address = 2;
@@ -3149,22 +3164,75 @@ ModuleInfo::sensors() const {
   return sensors_;
 }
 
+// bytes id = 7;
+inline void ModuleInfo::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ModuleInfo::id() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.id)
+  return id_.GetNoArena();
+}
+inline void ModuleInfo::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.id)
+}
+#if LANG_CXX11
+inline void ModuleInfo::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.ModuleInfo.id)
+}
+#endif
+inline void ModuleInfo::set_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.ModuleInfo.id)
+}
+inline void ModuleInfo::set_id(const void* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.ModuleInfo.id)
+}
+inline ::std::string* ModuleInfo::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.ModuleInfo.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ModuleInfo::release_id() {
+  // @@protoc_insertion_point(field_release:fk_data.ModuleInfo.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ModuleInfo::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.id)
+}
+
 // -------------------------------------------------------------------
 
 // SensorInfo
 
-// uint32 sensor = 1;
-inline void SensorInfo::clear_sensor() {
-  sensor_ = 0u;
+// uint32 number = 1;
+inline void SensorInfo::clear_number() {
+  number_ = 0u;
 }
-inline ::google::protobuf::uint32 SensorInfo::sensor() const {
-  // @@protoc_insertion_point(field_get:fk_data.SensorInfo.sensor)
-  return sensor_;
+inline ::google::protobuf::uint32 SensorInfo::number() const {
+  // @@protoc_insertion_point(field_get:fk_data.SensorInfo.number)
+  return number_;
 }
-inline void SensorInfo::set_sensor(::google::protobuf::uint32 value) {
+inline void SensorInfo::set_number(::google::protobuf::uint32 value) {
   
-  sensor_ = value;
-  // @@protoc_insertion_point(field_set:fk_data.SensorInfo.sensor)
+  number_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SensorInfo.number)
 }
 
 // string name = 2;
