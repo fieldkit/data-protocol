@@ -319,6 +319,12 @@
             }
           }
         },
+        "ConditionFlags": {
+          "values": {
+            "CONDITION_FLAGS_NONE": 0,
+            "CONDITION_FLAGS_RECORDING": 1
+          }
+        },
         "Condition": {
           "fields": {
             "flags": {

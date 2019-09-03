@@ -115,6 +115,11 @@ message Identity {
   string name = 1;
 }
 
+enum ConditionFlags {
+  CONDITION_FLAGS_NONE = 0;
+  CONDITION_FLAGS_RECORDING = 1;
+}
+
 message Condition {
   uint32 flags = 1;
 }

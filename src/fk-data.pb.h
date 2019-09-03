@@ -24,6 +24,14 @@ typedef enum _fk_data_DownloadFlags {
 #define _fk_data_DownloadFlags_MAX fk_data_DownloadFlags_READING_FLAGS_MANUAL
 #define _fk_data_DownloadFlags_ARRAYSIZE ((fk_data_DownloadFlags)(fk_data_DownloadFlags_READING_FLAGS_MANUAL+1))
 
+typedef enum _fk_data_ConditionFlags {
+    fk_data_ConditionFlags_CONDITION_FLAGS_NONE = 0,
+    fk_data_ConditionFlags_CONDITION_FLAGS_RECORDING = 1
+} fk_data_ConditionFlags;
+#define _fk_data_ConditionFlags_MIN fk_data_ConditionFlags_CONDITION_FLAGS_NONE
+#define _fk_data_ConditionFlags_MAX fk_data_ConditionFlags_CONDITION_FLAGS_RECORDING
+#define _fk_data_ConditionFlags_ARRAYSIZE ((fk_data_ConditionFlags)(fk_data_ConditionFlags_CONDITION_FLAGS_RECORDING+1))
+
 typedef enum _fk_data_SignedRecordKind {
     fk_data_SignedRecordKind_SIGNED_RECORD_KIND_NONE = 0,
     fk_data_SignedRecordKind_SIGNED_RECORD_KIND_MODULES = 1,

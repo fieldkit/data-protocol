@@ -130,6 +130,27 @@ inline bool DownloadFlags_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<DownloadFlags>(
     DownloadFlags_descriptor(), name, value);
 }
+enum ConditionFlags {
+  CONDITION_FLAGS_NONE = 0,
+  CONDITION_FLAGS_RECORDING = 1,
+  ConditionFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ConditionFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool ConditionFlags_IsValid(int value);
+const ConditionFlags ConditionFlags_MIN = CONDITION_FLAGS_NONE;
+const ConditionFlags ConditionFlags_MAX = CONDITION_FLAGS_RECORDING;
+const int ConditionFlags_ARRAYSIZE = ConditionFlags_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ConditionFlags_descriptor();
+inline const ::std::string& ConditionFlags_Name(ConditionFlags value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ConditionFlags_descriptor(), value);
+}
+inline bool ConditionFlags_Parse(
+    const ::std::string& name, ConditionFlags* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ConditionFlags>(
+    ConditionFlags_descriptor(), name, value);
+}
 enum SignedRecordKind {
   SIGNED_RECORD_KIND_NONE = 0,
   SIGNED_RECORD_KIND_MODULES = 1,
@@ -4921,6 +4942,11 @@ template <> struct is_proto_enum< ::fk_data::DownloadFlags> : ::google::protobuf
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::fk_data::DownloadFlags>() {
   return ::fk_data::DownloadFlags_descriptor();
+}
+template <> struct is_proto_enum< ::fk_data::ConditionFlags> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::fk_data::ConditionFlags>() {
+  return ::fk_data::ConditionFlags_descriptor();
 }
 template <> struct is_proto_enum< ::fk_data::SignedRecordKind> : ::google::protobuf::internal::true_type {};
 template <>

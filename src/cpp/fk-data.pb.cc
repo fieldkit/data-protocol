@@ -120,7 +120,7 @@ namespace protobuf_fk_2ddata_2eproto {
 namespace {
 
 ::google::protobuf::Metadata file_level_metadata[19];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 
 }  // namespace
 
@@ -532,14 +532,16 @@ void AddDescriptorsImpl() {
       "\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004*b\n\r"
       "DownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n"
       "\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READIN"
-      "G_FLAGS_MANUAL\020\002*\255\001\n\020SignedRecordKind\022\033\n"
-      "\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_REC"
-      "ORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND"
-      "_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020"
-      "\003\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001b\006proto3"
+      "G_FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024CO"
+      "NDITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_"
+      "RECORDING\020\001*\255\001\n\020SignedRecordKind\022\033\n\027SIGN"
+      "ED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_K"
+      "IND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHE"
+      "DULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022\035\n\030"
+      "SIGNED_RECORD_KIND_OTHER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2320);
+      descriptor, 2395);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -573,9 +575,23 @@ bool DownloadFlags_IsValid(int value) {
   }
 }
 
-const ::google::protobuf::EnumDescriptor* SignedRecordKind_descriptor() {
+const ::google::protobuf::EnumDescriptor* ConditionFlags_descriptor() {
   protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fk_2ddata_2eproto::file_level_enum_descriptors[1];
+}
+bool ConditionFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* SignedRecordKind_descriptor() {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_enum_descriptors[2];
 }
 bool SignedRecordKind_IsValid(int value) {
   switch (value) {
