@@ -196,6 +196,7 @@ typedef struct _fk_data_Readings {
     uint32_t flags;
     fk_data_DeviceLocation location;
     pb_callback_t sensorGroups;
+    uint32_t meta;
 /* @@protoc_insertion_point(struct:fk_data_Readings) */
 } fk_data_Readings;
 
@@ -228,7 +229,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Status_init_default              {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
-#define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}}
+#define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}, 0}
 #define fk_data_JobSchedule_init_default         {{{NULL}, NULL}}
 #define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
@@ -247,7 +248,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Status_init_zero                 {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
-#define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}}
+#define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}, 0}
 #define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}}
 #define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
@@ -320,6 +321,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Readings_time_tag                1
 #define fk_data_Readings_reading_tag             2
 #define fk_data_Readings_flags_tag               3
+#define fk_data_Readings_meta_tag                6
 #define fk_data_Readings_location_tag            4
 #define fk_data_Readings_sensorGroups_tag        5
 #define fk_data_DataRecord_loggedReading_tag     1
@@ -447,7 +449,8 @@ X(a, STATIC, SINGULAR, UINT64, time, 1) \
 X(a, STATIC, SINGULAR, UINT32, reading, 2) \
 X(a, STATIC, SINGULAR, UINT32, flags, 3) \
 X(a, STATIC, SINGULAR, MESSAGE, location, 4) \
-X(a, CALLBACK, REPEATED, MESSAGE, sensorGroups, 5)
+X(a, CALLBACK, REPEATED, MESSAGE, sensorGroups, 5) \
+X(a, STATIC, SINGULAR, UINT32, meta, 6)
 #define fk_data_Readings_CALLBACK pb_default_field_callback
 #define fk_data_Readings_DEFAULT NULL
 #define fk_data_Readings_location_MSGTYPE fk_data_DeviceLocation

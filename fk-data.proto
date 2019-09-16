@@ -98,6 +98,7 @@ message Readings {
   uint64 time = 1;
   uint32 reading = 2;
   uint32 flags = 3;
+  uint32 meta = 6;
   DeviceLocation location = 4;
   repeated SensorGroup sensorGroups = 5;
 }

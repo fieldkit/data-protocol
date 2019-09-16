@@ -280,6 +280,10 @@
               "type": "uint32",
               "id": 3
             },
+            "meta": {
+              "type": "uint32",
+              "id": 6
+            },
             "location": {
               "type": "DeviceLocation",
               "id": 4

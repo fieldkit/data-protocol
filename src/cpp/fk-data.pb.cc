@@ -276,6 +276,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, reading_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, flags_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, meta_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, location_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, sensorgroups_),
   ~0u,  // no _has_bits_
@@ -343,12 +344,12 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 94, -1, sizeof(LogMessage)},
   { 104, -1, sizeof(SensorGroup)},
   { 111, -1, sizeof(Readings)},
-  { 121, -1, sizeof(JobSchedule)},
-  { 127, -1, sizeof(Schedule)},
-  { 134, -1, sizeof(Identity)},
-  { 140, -1, sizeof(Condition)},
-  { 146, -1, sizeof(DataRecord)},
-  { 161, -1, sizeof(SignedRecord)},
+  { 122, -1, sizeof(JobSchedule)},
+  { 128, -1, sizeof(Schedule)},
+  { 135, -1, sizeof(Identity)},
+  { 141, -1, sizeof(Condition)},
+  { 147, -1, sizeof(DataRecord)},
+  { 162, -1, sizeof(SignedRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -509,39 +510,40 @@ void AddDescriptorsImpl() {
       "ge\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\r\n\005leve"
       "l\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message\030\005 \001"
       "(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n\010rea"
-      "dings\030\002 \003(\0132\027.fk_data.SensorAndValue\"\217\001\n"
+      "dings\030\002 \003(\0132\027.fk_data.SensorAndValue\"\235\001\n"
       "\010Readings\022\014\n\004time\030\001 \001(\004\022\017\n\007reading\030\002 \001(\r"
-      "\022\r\n\005flags\030\003 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_d"
-      "ata.DeviceLocation\022*\n\014sensorGroups\030\005 \003(\013"
-      "2\024.fk_data.SensorGroup\"\033\n\013JobSchedule\022\014\n"
-      "\004cron\030\001 \001(\014\"V\n\010Schedule\022&\n\010readings\030\001 \001("
-      "\0132\024.fk_data.JobSchedule\022\"\n\004misc\030\002 \001(\0132\024."
-      "fk_data.JobSchedule\"\030\n\010Identity\022\014\n\004name\030"
-      "\001 \001(\t\"\032\n\tCondition\022\r\n\005flags\030\001 \001(\r\"\355\002\n\nDa"
-      "taRecord\022-\n\rloggedReading\030\001 \001(\0132\026.fk_dat"
-      "a.LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.fk_d"
-      "ata.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogM"
-      "essage\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022"
-      "#\n\010readings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007"
-      "modules\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010sc"
-      "hedule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030"
-      "\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_data.Identi"
-      "ty\022%\n\tcondition\030\n \001(\0132\022.fk_data.Conditio"
-      "n\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_dat"
-      "a.SignedRecordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data"
-      "\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004*b\n\r"
-      "DownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n"
-      "\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READIN"
-      "G_FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024CO"
-      "NDITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_"
-      "RECORDING\020\001*\255\001\n\020SignedRecordKind\022\033\n\027SIGN"
-      "ED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_K"
-      "IND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHE"
-      "DULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022\035\n\030"
-      "SIGNED_RECORD_KIND_OTHER\020\377\001b\006proto3"
+      "\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022)\n\010locatio"
+      "n\030\004 \001(\0132\027.fk_data.DeviceLocation\022*\n\014sens"
+      "orGroups\030\005 \003(\0132\024.fk_data.SensorGroup\"\033\n\013"
+      "JobSchedule\022\014\n\004cron\030\001 \001(\014\"V\n\010Schedule\022&\n"
+      "\010readings\030\001 \001(\0132\024.fk_data.JobSchedule\022\"\n"
+      "\004misc\030\002 \001(\0132\024.fk_data.JobSchedule\"\030\n\010Ide"
+      "ntity\022\014\n\004name\030\001 \001(\t\"\032\n\tCondition\022\r\n\005flag"
+      "s\030\001 \001(\r\"\355\002\n\nDataRecord\022-\n\rloggedReading\030"
+      "\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metadat"
+      "a\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132"
+      "\023.fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.f"
+      "k_data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_dat"
+      "a.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Mo"
+      "duleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Sch"
+      "edule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021."
+      "fk_data.Identity\022%\n\tcondition\030\n \001(\0132\022.fk"
+      "_data.Condition\"q\n\014SignedRecord\022\'\n\004kind\030"
+      "\001 \001(\0162\031.fk_data.SignedRecordKind\022\014\n\004time"
+      "\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006re"
+      "cord\030\005 \001(\004*b\n\rDownloadFlags\022\026\n\022READING_F"
+      "LAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDI"
+      "NG\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Condit"
+      "ionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CO"
+      "NDITION_FLAGS_RECORDING\020\001*\255\001\n\020SignedReco"
+      "rdKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032S"
+      "IGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RE"
+      "CORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KI"
+      "ND_STATE\020\003\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377"
+      "\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2395);
+      descriptor, 2409);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -6601,6 +6603,7 @@ SensorGroup::readings() const {
 const int Readings::kTimeFieldNumber;
 const int Readings::kReadingFieldNumber;
 const int Readings::kFlagsFieldNumber;
+const int Readings::kMetaFieldNumber;
 const int Readings::kLocationFieldNumber;
 const int Readings::kSensorGroupsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -6625,15 +6628,15 @@ Readings::Readings(const Readings& from)
     location_ = NULL;
   }
   ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(flags_));
+    static_cast<size_t>(reinterpret_cast<char*>(&meta_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(meta_));
   // @@protoc_insertion_point(copy_constructor:fk_data.Readings)
 }
 
 void Readings::SharedCtor() {
   ::memset(&location_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&flags_) -
-      reinterpret_cast<char*>(&location_)) + sizeof(flags_));
+      reinterpret_cast<char*>(&meta_) -
+      reinterpret_cast<char*>(&location_)) + sizeof(meta_));
   _cached_size_ = 0;
 }
 
@@ -6681,8 +6684,8 @@ void Readings::Clear() {
   }
   location_ = NULL;
   ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&flags_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(flags_));
+      reinterpret_cast<char*>(&meta_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(meta_));
   _internal_metadata_.Clear();
 }
 
@@ -6762,6 +6765,20 @@ bool Readings::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 meta = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &meta_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -6816,6 +6833,11 @@ void Readings::SerializeWithCachedSizes(
       5, this->sensorgroups(static_cast<int>(i)), output);
   }
 
+  // uint32 meta = 6;
+  if (this->meta() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->meta(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -6858,6 +6880,11 @@ void Readings::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         5, this->sensorgroups(static_cast<int>(i)), deterministic, target);
+  }
+
+  // uint32 meta = 6;
+  if (this->meta() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->meta(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6916,6 +6943,13 @@ size_t Readings::ByteSizeLong() const {
         this->flags());
   }
 
+  // uint32 meta = 6;
+  if (this->meta() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->meta());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -6958,6 +6992,9 @@ void Readings::MergeFrom(const Readings& from) {
   if (from.flags() != 0) {
     set_flags(from.flags());
   }
+  if (from.meta() != 0) {
+    set_meta(from.meta());
+  }
 }
 
 void Readings::CopyFrom(const ::google::protobuf::Message& from) {
@@ -6989,6 +7026,7 @@ void Readings::InternalSwap(Readings* other) {
   swap(time_, other->time_);
   swap(reading_, other->reading_);
   swap(flags_, other->flags_);
+  swap(meta_, other->meta_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -7041,6 +7079,20 @@ void Readings::set_flags(::google::protobuf::uint32 value) {
   
   flags_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Readings.flags)
+}
+
+// uint32 meta = 6;
+void Readings::clear_meta() {
+  meta_ = 0u;
+}
+::google::protobuf::uint32 Readings::meta() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.meta)
+  return meta_;
+}
+void Readings::set_meta(::google::protobuf::uint32 value) {
+  
+  meta_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Readings.meta)
 }
 
 // .fk_data.DeviceLocation location = 4;

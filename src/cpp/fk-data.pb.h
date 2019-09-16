@@ -1868,6 +1868,12 @@ class Readings : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::uint32 flags() const;
   void set_flags(::google::protobuf::uint32 value);
 
+  // uint32 meta = 6;
+  void clear_meta();
+  static const int kMetaFieldNumber = 6;
+  ::google::protobuf::uint32 meta() const;
+  void set_meta(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.Readings)
  private:
 
@@ -1877,6 +1883,7 @@ class Readings : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::uint64 time_;
   ::google::protobuf::uint32 reading_;
   ::google::protobuf::uint32 flags_;
+  ::google::protobuf::uint32 meta_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -4081,6 +4088,20 @@ inline void Readings::set_flags(::google::protobuf::uint32 value) {
   
   flags_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Readings.flags)
+}
+
+// uint32 meta = 6;
+inline void Readings::clear_meta() {
+  meta_ = 0u;
+}
+inline ::google::protobuf::uint32 Readings::meta() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.meta)
+  return meta_;
+}
+inline void Readings::set_meta(::google::protobuf::uint32 value) {
+  
+  meta_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Readings.meta)
 }
 
 // .fk_data.DeviceLocation location = 4;
