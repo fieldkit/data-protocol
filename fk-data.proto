@@ -65,6 +65,7 @@ message Metadata {
   repeated SensorInfo sensors = 5;
   repeated ModuleInfo modules = 6;
   Firmware firmware = 8;
+  bytes generation = 9;
 }
 
 message Status {

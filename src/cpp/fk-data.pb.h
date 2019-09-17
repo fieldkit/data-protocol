@@ -1334,6 +1334,20 @@ class Metadata : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_build();
   void set_allocated_build(::std::string* build);
 
+  // bytes generation = 9;
+  void clear_generation();
+  static const int kGenerationFieldNumber = 9;
+  const ::std::string& generation() const;
+  void set_generation(const ::std::string& value);
+  #if LANG_CXX11
+  void set_generation(::std::string&& value);
+  #endif
+  void set_generation(const char* value);
+  void set_generation(const void* value, size_t size);
+  ::std::string* mutable_generation();
+  ::std::string* release_generation();
+  void set_allocated_generation(::std::string* generation);
+
   // .fk_data.Firmware firmware = 8;
   bool has_firmware() const;
   void clear_firmware();
@@ -1364,6 +1378,7 @@ class Metadata : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::internal::ArenaStringPtr deviceid_;
   ::google::protobuf::internal::ArenaStringPtr git_;
   ::google::protobuf::internal::ArenaStringPtr build_;
+  ::google::protobuf::internal::ArenaStringPtr generation_;
   ::fk_data::Firmware* firmware_;
   ::google::protobuf::uint64 time_;
   ::google::protobuf::uint32 resetcause_;
@@ -3768,6 +3783,59 @@ inline void Metadata::set_allocated_firmware(::fk_data::Firmware* firmware) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:fk_data.Metadata.firmware)
+}
+
+// bytes generation = 9;
+inline void Metadata::clear_generation() {
+  generation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Metadata::generation() const {
+  // @@protoc_insertion_point(field_get:fk_data.Metadata.generation)
+  return generation_.GetNoArena();
+}
+inline void Metadata::set_generation(const ::std::string& value) {
+  
+  generation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.Metadata.generation)
+}
+#if LANG_CXX11
+inline void Metadata::set_generation(::std::string&& value) {
+  
+  generation_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.Metadata.generation)
+}
+#endif
+inline void Metadata::set_generation(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  generation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.Metadata.generation)
+}
+inline void Metadata::set_generation(const void* value, size_t size) {
+  
+  generation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.Metadata.generation)
+}
+inline ::std::string* Metadata::mutable_generation() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.Metadata.generation)
+  return generation_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Metadata::release_generation() {
+  // @@protoc_insertion_point(field_release:fk_data.Metadata.generation)
+  
+  return generation_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Metadata::set_allocated_generation(::std::string* generation) {
+  if (generation != NULL) {
+    
+  } else {
+    
+  }
+  generation_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), generation);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Metadata.generation)
 }
 
 // -------------------------------------------------------------------

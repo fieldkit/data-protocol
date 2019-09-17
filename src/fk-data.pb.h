@@ -100,6 +100,7 @@ typedef struct _fk_data_Metadata {
     pb_callback_t modules;
     pb_callback_t build;
     fk_data_Firmware firmware;
+    pb_callback_t generation;
 /* @@protoc_insertion_point(struct:fk_data_Metadata) */
 } fk_data_Metadata;
 
@@ -225,7 +226,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleInfo_init_default          {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_default, fk_data_Firmware_init_default, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorInfo_init_default          {0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Firmware_init_default            {{{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_Metadata_init_default            {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_default}
+#define fk_data_Metadata_init_default            {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_default, {{NULL}, NULL}}
 #define fk_data_Status_init_default              {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
@@ -244,7 +245,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleInfo_init_zero             {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_zero, fk_data_Firmware_init_zero, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorInfo_init_zero             {0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Firmware_init_zero               {{{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_Metadata_init_zero               {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_zero}
+#define fk_data_Metadata_init_zero               {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_zero, {{NULL}, NULL}}
 #define fk_data_Status_init_zero                 {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
@@ -282,6 +283,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Metadata_sensors_tag             5
 #define fk_data_Metadata_modules_tag             6
 #define fk_data_Metadata_firmware_tag            8
+#define fk_data_Metadata_generation_tag          9
 #define fk_data_ModuleHeader_manufacturer_tag    1
 #define fk_data_ModuleHeader_kind_tag            2
 #define fk_data_ModuleHeader_version_tag         3
@@ -412,7 +414,8 @@ X(a, STATIC, SINGULAR, UINT32, resetCause, 4) \
 X(a, CALLBACK, REPEATED, MESSAGE, sensors, 5) \
 X(a, CALLBACK, REPEATED, MESSAGE, modules, 6) \
 X(a, CALLBACK, SINGULAR, STRING, build, 7) \
-X(a, STATIC, SINGULAR, MESSAGE, firmware, 8)
+X(a, STATIC, SINGULAR, MESSAGE, firmware, 8) \
+X(a, CALLBACK, SINGULAR, BYTES, generation, 9)
 #define fk_data_Metadata_CALLBACK pb_default_field_callback
 #define fk_data_Metadata_DEFAULT NULL
 #define fk_data_Metadata_sensors_MSGTYPE fk_data_SensorInfo

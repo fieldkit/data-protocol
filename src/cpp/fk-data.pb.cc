@@ -241,6 +241,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metadata, sensors_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metadata, modules_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metadata, firmware_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Metadata, generation_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Status, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -340,16 +341,16 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 56, -1, sizeof(SensorInfo)},
   { 64, -1, sizeof(Firmware)},
   { 71, -1, sizeof(Metadata)},
-  { 84, -1, sizeof(Status)},
-  { 94, -1, sizeof(LogMessage)},
-  { 104, -1, sizeof(SensorGroup)},
-  { 111, -1, sizeof(Readings)},
-  { 122, -1, sizeof(JobSchedule)},
-  { 128, -1, sizeof(Schedule)},
-  { 135, -1, sizeof(Identity)},
-  { 141, -1, sizeof(Condition)},
-  { 147, -1, sizeof(DataRecord)},
-  { 162, -1, sizeof(SignedRecord)},
+  { 85, -1, sizeof(Status)},
+  { 95, -1, sizeof(LogMessage)},
+  { 105, -1, sizeof(SensorGroup)},
+  { 112, -1, sizeof(Readings)},
+  { 123, -1, sizeof(JobSchedule)},
+  { 129, -1, sizeof(Schedule)},
+  { 136, -1, sizeof(Identity)},
+  { 142, -1, sizeof(Condition)},
+  { 148, -1, sizeof(DataRecord)},
+  { 163, -1, sizeof(SignedRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -499,51 +500,51 @@ void AddDescriptorsImpl() {
       "_data.SensorInfo\022\n\n\002id\030\007 \001(\014\"A\n\nSensorIn"
       "fo\022\016\n\006number\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\025\n\runit"
       "OfMeasure\030\003 \001(\t\"&\n\010Firmware\022\013\n\003git\030\001 \001(\t"
-      "\022\r\n\005build\030\002 \001(\t\"\313\001\n\010Metadata\022\020\n\010deviceId"
+      "\022\r\n\005build\030\002 \001(\t\"\337\001\n\010Metadata\022\020\n\010deviceId"
       "\030\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005bui"
       "ld\030\007 \001(\t\022\022\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030"
       "\005 \003(\0132\023.fk_data.SensorInfo\022$\n\007modules\030\006 "
       "\003(\0132\023.fk_data.ModuleInfo\022#\n\010firmware\030\010 \001"
-      "(\0132\021.fk_data.Firmware\"U\n\006Status\022\014\n\004time\030"
-      "\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001(\002\022\016"
-      "\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogMessa"
-      "ge\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\r\n\005leve"
-      "l\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message\030\005 \001"
-      "(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n\010rea"
-      "dings\030\002 \003(\0132\027.fk_data.SensorAndValue\"\235\001\n"
-      "\010Readings\022\014\n\004time\030\001 \001(\004\022\017\n\007reading\030\002 \001(\r"
-      "\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022)\n\010locatio"
-      "n\030\004 \001(\0132\027.fk_data.DeviceLocation\022*\n\014sens"
-      "orGroups\030\005 \003(\0132\024.fk_data.SensorGroup\"\033\n\013"
-      "JobSchedule\022\014\n\004cron\030\001 \001(\014\"V\n\010Schedule\022&\n"
-      "\010readings\030\001 \001(\0132\024.fk_data.JobSchedule\022\"\n"
-      "\004misc\030\002 \001(\0132\024.fk_data.JobSchedule\"\030\n\010Ide"
-      "ntity\022\014\n\004name\030\001 \001(\t\"\032\n\tCondition\022\r\n\005flag"
-      "s\030\001 \001(\r\"\355\002\n\nDataRecord\022-\n\rloggedReading\030"
-      "\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metadat"
-      "a\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132"
-      "\023.fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.f"
-      "k_data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_dat"
-      "a.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Mo"
-      "duleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Sch"
-      "edule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021."
-      "fk_data.Identity\022%\n\tcondition\030\n \001(\0132\022.fk"
-      "_data.Condition\"q\n\014SignedRecord\022\'\n\004kind\030"
-      "\001 \001(\0162\031.fk_data.SignedRecordKind\022\014\n\004time"
-      "\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006re"
-      "cord\030\005 \001(\004*b\n\rDownloadFlags\022\026\n\022READING_F"
-      "LAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDI"
-      "NG\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Condit"
-      "ionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CO"
-      "NDITION_FLAGS_RECORDING\020\001*\255\001\n\020SignedReco"
-      "rdKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032S"
-      "IGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RE"
-      "CORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KI"
-      "ND_STATE\020\003\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377"
-      "\001b\006proto3"
+      "(\0132\021.fk_data.Firmware\022\022\n\ngeneration\030\t \001("
+      "\014\"U\n\006Status\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001("
+      "\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004bu"
+      "sy\030\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016\n\006"
+      "uptime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030"
+      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022\016\n"
+      "\006module\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_dat"
+      "a.SensorAndValue\"\235\001\n\010Readings\022\014\n\004time\030\001 "
+      "\001(\004\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004m"
+      "eta\030\006 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.De"
+      "viceLocation\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_"
+      "data.SensorGroup\"\033\n\013JobSchedule\022\014\n\004cron\030"
+      "\001 \001(\014\"V\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024.fk"
+      "_data.JobSchedule\022\"\n\004misc\030\002 \001(\0132\024.fk_dat"
+      "a.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\""
+      "\032\n\tCondition\022\r\n\005flags\030\001 \001(\r\"\355\002\n\nDataReco"
+      "rd\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data.Logg"
+      "edReading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Me"
+      "tadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage"
+      "\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n\010rea"
+      "dings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007module"
+      "s\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010schedule"
+      "\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022"
+      "#\n\010identity\030\t \001(\0132\021.fk_data.Identity\022%\n\t"
+      "condition\030\n \001(\0132\022.fk_data.Condition\"q\n\014S"
+      "ignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.Sign"
+      "edRecordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014"
+      "\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004*b\n\rDownlo"
+      "adFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READI"
+      "NG_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_FLAG"
+      "S_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024CONDITIO"
+      "N_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORD"
+      "ING\020\001*\255\001\n\020SignedRecordKind\022\033\n\027SIGNED_REC"
+      "ORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MO"
+      "DULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002"
+      "\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022\035\n\030SIGNED"
+      "_RECORD_KIND_OTHER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2409);
+      descriptor, 2429);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -4382,6 +4383,7 @@ const int Metadata::kResetCauseFieldNumber;
 const int Metadata::kSensorsFieldNumber;
 const int Metadata::kModulesFieldNumber;
 const int Metadata::kFirmwareFieldNumber;
+const int Metadata::kGenerationFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Metadata::Metadata()
@@ -4411,6 +4413,10 @@ Metadata::Metadata(const Metadata& from)
   if (from.build().size() > 0) {
     build_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.build_);
   }
+  generation_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.generation().size() > 0) {
+    generation_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.generation_);
+  }
   if (from.has_firmware()) {
     firmware_ = new ::fk_data::Firmware(*from.firmware_);
   } else {
@@ -4426,6 +4432,7 @@ void Metadata::SharedCtor() {
   deviceid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   git_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   build_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  generation_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&firmware_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&resetcause_) -
       reinterpret_cast<char*>(&firmware_)) + sizeof(resetcause_));
@@ -4441,6 +4448,7 @@ void Metadata::SharedDtor() {
   deviceid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   git_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   build_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  generation_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete firmware_;
 }
 
@@ -4478,6 +4486,7 @@ void Metadata::Clear() {
   deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   git_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   build_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  generation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && firmware_ != NULL) {
     delete firmware_;
   }
@@ -4606,6 +4615,18 @@ bool Metadata::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes generation = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(74u /* 74 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_generation()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -4688,6 +4709,12 @@ void Metadata::SerializeWithCachedSizes(
       8, *this->firmware_, output);
   }
 
+  // bytes generation = 9;
+  if (this->generation().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      9, this->generation(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -4764,6 +4791,13 @@ void Metadata::SerializeWithCachedSizes(
         8, *this->firmware_, deterministic, target);
   }
 
+  // bytes generation = 9;
+  if (this->generation().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        9, this->generation(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -4822,6 +4856,13 @@ size_t Metadata::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->build());
+  }
+
+  // bytes generation = 9;
+  if (this->generation().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->generation());
   }
 
   // .fk_data.Firmware firmware = 8;
@@ -4888,6 +4929,10 @@ void Metadata::MergeFrom(const Metadata& from) {
 
     build_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.build_);
   }
+  if (from.generation().size() > 0) {
+
+    generation_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.generation_);
+  }
   if (from.has_firmware()) {
     mutable_firmware()->::fk_data::Firmware::MergeFrom(from.firmware());
   }
@@ -4928,6 +4973,7 @@ void Metadata::InternalSwap(Metadata* other) {
   deviceid_.Swap(&other->deviceid_);
   git_.Swap(&other->git_);
   build_.Swap(&other->build_);
+  generation_.Swap(&other->generation_);
   swap(firmware_, other->firmware_);
   swap(time_, other->time_);
   swap(resetcause_, other->resetcause_);
@@ -5228,6 +5274,59 @@ void Metadata::set_allocated_firmware(::fk_data::Firmware* firmware) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:fk_data.Metadata.firmware)
+}
+
+// bytes generation = 9;
+void Metadata::clear_generation() {
+  generation_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Metadata::generation() const {
+  // @@protoc_insertion_point(field_get:fk_data.Metadata.generation)
+  return generation_.GetNoArena();
+}
+void Metadata::set_generation(const ::std::string& value) {
+  
+  generation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.Metadata.generation)
+}
+#if LANG_CXX11
+void Metadata::set_generation(::std::string&& value) {
+  
+  generation_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.Metadata.generation)
+}
+#endif
+void Metadata::set_generation(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  generation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.Metadata.generation)
+}
+void Metadata::set_generation(const void* value, size_t size) {
+  
+  generation_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.Metadata.generation)
+}
+::std::string* Metadata::mutable_generation() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.Metadata.generation)
+  return generation_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Metadata::release_generation() {
+  // @@protoc_insertion_point(field_release:fk_data.Metadata.generation)
+  
+  return generation_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Metadata::set_allocated_generation(::std::string* generation) {
+  if (generation != NULL) {
+    
+  } else {
+    
+  }
+  generation_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), generation);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Metadata.generation)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
