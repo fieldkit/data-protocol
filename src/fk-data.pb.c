@@ -59,6 +59,15 @@ PB_BIND(fk_data_Identity, fk_data_Identity, AUTO)
 PB_BIND(fk_data_Condition, fk_data_Condition, AUTO)
 
 
+PB_BIND(fk_data_NetworkInfo, fk_data_NetworkInfo, AUTO)
+
+
+PB_BIND(fk_data_NetworkSettings, fk_data_NetworkSettings, AUTO)
+
+
+PB_BIND(fk_data_LoraSettings, fk_data_LoraSettings, AUTO)
+
+
 PB_BIND(fk_data_DataRecord, fk_data_DataRecord, 2)
 
 

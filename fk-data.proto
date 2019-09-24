@@ -126,6 +126,22 @@ message Condition {
   uint32 flags = 1;
 }
 
+message NetworkInfo {
+  string ssid = 1;
+  string password = 2;
+}
+
+message NetworkSettings {
+  repeated NetworkInfo networks = 1;
+}
+
+message LoraSettings {
+  bytes deviceEui = 1;
+  bytes appKey = 2;
+  bytes appEui = 3;
+  uint32 frequencyBand = 4;
+}
+
 /**
  * I may break this into a MetaRecord.
  */
@@ -140,6 +156,8 @@ message DataRecord {
   uint64 meta = 8;
   Identity identity = 9;
   Condition condition = 10;
+  LoraSettings lora = 11;
+  NetworkSettings network = 12;
 }
 
 enum SignedRecordKind {
@@ -147,6 +165,7 @@ enum SignedRecordKind {
   SIGNED_RECORD_KIND_MODULES = 1;
   SIGNED_RECORD_KIND_SCHEDULE = 2;
   SIGNED_RECORD_KIND_STATE = 3;
+  SIGNED_RECORD_KIND_RAW_STATE = 4;
   SIGNED_RECORD_KIND_OTHER = 0xff;
 }
 

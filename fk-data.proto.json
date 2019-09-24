@@ -341,6 +341,47 @@
             }
           }
         },
+        "NetworkInfo": {
+          "fields": {
+            "ssid": {
+              "type": "string",
+              "id": 1
+            },
+            "password": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "NetworkSettings": {
+          "fields": {
+            "networks": {
+              "rule": "repeated",
+              "type": "NetworkInfo",
+              "id": 1
+            }
+          }
+        },
+        "LoraSettings": {
+          "fields": {
+            "deviceEui": {
+              "type": "bytes",
+              "id": 1
+            },
+            "appKey": {
+              "type": "bytes",
+              "id": 2
+            },
+            "appEui": {
+              "type": "bytes",
+              "id": 3
+            },
+            "frequencyBand": {
+              "type": "uint32",
+              "id": 4
+            }
+          }
+        },
         "DataRecord": {
           "fields": {
             "loggedReading": {
@@ -383,6 +424,14 @@
             "condition": {
               "type": "Condition",
               "id": 10
+            },
+            "lora": {
+              "type": "LoraSettings",
+              "id": 11
+            },
+            "network": {
+              "type": "NetworkSettings",
+              "id": 12
             }
           }
         },
@@ -392,6 +441,7 @@
             "SIGNED_RECORD_KIND_MODULES": 1,
             "SIGNED_RECORD_KIND_SCHEDULE": 2,
             "SIGNED_RECORD_KIND_STATE": 3,
+            "SIGNED_RECORD_KIND_RAW_STATE": 4,
             "SIGNED_RECORD_KIND_OTHER": 255
           }
         },

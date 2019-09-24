@@ -37,6 +37,7 @@ typedef enum _fk_data_SignedRecordKind {
     fk_data_SignedRecordKind_SIGNED_RECORD_KIND_MODULES = 1,
     fk_data_SignedRecordKind_SIGNED_RECORD_KIND_SCHEDULE = 2,
     fk_data_SignedRecordKind_SIGNED_RECORD_KIND_STATE = 3,
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_RAW_STATE = 4,
     fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER = 255
 } fk_data_SignedRecordKind;
 #define _fk_data_SignedRecordKind_MIN fk_data_SignedRecordKind_SIGNED_RECORD_KIND_NONE
@@ -61,6 +62,19 @@ typedef struct _fk_data_JobSchedule {
     pb_callback_t cron;
 /* @@protoc_insertion_point(struct:fk_data_JobSchedule) */
 } fk_data_JobSchedule;
+
+
+typedef struct _fk_data_NetworkInfo {
+    pb_callback_t ssid;
+    pb_callback_t password;
+/* @@protoc_insertion_point(struct:fk_data_NetworkInfo) */
+} fk_data_NetworkInfo;
+
+
+typedef struct _fk_data_NetworkSettings {
+    pb_callback_t networks;
+/* @@protoc_insertion_point(struct:fk_data_NetworkSettings) */
+} fk_data_NetworkSettings;
 
 
 typedef struct _fk_data_Condition {
@@ -89,6 +103,15 @@ typedef struct _fk_data_LogMessage {
     pb_callback_t message;
 /* @@protoc_insertion_point(struct:fk_data_LogMessage) */
 } fk_data_LogMessage;
+
+
+typedef struct _fk_data_LoraSettings {
+    pb_callback_t deviceEui;
+    pb_callback_t appKey;
+    pb_callback_t appEui;
+    uint32_t frequencyBand;
+/* @@protoc_insertion_point(struct:fk_data_LoraSettings) */
+} fk_data_LoraSettings;
 
 
 typedef struct _fk_data_Metadata {
@@ -213,6 +236,8 @@ typedef struct _fk_data_DataRecord {
     uint64_t meta;
     fk_data_Identity identity;
     fk_data_Condition condition;
+    fk_data_LoraSettings lora;
+    fk_data_NetworkSettings network;
 /* @@protoc_insertion_point(struct:fk_data_DataRecord) */
 } fk_data_DataRecord;
 
@@ -235,7 +260,10 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
 #define fk_data_Condition_init_default           {0}
-#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default, {{NULL}, NULL}, fk_data_Schedule_init_default, 0, fk_data_Identity_init_default, fk_data_Condition_init_default}
+#define fk_data_NetworkInfo_init_default         {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_NetworkSettings_init_default     {{{NULL}, NULL}}
+#define fk_data_LoraSettings_init_default        {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0}
+#define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default, {{NULL}, NULL}, fk_data_Schedule_init_default, 0, fk_data_Identity_init_default, fk_data_Condition_init_default, fk_data_LoraSettings_init_default, fk_data_NetworkSettings_init_default}
 #define fk_data_SignedRecord_init_default        {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
@@ -254,7 +282,10 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
 #define fk_data_Condition_init_zero              {0}
-#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero, {{NULL}, NULL}, fk_data_Schedule_init_zero, 0, fk_data_Identity_init_zero, fk_data_Condition_init_zero}
+#define fk_data_NetworkInfo_init_zero            {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_NetworkSettings_init_zero        {{{NULL}, NULL}}
+#define fk_data_LoraSettings_init_zero           {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0}
+#define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero, {{NULL}, NULL}, fk_data_Schedule_init_zero, 0, fk_data_Identity_init_zero, fk_data_Condition_init_zero, fk_data_LoraSettings_init_zero, fk_data_NetworkSettings_init_zero}
 #define fk_data_SignedRecord_init_zero           {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
@@ -262,6 +293,9 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Firmware_build_tag               2
 #define fk_data_Identity_name_tag                1
 #define fk_data_JobSchedule_cron_tag             1
+#define fk_data_NetworkInfo_ssid_tag             1
+#define fk_data_NetworkInfo_password_tag         2
+#define fk_data_NetworkSettings_networks_tag     1
 #define fk_data_Condition_flags_tag              1
 #define fk_data_DeviceLocation_enabled_tag       7
 #define fk_data_DeviceLocation_fix_tag           1
@@ -275,6 +309,10 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_level_tag             3
 #define fk_data_LogMessage_facility_tag          4
 #define fk_data_LogMessage_message_tag           5
+#define fk_data_LoraSettings_deviceEui_tag       1
+#define fk_data_LoraSettings_appKey_tag          2
+#define fk_data_LoraSettings_appEui_tag          3
+#define fk_data_LoraSettings_frequencyBand_tag   4
 #define fk_data_Metadata_deviceId_tag            1
 #define fk_data_Metadata_time_tag                2
 #define fk_data_Metadata_git_tag                 3
@@ -336,6 +374,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DataRecord_meta_tag              8
 #define fk_data_DataRecord_identity_tag          9
 #define fk_data_DataRecord_condition_tag         10
+#define fk_data_DataRecord_lora_tag              11
+#define fk_data_DataRecord_network_tag           12
 
 /* Struct field encoding specification for nanopb */
 #define fk_data_DeviceLocation_FIELDLIST(X, a) \
@@ -482,6 +522,26 @@ X(a, STATIC, SINGULAR, UINT32, flags, 1)
 #define fk_data_Condition_CALLBACK NULL
 #define fk_data_Condition_DEFAULT NULL
 
+#define fk_data_NetworkInfo_FIELDLIST(X, a) \
+X(a, CALLBACK, SINGULAR, STRING, ssid, 1) \
+X(a, CALLBACK, SINGULAR, STRING, password, 2)
+#define fk_data_NetworkInfo_CALLBACK pb_default_field_callback
+#define fk_data_NetworkInfo_DEFAULT NULL
+
+#define fk_data_NetworkSettings_FIELDLIST(X, a) \
+X(a, CALLBACK, REPEATED, MESSAGE, networks, 1)
+#define fk_data_NetworkSettings_CALLBACK pb_default_field_callback
+#define fk_data_NetworkSettings_DEFAULT NULL
+#define fk_data_NetworkSettings_networks_MSGTYPE fk_data_NetworkInfo
+
+#define fk_data_LoraSettings_FIELDLIST(X, a) \
+X(a, CALLBACK, SINGULAR, BYTES, deviceEui, 1) \
+X(a, CALLBACK, SINGULAR, BYTES, appKey, 2) \
+X(a, CALLBACK, SINGULAR, BYTES, appEui, 3) \
+X(a, STATIC, SINGULAR, UINT32, frequencyBand, 4)
+#define fk_data_LoraSettings_CALLBACK pb_default_field_callback
+#define fk_data_LoraSettings_DEFAULT NULL
+
 #define fk_data_DataRecord_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, MESSAGE, loggedReading, 1) \
 X(a, STATIC, SINGULAR, MESSAGE, metadata, 2) \
@@ -492,7 +552,9 @@ X(a, CALLBACK, REPEATED, MESSAGE, modules, 6) \
 X(a, STATIC, SINGULAR, MESSAGE, schedule, 7) \
 X(a, STATIC, SINGULAR, UINT64, meta, 8) \
 X(a, STATIC, SINGULAR, MESSAGE, identity, 9) \
-X(a, STATIC, SINGULAR, MESSAGE, condition, 10)
+X(a, STATIC, SINGULAR, MESSAGE, condition, 10) \
+X(a, STATIC, SINGULAR, MESSAGE, lora, 11) \
+X(a, STATIC, SINGULAR, MESSAGE, network, 12)
 #define fk_data_DataRecord_CALLBACK pb_default_field_callback
 #define fk_data_DataRecord_DEFAULT NULL
 #define fk_data_DataRecord_loggedReading_MSGTYPE fk_data_LoggedReading
@@ -504,6 +566,8 @@ X(a, STATIC, SINGULAR, MESSAGE, condition, 10)
 #define fk_data_DataRecord_schedule_MSGTYPE fk_data_Schedule
 #define fk_data_DataRecord_identity_MSGTYPE fk_data_Identity
 #define fk_data_DataRecord_condition_MSGTYPE fk_data_Condition
+#define fk_data_DataRecord_lora_MSGTYPE fk_data_LoraSettings
+#define fk_data_DataRecord_network_MSGTYPE fk_data_NetworkSettings
 
 #define fk_data_SignedRecord_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UENUM, kind, 1) \
@@ -531,6 +595,9 @@ extern const pb_msgdesc_t fk_data_JobSchedule_msg;
 extern const pb_msgdesc_t fk_data_Schedule_msg;
 extern const pb_msgdesc_t fk_data_Identity_msg;
 extern const pb_msgdesc_t fk_data_Condition_msg;
+extern const pb_msgdesc_t fk_data_NetworkInfo_msg;
+extern const pb_msgdesc_t fk_data_NetworkSettings_msg;
+extern const pb_msgdesc_t fk_data_LoraSettings_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
 extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 
@@ -552,6 +619,9 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 #define fk_data_Schedule_fields &fk_data_Schedule_msg
 #define fk_data_Identity_fields &fk_data_Identity_msg
 #define fk_data_Condition_fields &fk_data_Condition_msg
+#define fk_data_NetworkInfo_fields &fk_data_NetworkInfo_msg
+#define fk_data_NetworkSettings_fields &fk_data_NetworkSettings_msg
+#define fk_data_LoraSettings_fields &fk_data_LoraSettings_msg
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
 #define fk_data_SignedRecord_fields &fk_data_SignedRecord_msg
 
@@ -573,6 +643,9 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 /* fk_data_Schedule_size depends on runtime parameters */
 /* fk_data_Identity_size depends on runtime parameters */
 #define fk_data_Condition_size                   6
+/* fk_data_NetworkInfo_size depends on runtime parameters */
+/* fk_data_NetworkSettings_size depends on runtime parameters */
+/* fk_data_LoraSettings_size depends on runtime parameters */
 /* fk_data_DataRecord_size depends on runtime parameters */
 /* fk_data_SignedRecord_size depends on runtime parameters */
 

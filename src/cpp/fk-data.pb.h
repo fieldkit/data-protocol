@@ -56,6 +56,9 @@ extern LogMessageDefaultTypeInternal _LogMessage_default_instance_;
 class LoggedReading;
 class LoggedReadingDefaultTypeInternal;
 extern LoggedReadingDefaultTypeInternal _LoggedReading_default_instance_;
+class LoraSettings;
+class LoraSettingsDefaultTypeInternal;
+extern LoraSettingsDefaultTypeInternal _LoraSettings_default_instance_;
 class Metadata;
 class MetadataDefaultTypeInternal;
 extern MetadataDefaultTypeInternal _Metadata_default_instance_;
@@ -65,6 +68,12 @@ extern ModuleHeaderDefaultTypeInternal _ModuleHeader_default_instance_;
 class ModuleInfo;
 class ModuleInfoDefaultTypeInternal;
 extern ModuleInfoDefaultTypeInternal _ModuleInfo_default_instance_;
+class NetworkInfo;
+class NetworkInfoDefaultTypeInternal;
+extern NetworkInfoDefaultTypeInternal _NetworkInfo_default_instance_;
+class NetworkSettings;
+class NetworkSettingsDefaultTypeInternal;
+extern NetworkSettingsDefaultTypeInternal _NetworkSettings_default_instance_;
 class Readings;
 class ReadingsDefaultTypeInternal;
 extern ReadingsDefaultTypeInternal _Readings_default_instance_;
@@ -156,6 +165,7 @@ enum SignedRecordKind {
   SIGNED_RECORD_KIND_MODULES = 1,
   SIGNED_RECORD_KIND_SCHEDULE = 2,
   SIGNED_RECORD_KIND_STATE = 3,
+  SIGNED_RECORD_KIND_RAW_STATE = 4,
   SIGNED_RECORD_KIND_OTHER = 255,
   SignedRecordKind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   SignedRecordKind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
@@ -2321,6 +2331,371 @@ class Condition : public ::google::protobuf::Message /* @@protoc_insertion_point
 };
 // -------------------------------------------------------------------
 
+class NetworkInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.NetworkInfo) */ {
+ public:
+  NetworkInfo();
+  virtual ~NetworkInfo();
+
+  NetworkInfo(const NetworkInfo& from);
+
+  inline NetworkInfo& operator=(const NetworkInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NetworkInfo(NetworkInfo&& from) noexcept
+    : NetworkInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline NetworkInfo& operator=(NetworkInfo&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NetworkInfo& default_instance();
+
+  static inline const NetworkInfo* internal_default_instance() {
+    return reinterpret_cast<const NetworkInfo*>(
+               &_NetworkInfo_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    17;
+
+  void Swap(NetworkInfo* other);
+  friend void swap(NetworkInfo& a, NetworkInfo& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NetworkInfo* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  NetworkInfo* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const NetworkInfo& from);
+  void MergeFrom(const NetworkInfo& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(NetworkInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string ssid = 1;
+  void clear_ssid();
+  static const int kSsidFieldNumber = 1;
+  const ::std::string& ssid() const;
+  void set_ssid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_ssid(::std::string&& value);
+  #endif
+  void set_ssid(const char* value);
+  void set_ssid(const char* value, size_t size);
+  ::std::string* mutable_ssid();
+  ::std::string* release_ssid();
+  void set_allocated_ssid(::std::string* ssid);
+
+  // string password = 2;
+  void clear_password();
+  static const int kPasswordFieldNumber = 2;
+  const ::std::string& password() const;
+  void set_password(const ::std::string& value);
+  #if LANG_CXX11
+  void set_password(::std::string&& value);
+  #endif
+  void set_password(const char* value);
+  void set_password(const char* value, size_t size);
+  ::std::string* mutable_password();
+  ::std::string* release_password();
+  void set_allocated_password(::std::string* password);
+
+  // @@protoc_insertion_point(class_scope:fk_data.NetworkInfo)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr ssid_;
+  ::google::protobuf::internal::ArenaStringPtr password_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class NetworkSettings : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.NetworkSettings) */ {
+ public:
+  NetworkSettings();
+  virtual ~NetworkSettings();
+
+  NetworkSettings(const NetworkSettings& from);
+
+  inline NetworkSettings& operator=(const NetworkSettings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NetworkSettings(NetworkSettings&& from) noexcept
+    : NetworkSettings() {
+    *this = ::std::move(from);
+  }
+
+  inline NetworkSettings& operator=(NetworkSettings&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NetworkSettings& default_instance();
+
+  static inline const NetworkSettings* internal_default_instance() {
+    return reinterpret_cast<const NetworkSettings*>(
+               &_NetworkSettings_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    18;
+
+  void Swap(NetworkSettings* other);
+  friend void swap(NetworkSettings& a, NetworkSettings& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NetworkSettings* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  NetworkSettings* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const NetworkSettings& from);
+  void MergeFrom(const NetworkSettings& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(NetworkSettings* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fk_data.NetworkInfo networks = 1;
+  int networks_size() const;
+  void clear_networks();
+  static const int kNetworksFieldNumber = 1;
+  const ::fk_data::NetworkInfo& networks(int index) const;
+  ::fk_data::NetworkInfo* mutable_networks(int index);
+  ::fk_data::NetworkInfo* add_networks();
+  ::google::protobuf::RepeatedPtrField< ::fk_data::NetworkInfo >*
+      mutable_networks();
+  const ::google::protobuf::RepeatedPtrField< ::fk_data::NetworkInfo >&
+      networks() const;
+
+  // @@protoc_insertion_point(class_scope:fk_data.NetworkSettings)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fk_data::NetworkInfo > networks_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class LoraSettings : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.LoraSettings) */ {
+ public:
+  LoraSettings();
+  virtual ~LoraSettings();
+
+  LoraSettings(const LoraSettings& from);
+
+  inline LoraSettings& operator=(const LoraSettings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LoraSettings(LoraSettings&& from) noexcept
+    : LoraSettings() {
+    *this = ::std::move(from);
+  }
+
+  inline LoraSettings& operator=(LoraSettings&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LoraSettings& default_instance();
+
+  static inline const LoraSettings* internal_default_instance() {
+    return reinterpret_cast<const LoraSettings*>(
+               &_LoraSettings_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    19;
+
+  void Swap(LoraSettings* other);
+  friend void swap(LoraSettings& a, LoraSettings& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LoraSettings* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  LoraSettings* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const LoraSettings& from);
+  void MergeFrom(const LoraSettings& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(LoraSettings* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes deviceEui = 1;
+  void clear_deviceeui();
+  static const int kDeviceEuiFieldNumber = 1;
+  const ::std::string& deviceeui() const;
+  void set_deviceeui(const ::std::string& value);
+  #if LANG_CXX11
+  void set_deviceeui(::std::string&& value);
+  #endif
+  void set_deviceeui(const char* value);
+  void set_deviceeui(const void* value, size_t size);
+  ::std::string* mutable_deviceeui();
+  ::std::string* release_deviceeui();
+  void set_allocated_deviceeui(::std::string* deviceeui);
+
+  // bytes appKey = 2;
+  void clear_appkey();
+  static const int kAppKeyFieldNumber = 2;
+  const ::std::string& appkey() const;
+  void set_appkey(const ::std::string& value);
+  #if LANG_CXX11
+  void set_appkey(::std::string&& value);
+  #endif
+  void set_appkey(const char* value);
+  void set_appkey(const void* value, size_t size);
+  ::std::string* mutable_appkey();
+  ::std::string* release_appkey();
+  void set_allocated_appkey(::std::string* appkey);
+
+  // bytes appEui = 3;
+  void clear_appeui();
+  static const int kAppEuiFieldNumber = 3;
+  const ::std::string& appeui() const;
+  void set_appeui(const ::std::string& value);
+  #if LANG_CXX11
+  void set_appeui(::std::string&& value);
+  #endif
+  void set_appeui(const char* value);
+  void set_appeui(const void* value, size_t size);
+  ::std::string* mutable_appeui();
+  ::std::string* release_appeui();
+  void set_allocated_appeui(::std::string* appeui);
+
+  // uint32 frequencyBand = 4;
+  void clear_frequencyband();
+  static const int kFrequencyBandFieldNumber = 4;
+  ::google::protobuf::uint32 frequencyband() const;
+  void set_frequencyband(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:fk_data.LoraSettings)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr deviceeui_;
+  ::google::protobuf::internal::ArenaStringPtr appkey_;
+  ::google::protobuf::internal::ArenaStringPtr appeui_;
+  ::google::protobuf::uint32 frequencyband_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.DataRecord) */ {
  public:
   DataRecord();
@@ -2355,7 +2730,7 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_DataRecord_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    20;
 
   void Swap(DataRecord* other);
   friend void swap(DataRecord& a, DataRecord& b) {
@@ -2486,6 +2861,24 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::Condition* release_condition();
   void set_allocated_condition(::fk_data::Condition* condition);
 
+  // .fk_data.LoraSettings lora = 11;
+  bool has_lora() const;
+  void clear_lora();
+  static const int kLoraFieldNumber = 11;
+  const ::fk_data::LoraSettings& lora() const;
+  ::fk_data::LoraSettings* mutable_lora();
+  ::fk_data::LoraSettings* release_lora();
+  void set_allocated_lora(::fk_data::LoraSettings* lora);
+
+  // .fk_data.NetworkSettings network = 12;
+  bool has_network() const;
+  void clear_network();
+  static const int kNetworkFieldNumber = 12;
+  const ::fk_data::NetworkSettings& network() const;
+  ::fk_data::NetworkSettings* mutable_network();
+  ::fk_data::NetworkSettings* release_network();
+  void set_allocated_network(::fk_data::NetworkSettings* network);
+
   // uint64 meta = 8;
   void clear_meta();
   static const int kMetaFieldNumber = 8;
@@ -2505,6 +2898,8 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::Schedule* schedule_;
   ::fk_data::Identity* identity_;
   ::fk_data::Condition* condition_;
+  ::fk_data::LoraSettings* lora_;
+  ::fk_data::NetworkSettings* network_;
   ::google::protobuf::uint64 meta_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
@@ -2545,7 +2940,7 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_SignedRecord_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    21;
 
   void Swap(SignedRecord* other);
   friend void swap(SignedRecord& a, SignedRecord& b) {
@@ -4460,6 +4855,327 @@ inline void Condition::set_flags(::google::protobuf::uint32 value) {
 
 // -------------------------------------------------------------------
 
+// NetworkInfo
+
+// string ssid = 1;
+inline void NetworkInfo::clear_ssid() {
+  ssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NetworkInfo::ssid() const {
+  // @@protoc_insertion_point(field_get:fk_data.NetworkInfo.ssid)
+  return ssid_.GetNoArena();
+}
+inline void NetworkInfo::set_ssid(const ::std::string& value) {
+  
+  ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.NetworkInfo.ssid)
+}
+#if LANG_CXX11
+inline void NetworkInfo::set_ssid(::std::string&& value) {
+  
+  ssid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.NetworkInfo.ssid)
+}
+#endif
+inline void NetworkInfo::set_ssid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.NetworkInfo.ssid)
+}
+inline void NetworkInfo::set_ssid(const char* value, size_t size) {
+  
+  ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.NetworkInfo.ssid)
+}
+inline ::std::string* NetworkInfo::mutable_ssid() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.NetworkInfo.ssid)
+  return ssid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NetworkInfo::release_ssid() {
+  // @@protoc_insertion_point(field_release:fk_data.NetworkInfo.ssid)
+  
+  return ssid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NetworkInfo::set_allocated_ssid(::std::string* ssid) {
+  if (ssid != NULL) {
+    
+  } else {
+    
+  }
+  ssid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ssid);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.NetworkInfo.ssid)
+}
+
+// string password = 2;
+inline void NetworkInfo::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NetworkInfo::password() const {
+  // @@protoc_insertion_point(field_get:fk_data.NetworkInfo.password)
+  return password_.GetNoArena();
+}
+inline void NetworkInfo::set_password(const ::std::string& value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.NetworkInfo.password)
+}
+#if LANG_CXX11
+inline void NetworkInfo::set_password(::std::string&& value) {
+  
+  password_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.NetworkInfo.password)
+}
+#endif
+inline void NetworkInfo::set_password(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.NetworkInfo.password)
+}
+inline void NetworkInfo::set_password(const char* value, size_t size) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.NetworkInfo.password)
+}
+inline ::std::string* NetworkInfo::mutable_password() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.NetworkInfo.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NetworkInfo::release_password() {
+  // @@protoc_insertion_point(field_release:fk_data.NetworkInfo.password)
+  
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NetworkInfo::set_allocated_password(::std::string* password) {
+  if (password != NULL) {
+    
+  } else {
+    
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.NetworkInfo.password)
+}
+
+// -------------------------------------------------------------------
+
+// NetworkSettings
+
+// repeated .fk_data.NetworkInfo networks = 1;
+inline int NetworkSettings::networks_size() const {
+  return networks_.size();
+}
+inline void NetworkSettings::clear_networks() {
+  networks_.Clear();
+}
+inline const ::fk_data::NetworkInfo& NetworkSettings::networks(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.NetworkSettings.networks)
+  return networks_.Get(index);
+}
+inline ::fk_data::NetworkInfo* NetworkSettings::mutable_networks(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.NetworkSettings.networks)
+  return networks_.Mutable(index);
+}
+inline ::fk_data::NetworkInfo* NetworkSettings::add_networks() {
+  // @@protoc_insertion_point(field_add:fk_data.NetworkSettings.networks)
+  return networks_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fk_data::NetworkInfo >*
+NetworkSettings::mutable_networks() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.NetworkSettings.networks)
+  return &networks_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fk_data::NetworkInfo >&
+NetworkSettings::networks() const {
+  // @@protoc_insertion_point(field_list:fk_data.NetworkSettings.networks)
+  return networks_;
+}
+
+// -------------------------------------------------------------------
+
+// LoraSettings
+
+// bytes deviceEui = 1;
+inline void LoraSettings::clear_deviceeui() {
+  deviceeui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoraSettings::deviceeui() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.deviceEui)
+  return deviceeui_.GetNoArena();
+}
+inline void LoraSettings::set_deviceeui(const ::std::string& value) {
+  
+  deviceeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.deviceEui)
+}
+#if LANG_CXX11
+inline void LoraSettings::set_deviceeui(::std::string&& value) {
+  
+  deviceeui_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraSettings.deviceEui)
+}
+#endif
+inline void LoraSettings::set_deviceeui(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  deviceeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraSettings.deviceEui)
+}
+inline void LoraSettings::set_deviceeui(const void* value, size_t size) {
+  
+  deviceeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraSettings.deviceEui)
+}
+inline ::std::string* LoraSettings::mutable_deviceeui() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraSettings.deviceEui)
+  return deviceeui_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoraSettings::release_deviceeui() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraSettings.deviceEui)
+  
+  return deviceeui_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoraSettings::set_allocated_deviceeui(::std::string* deviceeui) {
+  if (deviceeui != NULL) {
+    
+  } else {
+    
+  }
+  deviceeui_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), deviceeui);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraSettings.deviceEui)
+}
+
+// bytes appKey = 2;
+inline void LoraSettings::clear_appkey() {
+  appkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoraSettings::appkey() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.appKey)
+  return appkey_.GetNoArena();
+}
+inline void LoraSettings::set_appkey(const ::std::string& value) {
+  
+  appkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.appKey)
+}
+#if LANG_CXX11
+inline void LoraSettings::set_appkey(::std::string&& value) {
+  
+  appkey_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraSettings.appKey)
+}
+#endif
+inline void LoraSettings::set_appkey(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  appkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraSettings.appKey)
+}
+inline void LoraSettings::set_appkey(const void* value, size_t size) {
+  
+  appkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraSettings.appKey)
+}
+inline ::std::string* LoraSettings::mutable_appkey() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraSettings.appKey)
+  return appkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoraSettings::release_appkey() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraSettings.appKey)
+  
+  return appkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoraSettings::set_allocated_appkey(::std::string* appkey) {
+  if (appkey != NULL) {
+    
+  } else {
+    
+  }
+  appkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), appkey);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraSettings.appKey)
+}
+
+// bytes appEui = 3;
+inline void LoraSettings::clear_appeui() {
+  appeui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoraSettings::appeui() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.appEui)
+  return appeui_.GetNoArena();
+}
+inline void LoraSettings::set_appeui(const ::std::string& value) {
+  
+  appeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.appEui)
+}
+#if LANG_CXX11
+inline void LoraSettings::set_appeui(::std::string&& value) {
+  
+  appeui_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraSettings.appEui)
+}
+#endif
+inline void LoraSettings::set_appeui(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  appeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraSettings.appEui)
+}
+inline void LoraSettings::set_appeui(const void* value, size_t size) {
+  
+  appeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraSettings.appEui)
+}
+inline ::std::string* LoraSettings::mutable_appeui() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraSettings.appEui)
+  return appeui_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoraSettings::release_appeui() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraSettings.appEui)
+  
+  return appeui_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoraSettings::set_allocated_appeui(::std::string* appeui) {
+  if (appeui != NULL) {
+    
+  } else {
+    
+  }
+  appeui_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), appeui);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraSettings.appEui)
+}
+
+// uint32 frequencyBand = 4;
+inline void LoraSettings::clear_frequencyband() {
+  frequencyband_ = 0u;
+}
+inline ::google::protobuf::uint32 LoraSettings::frequencyband() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.frequencyBand)
+  return frequencyband_;
+}
+inline void LoraSettings::set_frequencyband(::google::protobuf::uint32 value) {
+  
+  frequencyband_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.frequencyBand)
+}
+
+// -------------------------------------------------------------------
+
 // DataRecord
 
 // .fk_data.LoggedReading loggedReading = 1;
@@ -4826,6 +5542,86 @@ inline void DataRecord::set_allocated_condition(::fk_data::Condition* condition)
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.condition)
 }
 
+// .fk_data.LoraSettings lora = 11;
+inline bool DataRecord::has_lora() const {
+  return this != internal_default_instance() && lora_ != NULL;
+}
+inline void DataRecord::clear_lora() {
+  if (GetArenaNoVirtual() == NULL && lora_ != NULL) delete lora_;
+  lora_ = NULL;
+}
+inline const ::fk_data::LoraSettings& DataRecord::lora() const {
+  const ::fk_data::LoraSettings* p = lora_;
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.lora)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::LoraSettings*>(
+      &::fk_data::_LoraSettings_default_instance_);
+}
+inline ::fk_data::LoraSettings* DataRecord::mutable_lora() {
+  
+  if (lora_ == NULL) {
+    lora_ = new ::fk_data::LoraSettings;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.lora)
+  return lora_;
+}
+inline ::fk_data::LoraSettings* DataRecord::release_lora() {
+  // @@protoc_insertion_point(field_release:fk_data.DataRecord.lora)
+  
+  ::fk_data::LoraSettings* temp = lora_;
+  lora_ = NULL;
+  return temp;
+}
+inline void DataRecord::set_allocated_lora(::fk_data::LoraSettings* lora) {
+  delete lora_;
+  lora_ = lora;
+  if (lora) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.lora)
+}
+
+// .fk_data.NetworkSettings network = 12;
+inline bool DataRecord::has_network() const {
+  return this != internal_default_instance() && network_ != NULL;
+}
+inline void DataRecord::clear_network() {
+  if (GetArenaNoVirtual() == NULL && network_ != NULL) delete network_;
+  network_ = NULL;
+}
+inline const ::fk_data::NetworkSettings& DataRecord::network() const {
+  const ::fk_data::NetworkSettings* p = network_;
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.network)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::NetworkSettings*>(
+      &::fk_data::_NetworkSettings_default_instance_);
+}
+inline ::fk_data::NetworkSettings* DataRecord::mutable_network() {
+  
+  if (network_ == NULL) {
+    network_ = new ::fk_data::NetworkSettings;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.network)
+  return network_;
+}
+inline ::fk_data::NetworkSettings* DataRecord::release_network() {
+  // @@protoc_insertion_point(field_release:fk_data.DataRecord.network)
+  
+  ::fk_data::NetworkSettings* temp = network_;
+  network_ = NULL;
+  return temp;
+}
+inline void DataRecord::set_allocated_network(::fk_data::NetworkSettings* network) {
+  delete network_;
+  network_ = network;
+  if (network) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.network)
+}
+
 // -------------------------------------------------------------------
 
 // SignedRecord
@@ -4982,6 +5778,12 @@ inline void SignedRecord::set_record(::google::protobuf::uint64 value) {
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

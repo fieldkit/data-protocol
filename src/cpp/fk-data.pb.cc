@@ -103,6 +103,21 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<Condition>
      _instance;
 } _Condition_default_instance_;
+class NetworkInfoDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<NetworkInfo>
+     _instance;
+} _NetworkInfo_default_instance_;
+class NetworkSettingsDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<NetworkSettings>
+     _instance;
+} _NetworkSettings_default_instance_;
+class LoraSettingsDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<LoraSettings>
+     _instance;
+} _LoraSettings_default_instance_;
 class DataRecordDefaultTypeInternal {
 public:
  ::google::protobuf::internal::ExplicitlyConstructed<DataRecord>
@@ -119,7 +134,7 @@ namespace protobuf_fk_2ddata_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[19];
+::google::protobuf::Metadata file_level_metadata[22];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 
 }  // namespace
@@ -135,6 +150,9 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
@@ -306,6 +324,28 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Condition, flags_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkInfo, ssid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkInfo, password_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkSettings, networks_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraSettings, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraSettings, deviceeui_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraSettings, appkey_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraSettings, appeui_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraSettings, frequencyband_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -320,6 +360,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, meta_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, identity_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, condition_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, lora_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, network_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -349,8 +391,11 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 129, -1, sizeof(Schedule)},
   { 136, -1, sizeof(Identity)},
   { 142, -1, sizeof(Condition)},
-  { 148, -1, sizeof(DataRecord)},
-  { 163, -1, sizeof(SignedRecord)},
+  { 148, -1, sizeof(NetworkInfo)},
+  { 155, -1, sizeof(NetworkSettings)},
+  { 161, -1, sizeof(LoraSettings)},
+  { 170, -1, sizeof(DataRecord)},
+  { 187, -1, sizeof(SignedRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -371,6 +416,9 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_Schedule_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Identity_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Condition_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_NetworkInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_NetworkSettings_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_LoraSettings_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_DataRecord_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_SignedRecord_default_instance_),
 };
@@ -393,7 +441,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 19);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 22);
 }
 
 }  // namespace
@@ -435,7 +483,13 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_Identity_default_instance_);_Condition_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_Condition_default_instance_);_DataRecord_default_instance_._instance.DefaultConstruct();
+      &_Condition_default_instance_);_NetworkInfo_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_NetworkInfo_default_instance_);_NetworkSettings_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_NetworkSettings_default_instance_);_LoraSettings_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_LoraSettings_default_instance_);_DataRecord_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_DataRecord_default_instance_);_SignedRecord_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
@@ -471,6 +525,10 @@ void TableStruct::InitDefaultsImpl() {
       ::fk_data::Identity::internal_default_instance());
   _DataRecord_default_instance_._instance.get_mutable()->condition_ = const_cast< ::fk_data::Condition*>(
       ::fk_data::Condition::internal_default_instance());
+  _DataRecord_default_instance_._instance.get_mutable()->lora_ = const_cast< ::fk_data::LoraSettings*>(
+      ::fk_data::LoraSettings::internal_default_instance());
+  _DataRecord_default_instance_._instance.get_mutable()->network_ = const_cast< ::fk_data::NetworkSettings*>(
+      ::fk_data::NetworkSettings::internal_default_instance());
 }
 
 void InitDefaults() {
@@ -520,31 +578,39 @@ void AddDescriptorsImpl() {
       "\001 \001(\014\"V\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024.fk"
       "_data.JobSchedule\022\"\n\004misc\030\002 \001(\0132\024.fk_dat"
       "a.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\""
-      "\032\n\tCondition\022\r\n\005flags\030\001 \001(\r\"\355\002\n\nDataReco"
-      "rd\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data.Logg"
-      "edReading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Me"
-      "tadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage"
-      "\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n\010rea"
-      "dings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007module"
-      "s\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010schedule"
-      "\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022"
-      "#\n\010identity\030\t \001(\0132\021.fk_data.Identity\022%\n\t"
-      "condition\030\n \001(\0132\022.fk_data.Condition\"q\n\014S"
-      "ignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.Sign"
-      "edRecordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014"
-      "\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004*b\n\rDownlo"
-      "adFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READI"
-      "NG_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_FLAG"
-      "S_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024CONDITIO"
-      "N_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORD"
-      "ING\020\001*\255\001\n\020SignedRecordKind\022\033\n\027SIGNED_REC"
-      "ORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MO"
-      "DULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002"
-      "\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022\035\n\030SIGNED"
-      "_RECORD_KIND_OTHER\020\377\001b\006proto3"
+      "\032\n\tCondition\022\r\n\005flags\030\001 \001(\r\"-\n\013NetworkIn"
+      "fo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9\n\017Ne"
+      "tworkSettings\022&\n\010networks\030\001 \003(\0132\024.fk_dat"
+      "a.NetworkInfo\"X\n\014LoraSettings\022\021\n\tdeviceE"
+      "ui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014"
+      "\022\025\n\rfrequencyBand\030\004 \001(\r\"\275\003\n\nDataRecord\022-"
+      "\n\rloggedReading\030\001 \001(\0132\026.fk_data.LoggedRe"
+      "ading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Metada"
+      "ta\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006"
+      "status\030\004 \001(\0132\017.fk_data.Status\022#\n\010reading"
+      "s\030\005 \001(\0132\021.fk_data.Readings\022$\n\007modules\030\006 "
+      "\003(\0132\023.fk_data.ModuleInfo\022#\n\010schedule\030\007 \001"
+      "(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010i"
+      "dentity\030\t \001(\0132\021.fk_data.Identity\022%\n\tcond"
+      "ition\030\n \001(\0132\022.fk_data.Condition\022#\n\004lora\030"
+      "\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007network\030"
+      "\014 \001(\0132\030.fk_data.NetworkSettings\"q\n\014Signe"
+      "dRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedRe"
+      "cordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004"
+      "hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004*b\n\rDownloadFl"
+      "ags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING_F"
+      "LAGS_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_MA"
+      "NUAL\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_FL"
+      "AGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDING\020"
+      "\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED_RECORD_"
+      "KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULE"
+      "S\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030"
+      "SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_REC"
+      "ORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KI"
+      "ND_OTHER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2429);
+      descriptor, 2739);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -602,6 +668,7 @@ bool SignedRecordKind_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
     case 255:
       return true;
     default:
@@ -8511,6 +8578,1249 @@ void Condition::set_flags(::google::protobuf::uint32 value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NetworkInfo::kSsidFieldNumber;
+const int NetworkInfo::kPasswordFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NetworkInfo::NetworkInfo()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fk_2ddata_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fk_data.NetworkInfo)
+}
+NetworkInfo::NetworkInfo(const NetworkInfo& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ssid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.ssid().size() > 0) {
+    ssid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ssid_);
+  }
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.password().size() > 0) {
+    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
+  // @@protoc_insertion_point(copy_constructor:fk_data.NetworkInfo)
+}
+
+void NetworkInfo::SharedCtor() {
+  ssid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+NetworkInfo::~NetworkInfo() {
+  // @@protoc_insertion_point(destructor:fk_data.NetworkInfo)
+  SharedDtor();
+}
+
+void NetworkInfo::SharedDtor() {
+  ssid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void NetworkInfo::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NetworkInfo::descriptor() {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const NetworkInfo& NetworkInfo::default_instance() {
+  protobuf_fk_2ddata_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+NetworkInfo* NetworkInfo::New(::google::protobuf::Arena* arena) const {
+  NetworkInfo* n = new NetworkInfo;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void NetworkInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:fk_data.NetworkInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+bool NetworkInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fk_data.NetworkInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string ssid = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_ssid()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->ssid().data(), static_cast<int>(this->ssid().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fk_data.NetworkInfo.ssid"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string password = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_password()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->password().data(), static_cast<int>(this->password().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fk_data.NetworkInfo.password"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fk_data.NetworkInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fk_data.NetworkInfo)
+  return false;
+#undef DO_
+}
+
+void NetworkInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fk_data.NetworkInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string ssid = 1;
+  if (this->ssid().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ssid().data(), static_cast<int>(this->ssid().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fk_data.NetworkInfo.ssid");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->ssid(), output);
+  }
+
+  // string password = 2;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), static_cast<int>(this->password().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fk_data.NetworkInfo.password");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->password(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:fk_data.NetworkInfo)
+}
+
+::google::protobuf::uint8* NetworkInfo::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:fk_data.NetworkInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string ssid = 1;
+  if (this->ssid().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ssid().data(), static_cast<int>(this->ssid().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fk_data.NetworkInfo.ssid");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->ssid(), target);
+  }
+
+  // string password = 2;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), static_cast<int>(this->password().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fk_data.NetworkInfo.password");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->password(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:fk_data.NetworkInfo)
+  return target;
+}
+
+size_t NetworkInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fk_data.NetworkInfo)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // string ssid = 1;
+  if (this->ssid().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->ssid());
+  }
+
+  // string password = 2;
+  if (this->password().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->password());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NetworkInfo::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fk_data.NetworkInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NetworkInfo* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const NetworkInfo>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.NetworkInfo)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.NetworkInfo)
+    MergeFrom(*source);
+  }
+}
+
+void NetworkInfo::MergeFrom(const NetworkInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.NetworkInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.ssid().size() > 0) {
+
+    ssid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ssid_);
+  }
+  if (from.password().size() > 0) {
+
+    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
+}
+
+void NetworkInfo::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fk_data.NetworkInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NetworkInfo::CopyFrom(const NetworkInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.NetworkInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NetworkInfo::IsInitialized() const {
+  return true;
+}
+
+void NetworkInfo::Swap(NetworkInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NetworkInfo::InternalSwap(NetworkInfo* other) {
+  using std::swap;
+  ssid_.Swap(&other->ssid_);
+  password_.Swap(&other->password_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata NetworkInfo::GetMetadata() const {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// NetworkInfo
+
+// string ssid = 1;
+void NetworkInfo::clear_ssid() {
+  ssid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& NetworkInfo::ssid() const {
+  // @@protoc_insertion_point(field_get:fk_data.NetworkInfo.ssid)
+  return ssid_.GetNoArena();
+}
+void NetworkInfo::set_ssid(const ::std::string& value) {
+  
+  ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.NetworkInfo.ssid)
+}
+#if LANG_CXX11
+void NetworkInfo::set_ssid(::std::string&& value) {
+  
+  ssid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.NetworkInfo.ssid)
+}
+#endif
+void NetworkInfo::set_ssid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.NetworkInfo.ssid)
+}
+void NetworkInfo::set_ssid(const char* value, size_t size) {
+  
+  ssid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.NetworkInfo.ssid)
+}
+::std::string* NetworkInfo::mutable_ssid() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.NetworkInfo.ssid)
+  return ssid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* NetworkInfo::release_ssid() {
+  // @@protoc_insertion_point(field_release:fk_data.NetworkInfo.ssid)
+  
+  return ssid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void NetworkInfo::set_allocated_ssid(::std::string* ssid) {
+  if (ssid != NULL) {
+    
+  } else {
+    
+  }
+  ssid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ssid);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.NetworkInfo.ssid)
+}
+
+// string password = 2;
+void NetworkInfo::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& NetworkInfo::password() const {
+  // @@protoc_insertion_point(field_get:fk_data.NetworkInfo.password)
+  return password_.GetNoArena();
+}
+void NetworkInfo::set_password(const ::std::string& value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.NetworkInfo.password)
+}
+#if LANG_CXX11
+void NetworkInfo::set_password(::std::string&& value) {
+  
+  password_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.NetworkInfo.password)
+}
+#endif
+void NetworkInfo::set_password(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.NetworkInfo.password)
+}
+void NetworkInfo::set_password(const char* value, size_t size) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.NetworkInfo.password)
+}
+::std::string* NetworkInfo::mutable_password() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.NetworkInfo.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* NetworkInfo::release_password() {
+  // @@protoc_insertion_point(field_release:fk_data.NetworkInfo.password)
+  
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void NetworkInfo::set_allocated_password(::std::string* password) {
+  if (password != NULL) {
+    
+  } else {
+    
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.NetworkInfo.password)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NetworkSettings::kNetworksFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NetworkSettings::NetworkSettings()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fk_2ddata_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fk_data.NetworkSettings)
+}
+NetworkSettings::NetworkSettings(const NetworkSettings& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      networks_(from.networks_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:fk_data.NetworkSettings)
+}
+
+void NetworkSettings::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+NetworkSettings::~NetworkSettings() {
+  // @@protoc_insertion_point(destructor:fk_data.NetworkSettings)
+  SharedDtor();
+}
+
+void NetworkSettings::SharedDtor() {
+}
+
+void NetworkSettings::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NetworkSettings::descriptor() {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const NetworkSettings& NetworkSettings::default_instance() {
+  protobuf_fk_2ddata_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+NetworkSettings* NetworkSettings::New(::google::protobuf::Arena* arena) const {
+  NetworkSettings* n = new NetworkSettings;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void NetworkSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:fk_data.NetworkSettings)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  networks_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool NetworkSettings::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fk_data.NetworkSettings)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .fk_data.NetworkInfo networks = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_networks()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fk_data.NetworkSettings)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fk_data.NetworkSettings)
+  return false;
+#undef DO_
+}
+
+void NetworkSettings::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fk_data.NetworkSettings)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fk_data.NetworkInfo networks = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->networks_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->networks(static_cast<int>(i)), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:fk_data.NetworkSettings)
+}
+
+::google::protobuf::uint8* NetworkSettings::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:fk_data.NetworkSettings)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fk_data.NetworkInfo networks = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->networks_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->networks(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:fk_data.NetworkSettings)
+  return target;
+}
+
+size_t NetworkSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fk_data.NetworkSettings)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .fk_data.NetworkInfo networks = 1;
+  {
+    unsigned int count = static_cast<unsigned int>(this->networks_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->networks(static_cast<int>(i)));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NetworkSettings::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fk_data.NetworkSettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NetworkSettings* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const NetworkSettings>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.NetworkSettings)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.NetworkSettings)
+    MergeFrom(*source);
+  }
+}
+
+void NetworkSettings::MergeFrom(const NetworkSettings& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.NetworkSettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  networks_.MergeFrom(from.networks_);
+}
+
+void NetworkSettings::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fk_data.NetworkSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NetworkSettings::CopyFrom(const NetworkSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.NetworkSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NetworkSettings::IsInitialized() const {
+  return true;
+}
+
+void NetworkSettings::Swap(NetworkSettings* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NetworkSettings::InternalSwap(NetworkSettings* other) {
+  using std::swap;
+  networks_.InternalSwap(&other->networks_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata NetworkSettings::GetMetadata() const {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// NetworkSettings
+
+// repeated .fk_data.NetworkInfo networks = 1;
+int NetworkSettings::networks_size() const {
+  return networks_.size();
+}
+void NetworkSettings::clear_networks() {
+  networks_.Clear();
+}
+const ::fk_data::NetworkInfo& NetworkSettings::networks(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.NetworkSettings.networks)
+  return networks_.Get(index);
+}
+::fk_data::NetworkInfo* NetworkSettings::mutable_networks(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.NetworkSettings.networks)
+  return networks_.Mutable(index);
+}
+::fk_data::NetworkInfo* NetworkSettings::add_networks() {
+  // @@protoc_insertion_point(field_add:fk_data.NetworkSettings.networks)
+  return networks_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fk_data::NetworkInfo >*
+NetworkSettings::mutable_networks() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.NetworkSettings.networks)
+  return &networks_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fk_data::NetworkInfo >&
+NetworkSettings::networks() const {
+  // @@protoc_insertion_point(field_list:fk_data.NetworkSettings.networks)
+  return networks_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LoraSettings::kDeviceEuiFieldNumber;
+const int LoraSettings::kAppKeyFieldNumber;
+const int LoraSettings::kAppEuiFieldNumber;
+const int LoraSettings::kFrequencyBandFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LoraSettings::LoraSettings()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fk_2ddata_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fk_data.LoraSettings)
+}
+LoraSettings::LoraSettings(const LoraSettings& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  deviceeui_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.deviceeui().size() > 0) {
+    deviceeui_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deviceeui_);
+  }
+  appkey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.appkey().size() > 0) {
+    appkey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.appkey_);
+  }
+  appeui_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.appeui().size() > 0) {
+    appeui_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.appeui_);
+  }
+  frequencyband_ = from.frequencyband_;
+  // @@protoc_insertion_point(copy_constructor:fk_data.LoraSettings)
+}
+
+void LoraSettings::SharedCtor() {
+  deviceeui_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  appkey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  appeui_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  frequencyband_ = 0u;
+  _cached_size_ = 0;
+}
+
+LoraSettings::~LoraSettings() {
+  // @@protoc_insertion_point(destructor:fk_data.LoraSettings)
+  SharedDtor();
+}
+
+void LoraSettings::SharedDtor() {
+  deviceeui_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  appkey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  appeui_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void LoraSettings::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LoraSettings::descriptor() {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const LoraSettings& LoraSettings::default_instance() {
+  protobuf_fk_2ddata_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+LoraSettings* LoraSettings::New(::google::protobuf::Arena* arena) const {
+  LoraSettings* n = new LoraSettings;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void LoraSettings::Clear() {
+// @@protoc_insertion_point(message_clear_start:fk_data.LoraSettings)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  deviceeui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  appkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  appeui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  frequencyband_ = 0u;
+  _internal_metadata_.Clear();
+}
+
+bool LoraSettings::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fk_data.LoraSettings)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bytes deviceEui = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_deviceeui()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes appKey = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_appkey()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes appEui = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_appeui()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 frequencyBand = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &frequencyband_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fk_data.LoraSettings)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fk_data.LoraSettings)
+  return false;
+#undef DO_
+}
+
+void LoraSettings::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fk_data.LoraSettings)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes deviceEui = 1;
+  if (this->deviceeui().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->deviceeui(), output);
+  }
+
+  // bytes appKey = 2;
+  if (this->appkey().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->appkey(), output);
+  }
+
+  // bytes appEui = 3;
+  if (this->appeui().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->appeui(), output);
+  }
+
+  // uint32 frequencyBand = 4;
+  if (this->frequencyband() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->frequencyband(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:fk_data.LoraSettings)
+}
+
+::google::protobuf::uint8* LoraSettings::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:fk_data.LoraSettings)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes deviceEui = 1;
+  if (this->deviceeui().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->deviceeui(), target);
+  }
+
+  // bytes appKey = 2;
+  if (this->appkey().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->appkey(), target);
+  }
+
+  // bytes appEui = 3;
+  if (this->appeui().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->appeui(), target);
+  }
+
+  // uint32 frequencyBand = 4;
+  if (this->frequencyband() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->frequencyband(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:fk_data.LoraSettings)
+  return target;
+}
+
+size_t LoraSettings::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fk_data.LoraSettings)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // bytes deviceEui = 1;
+  if (this->deviceeui().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->deviceeui());
+  }
+
+  // bytes appKey = 2;
+  if (this->appkey().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->appkey());
+  }
+
+  // bytes appEui = 3;
+  if (this->appeui().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->appeui());
+  }
+
+  // uint32 frequencyBand = 4;
+  if (this->frequencyband() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->frequencyband());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LoraSettings::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fk_data.LoraSettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LoraSettings* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const LoraSettings>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.LoraSettings)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.LoraSettings)
+    MergeFrom(*source);
+  }
+}
+
+void LoraSettings::MergeFrom(const LoraSettings& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.LoraSettings)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.deviceeui().size() > 0) {
+
+    deviceeui_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deviceeui_);
+  }
+  if (from.appkey().size() > 0) {
+
+    appkey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.appkey_);
+  }
+  if (from.appeui().size() > 0) {
+
+    appeui_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.appeui_);
+  }
+  if (from.frequencyband() != 0) {
+    set_frequencyband(from.frequencyband());
+  }
+}
+
+void LoraSettings::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fk_data.LoraSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LoraSettings::CopyFrom(const LoraSettings& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.LoraSettings)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LoraSettings::IsInitialized() const {
+  return true;
+}
+
+void LoraSettings::Swap(LoraSettings* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LoraSettings::InternalSwap(LoraSettings* other) {
+  using std::swap;
+  deviceeui_.Swap(&other->deviceeui_);
+  appkey_.Swap(&other->appkey_);
+  appeui_.Swap(&other->appeui_);
+  swap(frequencyband_, other->frequencyband_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata LoraSettings::GetMetadata() const {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// LoraSettings
+
+// bytes deviceEui = 1;
+void LoraSettings::clear_deviceeui() {
+  deviceeui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& LoraSettings::deviceeui() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.deviceEui)
+  return deviceeui_.GetNoArena();
+}
+void LoraSettings::set_deviceeui(const ::std::string& value) {
+  
+  deviceeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.deviceEui)
+}
+#if LANG_CXX11
+void LoraSettings::set_deviceeui(::std::string&& value) {
+  
+  deviceeui_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraSettings.deviceEui)
+}
+#endif
+void LoraSettings::set_deviceeui(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  deviceeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraSettings.deviceEui)
+}
+void LoraSettings::set_deviceeui(const void* value, size_t size) {
+  
+  deviceeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraSettings.deviceEui)
+}
+::std::string* LoraSettings::mutable_deviceeui() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraSettings.deviceEui)
+  return deviceeui_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LoraSettings::release_deviceeui() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraSettings.deviceEui)
+  
+  return deviceeui_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LoraSettings::set_allocated_deviceeui(::std::string* deviceeui) {
+  if (deviceeui != NULL) {
+    
+  } else {
+    
+  }
+  deviceeui_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), deviceeui);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraSettings.deviceEui)
+}
+
+// bytes appKey = 2;
+void LoraSettings::clear_appkey() {
+  appkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& LoraSettings::appkey() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.appKey)
+  return appkey_.GetNoArena();
+}
+void LoraSettings::set_appkey(const ::std::string& value) {
+  
+  appkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.appKey)
+}
+#if LANG_CXX11
+void LoraSettings::set_appkey(::std::string&& value) {
+  
+  appkey_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraSettings.appKey)
+}
+#endif
+void LoraSettings::set_appkey(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  appkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraSettings.appKey)
+}
+void LoraSettings::set_appkey(const void* value, size_t size) {
+  
+  appkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraSettings.appKey)
+}
+::std::string* LoraSettings::mutable_appkey() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraSettings.appKey)
+  return appkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LoraSettings::release_appkey() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraSettings.appKey)
+  
+  return appkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LoraSettings::set_allocated_appkey(::std::string* appkey) {
+  if (appkey != NULL) {
+    
+  } else {
+    
+  }
+  appkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), appkey);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraSettings.appKey)
+}
+
+// bytes appEui = 3;
+void LoraSettings::clear_appeui() {
+  appeui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& LoraSettings::appeui() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.appEui)
+  return appeui_.GetNoArena();
+}
+void LoraSettings::set_appeui(const ::std::string& value) {
+  
+  appeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.appEui)
+}
+#if LANG_CXX11
+void LoraSettings::set_appeui(::std::string&& value) {
+  
+  appeui_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraSettings.appEui)
+}
+#endif
+void LoraSettings::set_appeui(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  appeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraSettings.appEui)
+}
+void LoraSettings::set_appeui(const void* value, size_t size) {
+  
+  appeui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraSettings.appEui)
+}
+::std::string* LoraSettings::mutable_appeui() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraSettings.appEui)
+  return appeui_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LoraSettings::release_appeui() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraSettings.appEui)
+  
+  return appeui_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LoraSettings::set_allocated_appeui(::std::string* appeui) {
+  if (appeui != NULL) {
+    
+  } else {
+    
+  }
+  appeui_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), appeui);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraSettings.appEui)
+}
+
+// uint32 frequencyBand = 4;
+void LoraSettings::clear_frequencyband() {
+  frequencyband_ = 0u;
+}
+::google::protobuf::uint32 LoraSettings::frequencyband() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraSettings.frequencyBand)
+  return frequencyband_;
+}
+void LoraSettings::set_frequencyband(::google::protobuf::uint32 value) {
+  
+  frequencyband_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraSettings.frequencyBand)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int DataRecord::kLoggedReadingFieldNumber;
 const int DataRecord::kMetadataFieldNumber;
 const int DataRecord::kLogFieldNumber;
@@ -8521,6 +9831,8 @@ const int DataRecord::kScheduleFieldNumber;
 const int DataRecord::kMetaFieldNumber;
 const int DataRecord::kIdentityFieldNumber;
 const int DataRecord::kConditionFieldNumber;
+const int DataRecord::kLoraFieldNumber;
+const int DataRecord::kNetworkFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 DataRecord::DataRecord()
@@ -8577,6 +9889,16 @@ DataRecord::DataRecord(const DataRecord& from)
   } else {
     condition_ = NULL;
   }
+  if (from.has_lora()) {
+    lora_ = new ::fk_data::LoraSettings(*from.lora_);
+  } else {
+    lora_ = NULL;
+  }
+  if (from.has_network()) {
+    network_ = new ::fk_data::NetworkSettings(*from.network_);
+  } else {
+    network_ = NULL;
+  }
   meta_ = from.meta_;
   // @@protoc_insertion_point(copy_constructor:fk_data.DataRecord)
 }
@@ -8602,6 +9924,8 @@ void DataRecord::SharedDtor() {
   if (this != internal_default_instance()) delete schedule_;
   if (this != internal_default_instance()) delete identity_;
   if (this != internal_default_instance()) delete condition_;
+  if (this != internal_default_instance()) delete lora_;
+  if (this != internal_default_instance()) delete network_;
 }
 
 void DataRecord::SetCachedSize(int size) const {
@@ -8666,6 +9990,14 @@ void DataRecord::Clear() {
     delete condition_;
   }
   condition_ = NULL;
+  if (GetArenaNoVirtual() == NULL && lora_ != NULL) {
+    delete lora_;
+  }
+  lora_ = NULL;
+  if (GetArenaNoVirtual() == NULL && network_ != NULL) {
+    delete network_;
+  }
+  network_ = NULL;
   meta_ = GOOGLE_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
@@ -8802,6 +10134,30 @@ bool DataRecord::MergePartialFromCodedStream(
         break;
       }
 
+      // .fk_data.LoraSettings lora = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(90u /* 90 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_lora()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fk_data.NetworkSettings network = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(98u /* 98 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_network()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -8888,6 +10244,18 @@ void DataRecord::SerializeWithCachedSizes(
       10, *this->condition_, output);
   }
 
+  // .fk_data.LoraSettings lora = 11;
+  if (this->has_lora()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, *this->lora_, output);
+  }
+
+  // .fk_data.NetworkSettings network = 12;
+  if (this->has_network()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      12, *this->network_, output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -8969,6 +10337,20 @@ void DataRecord::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         10, *this->condition_, deterministic, target);
+  }
+
+  // .fk_data.LoraSettings lora = 11;
+  if (this->has_lora()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        11, *this->lora_, deterministic, target);
+  }
+
+  // .fk_data.NetworkSettings network = 12;
+  if (this->has_network()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        12, *this->network_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -9055,6 +10437,20 @@ size_t DataRecord::ByteSizeLong() const {
         *this->condition_);
   }
 
+  // .fk_data.LoraSettings lora = 11;
+  if (this->has_lora()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->lora_);
+  }
+
+  // .fk_data.NetworkSettings network = 12;
+  if (this->has_network()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->network_);
+  }
+
   // uint64 meta = 8;
   if (this->meta() != 0) {
     total_size += 1 +
@@ -9116,6 +10512,12 @@ void DataRecord::MergeFrom(const DataRecord& from) {
   if (from.has_condition()) {
     mutable_condition()->::fk_data::Condition::MergeFrom(from.condition());
   }
+  if (from.has_lora()) {
+    mutable_lora()->::fk_data::LoraSettings::MergeFrom(from.lora());
+  }
+  if (from.has_network()) {
+    mutable_network()->::fk_data::NetworkSettings::MergeFrom(from.network());
+  }
   if (from.meta() != 0) {
     set_meta(from.meta());
   }
@@ -9154,6 +10556,8 @@ void DataRecord::InternalSwap(DataRecord* other) {
   swap(schedule_, other->schedule_);
   swap(identity_, other->identity_);
   swap(condition_, other->condition_);
+  swap(lora_, other->lora_);
+  swap(network_, other->network_);
   swap(meta_, other->meta_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -9529,6 +10933,86 @@ void DataRecord::set_allocated_condition(::fk_data::Condition* condition) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.condition)
+}
+
+// .fk_data.LoraSettings lora = 11;
+bool DataRecord::has_lora() const {
+  return this != internal_default_instance() && lora_ != NULL;
+}
+void DataRecord::clear_lora() {
+  if (GetArenaNoVirtual() == NULL && lora_ != NULL) delete lora_;
+  lora_ = NULL;
+}
+const ::fk_data::LoraSettings& DataRecord::lora() const {
+  const ::fk_data::LoraSettings* p = lora_;
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.lora)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::LoraSettings*>(
+      &::fk_data::_LoraSettings_default_instance_);
+}
+::fk_data::LoraSettings* DataRecord::mutable_lora() {
+  
+  if (lora_ == NULL) {
+    lora_ = new ::fk_data::LoraSettings;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.lora)
+  return lora_;
+}
+::fk_data::LoraSettings* DataRecord::release_lora() {
+  // @@protoc_insertion_point(field_release:fk_data.DataRecord.lora)
+  
+  ::fk_data::LoraSettings* temp = lora_;
+  lora_ = NULL;
+  return temp;
+}
+void DataRecord::set_allocated_lora(::fk_data::LoraSettings* lora) {
+  delete lora_;
+  lora_ = lora;
+  if (lora) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.lora)
+}
+
+// .fk_data.NetworkSettings network = 12;
+bool DataRecord::has_network() const {
+  return this != internal_default_instance() && network_ != NULL;
+}
+void DataRecord::clear_network() {
+  if (GetArenaNoVirtual() == NULL && network_ != NULL) delete network_;
+  network_ = NULL;
+}
+const ::fk_data::NetworkSettings& DataRecord::network() const {
+  const ::fk_data::NetworkSettings* p = network_;
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.network)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::NetworkSettings*>(
+      &::fk_data::_NetworkSettings_default_instance_);
+}
+::fk_data::NetworkSettings* DataRecord::mutable_network() {
+  
+  if (network_ == NULL) {
+    network_ = new ::fk_data::NetworkSettings;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.network)
+  return network_;
+}
+::fk_data::NetworkSettings* DataRecord::release_network() {
+  // @@protoc_insertion_point(field_release:fk_data.DataRecord.network)
+  
+  ::fk_data::NetworkSettings* temp = network_;
+  network_ = NULL;
+  return temp;
+}
+void DataRecord::set_allocated_network(::fk_data::NetworkSettings* network) {
+  delete network_;
+  network_ = network;
+  if (network) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.network)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
