@@ -129,6 +129,10 @@
             "id": {
               "type": "bytes",
               "id": 7
+            },
+            "flags": {
+              "type": "uint32",
+              "id": 8
             }
           }
         },
@@ -145,6 +149,10 @@
             "unitOfMeasure": {
               "type": "string",
               "id": 3
+            },
+            "flags": {
+              "type": "uint32",
+              "id": 4
             }
           }
         },

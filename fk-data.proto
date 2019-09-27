@@ -43,12 +43,14 @@ message ModuleInfo {
   Firmware firmware = 5;
   repeated SensorInfo sensors = 6;
   bytes id = 7;
+  uint32 flags = 8;
 }
 
 message SensorInfo {
   uint32 number = 1;
   string name = 2;
   string unitOfMeasure = 3;
+  uint32 flags = 4;
 }
 
 message Firmware {

@@ -161,6 +161,7 @@ typedef struct _fk_data_SensorInfo {
     uint32_t number;
     pb_callback_t name;
     pb_callback_t unitOfMeasure;
+    uint32_t flags;
 /* @@protoc_insertion_point(struct:fk_data_SensorInfo) */
 } fk_data_SensorInfo;
 
@@ -210,6 +211,7 @@ typedef struct _fk_data_ModuleInfo {
     fk_data_Firmware firmware;
     pb_callback_t sensors;
     pb_callback_t id;
+    uint32_t flags;
 /* @@protoc_insertion_point(struct:fk_data_ModuleInfo) */
 } fk_data_ModuleInfo;
 
@@ -248,8 +250,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoggedReading_init_default       {0, fk_data_DeviceLocation_init_default, fk_data_SensorReading_init_default}
 #define fk_data_SensorAndValue_init_default      {0, 0}
 #define fk_data_ModuleHeader_init_default        {0, 0, 0}
-#define fk_data_ModuleInfo_init_default          {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_default, fk_data_Firmware_init_default, {{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_SensorInfo_init_default          {0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_ModuleInfo_init_default          {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_default, fk_data_Firmware_init_default, {{NULL}, NULL}, {{NULL}, NULL}, 0}
+#define fk_data_SensorInfo_init_default          {0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_Firmware_init_default            {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Metadata_init_default            {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_default, {{NULL}, NULL}}
 #define fk_data_Status_init_default              {0, 0, 0, 0, 0}
@@ -270,8 +272,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
 #define fk_data_SensorAndValue_init_zero         {0, 0}
 #define fk_data_ModuleHeader_init_zero           {0, 0, 0}
-#define fk_data_ModuleInfo_init_zero             {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_zero, fk_data_Firmware_init_zero, {{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_SensorInfo_init_zero             {0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_ModuleInfo_init_zero             {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_zero, fk_data_Firmware_init_zero, {{NULL}, NULL}, {{NULL}, NULL}, 0}
+#define fk_data_SensorInfo_init_zero             {0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_Firmware_init_zero               {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_Metadata_init_zero               {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_zero, {{NULL}, NULL}}
 #define fk_data_Status_init_zero                 {0, 0, 0, 0, 0}
@@ -334,6 +336,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorInfo_number_tag            1
 #define fk_data_SensorInfo_name_tag              2
 #define fk_data_SensorInfo_unitOfMeasure_tag     3
+#define fk_data_SensorInfo_flags_tag             4
 #define fk_data_SensorReading_reading_tag        1
 #define fk_data_SensorReading_time_tag           2
 #define fk_data_SensorReading_sensor_tag         3
@@ -358,6 +361,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleInfo_firmware_tag          5
 #define fk_data_ModuleInfo_sensors_tag           6
 #define fk_data_ModuleInfo_id_tag                7
+#define fk_data_ModuleInfo_flags_tag             8
 #define fk_data_Readings_time_tag                1
 #define fk_data_Readings_reading_tag             2
 #define fk_data_Readings_flags_tag               3
@@ -426,7 +430,8 @@ X(a, CALLBACK, SINGULAR, STRING, name, 3) \
 X(a, STATIC, SINGULAR, MESSAGE, header, 4) \
 X(a, STATIC, SINGULAR, MESSAGE, firmware, 5) \
 X(a, CALLBACK, REPEATED, MESSAGE, sensors, 6) \
-X(a, CALLBACK, SINGULAR, BYTES, id, 7)
+X(a, CALLBACK, SINGULAR, BYTES, id, 7) \
+X(a, STATIC, SINGULAR, UINT32, flags, 8)
 #define fk_data_ModuleInfo_CALLBACK pb_default_field_callback
 #define fk_data_ModuleInfo_DEFAULT NULL
 #define fk_data_ModuleInfo_header_MSGTYPE fk_data_ModuleHeader
@@ -436,7 +441,8 @@ X(a, CALLBACK, SINGULAR, BYTES, id, 7)
 #define fk_data_SensorInfo_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UINT32, number, 1) \
 X(a, CALLBACK, SINGULAR, STRING, name, 2) \
-X(a, CALLBACK, SINGULAR, STRING, unitOfMeasure, 3)
+X(a, CALLBACK, SINGULAR, STRING, unitOfMeasure, 3) \
+X(a, STATIC, SINGULAR, UINT32, flags, 4)
 #define fk_data_SensorInfo_CALLBACK pb_default_field_callback
 #define fk_data_SensorInfo_DEFAULT NULL
 

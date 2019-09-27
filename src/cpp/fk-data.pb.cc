@@ -231,6 +231,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, firmware_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, sensors_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ModuleInfo, flags_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -239,6 +240,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, number_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, unitofmeasure_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorInfo, flags_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Firmware, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -380,22 +382,22 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 29, -1, sizeof(SensorAndValue)},
   { 36, -1, sizeof(ModuleHeader)},
   { 44, -1, sizeof(ModuleInfo)},
-  { 56, -1, sizeof(SensorInfo)},
-  { 64, -1, sizeof(Firmware)},
-  { 71, -1, sizeof(Metadata)},
-  { 85, -1, sizeof(Status)},
-  { 95, -1, sizeof(LogMessage)},
-  { 105, -1, sizeof(SensorGroup)},
-  { 112, -1, sizeof(Readings)},
-  { 123, -1, sizeof(JobSchedule)},
-  { 129, -1, sizeof(Schedule)},
-  { 136, -1, sizeof(Identity)},
-  { 142, -1, sizeof(Condition)},
-  { 148, -1, sizeof(NetworkInfo)},
-  { 155, -1, sizeof(NetworkSettings)},
-  { 161, -1, sizeof(LoraSettings)},
-  { 170, -1, sizeof(DataRecord)},
-  { 187, -1, sizeof(SignedRecord)},
+  { 57, -1, sizeof(SensorInfo)},
+  { 66, -1, sizeof(Firmware)},
+  { 73, -1, sizeof(Metadata)},
+  { 87, -1, sizeof(Status)},
+  { 97, -1, sizeof(LogMessage)},
+  { 107, -1, sizeof(SensorGroup)},
+  { 114, -1, sizeof(Readings)},
+  { 125, -1, sizeof(JobSchedule)},
+  { 131, -1, sizeof(Schedule)},
+  { 138, -1, sizeof(Identity)},
+  { 144, -1, sizeof(Condition)},
+  { 150, -1, sizeof(NetworkInfo)},
+  { 157, -1, sizeof(NetworkSettings)},
+  { 163, -1, sizeof(LoraSettings)},
+  { 172, -1, sizeof(DataRecord)},
+  { 189, -1, sizeof(SignedRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -550,67 +552,68 @@ void AddDescriptorsImpl() {
       "\'\n\007reading\030\003 \001(\0132\026.fk_data.SensorReading"
       "\"/\n\016SensorAndValue\022\016\n\006sensor\030\001 \001(\r\022\r\n\005va"
       "lue\030\002 \001(\002\"C\n\014ModuleHeader\022\024\n\014manufacture"
-      "r\030\001 \001(\r\022\014\n\004kind\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"\273"
+      "r\030\001 \001(\r\022\014\n\004kind\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"\312"
       "\001\n\nModuleInfo\022\020\n\010position\030\001 \001(\r\022\017\n\007addre"
       "ss\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022%\n\006header\030\004 \001(\0132\025"
       ".fk_data.ModuleHeader\022#\n\010firmware\030\005 \001(\0132"
       "\021.fk_data.Firmware\022$\n\007sensors\030\006 \003(\0132\023.fk"
-      "_data.SensorInfo\022\n\n\002id\030\007 \001(\014\"A\n\nSensorIn"
-      "fo\022\016\n\006number\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\025\n\runit"
-      "OfMeasure\030\003 \001(\t\"&\n\010Firmware\022\013\n\003git\030\001 \001(\t"
-      "\022\r\n\005build\030\002 \001(\t\"\337\001\n\010Metadata\022\020\n\010deviceId"
-      "\030\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005bui"
-      "ld\030\007 \001(\t\022\022\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030"
-      "\005 \003(\0132\023.fk_data.SensorInfo\022$\n\007modules\030\006 "
-      "\003(\0132\023.fk_data.ModuleInfo\022#\n\010firmware\030\010 \001"
-      "(\0132\021.fk_data.Firmware\022\022\n\ngeneration\030\t \001("
-      "\014\"U\n\006Status\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001("
-      "\r\022\017\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004bu"
-      "sy\030\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016\n\006"
-      "uptime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030"
-      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022\016\n"
-      "\006module\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_dat"
-      "a.SensorAndValue\"\235\001\n\010Readings\022\014\n\004time\030\001 "
-      "\001(\004\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004m"
-      "eta\030\006 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.De"
-      "viceLocation\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_"
-      "data.SensorGroup\"\033\n\013JobSchedule\022\014\n\004cron\030"
-      "\001 \001(\014\"V\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024.fk"
-      "_data.JobSchedule\022\"\n\004misc\030\002 \001(\0132\024.fk_dat"
-      "a.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\""
-      "\032\n\tCondition\022\r\n\005flags\030\001 \001(\r\"-\n\013NetworkIn"
-      "fo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9\n\017Ne"
-      "tworkSettings\022&\n\010networks\030\001 \003(\0132\024.fk_dat"
-      "a.NetworkInfo\"X\n\014LoraSettings\022\021\n\tdeviceE"
-      "ui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014"
-      "\022\025\n\rfrequencyBand\030\004 \001(\r\"\275\003\n\nDataRecord\022-"
-      "\n\rloggedReading\030\001 \001(\0132\026.fk_data.LoggedRe"
-      "ading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Metada"
-      "ta\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006"
-      "status\030\004 \001(\0132\017.fk_data.Status\022#\n\010reading"
-      "s\030\005 \001(\0132\021.fk_data.Readings\022$\n\007modules\030\006 "
-      "\003(\0132\023.fk_data.ModuleInfo\022#\n\010schedule\030\007 \001"
-      "(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010i"
-      "dentity\030\t \001(\0132\021.fk_data.Identity\022%\n\tcond"
-      "ition\030\n \001(\0132\022.fk_data.Condition\022#\n\004lora\030"
-      "\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007network\030"
-      "\014 \001(\0132\030.fk_data.NetworkSettings\"q\n\014Signe"
-      "dRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedRe"
-      "cordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004"
-      "hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004*b\n\rDownloadFl"
-      "ags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING_F"
-      "LAGS_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_MA"
-      "NUAL\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_FL"
-      "AGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDING\020"
-      "\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED_RECORD_"
-      "KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULE"
-      "S\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030"
-      "SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_REC"
-      "ORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KI"
-      "ND_OTHER\020\377\001b\006proto3"
+      "_data.SensorInfo\022\n\n\002id\030\007 \001(\014\022\r\n\005flags\030\010 "
+      "\001(\r\"P\n\nSensorInfo\022\016\n\006number\030\001 \001(\r\022\014\n\004nam"
+      "e\030\002 \001(\t\022\025\n\runitOfMeasure\030\003 \001(\t\022\r\n\005flags\030"
+      "\004 \001(\r\"&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030"
+      "\002 \001(\t\"\337\001\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004"
+      "time\030\002 \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022"
+      "\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk"
+      "_data.SensorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_d"
+      "ata.ModuleInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_da"
+      "ta.Firmware\022\022\n\ngeneration\030\t \001(\014\"U\n\006Statu"
+      "s\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007batte"
+      "ry\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\"
+      "\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001"
+      "(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007m"
+      "essage\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 "
+      "\001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_data.SensorAn"
+      "dValue\"\235\001\n\010Readings\022\014\n\004time\030\001 \001(\004\022\017\n\007rea"
+      "ding\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022"
+      ")\n\010location\030\004 \001(\0132\027.fk_data.DeviceLocati"
+      "on\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_data.Senso"
+      "rGroup\"\033\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\"V\n\010S"
+      "chedule\022&\n\010readings\030\001 \001(\0132\024.fk_data.JobS"
+      "chedule\022\"\n\004misc\030\002 \001(\0132\024.fk_data.JobSched"
+      "ule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"\032\n\tConditi"
+      "on\022\r\n\005flags\030\001 \001(\r\"-\n\013NetworkInfo\022\014\n\004ssid"
+      "\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9\n\017NetworkSetti"
+      "ngs\022&\n\010networks\030\001 \003(\0132\024.fk_data.NetworkI"
+      "nfo\"X\n\014LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016"
+      "\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfreque"
+      "ncyBand\030\004 \001(\r\"\275\003\n\nDataRecord\022-\n\rloggedRe"
+      "ading\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010m"
+      "etadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030"
+      "\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004 \001"
+      "(\0132\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132\021."
+      "fk_data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_d"
+      "ata.ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_da"
+      "ta.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t "
+      "\001(\0132\021.fk_data.Identity\022%\n\tcondition\030\n \001("
+      "\0132\022.fk_data.Condition\022#\n\004lora\030\013 \001(\0132\025.fk"
+      "_data.LoraSettings\022)\n\007network\030\014 \001(\0132\030.fk"
+      "_data.NetworkSettings\"q\n\014SignedRecord\022\'\n"
+      "\004kind\030\001 \001(\0162\031.fk_data.SignedRecordKind\022\014"
+      "\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014"
+      "\022\016\n\006record\030\005 \001(\004*b\n\rDownloadFlags\022\026\n\022REA"
+      "DING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_R"
+      "ECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016"
+      "ConditionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000"
+      "\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001\n\020Sign"
+      "edRecordKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020"
+      "\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIG"
+      "NED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_REC"
+      "ORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_R"
+      "AW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377"
+      "\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2739);
+      descriptor, 2769);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -2789,6 +2792,7 @@ const int ModuleInfo::kHeaderFieldNumber;
 const int ModuleInfo::kFirmwareFieldNumber;
 const int ModuleInfo::kSensorsFieldNumber;
 const int ModuleInfo::kIdFieldNumber;
+const int ModuleInfo::kFlagsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ModuleInfo::ModuleInfo()
@@ -2824,8 +2828,8 @@ ModuleInfo::ModuleInfo(const ModuleInfo& from)
     firmware_ = NULL;
   }
   ::memcpy(&position_, &from.position_,
-    static_cast<size_t>(reinterpret_cast<char*>(&address_) -
-    reinterpret_cast<char*>(&position_)) + sizeof(address_));
+    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
+    reinterpret_cast<char*>(&position_)) + sizeof(flags_));
   // @@protoc_insertion_point(copy_constructor:fk_data.ModuleInfo)
 }
 
@@ -2833,8 +2837,8 @@ void ModuleInfo::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&header_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&address_) -
-      reinterpret_cast<char*>(&header_)) + sizeof(address_));
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&header_)) + sizeof(flags_));
   _cached_size_ = 0;
 }
 
@@ -2891,8 +2895,8 @@ void ModuleInfo::Clear() {
   }
   firmware_ = NULL;
   ::memset(&position_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&address_) -
-      reinterpret_cast<char*>(&position_)) + sizeof(address_));
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&position_)) + sizeof(flags_));
   _internal_metadata_.Clear();
 }
 
@@ -2998,6 +3002,20 @@ bool ModuleInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 flags = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &flags_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -3069,6 +3087,11 @@ void ModuleInfo::SerializeWithCachedSizes(
       7, this->id(), output);
   }
 
+  // uint32 flags = 8;
+  if (this->flags() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->flags(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -3131,6 +3154,11 @@ void ModuleInfo::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         7, this->id(), target);
+  }
+
+  // uint32 flags = 8;
+  if (this->flags() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->flags(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -3203,6 +3231,13 @@ size_t ModuleInfo::ByteSizeLong() const {
         this->address());
   }
 
+  // uint32 flags = 8;
+  if (this->flags() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->flags());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -3253,6 +3288,9 @@ void ModuleInfo::MergeFrom(const ModuleInfo& from) {
   if (from.address() != 0) {
     set_address(from.address());
   }
+  if (from.flags() != 0) {
+    set_flags(from.flags());
+  }
 }
 
 void ModuleInfo::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3286,6 +3324,7 @@ void ModuleInfo::InternalSwap(ModuleInfo* other) {
   swap(firmware_, other->firmware_);
   swap(position_, other->position_);
   swap(address_, other->address_);
+  swap(flags_, other->flags_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -3542,6 +3581,20 @@ void ModuleInfo::set_allocated_id(::std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.id)
 }
 
+// uint32 flags = 8;
+void ModuleInfo::clear_flags() {
+  flags_ = 0u;
+}
+::google::protobuf::uint32 ModuleInfo::flags() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.flags)
+  return flags_;
+}
+void ModuleInfo::set_flags(::google::protobuf::uint32 value) {
+  
+  flags_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.flags)
+}
+
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -3550,6 +3603,7 @@ void ModuleInfo::set_allocated_id(::std::string* id) {
 const int SensorInfo::kNumberFieldNumber;
 const int SensorInfo::kNameFieldNumber;
 const int SensorInfo::kUnitOfMeasureFieldNumber;
+const int SensorInfo::kFlagsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SensorInfo::SensorInfo()
@@ -3573,14 +3627,18 @@ SensorInfo::SensorInfo(const SensorInfo& from)
   if (from.unitofmeasure().size() > 0) {
     unitofmeasure_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.unitofmeasure_);
   }
-  number_ = from.number_;
+  ::memcpy(&number_, &from.number_,
+    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
+    reinterpret_cast<char*>(&number_)) + sizeof(flags_));
   // @@protoc_insertion_point(copy_constructor:fk_data.SensorInfo)
 }
 
 void SensorInfo::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   unitofmeasure_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  number_ = 0u;
+  ::memset(&number_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&number_)) + sizeof(flags_));
   _cached_size_ = 0;
 }
 
@@ -3625,7 +3683,9 @@ void SensorInfo::Clear() {
 
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   unitofmeasure_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  number_ = 0u;
+  ::memset(&number_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&number_)) + sizeof(flags_));
   _internal_metadata_.Clear();
 }
 
@@ -3685,6 +3745,20 @@ bool SensorInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 flags = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &flags_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -3736,6 +3810,11 @@ void SensorInfo::SerializeWithCachedSizes(
       3, this->unitofmeasure(), output);
   }
 
+  // uint32 flags = 4;
+  if (this->flags() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->flags(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -3777,6 +3856,11 @@ void SensorInfo::SerializeWithCachedSizes(
         3, this->unitofmeasure(), target);
   }
 
+  // uint32 flags = 4;
+  if (this->flags() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->flags(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -3813,6 +3897,13 @@ size_t SensorInfo::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->number());
+  }
+
+  // uint32 flags = 4;
+  if (this->flags() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->flags());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -3855,6 +3946,9 @@ void SensorInfo::MergeFrom(const SensorInfo& from) {
   if (from.number() != 0) {
     set_number(from.number());
   }
+  if (from.flags() != 0) {
+    set_flags(from.flags());
+  }
 }
 
 void SensorInfo::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3884,6 +3978,7 @@ void SensorInfo::InternalSwap(SensorInfo* other) {
   name_.Swap(&other->name_);
   unitofmeasure_.Swap(&other->unitofmeasure_);
   swap(number_, other->number_);
+  swap(flags_, other->flags_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -4014,6 +4109,20 @@ void SensorInfo::set_allocated_unitofmeasure(::std::string* unitofmeasure) {
   }
   unitofmeasure_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unitofmeasure);
   // @@protoc_insertion_point(field_set_allocated:fk_data.SensorInfo.unitOfMeasure)
+}
+
+// uint32 flags = 4;
+void SensorInfo::clear_flags() {
+  flags_ = 0u;
+}
+::google::protobuf::uint32 SensorInfo::flags() const {
+  // @@protoc_insertion_point(field_get:fk_data.SensorInfo.flags)
+  return flags_;
+}
+void SensorInfo::set_flags(::google::protobuf::uint32 value) {
+  
+  flags_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SensorInfo.flags)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

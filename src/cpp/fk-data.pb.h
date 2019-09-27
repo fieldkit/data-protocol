@@ -934,6 +934,12 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::uint32 address() const;
   void set_address(::google::protobuf::uint32 value);
 
+  // uint32 flags = 8;
+  void clear_flags();
+  static const int kFlagsFieldNumber = 8;
+  ::google::protobuf::uint32 flags() const;
+  void set_flags(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.ModuleInfo)
  private:
 
@@ -945,6 +951,7 @@ class ModuleInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::fk_data::Firmware* firmware_;
   ::google::protobuf::uint32 position_;
   ::google::protobuf::uint32 address_;
+  ::google::protobuf::uint32 flags_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -1065,6 +1072,12 @@ class SensorInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::uint32 number() const;
   void set_number(::google::protobuf::uint32 value);
 
+  // uint32 flags = 4;
+  void clear_flags();
+  static const int kFlagsFieldNumber = 4;
+  ::google::protobuf::uint32 flags() const;
+  void set_flags(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.SensorInfo)
  private:
 
@@ -1072,6 +1085,7 @@ class SensorInfo : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr unitofmeasure_;
   ::google::protobuf::uint32 number_;
+  ::google::protobuf::uint32 flags_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -3655,6 +3669,20 @@ inline void ModuleInfo::set_allocated_id(::std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.ModuleInfo.id)
 }
 
+// uint32 flags = 8;
+inline void ModuleInfo::clear_flags() {
+  flags_ = 0u;
+}
+inline ::google::protobuf::uint32 ModuleInfo::flags() const {
+  // @@protoc_insertion_point(field_get:fk_data.ModuleInfo.flags)
+  return flags_;
+}
+inline void ModuleInfo::set_flags(::google::protobuf::uint32 value) {
+  
+  flags_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.ModuleInfo.flags)
+}
+
 // -------------------------------------------------------------------
 
 // SensorInfo
@@ -3777,6 +3805,20 @@ inline void SensorInfo::set_allocated_unitofmeasure(::std::string* unitofmeasure
   }
   unitofmeasure_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unitofmeasure);
   // @@protoc_insertion_point(field_set_allocated:fk_data.SensorInfo.unitOfMeasure)
+}
+
+// uint32 flags = 4;
+inline void SensorInfo::clear_flags() {
+  flags_ = 0u;
+}
+inline ::google::protobuf::uint32 SensorInfo::flags() const {
+  // @@protoc_insertion_point(field_get:fk_data.SensorInfo.flags)
+  return flags_;
+}
+inline void SensorInfo::set_flags(::google::protobuf::uint32 value) {
+  
+  flags_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.SensorInfo.flags)
 }
 
 // -------------------------------------------------------------------
