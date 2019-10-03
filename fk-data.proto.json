@@ -476,6 +476,39 @@
               "id": 5
             }
           }
+        },
+        "LoraRecord": {
+          "fields": {
+            "deviceId": {
+              "type": "bytes",
+              "id": 1
+            },
+            "time": {
+              "type": "uint64",
+              "id": 2
+            },
+            "number": {
+              "type": "uint64",
+              "id": 3
+            },
+            "module": {
+              "type": "uint32",
+              "id": 4
+            },
+            "sensor": {
+              "type": "uint64",
+              "id": 5
+            },
+            "values": {
+              "rule": "repeated",
+              "type": "float",
+              "id": 6
+            },
+            "data": {
+              "type": "bytes",
+              "id": 7
+            }
+          }
         }
       }
     }

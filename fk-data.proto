@@ -178,3 +178,13 @@ message SignedRecord {
   bytes hash = 4;
   uint64 record = 5;
 }
+
+message LoraRecord {
+  bytes deviceId = 1;
+  uint64 time = 2;
+  uint64 number = 3;
+  uint32 module = 4;
+  uint64 sensor = 5;
+  repeated float values = 6;
+  bytes data = 7;
+}

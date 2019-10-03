@@ -56,6 +56,9 @@ extern LogMessageDefaultTypeInternal _LogMessage_default_instance_;
 class LoggedReading;
 class LoggedReadingDefaultTypeInternal;
 extern LoggedReadingDefaultTypeInternal _LoggedReading_default_instance_;
+class LoraRecord;
+class LoraRecordDefaultTypeInternal;
+extern LoraRecordDefaultTypeInternal _LoraRecord_default_instance_;
 class LoraSettings;
 class LoraSettingsDefaultTypeInternal;
 extern LoraSettingsDefaultTypeInternal _LoraSettings_default_instance_;
@@ -3059,6 +3062,168 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class LoraRecord : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fk_data.LoraRecord) */ {
+ public:
+  LoraRecord();
+  virtual ~LoraRecord();
+
+  LoraRecord(const LoraRecord& from);
+
+  inline LoraRecord& operator=(const LoraRecord& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LoraRecord(LoraRecord&& from) noexcept
+    : LoraRecord() {
+    *this = ::std::move(from);
+  }
+
+  inline LoraRecord& operator=(LoraRecord&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LoraRecord& default_instance();
+
+  static inline const LoraRecord* internal_default_instance() {
+    return reinterpret_cast<const LoraRecord*>(
+               &_LoraRecord_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    22;
+
+  void Swap(LoraRecord* other);
+  friend void swap(LoraRecord& a, LoraRecord& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LoraRecord* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  LoraRecord* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const LoraRecord& from);
+  void MergeFrom(const LoraRecord& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(LoraRecord* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated float values = 6;
+  int values_size() const;
+  void clear_values();
+  static const int kValuesFieldNumber = 6;
+  float values(int index) const;
+  void set_values(int index, float value);
+  void add_values(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      values() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_values();
+
+  // bytes deviceId = 1;
+  void clear_deviceid();
+  static const int kDeviceIdFieldNumber = 1;
+  const ::std::string& deviceid() const;
+  void set_deviceid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_deviceid(::std::string&& value);
+  #endif
+  void set_deviceid(const char* value);
+  void set_deviceid(const void* value, size_t size);
+  ::std::string* mutable_deviceid();
+  ::std::string* release_deviceid();
+  void set_allocated_deviceid(::std::string* deviceid);
+
+  // bytes data = 7;
+  void clear_data();
+  static const int kDataFieldNumber = 7;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // uint64 time = 2;
+  void clear_time();
+  static const int kTimeFieldNumber = 2;
+  ::google::protobuf::uint64 time() const;
+  void set_time(::google::protobuf::uint64 value);
+
+  // uint64 number = 3;
+  void clear_number();
+  static const int kNumberFieldNumber = 3;
+  ::google::protobuf::uint64 number() const;
+  void set_number(::google::protobuf::uint64 value);
+
+  // uint64 sensor = 5;
+  void clear_sensor();
+  static const int kSensorFieldNumber = 5;
+  ::google::protobuf::uint64 sensor() const;
+  void set_sensor(::google::protobuf::uint64 value);
+
+  // uint32 module = 4;
+  void clear_module();
+  static const int kModuleFieldNumber = 4;
+  ::google::protobuf::uint32 module() const;
+  void set_module(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:fk_data.LoraRecord)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< float > values_;
+  mutable int _values_cached_byte_size_;
+  ::google::protobuf::internal::ArenaStringPtr deviceid_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  ::google::protobuf::uint64 time_;
+  ::google::protobuf::uint64 number_;
+  ::google::protobuf::uint64 sensor_;
+  ::google::protobuf::uint32 module_;
+  mutable int _cached_size_;
+  friend struct protobuf_fk_2ddata_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -5816,10 +5981,208 @@ inline void SignedRecord::set_record(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.record)
 }
 
+// -------------------------------------------------------------------
+
+// LoraRecord
+
+// bytes deviceId = 1;
+inline void LoraRecord::clear_deviceid() {
+  deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoraRecord::deviceid() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.deviceId)
+  return deviceid_.GetNoArena();
+}
+inline void LoraRecord::set_deviceid(const ::std::string& value) {
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.deviceId)
+}
+#if LANG_CXX11
+inline void LoraRecord::set_deviceid(::std::string&& value) {
+  
+  deviceid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraRecord.deviceId)
+}
+#endif
+inline void LoraRecord::set_deviceid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraRecord.deviceId)
+}
+inline void LoraRecord::set_deviceid(const void* value, size_t size) {
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraRecord.deviceId)
+}
+inline ::std::string* LoraRecord::mutable_deviceid() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraRecord.deviceId)
+  return deviceid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoraRecord::release_deviceid() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraRecord.deviceId)
+  
+  return deviceid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoraRecord::set_allocated_deviceid(::std::string* deviceid) {
+  if (deviceid != NULL) {
+    
+  } else {
+    
+  }
+  deviceid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), deviceid);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraRecord.deviceId)
+}
+
+// uint64 time = 2;
+inline void LoraRecord::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 LoraRecord::time() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.time)
+  return time_;
+}
+inline void LoraRecord::set_time(::google::protobuf::uint64 value) {
+  
+  time_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.time)
+}
+
+// uint64 number = 3;
+inline void LoraRecord::clear_number() {
+  number_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 LoraRecord::number() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.number)
+  return number_;
+}
+inline void LoraRecord::set_number(::google::protobuf::uint64 value) {
+  
+  number_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.number)
+}
+
+// uint32 module = 4;
+inline void LoraRecord::clear_module() {
+  module_ = 0u;
+}
+inline ::google::protobuf::uint32 LoraRecord::module() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.module)
+  return module_;
+}
+inline void LoraRecord::set_module(::google::protobuf::uint32 value) {
+  
+  module_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.module)
+}
+
+// uint64 sensor = 5;
+inline void LoraRecord::clear_sensor() {
+  sensor_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 LoraRecord::sensor() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.sensor)
+  return sensor_;
+}
+inline void LoraRecord::set_sensor(::google::protobuf::uint64 value) {
+  
+  sensor_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.sensor)
+}
+
+// repeated float values = 6;
+inline int LoraRecord::values_size() const {
+  return values_.size();
+}
+inline void LoraRecord::clear_values() {
+  values_.Clear();
+}
+inline float LoraRecord::values(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.values)
+  return values_.Get(index);
+}
+inline void LoraRecord::set_values(int index, float value) {
+  values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.values)
+}
+inline void LoraRecord::add_values(float value) {
+  values_.Add(value);
+  // @@protoc_insertion_point(field_add:fk_data.LoraRecord.values)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+LoraRecord::values() const {
+  // @@protoc_insertion_point(field_list:fk_data.LoraRecord.values)
+  return values_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+LoraRecord::mutable_values() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.LoraRecord.values)
+  return &values_;
+}
+
+// bytes data = 7;
+inline void LoraRecord::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LoraRecord::data() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.data)
+  return data_.GetNoArena();
+}
+inline void LoraRecord::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.data)
+}
+#if LANG_CXX11
+inline void LoraRecord::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraRecord.data)
+}
+#endif
+inline void LoraRecord::set_data(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraRecord.data)
+}
+inline void LoraRecord::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraRecord.data)
+}
+inline ::std::string* LoraRecord::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraRecord.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoraRecord::release_data() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraRecord.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoraRecord::set_allocated_data(::std::string* data) {
+  if (data != NULL) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraRecord.data)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

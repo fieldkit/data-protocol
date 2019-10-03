@@ -105,6 +105,18 @@ typedef struct _fk_data_LogMessage {
 } fk_data_LogMessage;
 
 
+typedef struct _fk_data_LoraRecord {
+    pb_callback_t deviceId;
+    uint64_t time;
+    uint64_t number;
+    uint32_t module;
+    uint64_t sensor;
+    pb_callback_t values;
+    pb_callback_t data;
+/* @@protoc_insertion_point(struct:fk_data_LoraRecord) */
+} fk_data_LoraRecord;
+
+
 typedef struct _fk_data_LoraSettings {
     pb_callback_t deviceEui;
     pb_callback_t appKey;
@@ -267,6 +279,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoraSettings_init_default        {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default, {{NULL}, NULL}, fk_data_Schedule_init_default, 0, fk_data_Identity_init_default, fk_data_Condition_init_default, fk_data_LoraSettings_init_default, fk_data_NetworkSettings_init_default}
 #define fk_data_SignedRecord_init_default        {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
+#define fk_data_LoraRecord_init_default          {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
@@ -289,6 +302,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoraSettings_init_zero           {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_DataRecord_init_zero             {fk_data_LoggedReading_init_zero, fk_data_Metadata_init_zero, fk_data_LogMessage_init_zero, fk_data_Status_init_zero, fk_data_Readings_init_zero, {{NULL}, NULL}, fk_data_Schedule_init_zero, 0, fk_data_Identity_init_zero, fk_data_Condition_init_zero, fk_data_LoraSettings_init_zero, fk_data_NetworkSettings_init_zero}
 #define fk_data_SignedRecord_init_zero           {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
+#define fk_data_LoraRecord_init_zero             {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_Firmware_git_tag                 1
@@ -311,6 +325,13 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_level_tag             3
 #define fk_data_LogMessage_facility_tag          4
 #define fk_data_LogMessage_message_tag           5
+#define fk_data_LoraRecord_deviceId_tag          1
+#define fk_data_LoraRecord_time_tag              2
+#define fk_data_LoraRecord_number_tag            3
+#define fk_data_LoraRecord_module_tag            4
+#define fk_data_LoraRecord_sensor_tag            5
+#define fk_data_LoraRecord_values_tag            6
+#define fk_data_LoraRecord_data_tag              7
 #define fk_data_LoraSettings_deviceEui_tag       1
 #define fk_data_LoraSettings_appKey_tag          2
 #define fk_data_LoraSettings_appEui_tag          3
@@ -584,6 +605,17 @@ X(a, STATIC, SINGULAR, UINT64, record, 5)
 #define fk_data_SignedRecord_CALLBACK pb_default_field_callback
 #define fk_data_SignedRecord_DEFAULT NULL
 
+#define fk_data_LoraRecord_FIELDLIST(X, a) \
+X(a, CALLBACK, SINGULAR, BYTES, deviceId, 1) \
+X(a, STATIC, SINGULAR, UINT64, time, 2) \
+X(a, STATIC, SINGULAR, UINT64, number, 3) \
+X(a, STATIC, SINGULAR, UINT32, module, 4) \
+X(a, STATIC, SINGULAR, UINT64, sensor, 5) \
+X(a, CALLBACK, REPEATED, FLOAT, values, 6) \
+X(a, CALLBACK, SINGULAR, BYTES, data, 7)
+#define fk_data_LoraRecord_CALLBACK pb_default_field_callback
+#define fk_data_LoraRecord_DEFAULT NULL
+
 extern const pb_msgdesc_t fk_data_DeviceLocation_msg;
 extern const pb_msgdesc_t fk_data_SensorReading_msg;
 extern const pb_msgdesc_t fk_data_LoggedReading_msg;
@@ -606,6 +638,7 @@ extern const pb_msgdesc_t fk_data_NetworkSettings_msg;
 extern const pb_msgdesc_t fk_data_LoraSettings_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
 extern const pb_msgdesc_t fk_data_SignedRecord_msg;
+extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define fk_data_DeviceLocation_fields &fk_data_DeviceLocation_msg
@@ -630,6 +663,7 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 #define fk_data_LoraSettings_fields &fk_data_LoraSettings_msg
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
 #define fk_data_SignedRecord_fields &fk_data_SignedRecord_msg
+#define fk_data_LoraRecord_fields &fk_data_LoraRecord_msg
 
 /* Maximum encoded size of messages (where known) */
 /* fk_data_DeviceLocation_size depends on runtime parameters */
@@ -654,6 +688,7 @@ extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 /* fk_data_LoraSettings_size depends on runtime parameters */
 /* fk_data_DataRecord_size depends on runtime parameters */
 /* fk_data_SignedRecord_size depends on runtime parameters */
+/* fk_data_LoraRecord_size depends on runtime parameters */
 
 #ifdef __cplusplus
 } /* extern "C" */

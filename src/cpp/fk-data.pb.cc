@@ -128,13 +128,18 @@ public:
  ::google::protobuf::internal::ExplicitlyConstructed<SignedRecord>
      _instance;
 } _SignedRecord_default_instance_;
+class LoraRecordDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<LoraRecord>
+     _instance;
+} _LoraRecord_default_instance_;
 
 namespace protobuf_fk_2ddata_2eproto {
 
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[22];
+::google::protobuf::Metadata file_level_metadata[23];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 
 }  // namespace
@@ -150,6 +155,7 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
@@ -374,6 +380,18 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, data_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, hash_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SignedRecord, record_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, deviceid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, time_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, number_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, module_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, sensor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, values_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoraRecord, data_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(DeviceLocation)},
@@ -398,6 +416,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 163, -1, sizeof(LoraSettings)},
   { 172, -1, sizeof(DataRecord)},
   { 189, -1, sizeof(SignedRecord)},
+  { 199, -1, sizeof(LoraRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -423,6 +442,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_LoraSettings_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_DataRecord_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_SignedRecord_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_LoraRecord_default_instance_),
 };
 
 namespace {
@@ -443,7 +463,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 22);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 23);
 }
 
 }  // namespace
@@ -495,7 +515,9 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_DataRecord_default_instance_);_SignedRecord_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
-      &_SignedRecord_default_instance_);_LoggedReading_default_instance_._instance.get_mutable()->location_ = const_cast< ::fk_data::DeviceLocation*>(
+      &_SignedRecord_default_instance_);_LoraRecord_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_LoraRecord_default_instance_);_LoggedReading_default_instance_._instance.get_mutable()->location_ = const_cast< ::fk_data::DeviceLocation*>(
       ::fk_data::DeviceLocation::internal_default_instance());
   _LoggedReading_default_instance_._instance.get_mutable()->reading_ = const_cast< ::fk_data::SensorReading*>(
       ::fk_data::SensorReading::internal_default_instance());
@@ -600,20 +622,23 @@ void AddDescriptorsImpl() {
       "_data.NetworkSettings\"q\n\014SignedRecord\022\'\n"
       "\004kind\030\001 \001(\0162\031.fk_data.SignedRecordKind\022\014"
       "\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014"
-      "\022\016\n\006record\030\005 \001(\004*b\n\rDownloadFlags\022\026\n\022REA"
-      "DING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_R"
-      "ECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016"
-      "ConditionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000"
-      "\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001\n\020Sign"
-      "edRecordKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020"
-      "\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIG"
-      "NED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_REC"
-      "ORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_R"
-      "AW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377"
-      "\001b\006proto3"
+      "\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010device"
+      "Id\030\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\016\n\006number\030\003 \001(\004\022\016"
+      "\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values"
+      "\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n"
+      "\022READING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_N"
+      "OT_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002"
+      "*I\n\016ConditionFlags\022\030\n\024CONDITION_FLAGS_NO"
+      "NE\020\000\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001\n\020"
+      "SignedRecordKind\022\033\n\027SIGNED_RECORD_KIND_N"
+      "ONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022\037\n"
+      "\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED"
+      "_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KI"
+      "ND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTH"
+      "ER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2769);
+      descriptor, 2893);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -11680,6 +11705,704 @@ void SignedRecord::set_record(::google::protobuf::uint64 value) {
   
   record_ = value;
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.record)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LoraRecord::kDeviceIdFieldNumber;
+const int LoraRecord::kTimeFieldNumber;
+const int LoraRecord::kNumberFieldNumber;
+const int LoraRecord::kModuleFieldNumber;
+const int LoraRecord::kSensorFieldNumber;
+const int LoraRecord::kValuesFieldNumber;
+const int LoraRecord::kDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LoraRecord::LoraRecord()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fk_2ddata_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fk_data.LoraRecord)
+}
+LoraRecord::LoraRecord(const LoraRecord& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      values_(from.values_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  deviceid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.deviceid().size() > 0) {
+    deviceid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deviceid_);
+  }
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.data().size() > 0) {
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  ::memcpy(&time_, &from.time_,
+    static_cast<size_t>(reinterpret_cast<char*>(&module_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(module_));
+  // @@protoc_insertion_point(copy_constructor:fk_data.LoraRecord)
+}
+
+void LoraRecord::SharedCtor() {
+  deviceid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&time_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&module_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(module_));
+  _cached_size_ = 0;
+}
+
+LoraRecord::~LoraRecord() {
+  // @@protoc_insertion_point(destructor:fk_data.LoraRecord)
+  SharedDtor();
+}
+
+void LoraRecord::SharedDtor() {
+  deviceid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void LoraRecord::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LoraRecord::descriptor() {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const LoraRecord& LoraRecord::default_instance() {
+  protobuf_fk_2ddata_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+LoraRecord* LoraRecord::New(::google::protobuf::Arena* arena) const {
+  LoraRecord* n = new LoraRecord;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void LoraRecord::Clear() {
+// @@protoc_insertion_point(message_clear_start:fk_data.LoraRecord)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  values_.Clear();
+  deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&time_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&module_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(module_));
+  _internal_metadata_.Clear();
+}
+
+bool LoraRecord::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fk_data.LoraRecord)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bytes deviceId = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_deviceid()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 time = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 number = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &number_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 module = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &module_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 sensor = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &sensor_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated float values = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_values())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 50u, input, this->mutable_values())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes data = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fk_data.LoraRecord)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fk_data.LoraRecord)
+  return false;
+#undef DO_
+}
+
+void LoraRecord::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fk_data.LoraRecord)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes deviceId = 1;
+  if (this->deviceid().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->deviceid(), output);
+  }
+
+  // uint64 time = 2;
+  if (this->time() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
+  }
+
+  // uint64 number = 3;
+  if (this->number() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->number(), output);
+  }
+
+  // uint32 module = 4;
+  if (this->module() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->module(), output);
+  }
+
+  // uint64 sensor = 5;
+  if (this->sensor() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(5, this->sensor(), output);
+  }
+
+  // repeated float values = 6;
+  if (this->values_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(6, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _values_cached_byte_size_));
+    ::google::protobuf::internal::WireFormatLite::WriteFloatArray(
+      this->values().data(), this->values_size(), output);
+  }
+
+  // bytes data = 7;
+  if (this->data().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      7, this->data(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:fk_data.LoraRecord)
+}
+
+::google::protobuf::uint8* LoraRecord::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:fk_data.LoraRecord)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes deviceId = 1;
+  if (this->deviceid().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->deviceid(), target);
+  }
+
+  // uint64 time = 2;
+  if (this->time() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+  }
+
+  // uint64 number = 3;
+  if (this->number() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->number(), target);
+  }
+
+  // uint32 module = 4;
+  if (this->module() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->module(), target);
+  }
+
+  // uint64 sensor = 5;
+  if (this->sensor() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(5, this->sensor(), target);
+  }
+
+  // repeated float values = 6;
+  if (this->values_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      6,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::uint32>(
+            _values_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteFloatNoTagToArray(this->values_, target);
+  }
+
+  // bytes data = 7;
+  if (this->data().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->data(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:fk_data.LoraRecord)
+  return target;
+}
+
+size_t LoraRecord::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fk_data.LoraRecord)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated float values = 6;
+  {
+    unsigned int count = static_cast<unsigned int>(this->values_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _values_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // bytes deviceId = 1;
+  if (this->deviceid().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->deviceid());
+  }
+
+  // bytes data = 7;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->data());
+  }
+
+  // uint64 time = 2;
+  if (this->time() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->time());
+  }
+
+  // uint64 number = 3;
+  if (this->number() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->number());
+  }
+
+  // uint64 sensor = 5;
+  if (this->sensor() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->sensor());
+  }
+
+  // uint32 module = 4;
+  if (this->module() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->module());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LoraRecord::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fk_data.LoraRecord)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LoraRecord* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const LoraRecord>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fk_data.LoraRecord)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fk_data.LoraRecord)
+    MergeFrom(*source);
+  }
+}
+
+void LoraRecord::MergeFrom(const LoraRecord& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fk_data.LoraRecord)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  values_.MergeFrom(from.values_);
+  if (from.deviceid().size() > 0) {
+
+    deviceid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deviceid_);
+  }
+  if (from.data().size() > 0) {
+
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  if (from.time() != 0) {
+    set_time(from.time());
+  }
+  if (from.number() != 0) {
+    set_number(from.number());
+  }
+  if (from.sensor() != 0) {
+    set_sensor(from.sensor());
+  }
+  if (from.module() != 0) {
+    set_module(from.module());
+  }
+}
+
+void LoraRecord::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fk_data.LoraRecord)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LoraRecord::CopyFrom(const LoraRecord& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fk_data.LoraRecord)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LoraRecord::IsInitialized() const {
+  return true;
+}
+
+void LoraRecord::Swap(LoraRecord* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LoraRecord::InternalSwap(LoraRecord* other) {
+  using std::swap;
+  values_.InternalSwap(&other->values_);
+  deviceid_.Swap(&other->deviceid_);
+  data_.Swap(&other->data_);
+  swap(time_, other->time_);
+  swap(number_, other->number_);
+  swap(sensor_, other->sensor_);
+  swap(module_, other->module_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata LoraRecord::GetMetadata() const {
+  protobuf_fk_2ddata_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fk_2ddata_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// LoraRecord
+
+// bytes deviceId = 1;
+void LoraRecord::clear_deviceid() {
+  deviceid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& LoraRecord::deviceid() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.deviceId)
+  return deviceid_.GetNoArena();
+}
+void LoraRecord::set_deviceid(const ::std::string& value) {
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.deviceId)
+}
+#if LANG_CXX11
+void LoraRecord::set_deviceid(::std::string&& value) {
+  
+  deviceid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraRecord.deviceId)
+}
+#endif
+void LoraRecord::set_deviceid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraRecord.deviceId)
+}
+void LoraRecord::set_deviceid(const void* value, size_t size) {
+  
+  deviceid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraRecord.deviceId)
+}
+::std::string* LoraRecord::mutable_deviceid() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraRecord.deviceId)
+  return deviceid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LoraRecord::release_deviceid() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraRecord.deviceId)
+  
+  return deviceid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LoraRecord::set_allocated_deviceid(::std::string* deviceid) {
+  if (deviceid != NULL) {
+    
+  } else {
+    
+  }
+  deviceid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), deviceid);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraRecord.deviceId)
+}
+
+// uint64 time = 2;
+void LoraRecord::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+}
+::google::protobuf::uint64 LoraRecord::time() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.time)
+  return time_;
+}
+void LoraRecord::set_time(::google::protobuf::uint64 value) {
+  
+  time_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.time)
+}
+
+// uint64 number = 3;
+void LoraRecord::clear_number() {
+  number_ = GOOGLE_ULONGLONG(0);
+}
+::google::protobuf::uint64 LoraRecord::number() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.number)
+  return number_;
+}
+void LoraRecord::set_number(::google::protobuf::uint64 value) {
+  
+  number_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.number)
+}
+
+// uint32 module = 4;
+void LoraRecord::clear_module() {
+  module_ = 0u;
+}
+::google::protobuf::uint32 LoraRecord::module() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.module)
+  return module_;
+}
+void LoraRecord::set_module(::google::protobuf::uint32 value) {
+  
+  module_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.module)
+}
+
+// uint64 sensor = 5;
+void LoraRecord::clear_sensor() {
+  sensor_ = GOOGLE_ULONGLONG(0);
+}
+::google::protobuf::uint64 LoraRecord::sensor() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.sensor)
+  return sensor_;
+}
+void LoraRecord::set_sensor(::google::protobuf::uint64 value) {
+  
+  sensor_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.sensor)
+}
+
+// repeated float values = 6;
+int LoraRecord::values_size() const {
+  return values_.size();
+}
+void LoraRecord::clear_values() {
+  values_.Clear();
+}
+float LoraRecord::values(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.values)
+  return values_.Get(index);
+}
+void LoraRecord::set_values(int index, float value) {
+  values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.values)
+}
+void LoraRecord::add_values(float value) {
+  values_.Add(value);
+  // @@protoc_insertion_point(field_add:fk_data.LoraRecord.values)
+}
+const ::google::protobuf::RepeatedField< float >&
+LoraRecord::values() const {
+  // @@protoc_insertion_point(field_list:fk_data.LoraRecord.values)
+  return values_;
+}
+::google::protobuf::RepeatedField< float >*
+LoraRecord::mutable_values() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.LoraRecord.values)
+  return &values_;
+}
+
+// bytes data = 7;
+void LoraRecord::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& LoraRecord::data() const {
+  // @@protoc_insertion_point(field_get:fk_data.LoraRecord.data)
+  return data_.GetNoArena();
+}
+void LoraRecord::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fk_data.LoraRecord.data)
+}
+#if LANG_CXX11
+void LoraRecord::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fk_data.LoraRecord.data)
+}
+#endif
+void LoraRecord::set_data(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fk_data.LoraRecord.data)
+}
+void LoraRecord::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fk_data.LoraRecord.data)
+}
+::std::string* LoraRecord::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:fk_data.LoraRecord.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LoraRecord::release_data() {
+  // @@protoc_insertion_point(field_release:fk_data.LoraRecord.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LoraRecord::set_allocated_data(::std::string* data) {
+  if (data != NULL) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:fk_data.LoraRecord.data)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
