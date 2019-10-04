@@ -2338,11 +2338,18 @@ class Condition : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::uint32 flags() const;
   void set_flags(::google::protobuf::uint32 value);
 
+  // uint32 recording = 2;
+  void clear_recording();
+  static const int kRecordingFieldNumber = 2;
+  ::google::protobuf::uint32 recording() const;
+  void set_recording(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.Condition)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 flags_;
+  ::google::protobuf::uint32 recording_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -5058,6 +5065,20 @@ inline void Condition::set_flags(::google::protobuf::uint32 value) {
   
   flags_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Condition.flags)
+}
+
+// uint32 recording = 2;
+inline void Condition::clear_recording() {
+  recording_ = 0u;
+}
+inline ::google::protobuf::uint32 Condition::recording() const {
+  // @@protoc_insertion_point(field_get:fk_data.Condition.recording)
+  return recording_;
+}
+inline void Condition::set_recording(::google::protobuf::uint32 value) {
+  
+  recording_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Condition.recording)
 }
 
 // -------------------------------------------------------------------

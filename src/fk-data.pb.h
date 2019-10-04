@@ -79,6 +79,7 @@ typedef struct _fk_data_NetworkSettings {
 
 typedef struct _fk_data_Condition {
     uint32_t flags;
+    uint32_t recording;
 /* @@protoc_insertion_point(struct:fk_data_Condition) */
 } fk_data_Condition;
 
@@ -273,7 +274,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_JobSchedule_init_default         {{{NULL}, NULL}}
 #define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
-#define fk_data_Condition_init_default           {0}
+#define fk_data_Condition_init_default           {0, 0}
 #define fk_data_NetworkInfo_init_default         {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_NetworkSettings_init_default     {{{NULL}, NULL}}
 #define fk_data_LoraSettings_init_default        {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0}
@@ -296,7 +297,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}}
 #define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
-#define fk_data_Condition_init_zero              {0}
+#define fk_data_Condition_init_zero              {0, 0}
 #define fk_data_NetworkInfo_init_zero            {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_NetworkSettings_init_zero        {{{NULL}, NULL}}
 #define fk_data_LoraSettings_init_zero           {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0}
@@ -313,6 +314,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_NetworkInfo_password_tag         2
 #define fk_data_NetworkSettings_networks_tag     1
 #define fk_data_Condition_flags_tag              1
+#define fk_data_Condition_recording_tag          2
 #define fk_data_DeviceLocation_enabled_tag       7
 #define fk_data_DeviceLocation_fix_tag           1
 #define fk_data_DeviceLocation_time_tag          2
@@ -545,7 +547,8 @@ X(a, CALLBACK, SINGULAR, STRING, name, 1)
 #define fk_data_Identity_DEFAULT NULL
 
 #define fk_data_Condition_FIELDLIST(X, a) \
-X(a, STATIC, SINGULAR, UINT32, flags, 1)
+X(a, STATIC, SINGULAR, UINT32, flags, 1) \
+X(a, STATIC, SINGULAR, UINT32, recording, 2)
 #define fk_data_Condition_CALLBACK NULL
 #define fk_data_Condition_DEFAULT NULL
 
@@ -682,7 +685,7 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 /* fk_data_JobSchedule_size depends on runtime parameters */
 /* fk_data_Schedule_size depends on runtime parameters */
 /* fk_data_Identity_size depends on runtime parameters */
-#define fk_data_Condition_size                   6
+#define fk_data_Condition_size                   12
 /* fk_data_NetworkInfo_size depends on runtime parameters */
 /* fk_data_NetworkSettings_size depends on runtime parameters */
 /* fk_data_LoraSettings_size depends on runtime parameters */

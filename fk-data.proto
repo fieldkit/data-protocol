@@ -126,6 +126,7 @@ enum ConditionFlags {
 
 message Condition {
   uint32 flags = 1;
+  uint32 recording = 2;
 }
 
 message NetworkInfo {
