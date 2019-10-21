@@ -58,12 +58,6 @@ typedef struct _fk_data_Identity {
 } fk_data_Identity;
 
 
-typedef struct _fk_data_JobSchedule {
-    pb_callback_t cron;
-/* @@protoc_insertion_point(struct:fk_data_JobSchedule) */
-} fk_data_JobSchedule;
-
-
 typedef struct _fk_data_NetworkInfo {
     pb_callback_t ssid;
     pb_callback_t password;
@@ -94,6 +88,13 @@ typedef struct _fk_data_DeviceLocation {
     uint32_t enabled;
 /* @@protoc_insertion_point(struct:fk_data_DeviceLocation) */
 } fk_data_DeviceLocation;
+
+
+typedef struct _fk_data_JobSchedule {
+    pb_callback_t cron;
+    uint32_t interval;
+/* @@protoc_insertion_point(struct:fk_data_JobSchedule) */
+} fk_data_JobSchedule;
 
 
 typedef struct _fk_data_LogMessage {
@@ -147,14 +148,6 @@ typedef struct _fk_data_ModuleHeader {
     uint32_t version;
 /* @@protoc_insertion_point(struct:fk_data_ModuleHeader) */
 } fk_data_ModuleHeader;
-
-
-typedef struct _fk_data_Schedule {
-    fk_data_JobSchedule readings;
-    fk_data_JobSchedule lora;
-    fk_data_JobSchedule gps;
-/* @@protoc_insertion_point(struct:fk_data_Schedule) */
-} fk_data_Schedule;
 
 
 typedef struct _fk_data_SensorAndValue {
@@ -241,6 +234,14 @@ typedef struct _fk_data_Readings {
 } fk_data_Readings;
 
 
+typedef struct _fk_data_Schedule {
+    fk_data_JobSchedule readings;
+    fk_data_JobSchedule lora;
+    fk_data_JobSchedule gps;
+/* @@protoc_insertion_point(struct:fk_data_Schedule) */
+} fk_data_Schedule;
+
+
 typedef struct _fk_data_DataRecord {
     fk_data_LoggedReading loggedReading;
     fk_data_Metadata metadata;
@@ -272,7 +273,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}, 0}
-#define fk_data_JobSchedule_init_default         {{{NULL}, NULL}}
+#define fk_data_JobSchedule_init_default         {{{NULL}, NULL}, 0}
 #define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
 #define fk_data_Condition_init_default           {0, 0}
@@ -295,7 +296,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}, 0}
-#define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}}
+#define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}, 0}
 #define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
 #define fk_data_Condition_init_zero              {0, 0}
@@ -310,7 +311,6 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Firmware_git_tag                 1
 #define fk_data_Firmware_build_tag               2
 #define fk_data_Identity_name_tag                1
-#define fk_data_JobSchedule_cron_tag             1
 #define fk_data_NetworkInfo_ssid_tag             1
 #define fk_data_NetworkInfo_password_tag         2
 #define fk_data_NetworkSettings_networks_tag     1
@@ -323,6 +323,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DeviceLocation_latitude_tag      4
 #define fk_data_DeviceLocation_altitude_tag      5
 #define fk_data_DeviceLocation_coordinates_tag   6
+#define fk_data_JobSchedule_cron_tag             1
+#define fk_data_JobSchedule_interval_tag         2
 #define fk_data_LogMessage_time_tag              1
 #define fk_data_LogMessage_uptime_tag            2
 #define fk_data_LogMessage_level_tag             3
@@ -351,9 +353,6 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleHeader_manufacturer_tag    1
 #define fk_data_ModuleHeader_kind_tag            2
 #define fk_data_ModuleHeader_version_tag         3
-#define fk_data_Schedule_readings_tag            1
-#define fk_data_Schedule_lora_tag                2
-#define fk_data_Schedule_gps_tag                 3
 #define fk_data_SensorAndValue_sensor_tag        1
 #define fk_data_SensorAndValue_value_tag         2
 #define fk_data_SensorGroup_module_tag           1
@@ -393,6 +392,9 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Readings_meta_tag                6
 #define fk_data_Readings_location_tag            4
 #define fk_data_Readings_sensorGroups_tag        5
+#define fk_data_Schedule_readings_tag            1
+#define fk_data_Schedule_lora_tag                2
+#define fk_data_Schedule_gps_tag                 3
 #define fk_data_DataRecord_loggedReading_tag     1
 #define fk_data_DataRecord_metadata_tag          2
 #define fk_data_DataRecord_log_tag               3
@@ -531,7 +533,8 @@ X(a, STATIC, SINGULAR, UINT32, meta, 6)
 #define fk_data_Readings_sensorGroups_MSGTYPE fk_data_SensorGroup
 
 #define fk_data_JobSchedule_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, BYTES, cron, 1)
+X(a, CALLBACK, SINGULAR, BYTES, cron, 1) \
+X(a, STATIC, SINGULAR, UINT32, interval, 2)
 #define fk_data_JobSchedule_CALLBACK pb_default_field_callback
 #define fk_data_JobSchedule_DEFAULT NULL
 

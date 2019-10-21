@@ -108,6 +108,7 @@ message Readings {
 
 message JobSchedule {
   bytes cron = 1;
+  uint32 interval = 2;
 }
 
 message Schedule {

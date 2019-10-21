@@ -312,6 +312,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JobSchedule, cron_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(JobSchedule, interval_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Schedule, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -410,15 +411,15 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 107, -1, sizeof(SensorGroup)},
   { 114, -1, sizeof(Readings)},
   { 125, -1, sizeof(JobSchedule)},
-  { 131, -1, sizeof(Schedule)},
-  { 139, -1, sizeof(Identity)},
-  { 145, -1, sizeof(Condition)},
-  { 152, -1, sizeof(NetworkInfo)},
-  { 159, -1, sizeof(NetworkSettings)},
-  { 165, -1, sizeof(LoraSettings)},
-  { 174, -1, sizeof(DataRecord)},
-  { 191, -1, sizeof(SignedRecord)},
-  { 201, -1, sizeof(LoraRecord)},
+  { 132, -1, sizeof(Schedule)},
+  { 140, -1, sizeof(Identity)},
+  { 146, -1, sizeof(Condition)},
+  { 153, -1, sizeof(NetworkInfo)},
+  { 160, -1, sizeof(NetworkSettings)},
+  { 166, -1, sizeof(LoraSettings)},
+  { 175, -1, sizeof(DataRecord)},
+  { 192, -1, sizeof(SignedRecord)},
+  { 202, -1, sizeof(LoraRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -603,47 +604,48 @@ void AddDescriptorsImpl() {
       "ding\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022"
       ")\n\010location\030\004 \001(\0132\027.fk_data.DeviceLocati"
       "on\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_data.Senso"
-      "rGroup\"\033\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\"y\n\010S"
-      "chedule\022&\n\010readings\030\001 \001(\0132\024.fk_data.JobS"
-      "chedule\022\"\n\004lora\030\002 \001(\0132\024.fk_data.JobSched"
-      "ule\022!\n\003gps\030\003 \001(\0132\024.fk_data.JobSchedule\"\030"
-      "\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\tCondition\022\r\n"
-      "\005flags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n\013Netwo"
-      "rkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9"
-      "\n\017NetworkSettings\022&\n\010networks\030\001 \003(\0132\024.fk"
-      "_data.NetworkInfo\"X\n\014LoraSettings\022\021\n\tdev"
-      "iceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003"
-      " \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\"\275\003\n\nDataReco"
-      "rd\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data.Logg"
-      "edReading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Me"
-      "tadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage"
-      "\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n\010rea"
-      "dings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007module"
-      "s\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010schedule"
-      "\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022"
-      "#\n\010identity\030\t \001(\0132\021.fk_data.Identity\022%\n\t"
-      "condition\030\n \001(\0132\022.fk_data.Condition\022#\n\004l"
-      "ora\030\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007netw"
-      "ork\030\014 \001(\0132\030.fk_data.NetworkSettings\"q\n\014S"
-      "ignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.Sign"
-      "edRecordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014"
-      "\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRe"
-      "cord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\016\n\006"
-      "number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005"
-      " \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDo"
-      "wnloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033R"
-      "EADING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_"
-      "FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024COND"
-      "ITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RE"
-      "CORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED"
-      "_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIN"
-      "D_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDU"
-      "LE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SI"
-      "GNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_R"
-      "ECORD_KIND_OTHER\020\377\001b\006proto3"
+      "rGroup\"-\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\022\020\n\010i"
+      "nterval\030\002 \001(\r\"y\n\010Schedule\022&\n\010readings\030\001 "
+      "\001(\0132\024.fk_data.JobSchedule\022\"\n\004lora\030\002 \001(\0132"
+      "\024.fk_data.JobSchedule\022!\n\003gps\030\003 \001(\0132\024.fk_"
+      "data.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001"
+      "(\t\"-\n\tCondition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecord"
+      "ing\030\002 \001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020"
+      "\n\010password\030\002 \001(\t\"9\n\017NetworkSettings\022&\n\010n"
+      "etworks\030\001 \003(\0132\024.fk_data.NetworkInfo\"X\n\014L"
+      "oraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey"
+      "\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBand\030"
+      "\004 \001(\r\"\275\003\n\nDataRecord\022-\n\rloggedReading\030\001 "
+      "\001(\0132\026.fk_data.LoggedReading\022#\n\010metadata\030"
+      "\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132\023."
+      "fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_"
+      "data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data."
+      "Readings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Modu"
+      "leInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Sched"
+      "ule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk"
+      "_data.Identity\022%\n\tcondition\030\n \001(\0132\022.fk_d"
+      "ata.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_data.Lo"
+      "raSettings\022)\n\007network\030\014 \001(\0132\030.fk_data.Ne"
+      "tworkSettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 "
+      "\001(\0162\031.fk_data.SignedRecordKind\022\014\n\004time\030\002"
+      " \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006reco"
+      "rd\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014"
+      "\022\014\n\004time\030\002 \001(\004\022\016\n\006number\030\003 \001(\004\022\016\n\006module"
+      "\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014"
+      "\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING"
+      "_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECOR"
+      "DING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Cond"
+      "itionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031"
+      "CONDITION_FLAGS_RECORDING\020\001*\317\001\n\020SignedRe"
+      "cordKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n"
+      "\032SIGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_"
+      "RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_"
+      "KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_S"
+      "TATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001b\006p"
+      "roto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2947);
+      descriptor, 2965);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -7476,6 +7478,7 @@ Readings::sensorgroups() const {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int JobSchedule::kCronFieldNumber;
+const int JobSchedule::kIntervalFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 JobSchedule::JobSchedule()
@@ -7495,11 +7498,13 @@ JobSchedule::JobSchedule(const JobSchedule& from)
   if (from.cron().size() > 0) {
     cron_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cron_);
   }
+  interval_ = from.interval_;
   // @@protoc_insertion_point(copy_constructor:fk_data.JobSchedule)
 }
 
 void JobSchedule::SharedCtor() {
   cron_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  interval_ = 0u;
   _cached_size_ = 0;
 }
 
@@ -7542,6 +7547,7 @@ void JobSchedule::Clear() {
   (void) cached_has_bits;
 
   cron_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  interval_ = 0u;
   _internal_metadata_.Clear();
 }
 
@@ -7561,6 +7567,20 @@ bool JobSchedule::MergePartialFromCodedStream(
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_cron()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 interval = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &interval_)));
         } else {
           goto handle_unusual;
         }
@@ -7599,6 +7619,11 @@ void JobSchedule::SerializeWithCachedSizes(
       1, this->cron(), output);
   }
 
+  // uint32 interval = 2;
+  if (this->interval() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->interval(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -7618,6 +7643,11 @@ void JobSchedule::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         1, this->cron(), target);
+  }
+
+  // uint32 interval = 2;
+  if (this->interval() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->interval(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7642,6 +7672,13 @@ size_t JobSchedule::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->cron());
+  }
+
+  // uint32 interval = 2;
+  if (this->interval() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->interval());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7677,6 +7714,9 @@ void JobSchedule::MergeFrom(const JobSchedule& from) {
 
     cron_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cron_);
   }
+  if (from.interval() != 0) {
+    set_interval(from.interval());
+  }
 }
 
 void JobSchedule::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7704,6 +7744,7 @@ void JobSchedule::Swap(JobSchedule* other) {
 void JobSchedule::InternalSwap(JobSchedule* other) {
   using std::swap;
   cron_.Swap(&other->cron_);
+  swap(interval_, other->interval_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -7767,6 +7808,20 @@ void JobSchedule::set_allocated_cron(::std::string* cron) {
   }
   cron_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cron);
   // @@protoc_insertion_point(field_set_allocated:fk_data.JobSchedule.cron)
+}
+
+// uint32 interval = 2;
+void JobSchedule::clear_interval() {
+  interval_ = 0u;
+}
+::google::protobuf::uint32 JobSchedule::interval() const {
+  // @@protoc_insertion_point(field_get:fk_data.JobSchedule.interval)
+  return interval_;
+}
+void JobSchedule::set_interval(::google::protobuf::uint32 value) {
+  
+  interval_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.JobSchedule.interval)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

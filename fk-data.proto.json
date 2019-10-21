@@ -312,6 +312,10 @@
             "cron": {
               "type": "bytes",
               "id": 1
+            },
+            "interval": {
+              "type": "uint32",
+              "id": 2
             }
           }
         },

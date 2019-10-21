@@ -2026,11 +2026,18 @@ class JobSchedule : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::std::string* release_cron();
   void set_allocated_cron(::std::string* cron);
 
+  // uint32 interval = 2;
+  void clear_interval();
+  static const int kIntervalFieldNumber = 2;
+  ::google::protobuf::uint32 interval() const;
+  void set_interval(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.JobSchedule)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr cron_;
+  ::google::protobuf::uint32 interval_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -4916,6 +4923,20 @@ inline void JobSchedule::set_allocated_cron(::std::string* cron) {
   }
   cron_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cron);
   // @@protoc_insertion_point(field_set_allocated:fk_data.JobSchedule.cron)
+}
+
+// uint32 interval = 2;
+inline void JobSchedule::clear_interval() {
+  interval_ = 0u;
+}
+inline ::google::protobuf::uint32 JobSchedule::interval() const {
+  // @@protoc_insertion_point(field_get:fk_data.JobSchedule.interval)
+  return interval_;
+}
+inline void JobSchedule::set_interval(::google::protobuf::uint32 value) {
+  
+  interval_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.JobSchedule.interval)
 }
 
 // -------------------------------------------------------------------
