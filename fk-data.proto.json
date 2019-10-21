@@ -321,9 +321,13 @@
               "type": "JobSchedule",
               "id": 1
             },
-            "misc": {
+            "lora": {
               "type": "JobSchedule",
               "id": 2
+            },
+            "gps": {
+              "type": "JobSchedule",
+              "id": 3
             }
           }
         },

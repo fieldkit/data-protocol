@@ -112,7 +112,8 @@ message JobSchedule {
 
 message Schedule {
   JobSchedule readings = 1;
-  JobSchedule misc = 2;
+  JobSchedule lora = 2;
+  JobSchedule gps = 3;
 }
 
 message Identity {

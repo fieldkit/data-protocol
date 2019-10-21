@@ -151,7 +151,8 @@ typedef struct _fk_data_ModuleHeader {
 
 typedef struct _fk_data_Schedule {
     fk_data_JobSchedule readings;
-    fk_data_JobSchedule misc;
+    fk_data_JobSchedule lora;
+    fk_data_JobSchedule gps;
 /* @@protoc_insertion_point(struct:fk_data_Schedule) */
 } fk_data_Schedule;
 
@@ -272,7 +273,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}, 0}
 #define fk_data_JobSchedule_init_default         {{{NULL}, NULL}}
-#define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
+#define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
 #define fk_data_Condition_init_default           {0, 0}
 #define fk_data_NetworkInfo_init_default         {{{NULL}, NULL}, {{NULL}, NULL}}
@@ -295,7 +296,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}, 0}
 #define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}}
-#define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
+#define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
 #define fk_data_Condition_init_zero              {0, 0}
 #define fk_data_NetworkInfo_init_zero            {{{NULL}, NULL}, {{NULL}, NULL}}
@@ -351,7 +352,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleHeader_kind_tag            2
 #define fk_data_ModuleHeader_version_tag         3
 #define fk_data_Schedule_readings_tag            1
-#define fk_data_Schedule_misc_tag                2
+#define fk_data_Schedule_lora_tag                2
+#define fk_data_Schedule_gps_tag                 3
 #define fk_data_SensorAndValue_sensor_tag        1
 #define fk_data_SensorAndValue_value_tag         2
 #define fk_data_SensorGroup_module_tag           1
@@ -535,11 +537,13 @@ X(a, CALLBACK, SINGULAR, BYTES, cron, 1)
 
 #define fk_data_Schedule_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, MESSAGE, readings, 1) \
-X(a, STATIC, SINGULAR, MESSAGE, misc, 2)
+X(a, STATIC, SINGULAR, MESSAGE, lora, 2) \
+X(a, STATIC, SINGULAR, MESSAGE, gps, 3)
 #define fk_data_Schedule_CALLBACK NULL
 #define fk_data_Schedule_DEFAULT NULL
 #define fk_data_Schedule_readings_MSGTYPE fk_data_JobSchedule
-#define fk_data_Schedule_misc_MSGTYPE fk_data_JobSchedule
+#define fk_data_Schedule_lora_MSGTYPE fk_data_JobSchedule
+#define fk_data_Schedule_gps_MSGTYPE fk_data_JobSchedule
 
 #define fk_data_Identity_FIELDLIST(X, a) \
 X(a, CALLBACK, SINGULAR, STRING, name, 1)

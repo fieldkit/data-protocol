@@ -2126,21 +2126,31 @@ class Schedule : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::fk_data::JobSchedule* release_readings();
   void set_allocated_readings(::fk_data::JobSchedule* readings);
 
-  // .fk_data.JobSchedule misc = 2;
-  bool has_misc() const;
-  void clear_misc();
-  static const int kMiscFieldNumber = 2;
-  const ::fk_data::JobSchedule& misc() const;
-  ::fk_data::JobSchedule* mutable_misc();
-  ::fk_data::JobSchedule* release_misc();
-  void set_allocated_misc(::fk_data::JobSchedule* misc);
+  // .fk_data.JobSchedule lora = 2;
+  bool has_lora() const;
+  void clear_lora();
+  static const int kLoraFieldNumber = 2;
+  const ::fk_data::JobSchedule& lora() const;
+  ::fk_data::JobSchedule* mutable_lora();
+  ::fk_data::JobSchedule* release_lora();
+  void set_allocated_lora(::fk_data::JobSchedule* lora);
+
+  // .fk_data.JobSchedule gps = 3;
+  bool has_gps() const;
+  void clear_gps();
+  static const int kGpsFieldNumber = 3;
+  const ::fk_data::JobSchedule& gps() const;
+  ::fk_data::JobSchedule* mutable_gps();
+  ::fk_data::JobSchedule* release_gps();
+  void set_allocated_gps(::fk_data::JobSchedule* gps);
 
   // @@protoc_insertion_point(class_scope:fk_data.Schedule)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::fk_data::JobSchedule* readings_;
-  ::fk_data::JobSchedule* misc_;
+  ::fk_data::JobSchedule* lora_;
+  ::fk_data::JobSchedule* gps_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -4952,44 +4962,84 @@ inline void Schedule::set_allocated_readings(::fk_data::JobSchedule* readings) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.readings)
 }
 
-// .fk_data.JobSchedule misc = 2;
-inline bool Schedule::has_misc() const {
-  return this != internal_default_instance() && misc_ != NULL;
+// .fk_data.JobSchedule lora = 2;
+inline bool Schedule::has_lora() const {
+  return this != internal_default_instance() && lora_ != NULL;
 }
-inline void Schedule::clear_misc() {
-  if (GetArenaNoVirtual() == NULL && misc_ != NULL) delete misc_;
-  misc_ = NULL;
+inline void Schedule::clear_lora() {
+  if (GetArenaNoVirtual() == NULL && lora_ != NULL) delete lora_;
+  lora_ = NULL;
 }
-inline const ::fk_data::JobSchedule& Schedule::misc() const {
-  const ::fk_data::JobSchedule* p = misc_;
-  // @@protoc_insertion_point(field_get:fk_data.Schedule.misc)
+inline const ::fk_data::JobSchedule& Schedule::lora() const {
+  const ::fk_data::JobSchedule* p = lora_;
+  // @@protoc_insertion_point(field_get:fk_data.Schedule.lora)
   return p != NULL ? *p : *reinterpret_cast<const ::fk_data::JobSchedule*>(
       &::fk_data::_JobSchedule_default_instance_);
 }
-inline ::fk_data::JobSchedule* Schedule::mutable_misc() {
+inline ::fk_data::JobSchedule* Schedule::mutable_lora() {
   
-  if (misc_ == NULL) {
-    misc_ = new ::fk_data::JobSchedule;
+  if (lora_ == NULL) {
+    lora_ = new ::fk_data::JobSchedule;
   }
-  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.misc)
-  return misc_;
+  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.lora)
+  return lora_;
 }
-inline ::fk_data::JobSchedule* Schedule::release_misc() {
-  // @@protoc_insertion_point(field_release:fk_data.Schedule.misc)
+inline ::fk_data::JobSchedule* Schedule::release_lora() {
+  // @@protoc_insertion_point(field_release:fk_data.Schedule.lora)
   
-  ::fk_data::JobSchedule* temp = misc_;
-  misc_ = NULL;
+  ::fk_data::JobSchedule* temp = lora_;
+  lora_ = NULL;
   return temp;
 }
-inline void Schedule::set_allocated_misc(::fk_data::JobSchedule* misc) {
-  delete misc_;
-  misc_ = misc;
-  if (misc) {
+inline void Schedule::set_allocated_lora(::fk_data::JobSchedule* lora) {
+  delete lora_;
+  lora_ = lora;
+  if (lora) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.misc)
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.lora)
+}
+
+// .fk_data.JobSchedule gps = 3;
+inline bool Schedule::has_gps() const {
+  return this != internal_default_instance() && gps_ != NULL;
+}
+inline void Schedule::clear_gps() {
+  if (GetArenaNoVirtual() == NULL && gps_ != NULL) delete gps_;
+  gps_ = NULL;
+}
+inline const ::fk_data::JobSchedule& Schedule::gps() const {
+  const ::fk_data::JobSchedule* p = gps_;
+  // @@protoc_insertion_point(field_get:fk_data.Schedule.gps)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::JobSchedule*>(
+      &::fk_data::_JobSchedule_default_instance_);
+}
+inline ::fk_data::JobSchedule* Schedule::mutable_gps() {
+  
+  if (gps_ == NULL) {
+    gps_ = new ::fk_data::JobSchedule;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.gps)
+  return gps_;
+}
+inline ::fk_data::JobSchedule* Schedule::release_gps() {
+  // @@protoc_insertion_point(field_release:fk_data.Schedule.gps)
+  
+  ::fk_data::JobSchedule* temp = gps_;
+  gps_ = NULL;
+  return temp;
+}
+inline void Schedule::set_allocated_gps(::fk_data::JobSchedule* gps) {
+  delete gps_;
+  gps_ = gps;
+  if (gps) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.gps)
 }
 
 // -------------------------------------------------------------------

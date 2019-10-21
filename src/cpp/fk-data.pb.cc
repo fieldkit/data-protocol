@@ -318,7 +318,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Schedule, readings_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Schedule, misc_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Schedule, lora_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Schedule, gps_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Identity, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -410,14 +411,14 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 114, -1, sizeof(Readings)},
   { 125, -1, sizeof(JobSchedule)},
   { 131, -1, sizeof(Schedule)},
-  { 138, -1, sizeof(Identity)},
-  { 144, -1, sizeof(Condition)},
-  { 151, -1, sizeof(NetworkInfo)},
-  { 158, -1, sizeof(NetworkSettings)},
-  { 164, -1, sizeof(LoraSettings)},
-  { 173, -1, sizeof(DataRecord)},
-  { 190, -1, sizeof(SignedRecord)},
-  { 200, -1, sizeof(LoraRecord)},
+  { 139, -1, sizeof(Identity)},
+  { 145, -1, sizeof(Condition)},
+  { 152, -1, sizeof(NetworkInfo)},
+  { 159, -1, sizeof(NetworkSettings)},
+  { 165, -1, sizeof(LoraSettings)},
+  { 174, -1, sizeof(DataRecord)},
+  { 191, -1, sizeof(SignedRecord)},
+  { 201, -1, sizeof(LoraRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -532,7 +533,9 @@ void TableStruct::InitDefaultsImpl() {
       ::fk_data::DeviceLocation::internal_default_instance());
   _Schedule_default_instance_._instance.get_mutable()->readings_ = const_cast< ::fk_data::JobSchedule*>(
       ::fk_data::JobSchedule::internal_default_instance());
-  _Schedule_default_instance_._instance.get_mutable()->misc_ = const_cast< ::fk_data::JobSchedule*>(
+  _Schedule_default_instance_._instance.get_mutable()->lora_ = const_cast< ::fk_data::JobSchedule*>(
+      ::fk_data::JobSchedule::internal_default_instance());
+  _Schedule_default_instance_._instance.get_mutable()->gps_ = const_cast< ::fk_data::JobSchedule*>(
       ::fk_data::JobSchedule::internal_default_instance());
   _DataRecord_default_instance_._instance.get_mutable()->loggedreading_ = const_cast< ::fk_data::LoggedReading*>(
       ::fk_data::LoggedReading::internal_default_instance());
@@ -600,46 +603,47 @@ void AddDescriptorsImpl() {
       "ding\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022"
       ")\n\010location\030\004 \001(\0132\027.fk_data.DeviceLocati"
       "on\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_data.Senso"
-      "rGroup\"\033\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\"V\n\010S"
+      "rGroup\"\033\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\"y\n\010S"
       "chedule\022&\n\010readings\030\001 \001(\0132\024.fk_data.JobS"
-      "chedule\022\"\n\004misc\030\002 \001(\0132\024.fk_data.JobSched"
-      "ule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\tConditi"
-      "on\022\r\n\005flags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n\013"
-      "NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 "
-      "\001(\t\"9\n\017NetworkSettings\022&\n\010networks\030\001 \003(\013"
-      "2\024.fk_data.NetworkInfo\"X\n\014LoraSettings\022\021"
-      "\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006app"
-      "Eui\030\003 \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\"\275\003\n\nDat"
-      "aRecord\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data"
-      ".LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.fk_da"
-      "ta.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMe"
-      "ssage\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#"
-      "\n\010readings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007m"
-      "odules\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010sch"
-      "edule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010"
-      " \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_data.Identit"
-      "y\022%\n\tcondition\030\n \001(\0132\022.fk_data.Condition"
-      "\022#\n\004lora\030\013 \001(\0132\025.fk_data.LoraSettings\022)\n"
-      "\007network\030\014 \001(\0132\030.fk_data.NetworkSettings"
-      "\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data"
-      ".SignedRecordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030"
-      "\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nL"
-      "oraRecord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001("
-      "\004\022\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sen"
-      "sor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*"
-      "b\n\rDownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000"
-      "\022\037\n\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024REA"
-      "DING_FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n"
-      "\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLA"
-      "GS_RECORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027S"
-      "IGNED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECOR"
-      "D_KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_S"
-      "CHEDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022"
-      " \n\034SIGNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIG"
-      "NED_RECORD_KIND_OTHER\020\377\001b\006proto3"
+      "chedule\022\"\n\004lora\030\002 \001(\0132\024.fk_data.JobSched"
+      "ule\022!\n\003gps\030\003 \001(\0132\024.fk_data.JobSchedule\"\030"
+      "\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\tCondition\022\r\n"
+      "\005flags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n\013Netwo"
+      "rkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9"
+      "\n\017NetworkSettings\022&\n\010networks\030\001 \003(\0132\024.fk"
+      "_data.NetworkInfo\"X\n\014LoraSettings\022\021\n\tdev"
+      "iceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003"
+      " \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\"\275\003\n\nDataReco"
+      "rd\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data.Logg"
+      "edReading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Me"
+      "tadata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage"
+      "\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n\010rea"
+      "dings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007module"
+      "s\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010schedule"
+      "\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022"
+      "#\n\010identity\030\t \001(\0132\021.fk_data.Identity\022%\n\t"
+      "condition\030\n \001(\0132\022.fk_data.Condition\022#\n\004l"
+      "ora\030\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007netw"
+      "ork\030\014 \001(\0132\030.fk_data.NetworkSettings\"q\n\014S"
+      "ignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.Sign"
+      "edRecordKind\022\014\n\004time\030\002 \001(\004\022\014\n\004data\030\003 \001(\014"
+      "\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRe"
+      "cord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\016\n\006"
+      "number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005"
+      " \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDo"
+      "wnloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033R"
+      "EADING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_"
+      "FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024COND"
+      "ITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RE"
+      "CORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED"
+      "_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIN"
+      "D_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDU"
+      "LE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SI"
+      "GNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_R"
+      "ECORD_KIND_OTHER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2912);
+      descriptor, 2947);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -7771,7 +7775,8 @@ void JobSchedule::set_allocated_cron(::std::string* cron) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Schedule::kReadingsFieldNumber;
-const int Schedule::kMiscFieldNumber;
+const int Schedule::kLoraFieldNumber;
+const int Schedule::kGpsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Schedule::Schedule()
@@ -7792,18 +7797,23 @@ Schedule::Schedule(const Schedule& from)
   } else {
     readings_ = NULL;
   }
-  if (from.has_misc()) {
-    misc_ = new ::fk_data::JobSchedule(*from.misc_);
+  if (from.has_lora()) {
+    lora_ = new ::fk_data::JobSchedule(*from.lora_);
   } else {
-    misc_ = NULL;
+    lora_ = NULL;
+  }
+  if (from.has_gps()) {
+    gps_ = new ::fk_data::JobSchedule(*from.gps_);
+  } else {
+    gps_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:fk_data.Schedule)
 }
 
 void Schedule::SharedCtor() {
   ::memset(&readings_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&misc_) -
-      reinterpret_cast<char*>(&readings_)) + sizeof(misc_));
+      reinterpret_cast<char*>(&gps_) -
+      reinterpret_cast<char*>(&readings_)) + sizeof(gps_));
   _cached_size_ = 0;
 }
 
@@ -7814,7 +7824,8 @@ Schedule::~Schedule() {
 
 void Schedule::SharedDtor() {
   if (this != internal_default_instance()) delete readings_;
-  if (this != internal_default_instance()) delete misc_;
+  if (this != internal_default_instance()) delete lora_;
+  if (this != internal_default_instance()) delete gps_;
 }
 
 void Schedule::SetCachedSize(int size) const {
@@ -7850,10 +7861,14 @@ void Schedule::Clear() {
     delete readings_;
   }
   readings_ = NULL;
-  if (GetArenaNoVirtual() == NULL && misc_ != NULL) {
-    delete misc_;
+  if (GetArenaNoVirtual() == NULL && lora_ != NULL) {
+    delete lora_;
   }
-  misc_ = NULL;
+  lora_ = NULL;
+  if (GetArenaNoVirtual() == NULL && gps_ != NULL) {
+    delete gps_;
+  }
+  gps_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -7879,12 +7894,24 @@ bool Schedule::MergePartialFromCodedStream(
         break;
       }
 
-      // .fk_data.JobSchedule misc = 2;
+      // .fk_data.JobSchedule lora = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_misc()));
+               input, mutable_lora()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fk_data.JobSchedule gps = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_gps()));
         } else {
           goto handle_unusual;
         }
@@ -7923,10 +7950,16 @@ void Schedule::SerializeWithCachedSizes(
       1, *this->readings_, output);
   }
 
-  // .fk_data.JobSchedule misc = 2;
-  if (this->has_misc()) {
+  // .fk_data.JobSchedule lora = 2;
+  if (this->has_lora()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->misc_, output);
+      2, *this->lora_, output);
+  }
+
+  // .fk_data.JobSchedule gps = 3;
+  if (this->has_gps()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *this->gps_, output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7950,11 +7983,18 @@ void Schedule::SerializeWithCachedSizes(
         1, *this->readings_, deterministic, target);
   }
 
-  // .fk_data.JobSchedule misc = 2;
-  if (this->has_misc()) {
+  // .fk_data.JobSchedule lora = 2;
+  if (this->has_lora()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->misc_, deterministic, target);
+        2, *this->lora_, deterministic, target);
+  }
+
+  // .fk_data.JobSchedule gps = 3;
+  if (this->has_gps()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *this->gps_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7981,11 +8021,18 @@ size_t Schedule::ByteSizeLong() const {
         *this->readings_);
   }
 
-  // .fk_data.JobSchedule misc = 2;
-  if (this->has_misc()) {
+  // .fk_data.JobSchedule lora = 2;
+  if (this->has_lora()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->misc_);
+        *this->lora_);
+  }
+
+  // .fk_data.JobSchedule gps = 3;
+  if (this->has_gps()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->gps_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -8020,8 +8067,11 @@ void Schedule::MergeFrom(const Schedule& from) {
   if (from.has_readings()) {
     mutable_readings()->::fk_data::JobSchedule::MergeFrom(from.readings());
   }
-  if (from.has_misc()) {
-    mutable_misc()->::fk_data::JobSchedule::MergeFrom(from.misc());
+  if (from.has_lora()) {
+    mutable_lora()->::fk_data::JobSchedule::MergeFrom(from.lora());
+  }
+  if (from.has_gps()) {
+    mutable_gps()->::fk_data::JobSchedule::MergeFrom(from.gps());
   }
 }
 
@@ -8050,7 +8100,8 @@ void Schedule::Swap(Schedule* other) {
 void Schedule::InternalSwap(Schedule* other) {
   using std::swap;
   swap(readings_, other->readings_);
-  swap(misc_, other->misc_);
+  swap(lora_, other->lora_);
+  swap(gps_, other->gps_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -8103,44 +8154,84 @@ void Schedule::set_allocated_readings(::fk_data::JobSchedule* readings) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.readings)
 }
 
-// .fk_data.JobSchedule misc = 2;
-bool Schedule::has_misc() const {
-  return this != internal_default_instance() && misc_ != NULL;
+// .fk_data.JobSchedule lora = 2;
+bool Schedule::has_lora() const {
+  return this != internal_default_instance() && lora_ != NULL;
 }
-void Schedule::clear_misc() {
-  if (GetArenaNoVirtual() == NULL && misc_ != NULL) delete misc_;
-  misc_ = NULL;
+void Schedule::clear_lora() {
+  if (GetArenaNoVirtual() == NULL && lora_ != NULL) delete lora_;
+  lora_ = NULL;
 }
-const ::fk_data::JobSchedule& Schedule::misc() const {
-  const ::fk_data::JobSchedule* p = misc_;
-  // @@protoc_insertion_point(field_get:fk_data.Schedule.misc)
+const ::fk_data::JobSchedule& Schedule::lora() const {
+  const ::fk_data::JobSchedule* p = lora_;
+  // @@protoc_insertion_point(field_get:fk_data.Schedule.lora)
   return p != NULL ? *p : *reinterpret_cast<const ::fk_data::JobSchedule*>(
       &::fk_data::_JobSchedule_default_instance_);
 }
-::fk_data::JobSchedule* Schedule::mutable_misc() {
+::fk_data::JobSchedule* Schedule::mutable_lora() {
   
-  if (misc_ == NULL) {
-    misc_ = new ::fk_data::JobSchedule;
+  if (lora_ == NULL) {
+    lora_ = new ::fk_data::JobSchedule;
   }
-  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.misc)
-  return misc_;
+  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.lora)
+  return lora_;
 }
-::fk_data::JobSchedule* Schedule::release_misc() {
-  // @@protoc_insertion_point(field_release:fk_data.Schedule.misc)
+::fk_data::JobSchedule* Schedule::release_lora() {
+  // @@protoc_insertion_point(field_release:fk_data.Schedule.lora)
   
-  ::fk_data::JobSchedule* temp = misc_;
-  misc_ = NULL;
+  ::fk_data::JobSchedule* temp = lora_;
+  lora_ = NULL;
   return temp;
 }
-void Schedule::set_allocated_misc(::fk_data::JobSchedule* misc) {
-  delete misc_;
-  misc_ = misc;
-  if (misc) {
+void Schedule::set_allocated_lora(::fk_data::JobSchedule* lora) {
+  delete lora_;
+  lora_ = lora;
+  if (lora) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.misc)
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.lora)
+}
+
+// .fk_data.JobSchedule gps = 3;
+bool Schedule::has_gps() const {
+  return this != internal_default_instance() && gps_ != NULL;
+}
+void Schedule::clear_gps() {
+  if (GetArenaNoVirtual() == NULL && gps_ != NULL) delete gps_;
+  gps_ = NULL;
+}
+const ::fk_data::JobSchedule& Schedule::gps() const {
+  const ::fk_data::JobSchedule* p = gps_;
+  // @@protoc_insertion_point(field_get:fk_data.Schedule.gps)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::JobSchedule*>(
+      &::fk_data::_JobSchedule_default_instance_);
+}
+::fk_data::JobSchedule* Schedule::mutable_gps() {
+  
+  if (gps_ == NULL) {
+    gps_ = new ::fk_data::JobSchedule;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.gps)
+  return gps_;
+}
+::fk_data::JobSchedule* Schedule::release_gps() {
+  // @@protoc_insertion_point(field_release:fk_data.Schedule.gps)
+  
+  ::fk_data::JobSchedule* temp = gps_;
+  gps_ = NULL;
+  return temp;
+}
+void Schedule::set_allocated_gps(::fk_data::JobSchedule* gps) {
+  delete gps_;
+  gps_ = gps;
+  if (gps) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.gps)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
