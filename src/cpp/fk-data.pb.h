@@ -2861,6 +2861,18 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   const ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo >&
       modules() const;
 
+  // repeated .fk_data.LogMessage logs = 13;
+  int logs_size() const;
+  void clear_logs();
+  static const int kLogsFieldNumber = 13;
+  const ::fk_data::LogMessage& logs(int index) const;
+  ::fk_data::LogMessage* mutable_logs(int index);
+  ::fk_data::LogMessage* add_logs();
+  ::google::protobuf::RepeatedPtrField< ::fk_data::LogMessage >*
+      mutable_logs();
+  const ::google::protobuf::RepeatedPtrField< ::fk_data::LogMessage >&
+      logs() const;
+
   // .fk_data.LoggedReading loggedReading = 1;
   bool has_loggedreading() const;
   void clear_loggedreading();
@@ -2962,6 +2974,7 @@ class DataRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::fk_data::ModuleInfo > modules_;
+  ::google::protobuf::RepeatedPtrField< ::fk_data::LogMessage > logs_;
   ::fk_data::LoggedReading* loggedreading_;
   ::fk_data::Metadata* metadata_;
   ::fk_data::LogMessage* log_;
@@ -5708,6 +5721,36 @@ inline void DataRecord::set_allocated_log(::fk_data::LogMessage* log) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.log)
+}
+
+// repeated .fk_data.LogMessage logs = 13;
+inline int DataRecord::logs_size() const {
+  return logs_.size();
+}
+inline void DataRecord::clear_logs() {
+  logs_.Clear();
+}
+inline const ::fk_data::LogMessage& DataRecord::logs(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.logs)
+  return logs_.Get(index);
+}
+inline ::fk_data::LogMessage* DataRecord::mutable_logs(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.logs)
+  return logs_.Mutable(index);
+}
+inline ::fk_data::LogMessage* DataRecord::add_logs() {
+  // @@protoc_insertion_point(field_add:fk_data.DataRecord.logs)
+  return logs_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fk_data::LogMessage >*
+DataRecord::mutable_logs() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.DataRecord.logs)
+  return &logs_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fk_data::LogMessage >&
+DataRecord::logs() const {
+  // @@protoc_insertion_point(field_list:fk_data.DataRecord.logs)
+  return logs_;
 }
 
 // .fk_data.Status status = 4;

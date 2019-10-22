@@ -368,6 +368,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, loggedreading_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, metadata_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, log_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, logs_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, status_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, readings_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DataRecord, modules_),
@@ -422,8 +423,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 164, -1, sizeof(NetworkSettings)},
   { 170, -1, sizeof(LoraSettings)},
   { 179, -1, sizeof(DataRecord)},
-  { 196, -1, sizeof(SignedRecord)},
-  { 206, -1, sizeof(LoraRecord)},
+  { 197, -1, sizeof(SignedRecord)},
+  { 207, -1, sizeof(LoraRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -623,37 +624,38 @@ void AddDescriptorsImpl() {
       "tings\022&\n\010networks\030\001 \003(\0132\024.fk_data.Networ"
       "kInfo\"X\n\014LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014"
       "\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfreq"
-      "uencyBand\030\004 \001(\r\"\275\003\n\nDataRecord\022-\n\rlogged"
+      "uencyBand\030\004 \001(\r\"\340\003\n\nDataRecord\022-\n\rlogged"
       "Reading\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n"
       "\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003lo"
-      "g\030\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004"
-      " \001(\0132\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132"
-      "\021.fk_data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk"
-      "_data.ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_"
-      "data.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030"
-      "\t \001(\0132\021.fk_data.Identity\022%\n\tcondition\030\n "
-      "\001(\0132\022.fk_data.Condition\022#\n\004lora\030\013 \001(\0132\025."
-      "fk_data.LoraSettings\022)\n\007network\030\014 \001(\0132\030."
-      "fk_data.NetworkSettings\"q\n\014SignedRecord\022"
-      "\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedRecordKind"
-      "\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001"
-      "(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010devi"
-      "ceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004"
-      "\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006valu"
-      "es\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022"
-      "\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS"
-      "_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL"
-      "\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_FLAGS_"
-      "NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001"
-      "\n\020SignedRecordKind\022\033\n\027SIGNED_RECORD_KIND"
-      "_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022"
-      "\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGN"
-      "ED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_"
-      "KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_O"
-      "THER\020\377\001b\006proto3"
+      "g\030\003 \001(\0132\023.fk_data.LogMessage\022!\n\004logs\030\r \003"
+      "(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132"
+      "\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_"
+      "data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_data"
+      ".ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_data."
+      "Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\013"
+      "2\021.fk_data.Identity\022%\n\tcondition\030\n \001(\0132\022"
+      ".fk_data.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_da"
+      "ta.LoraSettings\022)\n\007network\030\014 \001(\0132\030.fk_da"
+      "ta.NetworkSettings\"q\n\014SignedRecord\022\'\n\004ki"
+      "nd\030\001 \001(\0162\031.fk_data.SignedRecordKind\022\014\n\004t"
+      "ime\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n"
+      "\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030"
+      "\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004\022\016\n\006m"
+      "odule\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 "
+      "\003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022RE"
+      "ADING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_"
+      "RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n"
+      "\016ConditionFlags\022\030\n\024CONDITION_FLAGS_NONE\020"
+      "\000\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001\n\020Sig"
+      "nedRecordKind\022\033\n\027SIGNED_RECORD_KIND_NONE"
+      "\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SI"
+      "GNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RE"
+      "CORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_"
+      "RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020"
+      "\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3055);
+      descriptor, 3090);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -10406,6 +10408,7 @@ void LoraSettings::set_frequencyband(::google::protobuf::uint32 value) {
 const int DataRecord::kLoggedReadingFieldNumber;
 const int DataRecord::kMetadataFieldNumber;
 const int DataRecord::kLogFieldNumber;
+const int DataRecord::kLogsFieldNumber;
 const int DataRecord::kStatusFieldNumber;
 const int DataRecord::kReadingsFieldNumber;
 const int DataRecord::kModulesFieldNumber;
@@ -10429,6 +10432,7 @@ DataRecord::DataRecord(const DataRecord& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       modules_(from.modules_),
+      logs_(from.logs_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_loggedreading()) {
@@ -10540,6 +10544,7 @@ void DataRecord::Clear() {
   (void) cached_has_bits;
 
   modules_.Clear();
+  logs_.Clear();
   if (GetArenaNoVirtual() == NULL && loggedreading_ != NULL) {
     delete loggedreading_;
   }
@@ -10740,6 +10745,18 @@ bool DataRecord::MergePartialFromCodedStream(
         break;
       }
 
+      // repeated .fk_data.LogMessage logs = 13;
+      case 13: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(106u /* 106 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_logs()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -10836,6 +10853,13 @@ void DataRecord::SerializeWithCachedSizes(
   if (this->has_network()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       12, *this->network_, output);
+  }
+
+  // repeated .fk_data.LogMessage logs = 13;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->logs_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      13, this->logs(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -10935,6 +10959,14 @@ void DataRecord::SerializeWithCachedSizes(
         12, *this->network_, deterministic, target);
   }
 
+  // repeated .fk_data.LogMessage logs = 13;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->logs_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        13, this->logs(static_cast<int>(i)), deterministic, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -10960,6 +10992,17 @@ size_t DataRecord::ByteSizeLong() const {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->modules(static_cast<int>(i)));
+    }
+  }
+
+  // repeated .fk_data.LogMessage logs = 13;
+  {
+    unsigned int count = static_cast<unsigned int>(this->logs_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->logs(static_cast<int>(i)));
     }
   }
 
@@ -11070,6 +11113,7 @@ void DataRecord::MergeFrom(const DataRecord& from) {
   (void) cached_has_bits;
 
   modules_.MergeFrom(from.modules_);
+  logs_.MergeFrom(from.logs_);
   if (from.has_loggedreading()) {
     mutable_loggedreading()->::fk_data::LoggedReading::MergeFrom(from.loggedreading());
   }
@@ -11130,6 +11174,7 @@ void DataRecord::Swap(DataRecord* other) {
 void DataRecord::InternalSwap(DataRecord* other) {
   using std::swap;
   modules_.InternalSwap(&other->modules_);
+  logs_.InternalSwap(&other->logs_);
   swap(loggedreading_, other->loggedreading_);
   swap(metadata_, other->metadata_);
   swap(log_, other->log_);
@@ -11271,6 +11316,36 @@ void DataRecord::set_allocated_log(::fk_data::LogMessage* log) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:fk_data.DataRecord.log)
+}
+
+// repeated .fk_data.LogMessage logs = 13;
+int DataRecord::logs_size() const {
+  return logs_.size();
+}
+void DataRecord::clear_logs() {
+  logs_.Clear();
+}
+const ::fk_data::LogMessage& DataRecord::logs(int index) const {
+  // @@protoc_insertion_point(field_get:fk_data.DataRecord.logs)
+  return logs_.Get(index);
+}
+::fk_data::LogMessage* DataRecord::mutable_logs(int index) {
+  // @@protoc_insertion_point(field_mutable:fk_data.DataRecord.logs)
+  return logs_.Mutable(index);
+}
+::fk_data::LogMessage* DataRecord::add_logs() {
+  // @@protoc_insertion_point(field_add:fk_data.DataRecord.logs)
+  return logs_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fk_data::LogMessage >*
+DataRecord::mutable_logs() {
+  // @@protoc_insertion_point(field_mutable_list:fk_data.DataRecord.logs)
+  return &logs_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fk_data::LogMessage >&
+DataRecord::logs() const {
+  // @@protoc_insertion_point(field_list:fk_data.DataRecord.logs)
+  return logs_;
 }
 
 // .fk_data.Status status = 4;

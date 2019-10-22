@@ -158,6 +158,7 @@ message DataRecord {
   LoggedReading loggedReading = 1;
   Metadata metadata = 2;
   LogMessage log = 3;
+  repeated LogMessage logs = 13;
   Status status = 4;
   Readings readings = 5;
   repeated ModuleInfo modules = 6;

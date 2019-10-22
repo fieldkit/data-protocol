@@ -432,6 +432,11 @@
               "type": "LogMessage",
               "id": 3
             },
+            "logs": {
+              "rule": "repeated",
+              "type": "LogMessage",
+              "id": 13
+            },
             "status": {
               "type": "Status",
               "id": 4
