@@ -80,7 +80,7 @@ typedef struct _fk_data_Condition {
 
 typedef struct _fk_data_DeviceLocation {
     uint32_t fix;
-    uint64_t time;
+    int64_t time;
     float longitude;
     float latitude;
     float altitude;
@@ -100,7 +100,7 @@ typedef struct _fk_data_JobSchedule {
 
 
 typedef struct _fk_data_LogMessage {
-    uint64_t time;
+    int64_t time;
     uint32_t uptime;
     uint32_t level;
     pb_callback_t facility;
@@ -111,7 +111,7 @@ typedef struct _fk_data_LogMessage {
 
 typedef struct _fk_data_LoraRecord {
     pb_callback_t deviceId;
-    uint64_t time;
+    int64_t time;
     uint64_t number;
     uint32_t module;
     uint64_t sensor;
@@ -132,7 +132,7 @@ typedef struct _fk_data_LoraSettings {
 
 typedef struct _fk_data_Metadata {
     pb_callback_t deviceId;
-    uint64_t time;
+    int64_t time;
     pb_callback_t git;
     uint32_t resetCause;
     pb_callback_t sensors;
@@ -177,7 +177,7 @@ typedef struct _fk_data_SensorInfo {
 
 typedef struct _fk_data_SensorReading {
     uint32_t reading;
-    uint64_t time;
+    int64_t time;
     uint32_t sensor;
     float value;
 /* @@protoc_insertion_point(struct:fk_data_SensorReading) */
@@ -186,7 +186,7 @@ typedef struct _fk_data_SensorReading {
 
 typedef struct _fk_data_SignedRecord {
     fk_data_SignedRecordKind kind;
-    uint64_t time;
+    int64_t time;
     pb_callback_t data;
     pb_callback_t hash;
     uint64_t record;
@@ -195,7 +195,7 @@ typedef struct _fk_data_SignedRecord {
 
 
 typedef struct _fk_data_Status {
-    uint64_t time;
+    int64_t time;
     uint32_t uptime;
     float battery;
     uint32_t memory;
@@ -226,12 +226,13 @@ typedef struct _fk_data_ModuleInfo {
 
 
 typedef struct _fk_data_Readings {
-    uint64_t time;
+    int64_t time;
     uint32_t reading;
     uint32_t flags;
     fk_data_DeviceLocation location;
     pb_callback_t sensorGroups;
     uint32_t meta;
+    uint32_t uptime;
 /* @@protoc_insertion_point(struct:fk_data_Readings) */
 } fk_data_Readings;
 
@@ -275,7 +276,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Status_init_default              {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
-#define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}, 0}
+#define fk_data_Readings_init_default            {0, 0, 0, fk_data_DeviceLocation_init_default, {{NULL}, NULL}, 0, 0}
 #define fk_data_JobSchedule_init_default         {{{NULL}, NULL}, 0}
 #define fk_data_Schedule_init_default            {fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
@@ -298,7 +299,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Status_init_zero                 {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
-#define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}, 0}
+#define fk_data_Readings_init_zero               {0, 0, 0, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}, 0, 0}
 #define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}, 0}
 #define fk_data_Schedule_init_zero               {fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
@@ -395,6 +396,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Readings_reading_tag             2
 #define fk_data_Readings_flags_tag               3
 #define fk_data_Readings_meta_tag                6
+#define fk_data_Readings_uptime_tag              7
 #define fk_data_Readings_location_tag            4
 #define fk_data_Readings_sensorGroups_tag        5
 #define fk_data_Schedule_readings_tag            1
@@ -417,7 +419,7 @@ typedef struct _fk_data_DataRecord {
 /* Struct field encoding specification for nanopb */
 #define fk_data_DeviceLocation_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UINT32, fix, 1) \
-X(a, STATIC, SINGULAR, UINT64, time, 2) \
+X(a, STATIC, SINGULAR, INT64, time, 2) \
 X(a, STATIC, SINGULAR, FLOAT, longitude, 3) \
 X(a, STATIC, SINGULAR, FLOAT, latitude, 4) \
 X(a, STATIC, SINGULAR, FLOAT, altitude, 5) \
@@ -430,7 +432,7 @@ X(a, STATIC, SINGULAR, UINT32, hdop, 9)
 
 #define fk_data_SensorReading_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UINT32, reading, 1) \
-X(a, STATIC, SINGULAR, UINT64, time, 2) \
+X(a, STATIC, SINGULAR, INT64, time, 2) \
 X(a, STATIC, SINGULAR, UINT32, sensor, 3) \
 X(a, STATIC, SINGULAR, FLOAT, value, 4)
 #define fk_data_SensorReading_CALLBACK NULL
@@ -489,7 +491,7 @@ X(a, CALLBACK, SINGULAR, STRING, build, 2)
 
 #define fk_data_Metadata_FIELDLIST(X, a) \
 X(a, CALLBACK, SINGULAR, BYTES, deviceId, 1) \
-X(a, STATIC, SINGULAR, UINT64, time, 2) \
+X(a, STATIC, SINGULAR, INT64, time, 2) \
 X(a, CALLBACK, SINGULAR, STRING, git, 3) \
 X(a, STATIC, SINGULAR, UINT32, resetCause, 4) \
 X(a, CALLBACK, REPEATED, MESSAGE, sensors, 5) \
@@ -504,7 +506,7 @@ X(a, CALLBACK, SINGULAR, BYTES, generation, 9)
 #define fk_data_Metadata_firmware_MSGTYPE fk_data_Firmware
 
 #define fk_data_Status_FIELDLIST(X, a) \
-X(a, STATIC, SINGULAR, UINT64, time, 1) \
+X(a, STATIC, SINGULAR, INT64, time, 1) \
 X(a, STATIC, SINGULAR, UINT32, uptime, 2) \
 X(a, STATIC, SINGULAR, FLOAT, battery, 3) \
 X(a, STATIC, SINGULAR, UINT32, memory, 4) \
@@ -513,7 +515,7 @@ X(a, STATIC, SINGULAR, UINT64, busy, 5)
 #define fk_data_Status_DEFAULT NULL
 
 #define fk_data_LogMessage_FIELDLIST(X, a) \
-X(a, STATIC, SINGULAR, UINT64, time, 1) \
+X(a, STATIC, SINGULAR, INT64, time, 1) \
 X(a, STATIC, SINGULAR, UINT32, uptime, 2) \
 X(a, STATIC, SINGULAR, UINT32, level, 3) \
 X(a, CALLBACK, SINGULAR, STRING, facility, 4) \
@@ -529,12 +531,13 @@ X(a, CALLBACK, REPEATED, MESSAGE, readings, 2)
 #define fk_data_SensorGroup_readings_MSGTYPE fk_data_SensorAndValue
 
 #define fk_data_Readings_FIELDLIST(X, a) \
-X(a, STATIC, SINGULAR, UINT64, time, 1) \
+X(a, STATIC, SINGULAR, INT64, time, 1) \
 X(a, STATIC, SINGULAR, UINT32, reading, 2) \
 X(a, STATIC, SINGULAR, UINT32, flags, 3) \
 X(a, STATIC, SINGULAR, MESSAGE, location, 4) \
 X(a, CALLBACK, REPEATED, MESSAGE, sensorGroups, 5) \
-X(a, STATIC, SINGULAR, UINT32, meta, 6)
+X(a, STATIC, SINGULAR, UINT32, meta, 6) \
+X(a, STATIC, SINGULAR, UINT32, uptime, 7)
 #define fk_data_Readings_CALLBACK pb_default_field_callback
 #define fk_data_Readings_DEFAULT NULL
 #define fk_data_Readings_location_MSGTYPE fk_data_DeviceLocation
@@ -618,7 +621,7 @@ X(a, STATIC, SINGULAR, MESSAGE, network, 12)
 
 #define fk_data_SignedRecord_FIELDLIST(X, a) \
 X(a, STATIC, SINGULAR, UENUM, kind, 1) \
-X(a, STATIC, SINGULAR, UINT64, time, 2) \
+X(a, STATIC, SINGULAR, INT64, time, 2) \
 X(a, CALLBACK, SINGULAR, BYTES, data, 3) \
 X(a, CALLBACK, SINGULAR, BYTES, hash, 4) \
 X(a, STATIC, SINGULAR, UINT64, record, 5)
@@ -627,7 +630,7 @@ X(a, STATIC, SINGULAR, UINT64, record, 5)
 
 #define fk_data_LoraRecord_FIELDLIST(X, a) \
 X(a, CALLBACK, SINGULAR, BYTES, deviceId, 1) \
-X(a, STATIC, SINGULAR, UINT64, time, 2) \
+X(a, STATIC, SINGULAR, INT64, time, 2) \
 X(a, STATIC, SINGULAR, UINT64, number, 3) \
 X(a, STATIC, SINGULAR, UINT32, module, 4) \
 X(a, STATIC, SINGULAR, UINT64, sensor, 5) \

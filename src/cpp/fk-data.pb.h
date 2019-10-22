@@ -283,11 +283,11 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::RepeatedField< float >*
       mutable_coordinates();
 
-  // uint64 time = 2;
+  // int64 time = 2;
   void clear_time();
   static const int kTimeFieldNumber = 2;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint32 fix = 1;
   void clear_fix();
@@ -337,7 +337,7 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedField< float > coordinates_;
   mutable int _coordinates_cached_byte_size_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint32 fix_;
   float longitude_;
   float latitude_;
@@ -431,11 +431,11 @@ class SensorReading : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // uint64 time = 2;
+  // int64 time = 2;
   void clear_time();
   static const int kTimeFieldNumber = 2;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint32 reading = 1;
   void clear_reading();
@@ -459,7 +459,7 @@ class SensorReading : public ::google::protobuf::Message /* @@protoc_insertion_p
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint32 reading_;
   ::google::protobuf::uint32 sensor_;
   float value_;
@@ -1398,11 +1398,11 @@ class Metadata : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::fk_data::Firmware* release_firmware();
   void set_allocated_firmware(::fk_data::Firmware* firmware);
 
-  // uint64 time = 2;
+  // int64 time = 2;
   void clear_time();
   static const int kTimeFieldNumber = 2;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint32 resetCause = 4;
   void clear_resetcause();
@@ -1421,7 +1421,7 @@ class Metadata : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::internal::ArenaStringPtr build_;
   ::google::protobuf::internal::ArenaStringPtr generation_;
   ::fk_data::Firmware* firmware_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint32 resetcause_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
@@ -1509,11 +1509,11 @@ class Status : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   // accessors -------------------------------------------------------
 
-  // uint64 time = 1;
+  // int64 time = 1;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint32 uptime = 2;
   void clear_uptime();
@@ -1543,7 +1543,7 @@ class Status : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint32 uptime_;
   float battery_;
   ::google::protobuf::uint64 busy_;
@@ -1662,11 +1662,11 @@ class LogMessage : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // uint64 time = 1;
+  // int64 time = 1;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint32 uptime = 2;
   void clear_uptime();
@@ -1686,7 +1686,7 @@ class LogMessage : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr facility_;
   ::google::protobuf::internal::ArenaStringPtr message_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint32 uptime_;
   ::google::protobuf::uint32 level_;
   mutable int _cached_size_;
@@ -1906,11 +1906,11 @@ class Readings : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::fk_data::DeviceLocation* release_location();
   void set_allocated_location(::fk_data::DeviceLocation* location);
 
-  // uint64 time = 1;
+  // int64 time = 1;
   void clear_time();
   static const int kTimeFieldNumber = 1;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint32 reading = 2;
   void clear_reading();
@@ -1930,16 +1930,23 @@ class Readings : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::uint32 meta() const;
   void set_meta(::google::protobuf::uint32 value);
 
+  // uint32 uptime = 7;
+  void clear_uptime();
+  static const int kUptimeFieldNumber = 7;
+  ::google::protobuf::uint32 uptime() const;
+  void set_uptime(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.Readings)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::fk_data::SensorGroup > sensorgroups_;
   ::fk_data::DeviceLocation* location_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint32 reading_;
   ::google::protobuf::uint32 flags_;
   ::google::protobuf::uint32 meta_;
+  ::google::protobuf::uint32 uptime_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -3080,11 +3087,11 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_hash();
   void set_allocated_hash(::std::string* hash);
 
-  // uint64 time = 2;
+  // int64 time = 2;
   void clear_time();
   static const int kTimeFieldNumber = 2;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint64 record = 5;
   void clear_record();
@@ -3104,7 +3111,7 @@ class SignedRecord : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   ::google::protobuf::internal::ArenaStringPtr hash_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint64 record_;
   int kind_;
   mutable int _cached_size_;
@@ -3233,11 +3240,11 @@ class LoraRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // uint64 time = 2;
+  // int64 time = 2;
   void clear_time();
   static const int kTimeFieldNumber = 2;
-  ::google::protobuf::uint64 time() const;
-  void set_time(::google::protobuf::uint64 value);
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
 
   // uint64 number = 3;
   void clear_number();
@@ -3265,7 +3272,7 @@ class LoraRecord : public ::google::protobuf::Message /* @@protoc_insertion_poin
   mutable int _values_cached_byte_size_;
   ::google::protobuf::internal::ArenaStringPtr deviceid_;
   ::google::protobuf::internal::ArenaStringPtr data_;
-  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::uint64 number_;
   ::google::protobuf::uint64 sensor_;
   ::google::protobuf::uint32 module_;
@@ -3312,15 +3319,15 @@ inline void DeviceLocation::set_fix(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.fix)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 inline void DeviceLocation::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 DeviceLocation::time() const {
+inline ::google::protobuf::int64 DeviceLocation::time() const {
   // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.time)
   return time_;
 }
-inline void DeviceLocation::set_time(::google::protobuf::uint64 value) {
+inline void DeviceLocation::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.time)
@@ -3444,15 +3451,15 @@ inline void SensorReading::set_reading(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:fk_data.SensorReading.reading)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 inline void SensorReading::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 SensorReading::time() const {
+inline ::google::protobuf::int64 SensorReading::time() const {
   // @@protoc_insertion_point(field_get:fk_data.SensorReading.time)
   return time_;
 }
-inline void SensorReading::set_time(::google::protobuf::uint64 value) {
+inline void SensorReading::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.SensorReading.time)
@@ -4229,15 +4236,15 @@ inline void Metadata::set_allocated_deviceid(::std::string* deviceid) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.Metadata.deviceId)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 inline void Metadata::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 Metadata::time() const {
+inline ::google::protobuf::int64 Metadata::time() const {
   // @@protoc_insertion_point(field_get:fk_data.Metadata.time)
   return time_;
 }
-inline void Metadata::set_time(::google::protobuf::uint64 value) {
+inline void Metadata::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Metadata.time)
@@ -4520,15 +4527,15 @@ inline void Metadata::set_allocated_generation(::std::string* generation) {
 
 // Status
 
-// uint64 time = 1;
+// int64 time = 1;
 inline void Status::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 Status::time() const {
+inline ::google::protobuf::int64 Status::time() const {
   // @@protoc_insertion_point(field_get:fk_data.Status.time)
   return time_;
 }
-inline void Status::set_time(::google::protobuf::uint64 value) {
+inline void Status::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Status.time)
@@ -4594,15 +4601,15 @@ inline void Status::set_busy(::google::protobuf::uint64 value) {
 
 // LogMessage
 
-// uint64 time = 1;
+// int64 time = 1;
 inline void LogMessage::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 LogMessage::time() const {
+inline ::google::protobuf::int64 LogMessage::time() const {
   // @@protoc_insertion_point(field_get:fk_data.LogMessage.time)
   return time_;
 }
-inline void LogMessage::set_time(::google::protobuf::uint64 value) {
+inline void LogMessage::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.LogMessage.time)
@@ -4794,15 +4801,15 @@ SensorGroup::readings() const {
 
 // Readings
 
-// uint64 time = 1;
+// int64 time = 1;
 inline void Readings::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 Readings::time() const {
+inline ::google::protobuf::int64 Readings::time() const {
   // @@protoc_insertion_point(field_get:fk_data.Readings.time)
   return time_;
 }
-inline void Readings::set_time(::google::protobuf::uint64 value) {
+inline void Readings::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Readings.time)
@@ -4848,6 +4855,20 @@ inline void Readings::set_meta(::google::protobuf::uint32 value) {
   
   meta_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Readings.meta)
+}
+
+// uint32 uptime = 7;
+inline void Readings::clear_uptime() {
+  uptime_ = 0u;
+}
+inline ::google::protobuf::uint32 Readings::uptime() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.uptime)
+  return uptime_;
+}
+inline void Readings::set_uptime(::google::protobuf::uint32 value) {
+  
+  uptime_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Readings.uptime)
 }
 
 // .fk_data.DeviceLocation location = 4;
@@ -6031,15 +6052,15 @@ inline void SignedRecord::set_kind(::fk_data::SignedRecordKind value) {
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.kind)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 inline void SignedRecord::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 SignedRecord::time() const {
+inline ::google::protobuf::int64 SignedRecord::time() const {
   // @@protoc_insertion_point(field_get:fk_data.SignedRecord.time)
   return time_;
 }
-inline void SignedRecord::set_time(::google::protobuf::uint64 value) {
+inline void SignedRecord::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.time)
@@ -6222,15 +6243,15 @@ inline void LoraRecord::set_allocated_deviceid(::std::string* deviceid) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.LoraRecord.deviceId)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 inline void LoraRecord::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::uint64 LoraRecord::time() const {
+inline ::google::protobuf::int64 LoraRecord::time() const {
   // @@protoc_insertion_point(field_get:fk_data.LoraRecord.time)
   return time_;
 }
-inline void LoraRecord::set_time(::google::protobuf::uint64 value) {
+inline void LoraRecord::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.LoraRecord.time)

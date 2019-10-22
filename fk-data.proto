@@ -4,7 +4,7 @@ package fk_data;
 message DeviceLocation {
   uint32 enabled = 7;
   uint32 fix = 1;
-  uint64 time = 2;
+  int64 time = 2;
   float longitude = 3;
   float latitude = 4;
   float altitude = 5;
@@ -15,7 +15,7 @@ message DeviceLocation {
 
 message SensorReading {
   uint32 reading = 1;
-  uint64 time = 2;
+  int64 time = 2;
   uint32 sensor = 3;
   float value = 4;
 }
@@ -62,7 +62,7 @@ message Firmware {
 
 message Metadata {
   bytes deviceId = 1;
-  uint64 time = 2;
+  int64 time = 2;
   string git = 3;
   string build = 7;
   uint32 resetCause = 4;
@@ -73,7 +73,7 @@ message Metadata {
 }
 
 message Status {
-  uint64 time = 1;
+  int64 time = 1;
   uint32 uptime = 2;
   float battery = 3;
   uint32 memory = 4;
@@ -81,7 +81,7 @@ message Status {
 }
 
 message LogMessage {
-  uint64 time = 1;
+  int64 time = 1;
   uint32 uptime = 2;
   uint32 level = 3;
   string facility = 4;
@@ -100,10 +100,11 @@ message SensorGroup {
 }
 
 message Readings {
-  uint64 time = 1;
+  int64 time = 1;
   uint32 reading = 2;
   uint32 flags = 3;
   uint32 meta = 6;
+  uint32 uptime = 7;
   DeviceLocation location = 4;
   repeated SensorGroup sensorGroups = 5;
 }
@@ -179,7 +180,7 @@ enum SignedRecordKind {
 
 message SignedRecord {
   SignedRecordKind kind = 1;
-  uint64 time = 2;
+  int64 time = 2;
   bytes data = 3;
   bytes hash = 4;
   uint64 record = 5;
@@ -187,7 +188,7 @@ message SignedRecord {
 
 message LoraRecord {
   bytes deviceId = 1;
-  uint64 time = 2;
+  int64 time = 2;
   uint64 number = 3;
   uint32 module = 4;
   uint64 sensor = 5;

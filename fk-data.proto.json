@@ -13,7 +13,7 @@
               "id": 1
             },
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 2
             },
             "longitude": {
@@ -50,7 +50,7 @@
               "id": 1
             },
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 2
             },
             "sensor": {
@@ -183,7 +183,7 @@
               "id": 1
             },
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 2
             },
             "git": {
@@ -221,7 +221,7 @@
         "Status": {
           "fields": {
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 1
             },
             "uptime": {
@@ -245,7 +245,7 @@
         "LogMessage": {
           "fields": {
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 1
             },
             "uptime": {
@@ -289,7 +289,7 @@
         "Readings": {
           "fields": {
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 1
             },
             "reading": {
@@ -303,6 +303,10 @@
             "meta": {
               "type": "uint32",
               "id": 6
+            },
+            "uptime": {
+              "type": "uint32",
+              "id": 7
             },
             "location": {
               "type": "DeviceLocation",
@@ -484,7 +488,7 @@
               "id": 1
             },
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 2
             },
             "data": {
@@ -508,7 +512,7 @@
               "id": 1
             },
             "time": {
-              "type": "uint64",
+              "type": "int64",
               "id": 2
             },
             "number": {

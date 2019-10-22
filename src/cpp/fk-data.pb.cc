@@ -306,6 +306,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, reading_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, flags_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, meta_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, uptime_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, location_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Readings, sensorgroups_),
   ~0u,  // no _has_bits_
@@ -413,16 +414,16 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTR
   { 99, -1, sizeof(LogMessage)},
   { 109, -1, sizeof(SensorGroup)},
   { 116, -1, sizeof(Readings)},
-  { 127, -1, sizeof(JobSchedule)},
-  { 134, -1, sizeof(Schedule)},
-  { 143, -1, sizeof(Identity)},
-  { 149, -1, sizeof(Condition)},
-  { 156, -1, sizeof(NetworkInfo)},
-  { 163, -1, sizeof(NetworkSettings)},
-  { 169, -1, sizeof(LoraSettings)},
-  { 178, -1, sizeof(DataRecord)},
-  { 195, -1, sizeof(SignedRecord)},
-  { 205, -1, sizeof(LoraRecord)},
+  { 128, -1, sizeof(JobSchedule)},
+  { 135, -1, sizeof(Schedule)},
+  { 144, -1, sizeof(Identity)},
+  { 150, -1, sizeof(Condition)},
+  { 157, -1, sizeof(NetworkInfo)},
+  { 164, -1, sizeof(NetworkSettings)},
+  { 170, -1, sizeof(LoraSettings)},
+  { 179, -1, sizeof(DataRecord)},
+  { 196, -1, sizeof(SignedRecord)},
+  { 206, -1, sizeof(LoraRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -575,11 +576,11 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\rfk-data.proto\022\007fk_data\"\252\001\n\016DeviceLocat"
       "ion\022\017\n\007enabled\030\007 \001(\r\022\013\n\003fix\030\001 \001(\r\022\014\n\004tim"
-      "e\030\002 \001(\004\022\021\n\tlongitude\030\003 \001(\002\022\020\n\010latitude\030\004"
+      "e\030\002 \001(\003\022\021\n\tlongitude\030\003 \001(\002\022\020\n\010latitude\030\004"
       " \001(\002\022\020\n\010altitude\030\005 \001(\002\022\023\n\013coordinates\030\006 "
       "\003(\002\022\022\n\nsatellites\030\010 \001(\r\022\014\n\004hdop\030\t \001(\r\"M\n"
       "\rSensorReading\022\017\n\007reading\030\001 \001(\r\022\014\n\004time\030"
-      "\002 \001(\004\022\016\n\006sensor\030\003 \001(\r\022\r\n\005value\030\004 \001(\002\"t\n\r"
+      "\002 \001(\003\022\016\n\006sensor\030\003 \001(\r\022\r\n\005value\030\004 \001(\002\"t\n\r"
       "LoggedReading\022\017\n\007version\030\001 \001(\r\022)\n\010locati"
       "on\030\002 \001(\0132\027.fk_data.DeviceLocation\022\'\n\007rea"
       "ding\030\003 \001(\0132\026.fk_data.SensorReading\"/\n\016Se"
@@ -595,63 +596,64 @@ void AddDescriptorsImpl() {
       "\t\022\025\n\runitOfMeasure\030\003 \001(\t\022\r\n\005flags\030\004 \001(\r\""
       "&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030\002 \001(\t\""
       "\337\001\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002"
-      " \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nrese"
+      " \001(\003\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nrese"
       "tCause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk_data."
       "SensorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_data.Mo"
       "duleInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_data.Fir"
       "mware\022\022\n\ngeneration\030\t \001(\014\"U\n\006Status\022\014\n\004t"
-      "ime\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001"
+      "ime\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001"
       "(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogM"
-      "essage\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\r\n\005"
+      "essage\022\014\n\004time\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\r\n\005"
       "level\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message"
       "\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n"
       "\010readings\030\002 \003(\0132\027.fk_data.SensorAndValue"
-      "\"\235\001\n\010Readings\022\014\n\004time\030\001 \001(\004\022\017\n\007reading\030\002"
-      " \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022)\n\010loc"
-      "ation\030\004 \001(\0132\027.fk_data.DeviceLocation\022*\n\014"
-      "sensorGroups\030\005 \003(\0132\024.fk_data.SensorGroup"
-      "\"-\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\022\020\n\010interva"
-      "l\030\002 \001(\r\"\240\001\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024"
-      ".fk_data.JobSchedule\022%\n\007network\030\002 \001(\0132\024."
-      "fk_data.JobSchedule\022\"\n\004lora\030\003 \001(\0132\024.fk_d"
-      "ata.JobSchedule\022!\n\003gps\030\004 \001(\0132\024.fk_data.J"
-      "obSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\t"
-      "Condition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecording\030\002 "
-      "\001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010pass"
-      "word\030\002 \001(\t\"9\n\017NetworkSettings\022&\n\010network"
-      "s\030\001 \003(\0132\024.fk_data.NetworkInfo\"X\n\014LoraSet"
-      "tings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014"
-      "\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\""
-      "\275\003\n\nDataRecord\022-\n\rloggedReading\030\001 \001(\0132\026."
-      "fk_data.LoggedReading\022#\n\010metadata\030\002 \001(\0132"
-      "\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_dat"
-      "a.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_data.S"
-      "tatus\022#\n\010readings\030\005 \001(\0132\021.fk_data.Readin"
-      "gs\022$\n\007modules\030\006 \003(\0132\023.fk_data.ModuleInfo"
-      "\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n"
-      "\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_data."
-      "Identity\022%\n\tcondition\030\n \001(\0132\022.fk_data.Co"
-      "ndition\022#\n\004lora\030\013 \001(\0132\025.fk_data.LoraSett"
-      "ings\022)\n\007network\030\014 \001(\0132\030.fk_data.NetworkS"
-      "ettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031."
-      "fk_data.SignedRecordKind\022\014\n\004time\030\002 \001(\004\022\014"
-      "\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001"
-      "(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004ti"
-      "me\030\002 \001(\004\022\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r"
-      "\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data"
-      "\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING_FLAGS"
-      "_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDING\020\001"
-      "\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016ConditionF"
-      "lags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CONDIT"
-      "ION_FLAGS_RECORDING\020\001*\317\001\n\020SignedRecordKi"
-      "nd\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNE"
-      "D_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD"
-      "_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_S"
-      "TATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_STATE\020\004"
-      "\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001b\006proto3"
+      "\"\255\001\n\010Readings\022\014\n\004time\030\001 \001(\003\022\017\n\007reading\030\002"
+      " \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022\016\n\006upt"
+      "ime\030\007 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.De"
+      "viceLocation\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_"
+      "data.SensorGroup\"-\n\013JobSchedule\022\014\n\004cron\030"
+      "\001 \001(\014\022\020\n\010interval\030\002 \001(\r\"\240\001\n\010Schedule\022&\n\010"
+      "readings\030\001 \001(\0132\024.fk_data.JobSchedule\022%\n\007"
+      "network\030\002 \001(\0132\024.fk_data.JobSchedule\022\"\n\004l"
+      "ora\030\003 \001(\0132\024.fk_data.JobSchedule\022!\n\003gps\030\004"
+      " \001(\0132\024.fk_data.JobSchedule\"\030\n\010Identity\022\014"
+      "\n\004name\030\001 \001(\t\"-\n\tCondition\022\r\n\005flags\030\001 \001(\r"
+      "\022\021\n\trecording\030\002 \001(\r\"-\n\013NetworkInfo\022\014\n\004ss"
+      "id\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9\n\017NetworkSet"
+      "tings\022&\n\010networks\030\001 \003(\0132\024.fk_data.Networ"
+      "kInfo\"X\n\014LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014"
+      "\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfreq"
+      "uencyBand\030\004 \001(\r\"\275\003\n\nDataRecord\022-\n\rlogged"
+      "Reading\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n"
+      "\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003lo"
+      "g\030\003 \001(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004"
+      " \001(\0132\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132"
+      "\021.fk_data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk"
+      "_data.ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_"
+      "data.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030"
+      "\t \001(\0132\021.fk_data.Identity\022%\n\tcondition\030\n "
+      "\001(\0132\022.fk_data.Condition\022#\n\004lora\030\013 \001(\0132\025."
+      "fk_data.LoraSettings\022)\n\007network\030\014 \001(\0132\030."
+      "fk_data.NetworkSettings\"q\n\014SignedRecord\022"
+      "\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedRecordKind"
+      "\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001"
+      "(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010devi"
+      "ceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004"
+      "\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006valu"
+      "es\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022"
+      "\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS"
+      "_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL"
+      "\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_FLAGS_"
+      "NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001"
+      "\n\020SignedRecordKind\022\033\n\027SIGNED_RECORD_KIND"
+      "_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022"
+      "\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGN"
+      "ED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_"
+      "KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_O"
+      "THER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3039);
+      descriptor, 3055);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -827,13 +829,13 @@ bool DeviceLocation::MergePartialFromCodedStream(
         break;
       }
 
-      // uint64 time = 2;
+      // int64 time = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -975,9 +977,9 @@ void DeviceLocation::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->fix(), output);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->time(), output);
   }
 
   // float longitude = 3;
@@ -1038,9 +1040,9 @@ void DeviceLocation::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->fix(), target);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->time(), target);
   }
 
   // float longitude = 3;
@@ -1119,10 +1121,10 @@ size_t DeviceLocation::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -1298,15 +1300,15 @@ void DeviceLocation::set_fix(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.fix)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 void DeviceLocation::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 DeviceLocation::time() const {
+::google::protobuf::int64 DeviceLocation::time() const {
   // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.time)
   return time_;
 }
-void DeviceLocation::set_time(::google::protobuf::uint64 value) {
+void DeviceLocation::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.time)
@@ -1516,13 +1518,13 @@ bool SensorReading::MergePartialFromCodedStream(
         break;
       }
 
-      // uint64 time = 2;
+      // int64 time = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -1589,9 +1591,9 @@ void SensorReading::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->reading(), output);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->time(), output);
   }
 
   // uint32 sensor = 3;
@@ -1623,9 +1625,9 @@ void SensorReading::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->reading(), target);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->time(), target);
   }
 
   // uint32 sensor = 3;
@@ -1655,10 +1657,10 @@ size_t SensorReading::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -1778,15 +1780,15 @@ void SensorReading::set_reading(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:fk_data.SensorReading.reading)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 void SensorReading::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 SensorReading::time() const {
+::google::protobuf::int64 SensorReading::time() const {
   // @@protoc_insertion_point(field_get:fk_data.SensorReading.time)
   return time_;
 }
-void SensorReading::set_time(::google::protobuf::uint64 value) {
+void SensorReading::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.SensorReading.time)
@@ -4833,13 +4835,13 @@ bool Metadata::MergePartialFromCodedStream(
         break;
       }
 
-      // uint64 time = 2;
+      // int64 time = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -4973,9 +4975,9 @@ void Metadata::SerializeWithCachedSizes(
       1, this->deviceid(), output);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->time(), output);
   }
 
   // string git = 3;
@@ -5050,9 +5052,9 @@ void Metadata::SerializeWithCachedSizes(
         1, this->deviceid(), target);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->time(), target);
   }
 
   // string git = 3;
@@ -5186,10 +5188,10 @@ size_t Metadata::ByteSizeLong() const {
         *this->firmware_);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -5356,15 +5358,15 @@ void Metadata::set_allocated_deviceid(::std::string* deviceid) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.Metadata.deviceId)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 void Metadata::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 Metadata::time() const {
+::google::protobuf::int64 Metadata::time() const {
   // @@protoc_insertion_point(field_get:fk_data.Metadata.time)
   return time_;
 }
-void Metadata::set_time(::google::protobuf::uint64 value) {
+void Metadata::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Metadata.time)
@@ -5734,13 +5736,13 @@ bool Status::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 time = 1;
+      // int64 time = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -5830,9 +5832,9 @@ void Status::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->time(), output);
   }
 
   // uint32 uptime = 2;
@@ -5869,9 +5871,9 @@ void Status::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->time(), target);
   }
 
   // uint32 uptime = 2;
@@ -5911,10 +5913,10 @@ size_t Status::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -6031,15 +6033,15 @@ void Status::InternalSwap(Status* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Status
 
-// uint64 time = 1;
+// int64 time = 1;
 void Status::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 Status::time() const {
+::google::protobuf::int64 Status::time() const {
   // @@protoc_insertion_point(field_get:fk_data.Status.time)
   return time_;
 }
-void Status::set_time(::google::protobuf::uint64 value) {
+void Status::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Status.time)
@@ -6206,13 +6208,13 @@ bool LogMessage::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 time = 1;
+      // int64 time = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -6306,9 +6308,9 @@ void LogMessage::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->time(), output);
   }
 
   // uint32 uptime = 2;
@@ -6355,9 +6357,9 @@ void LogMessage::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->time(), target);
   }
 
   // uint32 uptime = 2;
@@ -6423,10 +6425,10 @@ size_t LogMessage::ByteSizeLong() const {
         this->message());
   }
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -6533,15 +6535,15 @@ void LogMessage::InternalSwap(LogMessage* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // LogMessage
 
-// uint64 time = 1;
+// int64 time = 1;
 void LogMessage::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 LogMessage::time() const {
+::google::protobuf::int64 LogMessage::time() const {
   // @@protoc_insertion_point(field_get:fk_data.LogMessage.time)
   return time_;
 }
-void LogMessage::set_time(::google::protobuf::uint64 value) {
+void LogMessage::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.LogMessage.time)
@@ -7017,6 +7019,7 @@ const int Readings::kTimeFieldNumber;
 const int Readings::kReadingFieldNumber;
 const int Readings::kFlagsFieldNumber;
 const int Readings::kMetaFieldNumber;
+const int Readings::kUptimeFieldNumber;
 const int Readings::kLocationFieldNumber;
 const int Readings::kSensorGroupsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -7041,15 +7044,15 @@ Readings::Readings(const Readings& from)
     location_ = NULL;
   }
   ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&meta_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(meta_));
+    static_cast<size_t>(reinterpret_cast<char*>(&uptime_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(uptime_));
   // @@protoc_insertion_point(copy_constructor:fk_data.Readings)
 }
 
 void Readings::SharedCtor() {
   ::memset(&location_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&meta_) -
-      reinterpret_cast<char*>(&location_)) + sizeof(meta_));
+      reinterpret_cast<char*>(&uptime_) -
+      reinterpret_cast<char*>(&location_)) + sizeof(uptime_));
   _cached_size_ = 0;
 }
 
@@ -7097,8 +7100,8 @@ void Readings::Clear() {
   }
   location_ = NULL;
   ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&meta_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(meta_));
+      reinterpret_cast<char*>(&uptime_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(uptime_));
   _internal_metadata_.Clear();
 }
 
@@ -7112,13 +7115,13 @@ bool Readings::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 time = 1;
+      // int64 time = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -7192,6 +7195,20 @@ bool Readings::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 uptime = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &uptime_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -7218,9 +7235,9 @@ void Readings::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->time(), output);
   }
 
   // uint32 reading = 2;
@@ -7251,6 +7268,11 @@ void Readings::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->meta(), output);
   }
 
+  // uint32 uptime = 7;
+  if (this->uptime() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->uptime(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -7265,9 +7287,9 @@ void Readings::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->time(), target);
   }
 
   // uint32 reading = 2;
@@ -7298,6 +7320,11 @@ void Readings::SerializeWithCachedSizes(
   // uint32 meta = 6;
   if (this->meta() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->meta(), target);
+  }
+
+  // uint32 uptime = 7;
+  if (this->uptime() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->uptime(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -7335,10 +7362,10 @@ size_t Readings::ByteSizeLong() const {
         *this->location_);
   }
 
-  // uint64 time = 1;
+  // int64 time = 1;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -7361,6 +7388,13 @@ size_t Readings::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->meta());
+  }
+
+  // uint32 uptime = 7;
+  if (this->uptime() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->uptime());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7408,6 +7442,9 @@ void Readings::MergeFrom(const Readings& from) {
   if (from.meta() != 0) {
     set_meta(from.meta());
   }
+  if (from.uptime() != 0) {
+    set_uptime(from.uptime());
+  }
 }
 
 void Readings::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7440,6 +7477,7 @@ void Readings::InternalSwap(Readings* other) {
   swap(reading_, other->reading_);
   swap(flags_, other->flags_);
   swap(meta_, other->meta_);
+  swap(uptime_, other->uptime_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -7452,15 +7490,15 @@ void Readings::InternalSwap(Readings* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Readings
 
-// uint64 time = 1;
+// int64 time = 1;
 void Readings::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 Readings::time() const {
+::google::protobuf::int64 Readings::time() const {
   // @@protoc_insertion_point(field_get:fk_data.Readings.time)
   return time_;
 }
-void Readings::set_time(::google::protobuf::uint64 value) {
+void Readings::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Readings.time)
@@ -7506,6 +7544,20 @@ void Readings::set_meta(::google::protobuf::uint32 value) {
   
   meta_ = value;
   // @@protoc_insertion_point(field_set:fk_data.Readings.meta)
+}
+
+// uint32 uptime = 7;
+void Readings::clear_uptime() {
+  uptime_ = 0u;
+}
+::google::protobuf::uint32 Readings::uptime() const {
+  // @@protoc_insertion_point(field_get:fk_data.Readings.uptime)
+  return uptime_;
+}
+void Readings::set_uptime(::google::protobuf::uint32 value) {
+  
+  uptime_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.Readings.uptime)
 }
 
 // .fk_data.DeviceLocation location = 4;
@@ -11665,13 +11717,13 @@ bool SignedRecord::MergePartialFromCodedStream(
         break;
       }
 
-      // uint64 time = 2;
+      // int64 time = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -11749,9 +11801,9 @@ void SignedRecord::SerializeWithCachedSizes(
       1, this->kind(), output);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->time(), output);
   }
 
   // bytes data = 3;
@@ -11791,9 +11843,9 @@ void SignedRecord::SerializeWithCachedSizes(
       1, this->kind(), target);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->time(), target);
   }
 
   // bytes data = 3;
@@ -11846,10 +11898,10 @@ size_t SignedRecord::ByteSizeLong() const {
         this->hash());
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -11969,15 +12021,15 @@ void SignedRecord::set_kind(::fk_data::SignedRecordKind value) {
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.kind)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 void SignedRecord::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 SignedRecord::time() const {
+::google::protobuf::int64 SignedRecord::time() const {
   // @@protoc_insertion_point(field_get:fk_data.SignedRecord.time)
   return time_;
 }
-void SignedRecord::set_time(::google::protobuf::uint64 value) {
+void SignedRecord::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.SignedRecord.time)
@@ -12224,13 +12276,13 @@ bool LoraRecord::MergePartialFromCodedStream(
         break;
       }
 
-      // uint64 time = 2;
+      // int64 time = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &time_)));
         } else {
           goto handle_unusual;
@@ -12343,9 +12395,9 @@ void LoraRecord::SerializeWithCachedSizes(
       1, this->deviceid(), output);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->time(), output);
   }
 
   // uint64 number = 3;
@@ -12399,9 +12451,9 @@ void LoraRecord::SerializeWithCachedSizes(
         1, this->deviceid(), target);
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->time(), target);
   }
 
   // uint64 number = 3;
@@ -12486,10 +12538,10 @@ size_t LoraRecord::ByteSizeLong() const {
         this->data());
   }
 
-  // uint64 time = 2;
+  // int64 time = 2;
   if (this->time() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->time());
   }
 
@@ -12662,15 +12714,15 @@ void LoraRecord::set_allocated_deviceid(::std::string* deviceid) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.LoraRecord.deviceId)
 }
 
-// uint64 time = 2;
+// int64 time = 2;
 void LoraRecord::clear_time() {
-  time_ = GOOGLE_ULONGLONG(0);
+  time_ = GOOGLE_LONGLONG(0);
 }
-::google::protobuf::uint64 LoraRecord::time() const {
+::google::protobuf::int64 LoraRecord::time() const {
   // @@protoc_insertion_point(field_get:fk_data.LoraRecord.time)
   return time_;
 }
-void LoraRecord::set_time(::google::protobuf::uint64 value) {
+void LoraRecord::set_time(::google::protobuf::int64 value) {
   
   time_ = value;
   // @@protoc_insertion_point(field_set:fk_data.LoraRecord.time)
