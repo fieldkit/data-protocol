@@ -325,13 +325,17 @@
               "type": "JobSchedule",
               "id": 1
             },
-            "lora": {
+            "network": {
               "type": "JobSchedule",
               "id": 2
             },
-            "gps": {
+            "lora": {
               "type": "JobSchedule",
               "id": 3
+            },
+            "gps": {
+              "type": "JobSchedule",
+              "id": 4
             }
           }
         },

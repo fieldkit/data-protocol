@@ -2133,19 +2133,28 @@ class Schedule : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::fk_data::JobSchedule* release_readings();
   void set_allocated_readings(::fk_data::JobSchedule* readings);
 
-  // .fk_data.JobSchedule lora = 2;
+  // .fk_data.JobSchedule network = 2;
+  bool has_network() const;
+  void clear_network();
+  static const int kNetworkFieldNumber = 2;
+  const ::fk_data::JobSchedule& network() const;
+  ::fk_data::JobSchedule* mutable_network();
+  ::fk_data::JobSchedule* release_network();
+  void set_allocated_network(::fk_data::JobSchedule* network);
+
+  // .fk_data.JobSchedule lora = 3;
   bool has_lora() const;
   void clear_lora();
-  static const int kLoraFieldNumber = 2;
+  static const int kLoraFieldNumber = 3;
   const ::fk_data::JobSchedule& lora() const;
   ::fk_data::JobSchedule* mutable_lora();
   ::fk_data::JobSchedule* release_lora();
   void set_allocated_lora(::fk_data::JobSchedule* lora);
 
-  // .fk_data.JobSchedule gps = 3;
+  // .fk_data.JobSchedule gps = 4;
   bool has_gps() const;
   void clear_gps();
-  static const int kGpsFieldNumber = 3;
+  static const int kGpsFieldNumber = 4;
   const ::fk_data::JobSchedule& gps() const;
   ::fk_data::JobSchedule* mutable_gps();
   ::fk_data::JobSchedule* release_gps();
@@ -2156,6 +2165,7 @@ class Schedule : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::fk_data::JobSchedule* readings_;
+  ::fk_data::JobSchedule* network_;
   ::fk_data::JobSchedule* lora_;
   ::fk_data::JobSchedule* gps_;
   mutable int _cached_size_;
@@ -4983,7 +4993,47 @@ inline void Schedule::set_allocated_readings(::fk_data::JobSchedule* readings) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.readings)
 }
 
-// .fk_data.JobSchedule lora = 2;
+// .fk_data.JobSchedule network = 2;
+inline bool Schedule::has_network() const {
+  return this != internal_default_instance() && network_ != NULL;
+}
+inline void Schedule::clear_network() {
+  if (GetArenaNoVirtual() == NULL && network_ != NULL) delete network_;
+  network_ = NULL;
+}
+inline const ::fk_data::JobSchedule& Schedule::network() const {
+  const ::fk_data::JobSchedule* p = network_;
+  // @@protoc_insertion_point(field_get:fk_data.Schedule.network)
+  return p != NULL ? *p : *reinterpret_cast<const ::fk_data::JobSchedule*>(
+      &::fk_data::_JobSchedule_default_instance_);
+}
+inline ::fk_data::JobSchedule* Schedule::mutable_network() {
+  
+  if (network_ == NULL) {
+    network_ = new ::fk_data::JobSchedule;
+  }
+  // @@protoc_insertion_point(field_mutable:fk_data.Schedule.network)
+  return network_;
+}
+inline ::fk_data::JobSchedule* Schedule::release_network() {
+  // @@protoc_insertion_point(field_release:fk_data.Schedule.network)
+  
+  ::fk_data::JobSchedule* temp = network_;
+  network_ = NULL;
+  return temp;
+}
+inline void Schedule::set_allocated_network(::fk_data::JobSchedule* network) {
+  delete network_;
+  network_ = network;
+  if (network) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.network)
+}
+
+// .fk_data.JobSchedule lora = 3;
 inline bool Schedule::has_lora() const {
   return this != internal_default_instance() && lora_ != NULL;
 }
@@ -5023,7 +5073,7 @@ inline void Schedule::set_allocated_lora(::fk_data::JobSchedule* lora) {
   // @@protoc_insertion_point(field_set_allocated:fk_data.Schedule.lora)
 }
 
-// .fk_data.JobSchedule gps = 3;
+// .fk_data.JobSchedule gps = 4;
 inline bool Schedule::has_gps() const {
   return this != internal_default_instance() && gps_ != NULL;
 }
