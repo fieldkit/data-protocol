@@ -319,6 +319,18 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::uint32 enabled() const;
   void set_enabled(::google::protobuf::uint32 value);
 
+  // uint32 satellites = 8;
+  void clear_satellites();
+  static const int kSatellitesFieldNumber = 8;
+  ::google::protobuf::uint32 satellites() const;
+  void set_satellites(::google::protobuf::uint32 value);
+
+  // uint32 hdop = 9;
+  void clear_hdop();
+  static const int kHdopFieldNumber = 9;
+  ::google::protobuf::uint32 hdop() const;
+  void set_hdop(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:fk_data.DeviceLocation)
  private:
 
@@ -331,6 +343,8 @@ class DeviceLocation : public ::google::protobuf::Message /* @@protoc_insertion_
   float latitude_;
   float altitude_;
   ::google::protobuf::uint32 enabled_;
+  ::google::protobuf::uint32 satellites_;
+  ::google::protobuf::uint32 hdop_;
   mutable int _cached_size_;
   friend struct protobuf_fk_2ddata_2eproto::TableStruct;
 };
@@ -3382,6 +3396,34 @@ inline ::google::protobuf::RepeatedField< float >*
 DeviceLocation::mutable_coordinates() {
   // @@protoc_insertion_point(field_mutable_list:fk_data.DeviceLocation.coordinates)
   return &coordinates_;
+}
+
+// uint32 satellites = 8;
+inline void DeviceLocation::clear_satellites() {
+  satellites_ = 0u;
+}
+inline ::google::protobuf::uint32 DeviceLocation::satellites() const {
+  // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.satellites)
+  return satellites_;
+}
+inline void DeviceLocation::set_satellites(::google::protobuf::uint32 value) {
+  
+  satellites_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.satellites)
+}
+
+// uint32 hdop = 9;
+inline void DeviceLocation::clear_hdop() {
+  hdop_ = 0u;
+}
+inline ::google::protobuf::uint32 DeviceLocation::hdop() const {
+  // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.hdop)
+  return hdop_;
+}
+inline void DeviceLocation::set_hdop(::google::protobuf::uint32 value) {
+  
+  hdop_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.hdop)
 }
 
 // -------------------------------------------------------------------

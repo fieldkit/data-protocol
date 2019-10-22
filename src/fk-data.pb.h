@@ -86,6 +86,8 @@ typedef struct _fk_data_DeviceLocation {
     float altitude;
     pb_callback_t coordinates;
     uint32_t enabled;
+    uint32_t satellites;
+    uint32_t hdop;
 /* @@protoc_insertion_point(struct:fk_data_DeviceLocation) */
 } fk_data_DeviceLocation;
 
@@ -261,7 +263,7 @@ typedef struct _fk_data_DataRecord {
 
 
 /* Initializer values for message structs */
-#define fk_data_DeviceLocation_init_default      {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
+#define fk_data_DeviceLocation_init_default      {0, 0, 0, 0, 0, {{NULL}, NULL}, 0, 0, 0}
 #define fk_data_SensorReading_init_default       {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_default       {0, fk_data_DeviceLocation_init_default, fk_data_SensorReading_init_default}
 #define fk_data_SensorAndValue_init_default      {0, 0}
@@ -284,7 +286,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DataRecord_init_default          {fk_data_LoggedReading_init_default, fk_data_Metadata_init_default, fk_data_LogMessage_init_default, fk_data_Status_init_default, fk_data_Readings_init_default, {{NULL}, NULL}, fk_data_Schedule_init_default, 0, fk_data_Identity_init_default, fk_data_Condition_init_default, fk_data_LoraSettings_init_default, fk_data_NetworkSettings_init_default}
 #define fk_data_SignedRecord_init_default        {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_LoraRecord_init_default          {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0}
+#define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0, 0, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, fk_data_DeviceLocation_init_zero, fk_data_SensorReading_init_zero}
 #define fk_data_SensorAndValue_init_zero         {0, 0}
@@ -324,6 +326,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DeviceLocation_latitude_tag      4
 #define fk_data_DeviceLocation_altitude_tag      5
 #define fk_data_DeviceLocation_coordinates_tag   6
+#define fk_data_DeviceLocation_satellites_tag    8
+#define fk_data_DeviceLocation_hdop_tag          9
 #define fk_data_JobSchedule_cron_tag             1
 #define fk_data_JobSchedule_interval_tag         2
 #define fk_data_LogMessage_time_tag              1
@@ -418,7 +422,9 @@ X(a, STATIC, SINGULAR, FLOAT, longitude, 3) \
 X(a, STATIC, SINGULAR, FLOAT, latitude, 4) \
 X(a, STATIC, SINGULAR, FLOAT, altitude, 5) \
 X(a, CALLBACK, REPEATED, FLOAT, coordinates, 6) \
-X(a, STATIC, SINGULAR, UINT32, enabled, 7)
+X(a, STATIC, SINGULAR, UINT32, enabled, 7) \
+X(a, STATIC, SINGULAR, UINT32, satellites, 8) \
+X(a, STATIC, SINGULAR, UINT32, hdop, 9)
 #define fk_data_DeviceLocation_CALLBACK pb_default_field_callback
 #define fk_data_DeviceLocation_DEFAULT NULL
 

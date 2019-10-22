@@ -9,6 +9,8 @@ message DeviceLocation {
   float latitude = 4;
   float altitude = 5;
   repeated float coordinates = 6;
+  uint32 satellites = 8;
+  uint32 hdop = 9;
 }
 
 message SensorReading {

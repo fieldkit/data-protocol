@@ -193,6 +193,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, latitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, altitude_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, coordinates_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, satellites_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeviceLocation, hdop_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SensorReading, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -399,28 +401,28 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(DeviceLocation)},
-  { 12, -1, sizeof(SensorReading)},
-  { 21, -1, sizeof(LoggedReading)},
-  { 29, -1, sizeof(SensorAndValue)},
-  { 36, -1, sizeof(ModuleHeader)},
-  { 44, -1, sizeof(ModuleInfo)},
-  { 57, -1, sizeof(SensorInfo)},
-  { 66, -1, sizeof(Firmware)},
-  { 73, -1, sizeof(Metadata)},
-  { 87, -1, sizeof(Status)},
-  { 97, -1, sizeof(LogMessage)},
-  { 107, -1, sizeof(SensorGroup)},
-  { 114, -1, sizeof(Readings)},
-  { 125, -1, sizeof(JobSchedule)},
-  { 132, -1, sizeof(Schedule)},
-  { 141, -1, sizeof(Identity)},
-  { 147, -1, sizeof(Condition)},
-  { 154, -1, sizeof(NetworkInfo)},
-  { 161, -1, sizeof(NetworkSettings)},
-  { 167, -1, sizeof(LoraSettings)},
-  { 176, -1, sizeof(DataRecord)},
-  { 193, -1, sizeof(SignedRecord)},
-  { 203, -1, sizeof(LoraRecord)},
+  { 14, -1, sizeof(SensorReading)},
+  { 23, -1, sizeof(LoggedReading)},
+  { 31, -1, sizeof(SensorAndValue)},
+  { 38, -1, sizeof(ModuleHeader)},
+  { 46, -1, sizeof(ModuleInfo)},
+  { 59, -1, sizeof(SensorInfo)},
+  { 68, -1, sizeof(Firmware)},
+  { 75, -1, sizeof(Metadata)},
+  { 89, -1, sizeof(Status)},
+  { 99, -1, sizeof(LogMessage)},
+  { 109, -1, sizeof(SensorGroup)},
+  { 116, -1, sizeof(Readings)},
+  { 127, -1, sizeof(JobSchedule)},
+  { 134, -1, sizeof(Schedule)},
+  { 143, -1, sizeof(Identity)},
+  { 149, -1, sizeof(Condition)},
+  { 156, -1, sizeof(NetworkInfo)},
+  { 163, -1, sizeof(NetworkSettings)},
+  { 169, -1, sizeof(LoraSettings)},
+  { 178, -1, sizeof(DataRecord)},
+  { 195, -1, sizeof(SignedRecord)},
+  { 205, -1, sizeof(LoraRecord)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -571,85 +573,85 @@ namespace {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rfk-data.proto\022\007fk_data\"\210\001\n\016DeviceLocat"
+      "\n\rfk-data.proto\022\007fk_data\"\252\001\n\016DeviceLocat"
       "ion\022\017\n\007enabled\030\007 \001(\r\022\013\n\003fix\030\001 \001(\r\022\014\n\004tim"
       "e\030\002 \001(\004\022\021\n\tlongitude\030\003 \001(\002\022\020\n\010latitude\030\004"
       " \001(\002\022\020\n\010altitude\030\005 \001(\002\022\023\n\013coordinates\030\006 "
-      "\003(\002\"M\n\rSensorReading\022\017\n\007reading\030\001 \001(\r\022\014\n"
-      "\004time\030\002 \001(\004\022\016\n\006sensor\030\003 \001(\r\022\r\n\005value\030\004 \001"
-      "(\002\"t\n\rLoggedReading\022\017\n\007version\030\001 \001(\r\022)\n\010"
-      "location\030\002 \001(\0132\027.fk_data.DeviceLocation\022"
-      "\'\n\007reading\030\003 \001(\0132\026.fk_data.SensorReading"
-      "\"/\n\016SensorAndValue\022\016\n\006sensor\030\001 \001(\r\022\r\n\005va"
-      "lue\030\002 \001(\002\"C\n\014ModuleHeader\022\024\n\014manufacture"
-      "r\030\001 \001(\r\022\014\n\004kind\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"\312"
-      "\001\n\nModuleInfo\022\020\n\010position\030\001 \001(\r\022\017\n\007addre"
-      "ss\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022%\n\006header\030\004 \001(\0132\025"
-      ".fk_data.ModuleHeader\022#\n\010firmware\030\005 \001(\0132"
-      "\021.fk_data.Firmware\022$\n\007sensors\030\006 \003(\0132\023.fk"
-      "_data.SensorInfo\022\n\n\002id\030\007 \001(\014\022\r\n\005flags\030\010 "
-      "\001(\r\"P\n\nSensorInfo\022\016\n\006number\030\001 \001(\r\022\014\n\004nam"
-      "e\030\002 \001(\t\022\025\n\runitOfMeasure\030\003 \001(\t\022\r\n\005flags\030"
-      "\004 \001(\r\"&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030"
-      "\002 \001(\t\"\337\001\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004"
-      "time\030\002 \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022"
-      "\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk"
-      "_data.SensorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_d"
-      "ata.ModuleInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_da"
-      "ta.Firmware\022\022\n\ngeneration\030\t \001(\014\"U\n\006Statu"
-      "s\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007batte"
-      "ry\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\"
-      "\n\nLogMessage\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001"
-      "(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007m"
-      "essage\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 "
-      "\001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_data.SensorAn"
-      "dValue\"\235\001\n\010Readings\022\014\n\004time\030\001 \001(\004\022\017\n\007rea"
-      "ding\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022"
-      ")\n\010location\030\004 \001(\0132\027.fk_data.DeviceLocati"
-      "on\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_data.Senso"
-      "rGroup\"-\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\022\020\n\010i"
-      "nterval\030\002 \001(\r\"\240\001\n\010Schedule\022&\n\010readings\030\001"
-      " \001(\0132\024.fk_data.JobSchedule\022%\n\007network\030\002 "
-      "\001(\0132\024.fk_data.JobSchedule\022\"\n\004lora\030\003 \001(\0132"
-      "\024.fk_data.JobSchedule\022!\n\003gps\030\004 \001(\0132\024.fk_"
-      "data.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001"
-      "(\t\"-\n\tCondition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecord"
-      "ing\030\002 \001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020"
-      "\n\010password\030\002 \001(\t\"9\n\017NetworkSettings\022&\n\010n"
-      "etworks\030\001 \003(\0132\024.fk_data.NetworkInfo\"X\n\014L"
-      "oraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey"
-      "\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBand\030"
-      "\004 \001(\r\"\275\003\n\nDataRecord\022-\n\rloggedReading\030\001 "
-      "\001(\0132\026.fk_data.LoggedReading\022#\n\010metadata\030"
-      "\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132\023."
-      "fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_"
-      "data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data."
-      "Readings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Modu"
-      "leInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Sched"
-      "ule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk"
-      "_data.Identity\022%\n\tcondition\030\n \001(\0132\022.fk_d"
-      "ata.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_data.Lo"
-      "raSettings\022)\n\007network\030\014 \001(\0132\030.fk_data.Ne"
-      "tworkSettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 "
-      "\001(\0162\031.fk_data.SignedRecordKind\022\014\n\004time\030\002"
-      " \001(\004\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006reco"
-      "rd\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014"
-      "\022\014\n\004time\030\002 \001(\004\022\016\n\006number\030\003 \001(\004\022\016\n\006module"
-      "\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014"
-      "\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING"
-      "_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECOR"
-      "DING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Cond"
-      "itionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031"
-      "CONDITION_FLAGS_RECORDING\020\001*\317\001\n\020SignedRe"
-      "cordKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n"
-      "\032SIGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_"
-      "RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_"
-      "KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_S"
-      "TATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001b\006p"
-      "roto3"
+      "\003(\002\022\022\n\nsatellites\030\010 \001(\r\022\014\n\004hdop\030\t \001(\r\"M\n"
+      "\rSensorReading\022\017\n\007reading\030\001 \001(\r\022\014\n\004time\030"
+      "\002 \001(\004\022\016\n\006sensor\030\003 \001(\r\022\r\n\005value\030\004 \001(\002\"t\n\r"
+      "LoggedReading\022\017\n\007version\030\001 \001(\r\022)\n\010locati"
+      "on\030\002 \001(\0132\027.fk_data.DeviceLocation\022\'\n\007rea"
+      "ding\030\003 \001(\0132\026.fk_data.SensorReading\"/\n\016Se"
+      "nsorAndValue\022\016\n\006sensor\030\001 \001(\r\022\r\n\005value\030\002 "
+      "\001(\002\"C\n\014ModuleHeader\022\024\n\014manufacturer\030\001 \001("
+      "\r\022\014\n\004kind\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"\312\001\n\nMod"
+      "uleInfo\022\020\n\010position\030\001 \001(\r\022\017\n\007address\030\002 \001"
+      "(\r\022\014\n\004name\030\003 \001(\t\022%\n\006header\030\004 \001(\0132\025.fk_da"
+      "ta.ModuleHeader\022#\n\010firmware\030\005 \001(\0132\021.fk_d"
+      "ata.Firmware\022$\n\007sensors\030\006 \003(\0132\023.fk_data."
+      "SensorInfo\022\n\n\002id\030\007 \001(\014\022\r\n\005flags\030\010 \001(\r\"P\n"
+      "\nSensorInfo\022\016\n\006number\030\001 \001(\r\022\014\n\004name\030\002 \001("
+      "\t\022\025\n\runitOfMeasure\030\003 \001(\t\022\r\n\005flags\030\004 \001(\r\""
+      "&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030\002 \001(\t\""
+      "\337\001\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002"
+      " \001(\004\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nrese"
+      "tCause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk_data."
+      "SensorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_data.Mo"
+      "duleInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_data.Fir"
+      "mware\022\022\n\ngeneration\030\t \001(\014\"U\n\006Status\022\014\n\004t"
+      "ime\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001"
+      "(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogM"
+      "essage\022\014\n\004time\030\001 \001(\004\022\016\n\006uptime\030\002 \001(\r\022\r\n\005"
+      "level\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message"
+      "\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n"
+      "\010readings\030\002 \003(\0132\027.fk_data.SensorAndValue"
+      "\"\235\001\n\010Readings\022\014\n\004time\030\001 \001(\004\022\017\n\007reading\030\002"
+      " \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022)\n\010loc"
+      "ation\030\004 \001(\0132\027.fk_data.DeviceLocation\022*\n\014"
+      "sensorGroups\030\005 \003(\0132\024.fk_data.SensorGroup"
+      "\"-\n\013JobSchedule\022\014\n\004cron\030\001 \001(\014\022\020\n\010interva"
+      "l\030\002 \001(\r\"\240\001\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024"
+      ".fk_data.JobSchedule\022%\n\007network\030\002 \001(\0132\024."
+      "fk_data.JobSchedule\022\"\n\004lora\030\003 \001(\0132\024.fk_d"
+      "ata.JobSchedule\022!\n\003gps\030\004 \001(\0132\024.fk_data.J"
+      "obSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\t"
+      "Condition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecording\030\002 "
+      "\001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010pass"
+      "word\030\002 \001(\t\"9\n\017NetworkSettings\022&\n\010network"
+      "s\030\001 \003(\0132\024.fk_data.NetworkInfo\"X\n\014LoraSet"
+      "tings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014"
+      "\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\""
+      "\275\003\n\nDataRecord\022-\n\rloggedReading\030\001 \001(\0132\026."
+      "fk_data.LoggedReading\022#\n\010metadata\030\002 \001(\0132"
+      "\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_dat"
+      "a.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_data.S"
+      "tatus\022#\n\010readings\030\005 \001(\0132\021.fk_data.Readin"
+      "gs\022$\n\007modules\030\006 \003(\0132\023.fk_data.ModuleInfo"
+      "\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n"
+      "\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_data."
+      "Identity\022%\n\tcondition\030\n \001(\0132\022.fk_data.Co"
+      "ndition\022#\n\004lora\030\013 \001(\0132\025.fk_data.LoraSett"
+      "ings\022)\n\007network\030\014 \001(\0132\030.fk_data.NetworkS"
+      "ettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031."
+      "fk_data.SignedRecordKind\022\014\n\004time\030\002 \001(\004\022\014"
+      "\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001"
+      "(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004ti"
+      "me\030\002 \001(\004\022\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r"
+      "\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data"
+      "\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING_FLAGS"
+      "_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDING\020\001"
+      "\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016ConditionF"
+      "lags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CONDIT"
+      "ION_FLAGS_RECORDING\020\001*\317\001\n\020SignedRecordKi"
+      "nd\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNE"
+      "D_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD"
+      "_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_S"
+      "TATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_STATE\020\004"
+      "\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3005);
+      descriptor, 3039);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
@@ -726,6 +728,8 @@ const int DeviceLocation::kLongitudeFieldNumber;
 const int DeviceLocation::kLatitudeFieldNumber;
 const int DeviceLocation::kAltitudeFieldNumber;
 const int DeviceLocation::kCoordinatesFieldNumber;
+const int DeviceLocation::kSatellitesFieldNumber;
+const int DeviceLocation::kHdopFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 DeviceLocation::DeviceLocation()
@@ -743,15 +747,15 @@ DeviceLocation::DeviceLocation(const DeviceLocation& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&time_, &from.time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&enabled_) -
-    reinterpret_cast<char*>(&time_)) + sizeof(enabled_));
+    static_cast<size_t>(reinterpret_cast<char*>(&hdop_) -
+    reinterpret_cast<char*>(&time_)) + sizeof(hdop_));
   // @@protoc_insertion_point(copy_constructor:fk_data.DeviceLocation)
 }
 
 void DeviceLocation::SharedCtor() {
   ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&enabled_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(enabled_));
+      reinterpret_cast<char*>(&hdop_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(hdop_));
   _cached_size_ = 0;
 }
 
@@ -794,8 +798,8 @@ void DeviceLocation::Clear() {
 
   coordinates_.Clear();
   ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&enabled_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(enabled_));
+      reinterpret_cast<char*>(&hdop_) -
+      reinterpret_cast<char*>(&time_)) + sizeof(hdop_));
   _internal_metadata_.Clear();
 }
 
@@ -912,6 +916,34 @@ bool DeviceLocation::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 satellites = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &satellites_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 hdop = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &hdop_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -977,6 +1009,16 @@ void DeviceLocation::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->enabled(), output);
   }
 
+  // uint32 satellites = 8;
+  if (this->satellites() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->satellites(), output);
+  }
+
+  // uint32 hdop = 9;
+  if (this->hdop() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->hdop(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1032,6 +1074,16 @@ void DeviceLocation::SerializeWithCachedSizes(
   // uint32 enabled = 7;
   if (this->enabled() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->enabled(), target);
+  }
+
+  // uint32 satellites = 8;
+  if (this->satellites() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->satellites(), target);
+  }
+
+  // uint32 hdop = 9;
+  if (this->hdop() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->hdop(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1103,6 +1155,20 @@ size_t DeviceLocation::ByteSizeLong() const {
         this->enabled());
   }
 
+  // uint32 satellites = 8;
+  if (this->satellites() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->satellites());
+  }
+
+  // uint32 hdop = 9;
+  if (this->hdop() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->hdop());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -1151,6 +1217,12 @@ void DeviceLocation::MergeFrom(const DeviceLocation& from) {
   if (from.enabled() != 0) {
     set_enabled(from.enabled());
   }
+  if (from.satellites() != 0) {
+    set_satellites(from.satellites());
+  }
+  if (from.hdop() != 0) {
+    set_hdop(from.hdop());
+  }
 }
 
 void DeviceLocation::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1184,6 +1256,8 @@ void DeviceLocation::InternalSwap(DeviceLocation* other) {
   swap(latitude_, other->latitude_);
   swap(altitude_, other->altitude_);
   swap(enabled_, other->enabled_);
+  swap(satellites_, other->satellites_);
+  swap(hdop_, other->hdop_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -1308,6 +1382,34 @@ DeviceLocation::coordinates() const {
 DeviceLocation::mutable_coordinates() {
   // @@protoc_insertion_point(field_mutable_list:fk_data.DeviceLocation.coordinates)
   return &coordinates_;
+}
+
+// uint32 satellites = 8;
+void DeviceLocation::clear_satellites() {
+  satellites_ = 0u;
+}
+::google::protobuf::uint32 DeviceLocation::satellites() const {
+  // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.satellites)
+  return satellites_;
+}
+void DeviceLocation::set_satellites(::google::protobuf::uint32 value) {
+  
+  satellites_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.satellites)
+}
+
+// uint32 hdop = 9;
+void DeviceLocation::clear_hdop() {
+  hdop_ = 0u;
+}
+::google::protobuf::uint32 DeviceLocation::hdop() const {
+  // @@protoc_insertion_point(field_get:fk_data.DeviceLocation.hdop)
+  return hdop_;
+}
+void DeviceLocation::set_hdop(::google::protobuf::uint32 value) {
+  
+  hdop_ = value;
+  // @@protoc_insertion_point(field_set:fk_data.DeviceLocation.hdop)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

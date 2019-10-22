@@ -32,6 +32,14 @@
               "rule": "repeated",
               "type": "float",
               "id": 6
+            },
+            "satellites": {
+              "type": "uint32",
+              "id": 8
+            },
+            "hdop": {
+              "type": "uint32",
+              "id": 9
             }
           }
         },
