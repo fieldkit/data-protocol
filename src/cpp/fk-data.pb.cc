@@ -652,10 +652,10 @@ void AddDescriptorsImpl() {
       "GNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RE"
       "CORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_"
       "RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020"
-      "\377\001b\006proto3"
+      "\377\001B\026\n\024org.fieldkit.data.pbb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3090);
+      descriptor, 3114);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fk-data.proto", &protobuf_RegisterTypes);
 }
