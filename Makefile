@@ -1,4 +1,4 @@
-all: fk-data.proto.json fk-data.pb.go src/fk-data.pb.c src/fk-data.pb.h src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h
+all: fk-data.proto.json fk-data.pb.go src/fk-data.pb.c src/fk-data.pb.h src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h fk_data/FkData.java
 
 node_modules/.bin/pbjs:
 	npm install
@@ -14,6 +14,9 @@ src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h: fk-data.proto
 
 fk-data.pb.go: fk-data.proto
 	protoc --go_out=./ fk-data.proto
+
+fk_data/FkData.java: fk-data.proto
+	protoc --java_out=./ fk-data.proto
 
 veryclean:
 
