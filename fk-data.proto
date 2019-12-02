@@ -150,6 +150,11 @@ message LoraSettings {
   bytes appKey = 2;
   bytes appEui = 3;
   uint32 frequencyBand = 4;
+  bytes deviceAddress = 5;
+  bytes networkSessionKey = 6;
+  bytes appSessionKey = 7;
+  uint32 uplinkCounter = 8;
+  uint32 downlinkCounter = 9;
 }
 
 /**
