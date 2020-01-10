@@ -2736,6 +2736,7 @@ class JobSchedule :
   enum : int {
     kCronFieldNumber = 1,
     kIntervalFieldNumber = 2,
+    kRepeatedFieldNumber = 3,
   };
   // bytes cron = 1;
   void clear_cron();
@@ -2762,6 +2763,15 @@ class JobSchedule :
   void _internal_set_interval(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // uint32 repeated = 3;
+  void clear_repeated();
+  ::PROTOBUF_NAMESPACE_ID::uint32 repeated() const;
+  void set_repeated(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_repeated() const;
+  void _internal_set_repeated(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:fk_data.JobSchedule)
  private:
   class _Internal;
@@ -2769,6 +2779,7 @@ class JobSchedule :
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr cron_;
   ::PROTOBUF_NAMESPACE_ID::uint32 interval_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 repeated_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_fk_2ddata_2eproto;
 };
@@ -6768,6 +6779,26 @@ inline void JobSchedule::_internal_set_interval(::PROTOBUF_NAMESPACE_ID::uint32 
 inline void JobSchedule::set_interval(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_interval(value);
   // @@protoc_insertion_point(field_set:fk_data.JobSchedule.interval)
+}
+
+// uint32 repeated = 3;
+inline void JobSchedule::clear_repeated() {
+  repeated_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 JobSchedule::_internal_repeated() const {
+  return repeated_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 JobSchedule::repeated() const {
+  // @@protoc_insertion_point(field_get:fk_data.JobSchedule.repeated)
+  return _internal_repeated();
+}
+inline void JobSchedule::_internal_set_repeated(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  repeated_ = value;
+}
+inline void JobSchedule::set_repeated(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_repeated(value);
+  // @@protoc_insertion_point(field_set:fk_data.JobSchedule.repeated)
 }
 
 // -------------------------------------------------------------------

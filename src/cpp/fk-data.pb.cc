@@ -614,6 +614,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_fk_2ddata_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::fk_data::JobSchedule, cron_),
   PROTOBUF_FIELD_OFFSET(::fk_data::JobSchedule, interval_),
+  PROTOBUF_FIELD_OFFSET(::fk_data::JobSchedule, repeated_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::fk_data::Schedule, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -719,15 +720,15 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 109, -1, sizeof(::fk_data::SensorGroup)},
   { 116, -1, sizeof(::fk_data::Readings)},
   { 128, -1, sizeof(::fk_data::JobSchedule)},
-  { 135, -1, sizeof(::fk_data::Schedule)},
-  { 144, -1, sizeof(::fk_data::Identity)},
-  { 150, -1, sizeof(::fk_data::Condition)},
-  { 157, -1, sizeof(::fk_data::NetworkInfo)},
-  { 164, -1, sizeof(::fk_data::NetworkSettings)},
-  { 170, -1, sizeof(::fk_data::LoraSettings)},
-  { 184, -1, sizeof(::fk_data::DataRecord)},
-  { 202, -1, sizeof(::fk_data::SignedRecord)},
-  { 212, -1, sizeof(::fk_data::LoraRecord)},
+  { 136, -1, sizeof(::fk_data::Schedule)},
+  { 145, -1, sizeof(::fk_data::Identity)},
+  { 151, -1, sizeof(::fk_data::Condition)},
+  { 158, -1, sizeof(::fk_data::NetworkInfo)},
+  { 165, -1, sizeof(::fk_data::NetworkSettings)},
+  { 171, -1, sizeof(::fk_data::LoraSettings)},
+  { 185, -1, sizeof(::fk_data::DataRecord)},
+  { 203, -1, sizeof(::fk_data::SignedRecord)},
+  { 213, -1, sizeof(::fk_data::LoraRecord)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -794,50 +795,51 @@ const char descriptor_table_protodef_fk_2ddata_2eproto[] PROTOBUF_SECTION_VARIAB
   " \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022\016\n\006upt"
   "ime\030\007 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.De"
   "viceLocation\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_"
-  "data.SensorGroup\"-\n\013JobSchedule\022\014\n\004cron\030"
-  "\001 \001(\014\022\020\n\010interval\030\002 \001(\r\"\240\001\n\010Schedule\022&\n\010"
-  "readings\030\001 \001(\0132\024.fk_data.JobSchedule\022%\n\007"
-  "network\030\002 \001(\0132\024.fk_data.JobSchedule\022\"\n\004l"
-  "ora\030\003 \001(\0132\024.fk_data.JobSchedule\022!\n\003gps\030\004"
-  " \001(\0132\024.fk_data.JobSchedule\"\030\n\010Identity\022\014"
-  "\n\004name\030\001 \001(\t\"-\n\tCondition\022\r\n\005flags\030\001 \001(\r"
-  "\022\021\n\trecording\030\002 \001(\r\"-\n\013NetworkInfo\022\014\n\004ss"
-  "id\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9\n\017NetworkSet"
-  "tings\022&\n\010networks\030\001 \003(\0132\024.fk_data.Networ"
-  "kInfo\"\321\001\n\014LoraSettings\022\021\n\tdeviceEui\030\001 \001("
-  "\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfre"
-  "quencyBand\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(\014\022"
-  "\031\n\021networkSessionKey\030\006 \001(\014\022\025\n\rappSession"
-  "Key\030\007 \001(\014\022\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017down"
-  "linkCounter\030\t \001(\r\"\340\003\n\nDataRecord\022-\n\rlogg"
-  "edReading\030\001 \001(\0132\026.fk_data.LoggedReading\022"
-  "#\n\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003"
-  "log\030\003 \001(\0132\023.fk_data.LogMessage\022!\n\004logs\030\r"
-  " \003(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004 \001("
-  "\0132\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132\021.f"
-  "k_data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_da"
-  "ta.ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_dat"
-  "a.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001"
-  "(\0132\021.fk_data.Identity\022%\n\tcondition\030\n \001(\013"
-  "2\022.fk_data.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_"
-  "data.LoraSettings\022)\n\007network\030\014 \001(\0132\030.fk_"
-  "data.NetworkSettings\"q\n\014SignedRecord\022\'\n\004"
-  "kind\030\001 \001(\0162\031.fk_data.SignedRecordKind\022\014\n"
-  "\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022"
-  "\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceI"
-  "d\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004\022\016\n"
-  "\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030"
-  "\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022"
-  "READING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NO"
-  "T_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*"
-  "I\n\016ConditionFlags\022\030\n\024CONDITION_FLAGS_NON"
-  "E\020\000\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001\n\020S"
-  "ignedRecordKind\022\033\n\027SIGNED_RECORD_KIND_NO"
-  "NE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022\037\n\033"
-  "SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_"
-  "RECORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_KIN"
-  "D_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHE"
-  "R\020\377\001B\026\n\024org.fieldkit.data.pbb\006proto3"
+  "data.SensorGroup\"\?\n\013JobSchedule\022\014\n\004cron\030"
+  "\001 \001(\014\022\020\n\010interval\030\002 \001(\r\022\020\n\010repeated\030\003 \001("
+  "\r\"\240\001\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024.fk_da"
+  "ta.JobSchedule\022%\n\007network\030\002 \001(\0132\024.fk_dat"
+  "a.JobSchedule\022\"\n\004lora\030\003 \001(\0132\024.fk_data.Jo"
+  "bSchedule\022!\n\003gps\030\004 \001(\0132\024.fk_data.JobSche"
+  "dule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\tCondit"
+  "ion\022\r\n\005flags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n"
+  "\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002"
+  " \001(\t\"9\n\017NetworkSettings\022&\n\010networks\030\001 \003("
+  "\0132\024.fk_data.NetworkInfo\"\321\001\n\014LoraSettings"
+  "\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006a"
+  "ppEui\030\003 \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\022\025\n\rde"
+  "viceAddress\030\005 \001(\014\022\031\n\021networkSessionKey\030\006"
+  " \001(\014\022\025\n\rappSessionKey\030\007 \001(\014\022\025\n\ruplinkCou"
+  "nter\030\010 \001(\r\022\027\n\017downlinkCounter\030\t \001(\r\"\340\003\n\n"
+  "DataRecord\022-\n\rloggedReading\030\001 \001(\0132\026.fk_d"
+  "ata.LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.fk"
+  "_data.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.Lo"
+  "gMessage\022!\n\004logs\030\r \003(\0132\023.fk_data.LogMess"
+  "age\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n\010"
+  "readings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007mod"
+  "ules\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010sched"
+  "ule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001"
+  "(\004\022#\n\010identity\030\t \001(\0132\021.fk_data.Identity\022"
+  "%\n\tcondition\030\n \001(\0132\022.fk_data.Condition\022#"
+  "\n\004lora\030\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007n"
+  "etwork\030\014 \001(\0132\030.fk_data.NetworkSettings\"q"
+  "\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.S"
+  "ignedRecordKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 "
+  "\001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLor"
+  "aRecord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022"
+  "\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006senso"
+  "r\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n"
+  "\rDownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037"
+  "\n\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READI"
+  "NG_FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024C"
+  "ONDITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS"
+  "_RECORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIG"
+  "NED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_"
+  "KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCH"
+  "EDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n"
+  "\034SIGNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNE"
+  "D_RECORD_KIND_OTHER\020\377\001B\026\n\024org.fieldkit.d"
+  "ata.pbb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_fk_2ddata_2eproto_deps[1] = {
 };
@@ -869,7 +871,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_fk_
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_fk_2ddata_2eproto_once;
 static bool descriptor_table_fk_2ddata_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_fk_2ddata_2eproto = {
-  &descriptor_table_fk_2ddata_2eproto_initialized, descriptor_table_protodef_fk_2ddata_2eproto, "fk-data.proto", 3236,
+  &descriptor_table_fk_2ddata_2eproto_initialized, descriptor_table_protodef_fk_2ddata_2eproto, "fk-data.proto", 3254,
   &descriptor_table_fk_2ddata_2eproto_once, descriptor_table_fk_2ddata_2eproto_sccs, descriptor_table_fk_2ddata_2eproto_deps, 23, 0,
   schemas, file_default_instances, TableStruct_fk_2ddata_2eproto::offsets,
   file_level_metadata_fk_2ddata_2eproto, 23, file_level_enum_descriptors_fk_2ddata_2eproto, file_level_service_descriptors_fk_2ddata_2eproto,
@@ -4923,14 +4925,18 @@ JobSchedule::JobSchedule(const JobSchedule& from)
   if (!from._internal_cron().empty()) {
     cron_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.cron_);
   }
-  interval_ = from.interval_;
+  ::memcpy(&interval_, &from.interval_,
+    static_cast<size_t>(reinterpret_cast<char*>(&repeated_) -
+    reinterpret_cast<char*>(&interval_)) + sizeof(repeated_));
   // @@protoc_insertion_point(copy_constructor:fk_data.JobSchedule)
 }
 
 void JobSchedule::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_JobSchedule_fk_2ddata_2eproto.base);
   cron_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  interval_ = 0u;
+  ::memset(&interval_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&repeated_) -
+      reinterpret_cast<char*>(&interval_)) + sizeof(repeated_));
 }
 
 JobSchedule::~JobSchedule() {
@@ -4958,7 +4964,9 @@ void JobSchedule::Clear() {
   (void) cached_has_bits;
 
   cron_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  interval_ = 0u;
+  ::memset(&interval_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&repeated_) -
+      reinterpret_cast<char*>(&interval_)) + sizeof(repeated_));
   _internal_metadata_.Clear();
 }
 
@@ -4980,6 +4988,13 @@ const char* JobSchedule::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           interval_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 repeated = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          repeated_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5021,6 +5036,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_interval(), target);
   }
 
+  // uint32 repeated = 3;
+  if (this->repeated() != 0) {
+    stream->EnsureSpace(&target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_repeated(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -5049,6 +5070,13 @@ size_t JobSchedule::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_interval());
+  }
+
+  // uint32 repeated = 3;
+  if (this->repeated() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_repeated());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5089,6 +5117,9 @@ void JobSchedule::MergeFrom(const JobSchedule& from) {
   if (from.interval() != 0) {
     _internal_set_interval(from._internal_interval());
   }
+  if (from.repeated() != 0) {
+    _internal_set_repeated(from._internal_repeated());
+  }
 }
 
 void JobSchedule::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -5115,6 +5146,7 @@ void JobSchedule::InternalSwap(JobSchedule* other) {
   cron_.Swap(&other->cron_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(interval_, other->interval_);
+  swap(repeated_, other->repeated_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata JobSchedule::GetMetadata() const {
