@@ -552,8 +552,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_fk_2ddata_2eproto::offsets[] P
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::fk_data::Firmware, git_),
+  PROTOBUF_FIELD_OFFSET(::fk_data::Firmware, version_),
   PROTOBUF_FIELD_OFFSET(::fk_data::Firmware, build_),
+  PROTOBUF_FIELD_OFFSET(::fk_data::Firmware, number_),
+  PROTOBUF_FIELD_OFFSET(::fk_data::Firmware, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::fk_data::Firmware, hash_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::fk_data::Metadata, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -714,21 +717,21 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 46, -1, sizeof(::fk_data::ModuleInfo)},
   { 59, -1, sizeof(::fk_data::SensorInfo)},
   { 68, -1, sizeof(::fk_data::Firmware)},
-  { 75, -1, sizeof(::fk_data::Metadata)},
-  { 89, -1, sizeof(::fk_data::Status)},
-  { 99, -1, sizeof(::fk_data::LogMessage)},
-  { 109, -1, sizeof(::fk_data::SensorGroup)},
-  { 116, -1, sizeof(::fk_data::Readings)},
-  { 128, -1, sizeof(::fk_data::JobSchedule)},
-  { 136, -1, sizeof(::fk_data::Schedule)},
-  { 145, -1, sizeof(::fk_data::Identity)},
-  { 151, -1, sizeof(::fk_data::Condition)},
-  { 158, -1, sizeof(::fk_data::NetworkInfo)},
-  { 165, -1, sizeof(::fk_data::NetworkSettings)},
-  { 171, -1, sizeof(::fk_data::LoraSettings)},
-  { 185, -1, sizeof(::fk_data::DataRecord)},
-  { 203, -1, sizeof(::fk_data::SignedRecord)},
-  { 213, -1, sizeof(::fk_data::LoraRecord)},
+  { 78, -1, sizeof(::fk_data::Metadata)},
+  { 92, -1, sizeof(::fk_data::Status)},
+  { 102, -1, sizeof(::fk_data::LogMessage)},
+  { 112, -1, sizeof(::fk_data::SensorGroup)},
+  { 119, -1, sizeof(::fk_data::Readings)},
+  { 131, -1, sizeof(::fk_data::JobSchedule)},
+  { 139, -1, sizeof(::fk_data::Schedule)},
+  { 148, -1, sizeof(::fk_data::Identity)},
+  { 154, -1, sizeof(::fk_data::Condition)},
+  { 161, -1, sizeof(::fk_data::NetworkInfo)},
+  { 168, -1, sizeof(::fk_data::NetworkSettings)},
+  { 174, -1, sizeof(::fk_data::LoraSettings)},
+  { 188, -1, sizeof(::fk_data::DataRecord)},
+  { 206, -1, sizeof(::fk_data::SignedRecord)},
+  { 216, -1, sizeof(::fk_data::LoraRecord)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -778,68 +781,69 @@ const char descriptor_table_protodef_fk_2ddata_2eproto[] PROTOBUF_SECTION_VARIAB
   "SensorInfo\022\n\n\002id\030\007 \001(\014\022\r\n\005flags\030\010 \001(\r\"P\n"
   "\nSensorInfo\022\016\n\006number\030\001 \001(\r\022\014\n\004name\030\002 \001("
   "\t\022\025\n\runitOfMeasure\030\003 \001(\t\022\r\n\005flags\030\004 \001(\r\""
-  "&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030\002 \001(\t\""
-  "\337\001\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002"
-  " \001(\003\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nrese"
-  "tCause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk_data."
-  "SensorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_data.Mo"
-  "duleInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_data.Fir"
-  "mware\022\022\n\ngeneration\030\t \001(\014\"U\n\006Status\022\014\n\004t"
-  "ime\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001"
-  "(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogM"
-  "essage\022\014\n\004time\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\r\n\005"
-  "level\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message"
-  "\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n"
-  "\010readings\030\002 \003(\0132\027.fk_data.SensorAndValue"
-  "\"\255\001\n\010Readings\022\014\n\004time\030\001 \001(\003\022\017\n\007reading\030\002"
-  " \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022\016\n\006upt"
-  "ime\030\007 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.De"
-  "viceLocation\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_"
-  "data.SensorGroup\"\?\n\013JobSchedule\022\014\n\004cron\030"
-  "\001 \001(\014\022\020\n\010interval\030\002 \001(\r\022\020\n\010repeated\030\003 \001("
-  "\r\"\240\001\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024.fk_da"
-  "ta.JobSchedule\022%\n\007network\030\002 \001(\0132\024.fk_dat"
-  "a.JobSchedule\022\"\n\004lora\030\003 \001(\0132\024.fk_data.Jo"
-  "bSchedule\022!\n\003gps\030\004 \001(\0132\024.fk_data.JobSche"
-  "dule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\tCondit"
-  "ion\022\r\n\005flags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n"
-  "\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002"
-  " \001(\t\"9\n\017NetworkSettings\022&\n\010networks\030\001 \003("
-  "\0132\024.fk_data.NetworkInfo\"\321\001\n\014LoraSettings"
-  "\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006a"
-  "ppEui\030\003 \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\022\025\n\rde"
-  "viceAddress\030\005 \001(\014\022\031\n\021networkSessionKey\030\006"
-  " \001(\014\022\025\n\rappSessionKey\030\007 \001(\014\022\025\n\ruplinkCou"
-  "nter\030\010 \001(\r\022\027\n\017downlinkCounter\030\t \001(\r\"\340\003\n\n"
-  "DataRecord\022-\n\rloggedReading\030\001 \001(\0132\026.fk_d"
-  "ata.LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.fk"
-  "_data.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.Lo"
-  "gMessage\022!\n\004logs\030\r \003(\0132\023.fk_data.LogMess"
-  "age\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n\010"
-  "readings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007mod"
-  "ules\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010sched"
-  "ule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001"
-  "(\004\022#\n\010identity\030\t \001(\0132\021.fk_data.Identity\022"
-  "%\n\tcondition\030\n \001(\0132\022.fk_data.Condition\022#"
-  "\n\004lora\030\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007n"
-  "etwork\030\014 \001(\0132\030.fk_data.NetworkSettings\"q"
-  "\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.S"
-  "ignedRecordKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 "
-  "\001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLor"
-  "aRecord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022"
-  "\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006senso"
-  "r\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n"
-  "\rDownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037"
-  "\n\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READI"
-  "NG_FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024C"
-  "ONDITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS"
-  "_RECORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIG"
-  "NED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_"
-  "KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCH"
-  "EDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n"
-  "\034SIGNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNE"
-  "D_RECORD_KIND_OTHER\020\377\001B\026\n\024org.fieldkit.d"
-  "ata.pbb\006proto3"
+  "[\n\010Firmware\022\017\n\007version\030\001 \001(\t\022\r\n\005build\030\002 "
+  "\001(\t\022\016\n\006number\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\004\022\014"
+  "\n\004hash\030\005 \001(\t\"\337\001\n\010Metadata\022\020\n\010deviceId\030\001 "
+  "\001(\014\022\014\n\004time\030\002 \001(\003\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030"
+  "\007 \001(\t\022\022\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030\005 \003"
+  "(\0132\023.fk_data.SensorInfo\022$\n\007modules\030\006 \003(\013"
+  "2\023.fk_data.ModuleInfo\022#\n\010firmware\030\010 \001(\0132"
+  "\021.fk_data.Firmware\022\022\n\ngeneration\030\t \001(\014\"U"
+  "\n\006Status\022\014\n\004time\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\017"
+  "\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030"
+  "\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\003\022\016\n\006upt"
+  "ime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030\004 \001"
+  "(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006mo"
+  "dule\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_data.S"
+  "ensorAndValue\"\255\001\n\010Readings\022\014\n\004time\030\001 \001(\003"
+  "\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta"
+  "\030\006 \001(\r\022\016\n\006uptime\030\007 \001(\r\022)\n\010location\030\004 \001(\013"
+  "2\027.fk_data.DeviceLocation\022*\n\014sensorGroup"
+  "s\030\005 \003(\0132\024.fk_data.SensorGroup\"\?\n\013JobSche"
+  "dule\022\014\n\004cron\030\001 \001(\014\022\020\n\010interval\030\002 \001(\r\022\020\n\010"
+  "repeated\030\003 \001(\r\"\240\001\n\010Schedule\022&\n\010readings\030"
+  "\001 \001(\0132\024.fk_data.JobSchedule\022%\n\007network\030\002"
+  " \001(\0132\024.fk_data.JobSchedule\022\"\n\004lora\030\003 \001(\013"
+  "2\024.fk_data.JobSchedule\022!\n\003gps\030\004 \001(\0132\024.fk"
+  "_data.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 "
+  "\001(\t\"-\n\tCondition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecor"
+  "ding\030\002 \001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022"
+  "\020\n\010password\030\002 \001(\t\"9\n\017NetworkSettings\022&\n\010"
+  "networks\030\001 \003(\0132\024.fk_data.NetworkInfo\"\321\001\n"
+  "\014LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appK"
+  "ey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBan"
+  "d\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(\014\022\031\n\021networ"
+  "kSessionKey\030\006 \001(\014\022\025\n\rappSessionKey\030\007 \001(\014"
+  "\022\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017downlinkCount"
+  "er\030\t \001(\r\"\340\003\n\nDataRecord\022-\n\rloggedReading"
+  "\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metada"
+  "ta\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\013"
+  "2\023.fk_data.LogMessage\022!\n\004logs\030\r \003(\0132\023.fk"
+  "_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_da"
+  "ta.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data.Re"
+  "adings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Module"
+  "Info\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Schedul"
+  "e\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_d"
+  "ata.Identity\022%\n\tcondition\030\n \001(\0132\022.fk_dat"
+  "a.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_data.Lora"
+  "Settings\022)\n\007network\030\014 \001(\0132\030.fk_data.Netw"
+  "orkSettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001("
+  "\0162\031.fk_data.SignedRecordKind\022\014\n\004time\030\002 \001"
+  "(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record"
+  "\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014\022\014"
+  "\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004"
+  " \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004"
+  "data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING_F"
+  "LAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDI"
+  "NG\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Condit"
+  "ionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CO"
+  "NDITION_FLAGS_RECORDING\020\001*\317\001\n\020SignedReco"
+  "rdKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032S"
+  "IGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RE"
+  "CORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KI"
+  "ND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_STA"
+  "TE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001B\026\n\024o"
+  "rg.fieldkit.data.pbb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_fk_2ddata_2eproto_deps[1] = {
 };
@@ -871,7 +875,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_fk_
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_fk_2ddata_2eproto_once;
 static bool descriptor_table_fk_2ddata_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_fk_2ddata_2eproto = {
-  &descriptor_table_fk_2ddata_2eproto_initialized, descriptor_table_protodef_fk_2ddata_2eproto, "fk-data.proto", 3254,
+  &descriptor_table_fk_2ddata_2eproto_initialized, descriptor_table_protodef_fk_2ddata_2eproto, "fk-data.proto", 3307,
   &descriptor_table_fk_2ddata_2eproto_once, descriptor_table_fk_2ddata_2eproto_sccs, descriptor_table_fk_2ddata_2eproto_deps, 23, 0,
   schemas, file_default_instances, TableStruct_fk_2ddata_2eproto::offsets,
   file_level_metadata_fk_2ddata_2eproto, 23, file_level_enum_descriptors_fk_2ddata_2eproto, file_level_service_descriptors_fk_2ddata_2eproto,
@@ -1081,7 +1085,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DeviceLocation::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* DeviceLocation::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.DeviceLocation)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1089,31 +1093,31 @@ failure:
 
   // uint32 fix = 1;
   if (this->fix() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_fix(), target);
   }
 
   // int64 time = 2;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_time(), target);
   }
 
   // float longitude = 3;
   if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_longitude(), target);
   }
 
   // float latitude = 4;
   if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_latitude(), target);
   }
 
   // float altitude = 5;
   if (!(this->altitude() <= 0 && this->altitude() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_altitude(), target);
   }
 
@@ -1124,19 +1128,19 @@ failure:
 
   // uint32 enabled = 7;
   if (this->enabled() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_enabled(), target);
   }
 
   // uint32 satellites = 8;
   if (this->satellites() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_satellites(), target);
   }
 
   // uint32 hdop = 9;
   if (this->hdop() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_hdop(), target);
   }
 
@@ -1429,7 +1433,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SensorReading::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* SensorReading::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.SensorReading)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1437,25 +1441,25 @@ failure:
 
   // uint32 reading = 1;
   if (this->reading() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_reading(), target);
   }
 
   // int64 time = 2;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_time(), target);
   }
 
   // uint32 sensor = 3;
   if (this->sensor() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_sensor(), target);
   }
 
   // float value = 4;
   if (!(this->value() <= 0 && this->value() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_value(), target);
   }
 
@@ -1715,7 +1719,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* LoggedReading::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* LoggedReading::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.LoggedReading)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1723,23 +1727,23 @@ failure:
 
   // uint32 version = 1;
   if (this->version() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_version(), target);
   }
 
   // .fk_data.DeviceLocation location = 2;
   if (this->has_location()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         2, _Internal::location(this), target, stream);
   }
 
   // .fk_data.SensorReading reading = 3;
   if (this->has_reading()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         3, _Internal::reading(this), target, stream);
   }
 
@@ -1952,7 +1956,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SensorAndValue::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* SensorAndValue::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.SensorAndValue)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1960,13 +1964,13 @@ failure:
 
   // uint32 sensor = 1;
   if (this->sensor() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_sensor(), target);
   }
 
   // float value = 2;
   if (!(this->value() <= 0 && this->value() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_value(), target);
   }
 
@@ -2173,7 +2177,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModuleHeader::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* ModuleHeader::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.ModuleHeader)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -2181,19 +2185,19 @@ failure:
 
   // uint32 manufacturer = 1;
   if (this->manufacturer() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_manufacturer(), target);
   }
 
   // uint32 kind = 2;
   if (this->kind() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_kind(), target);
   }
 
   // uint32 version = 3;
   if (this->version() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_version(), target);
   }
 
@@ -2440,7 +2444,9 @@ const char* ModuleInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       // string name = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_name(), ptr, ctx, "fk_data.ModuleInfo.name");
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.ModuleInfo.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2473,7 +2479,8 @@ const char* ModuleInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       // bytes id = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_id(), ptr, ctx);
+          auto str = _internal_mutable_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2504,7 +2511,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModuleInfo::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* ModuleInfo::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.ModuleInfo)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -2512,13 +2519,13 @@ failure:
 
   // uint32 position = 1;
   if (this->position() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_position(), target);
   }
 
   // uint32 address = 2;
   if (this->address() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_address(), target);
   }
 
@@ -2534,26 +2541,26 @@ failure:
 
   // .fk_data.ModuleHeader header = 4;
   if (this->has_header()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         4, _Internal::header(this), target, stream);
   }
 
   // .fk_data.Firmware firmware = 5;
   if (this->has_firmware()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         5, _Internal::firmware(this), target, stream);
   }
 
   // repeated .fk_data.SensorInfo sensors = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_sensors_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(6, this->_internal_sensors(i), target, stream);
+      InternalWriteMessage(6, this->_internal_sensors(i), target, stream);
   }
 
   // bytes id = 7;
@@ -2564,7 +2571,7 @@ failure:
 
   // uint32 flags = 8;
   if (this->flags() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_flags(), target);
   }
 
@@ -2825,14 +2832,18 @@ const char* SensorInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       // string name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_name(), ptr, ctx, "fk_data.SensorInfo.name");
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.SensorInfo.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string unitOfMeasure = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_unitofmeasure(), ptr, ctx, "fk_data.SensorInfo.unitOfMeasure");
+          auto str = _internal_mutable_unitofmeasure();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.SensorInfo.unitOfMeasure"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2863,7 +2874,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SensorInfo::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* SensorInfo::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.SensorInfo)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -2871,7 +2882,7 @@ failure:
 
   // uint32 number = 1;
   if (this->number() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_number(), target);
   }
 
@@ -2897,7 +2908,7 @@ failure:
 
   // uint32 flags = 4;
   if (this->flags() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_flags(), target);
   }
 
@@ -3043,21 +3054,33 @@ Firmware::Firmware(const Firmware& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  git_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_git().empty()) {
-    git_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.git_);
+  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_version().empty()) {
+    version_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.version_);
   }
   build_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_build().empty()) {
     build_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.build_);
   }
+  number_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_number().empty()) {
+    number_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.number_);
+  }
+  hash_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_hash().empty()) {
+    hash_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.hash_);
+  }
+  timestamp_ = from.timestamp_;
   // @@protoc_insertion_point(copy_constructor:fk_data.Firmware)
 }
 
 void Firmware::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Firmware_fk_2ddata_2eproto.base);
-  git_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   build_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  number_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  hash_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  timestamp_ = PROTOBUF_ULONGLONG(0);
 }
 
 Firmware::~Firmware() {
@@ -3066,8 +3089,10 @@ Firmware::~Firmware() {
 }
 
 void Firmware::SharedDtor() {
-  git_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   build_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  number_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  hash_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void Firmware::SetCachedSize(int size) const {
@@ -3085,8 +3110,11 @@ void Firmware::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  git_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   build_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  number_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  hash_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  timestamp_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
 
@@ -3097,17 +3125,46 @@ const char* Firmware::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string git = 1;
+      // string version = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_git(), ptr, ctx, "fk_data.Firmware.git");
+          auto str = _internal_mutable_version();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.Firmware.version"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string build = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_build(), ptr, ctx, "fk_data.Firmware.build");
+          auto str = _internal_mutable_build();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.Firmware.build"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string number = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_number();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.Firmware.number"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 timestamp = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string hash = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_hash();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.Firmware.hash"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3131,20 +3188,20 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Firmware::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* Firmware::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.Firmware)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string git = 1;
-  if (this->git().size() > 0) {
+  // string version = 1;
+  if (this->version().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_git().data(), static_cast<int>(this->_internal_git().length()),
+      this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "fk_data.Firmware.git");
+      "fk_data.Firmware.version");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_git(), target);
+        1, this->_internal_version(), target);
   }
 
   // string build = 2;
@@ -3155,6 +3212,32 @@ failure:
       "fk_data.Firmware.build");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_build(), target);
+  }
+
+  // string number = 3;
+  if (this->number().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_number().data(), static_cast<int>(this->_internal_number().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "fk_data.Firmware.number");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_number(), target);
+  }
+
+  // uint64 timestamp = 4;
+  if (this->timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_timestamp(), target);
+  }
+
+  // string hash = 5;
+  if (this->hash().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_hash().data(), static_cast<int>(this->_internal_hash().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "fk_data.Firmware.hash");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_hash(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3173,11 +3256,11 @@ size_t Firmware::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string git = 1;
-  if (this->git().size() > 0) {
+  // string version = 1;
+  if (this->version().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_git());
+        this->_internal_version());
   }
 
   // string build = 2;
@@ -3185,6 +3268,27 @@ size_t Firmware::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_build());
+  }
+
+  // string number = 3;
+  if (this->number().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_number());
+  }
+
+  // string hash = 5;
+  if (this->hash().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_hash());
+  }
+
+  // uint64 timestamp = 4;
+  if (this->timestamp() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_timestamp());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3218,13 +3322,24 @@ void Firmware::MergeFrom(const Firmware& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.git().size() > 0) {
+  if (from.version().size() > 0) {
 
-    git_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.git_);
+    version_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.version_);
   }
   if (from.build().size() > 0) {
 
     build_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.build_);
+  }
+  if (from.number().size() > 0) {
+
+    number_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.number_);
+  }
+  if (from.hash().size() > 0) {
+
+    hash_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.hash_);
+  }
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
   }
 }
 
@@ -3249,10 +3364,15 @@ bool Firmware::IsInitialized() const {
 void Firmware::InternalSwap(Firmware* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  git_.Swap(&other->git_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   build_.Swap(&other->build_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  number_.Swap(&other->number_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  hash_.Swap(&other->hash_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(timestamp_, other->timestamp_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Firmware::GetMetadata() const {
@@ -3378,7 +3498,8 @@ const char* Metadata::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       // bytes deviceId = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_deviceid(), ptr, ctx);
+          auto str = _internal_mutable_deviceid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3392,7 +3513,9 @@ const char* Metadata::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       // string git = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_git(), ptr, ctx, "fk_data.Metadata.git");
+          auto str = _internal_mutable_git();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.Metadata.git"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3430,7 +3553,9 @@ const char* Metadata::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       // string build = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_build(), ptr, ctx, "fk_data.Metadata.build");
+          auto str = _internal_mutable_build();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.Metadata.build"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3444,7 +3569,8 @@ const char* Metadata::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       // bytes generation = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_generation(), ptr, ctx);
+          auto str = _internal_mutable_generation();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3468,7 +3594,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Metadata::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* Metadata::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.Metadata)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -3482,7 +3608,7 @@ failure:
 
   // int64 time = 2;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_time(), target);
   }
 
@@ -3498,24 +3624,24 @@ failure:
 
   // uint32 resetCause = 4;
   if (this->resetcause() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_resetcause(), target);
   }
 
   // repeated .fk_data.SensorInfo sensors = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_sensors_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(5, this->_internal_sensors(i), target, stream);
+      InternalWriteMessage(5, this->_internal_sensors(i), target, stream);
   }
 
   // repeated .fk_data.ModuleInfo modules = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_modules_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(6, this->_internal_modules(i), target, stream);
+      InternalWriteMessage(6, this->_internal_modules(i), target, stream);
   }
 
   // string build = 7;
@@ -3530,9 +3656,9 @@ failure:
 
   // .fk_data.Firmware firmware = 8;
   if (this->has_firmware()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         8, _Internal::firmware(this), target, stream);
   }
 
@@ -3842,7 +3968,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Status::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* Status::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.Status)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -3850,31 +3976,31 @@ failure:
 
   // int64 time = 1;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_time(), target);
   }
 
   // uint32 uptime = 2;
   if (this->uptime() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_uptime(), target);
   }
 
   // float battery = 3;
   if (!(this->battery() <= 0 && this->battery() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_battery(), target);
   }
 
   // uint32 memory = 4;
   if (this->memory() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_memory(), target);
   }
 
   // uint64 busy = 5;
   if (this->busy() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_busy(), target);
   }
 
@@ -4112,14 +4238,18 @@ const char* LogMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       // string facility = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_facility(), ptr, ctx, "fk_data.LogMessage.facility");
+          auto str = _internal_mutable_facility();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.LogMessage.facility"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string message = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_message(), ptr, ctx, "fk_data.LogMessage.message");
+          auto str = _internal_mutable_message();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.LogMessage.message"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4143,7 +4273,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* LogMessage::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* LogMessage::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.LogMessage)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -4151,19 +4281,19 @@ failure:
 
   // int64 time = 1;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_time(), target);
   }
 
   // uint32 uptime = 2;
   if (this->uptime() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_uptime(), target);
   }
 
   // uint32 level = 3;
   if (this->level() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_level(), target);
   }
 
@@ -4424,7 +4554,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SensorGroup::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* SensorGroup::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.SensorGroup)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -4432,16 +4562,16 @@ failure:
 
   // uint32 module = 1;
   if (this->module() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_module(), target);
   }
 
   // repeated .fk_data.SensorAndValue readings = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_readings_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(2, this->_internal_readings(i), target, stream);
+      InternalWriteMessage(2, this->_internal_readings(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4700,7 +4830,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Readings::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* Readings::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.Readings)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -4708,47 +4838,47 @@ failure:
 
   // int64 time = 1;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_time(), target);
   }
 
   // uint32 reading = 2;
   if (this->reading() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_reading(), target);
   }
 
   // uint32 flags = 3;
   if (this->flags() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_flags(), target);
   }
 
   // .fk_data.DeviceLocation location = 4;
   if (this->has_location()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         4, _Internal::location(this), target, stream);
   }
 
   // repeated .fk_data.SensorGroup sensorGroups = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_sensorgroups_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(5, this->_internal_sensorgroups(i), target, stream);
+      InternalWriteMessage(5, this->_internal_sensorgroups(i), target, stream);
   }
 
   // uint32 meta = 6;
   if (this->meta() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_meta(), target);
   }
 
   // uint32 uptime = 7;
   if (this->uptime() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_uptime(), target);
   }
 
@@ -4980,7 +5110,8 @@ const char* JobSchedule::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // bytes cron = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_cron(), ptr, ctx);
+          auto str = _internal_mutable_cron();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5018,7 +5149,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* JobSchedule::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* JobSchedule::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.JobSchedule)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -5032,13 +5163,13 @@ failure:
 
   // uint32 interval = 2;
   if (this->interval() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_interval(), target);
   }
 
   // uint32 repeated = 3;
   if (this->repeated() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_repeated(), target);
   }
 
@@ -5330,7 +5461,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Schedule::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* Schedule::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.Schedule)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -5338,33 +5469,33 @@ failure:
 
   // .fk_data.JobSchedule readings = 1;
   if (this->has_readings()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         1, _Internal::readings(this), target, stream);
   }
 
   // .fk_data.JobSchedule network = 2;
   if (this->has_network()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         2, _Internal::network(this), target, stream);
   }
 
   // .fk_data.JobSchedule lora = 3;
   if (this->has_lora()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         3, _Internal::lora(this), target, stream);
   }
 
   // .fk_data.JobSchedule gps = 4;
   if (this->has_gps()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         4, _Internal::gps(this), target, stream);
   }
 
@@ -5556,7 +5687,9 @@ const char* Identity::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       // string name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_name(), ptr, ctx, "fk_data.Identity.name");
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.Identity.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5580,7 +5713,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Identity::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* Identity::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.Identity)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -5785,7 +5918,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Condition::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* Condition::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.Condition)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -5793,13 +5926,13 @@ failure:
 
   // uint32 flags = 1;
   if (this->flags() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_flags(), target);
   }
 
   // uint32 recording = 2;
   if (this->recording() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_recording(), target);
   }
 
@@ -5976,14 +6109,18 @@ const char* NetworkInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       // string ssid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_ssid(), ptr, ctx, "fk_data.NetworkInfo.ssid");
+          auto str = _internal_mutable_ssid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.NetworkInfo.ssid"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string password = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_password(), ptr, ctx, "fk_data.NetworkInfo.password");
+          auto str = _internal_mutable_password();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "fk_data.NetworkInfo.password"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6007,7 +6144,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* NetworkInfo::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* NetworkInfo::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.NetworkInfo)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -6227,7 +6364,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* NetworkSettings::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* NetworkSettings::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.NetworkSettings)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -6236,9 +6373,9 @@ failure:
   // repeated .fk_data.NetworkInfo networks = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_networks_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(1, this->_internal_networks(i), target, stream);
+      InternalWriteMessage(1, this->_internal_networks(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6438,21 +6575,24 @@ const char* LoraSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       // bytes deviceEui = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_deviceeui(), ptr, ctx);
+          auto str = _internal_mutable_deviceeui();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // bytes appKey = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_appkey(), ptr, ctx);
+          auto str = _internal_mutable_appkey();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // bytes appEui = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_appeui(), ptr, ctx);
+          auto str = _internal_mutable_appeui();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6466,21 +6606,24 @@ const char* LoraSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       // bytes deviceAddress = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_deviceaddress(), ptr, ctx);
+          auto str = _internal_mutable_deviceaddress();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // bytes networkSessionKey = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_networksessionkey(), ptr, ctx);
+          auto str = _internal_mutable_networksessionkey();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // bytes appSessionKey = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_appsessionkey(), ptr, ctx);
+          auto str = _internal_mutable_appsessionkey();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6518,7 +6661,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* LoraSettings::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* LoraSettings::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.LoraSettings)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -6544,7 +6687,7 @@ failure:
 
   // uint32 frequencyBand = 4;
   if (this->frequencyband() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_frequencyband(), target);
   }
 
@@ -6568,13 +6711,13 @@ failure:
 
   // uint32 uplinkCounter = 8;
   if (this->uplinkcounter() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_uplinkcounter(), target);
   }
 
   // uint32 downlinkCounter = 9;
   if (this->downlinkcounter() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_downlinkcounter(), target);
   }
 
@@ -7123,7 +7266,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DataRecord::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* DataRecord::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.DataRecord)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -7131,104 +7274,104 @@ failure:
 
   // .fk_data.LoggedReading loggedReading = 1;
   if (this->has_loggedreading()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         1, _Internal::loggedreading(this), target, stream);
   }
 
   // .fk_data.Metadata metadata = 2;
   if (this->has_metadata()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         2, _Internal::metadata(this), target, stream);
   }
 
   // .fk_data.LogMessage log = 3;
   if (this->has_log()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         3, _Internal::log(this), target, stream);
   }
 
   // .fk_data.Status status = 4;
   if (this->has_status()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         4, _Internal::status(this), target, stream);
   }
 
   // .fk_data.Readings readings = 5;
   if (this->has_readings()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         5, _Internal::readings(this), target, stream);
   }
 
   // repeated .fk_data.ModuleInfo modules = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_modules_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(6, this->_internal_modules(i), target, stream);
+      InternalWriteMessage(6, this->_internal_modules(i), target, stream);
   }
 
   // .fk_data.Schedule schedule = 7;
   if (this->has_schedule()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         7, _Internal::schedule(this), target, stream);
   }
 
   // uint64 meta = 8;
   if (this->meta() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(8, this->_internal_meta(), target);
   }
 
   // .fk_data.Identity identity = 9;
   if (this->has_identity()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         9, _Internal::identity(this), target, stream);
   }
 
   // .fk_data.Condition condition = 10;
   if (this->has_condition()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         10, _Internal::condition(this), target, stream);
   }
 
   // .fk_data.LoraSettings lora = 11;
   if (this->has_lora()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         11, _Internal::lora(this), target, stream);
   }
 
   // .fk_data.NetworkSettings network = 12;
   if (this->has_network()) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(
+      InternalWriteMessage(
         12, _Internal::network(this), target, stream);
   }
 
   // repeated .fk_data.LogMessage logs = 13;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_logs_size()); i < n; i++) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessageToArray(13, this->_internal_logs(i), target, stream);
+      InternalWriteMessage(13, this->_internal_logs(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7545,14 +7688,16 @@ const char* SignedRecord::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       // bytes data = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_data(), ptr, ctx);
+          auto str = _internal_mutable_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // bytes hash = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_hash(), ptr, ctx);
+          auto str = _internal_mutable_hash();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -7583,7 +7728,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SignedRecord::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* SignedRecord::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.SignedRecord)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -7591,14 +7736,14 @@ failure:
 
   // .fk_data.SignedRecordKind kind = 1;
   if (this->kind() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_kind(), target);
   }
 
   // int64 time = 2;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_time(), target);
   }
 
@@ -7616,7 +7761,7 @@ failure:
 
   // uint64 record = 5;
   if (this->record() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_record(), target);
   }
 
@@ -7840,7 +7985,8 @@ const char* LoraRecord::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       // bytes deviceId = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_deviceid(), ptr, ctx);
+          auto str = _internal_mutable_deviceid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -7885,7 +8031,8 @@ const char* LoraRecord::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       // bytes data = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_data(), ptr, ctx);
+          auto str = _internal_mutable_data();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -7909,7 +8056,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* LoraRecord::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* LoraRecord::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:fk_data.LoraRecord)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -7923,25 +8070,25 @@ failure:
 
   // int64 time = 2;
   if (this->time() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_time(), target);
   }
 
   // uint64 number = 3;
   if (this->number() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_number(), target);
   }
 
   // uint32 module = 4;
   if (this->module() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_module(), target);
   }
 
   // uint64 sensor = 5;
   if (this->sensor() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_sensor(), target);
   }
 

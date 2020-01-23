@@ -57,8 +57,11 @@ message SensorInfo {
 }
 
 message Firmware {
-  string git = 1;
+  string version = 1;
   string build = 2;
+  string number = 3;
+  uint64 timestamp = 4;
+  string hash = 5;
 }
 
 message Metadata {

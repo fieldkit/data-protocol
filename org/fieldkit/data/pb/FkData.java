@@ -6757,16 +6757,16 @@ public final class FkData {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string git = 1;</code>
-     * @return The git.
+     * <code>string version = 1;</code>
+     * @return The version.
      */
-    java.lang.String getGit();
+    java.lang.String getVersion();
     /**
-     * <code>string git = 1;</code>
-     * @return The bytes for git.
+     * <code>string version = 1;</code>
+     * @return The bytes for version.
      */
     com.google.protobuf.ByteString
-        getGitBytes();
+        getVersionBytes();
 
     /**
      * <code>string build = 2;</code>
@@ -6779,6 +6779,36 @@ public final class FkData {
      */
     com.google.protobuf.ByteString
         getBuildBytes();
+
+    /**
+     * <code>string number = 3;</code>
+     * @return The number.
+     */
+    java.lang.String getNumber();
+    /**
+     * <code>string number = 3;</code>
+     * @return The bytes for number.
+     */
+    com.google.protobuf.ByteString
+        getNumberBytes();
+
+    /**
+     * <code>uint64 timestamp = 4;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>string hash = 5;</code>
+     * @return The hash.
+     */
+    java.lang.String getHash();
+    /**
+     * <code>string hash = 5;</code>
+     * @return The bytes for hash.
+     */
+    com.google.protobuf.ByteString
+        getHashBytes();
   }
   /**
    * Protobuf type {@code fk_data.Firmware}
@@ -6793,8 +6823,10 @@ public final class FkData {
       super(builder);
     }
     private Firmware() {
-      git_ = "";
+      version_ = "";
       build_ = "";
+      number_ = "";
+      hash_ = "";
     }
 
     @java.lang.Override
@@ -6830,13 +6862,30 @@ public final class FkData {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              git_ = s;
+              version_ = s;
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               build_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              number_ = s;
+              break;
+            }
+            case 32: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hash_ = s;
               break;
             }
             default: {
@@ -6871,36 +6920,36 @@ public final class FkData {
               org.fieldkit.data.pb.FkData.Firmware.class, org.fieldkit.data.pb.FkData.Firmware.Builder.class);
     }
 
-    public static final int GIT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object git_;
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private volatile java.lang.Object version_;
     /**
-     * <code>string git = 1;</code>
-     * @return The git.
+     * <code>string version = 1;</code>
+     * @return The version.
      */
-    public java.lang.String getGit() {
-      java.lang.Object ref = git_;
+    public java.lang.String getVersion() {
+      java.lang.Object ref = version_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        git_ = s;
+        version_ = s;
         return s;
       }
     }
     /**
-     * <code>string git = 1;</code>
-     * @return The bytes for git.
+     * <code>string version = 1;</code>
+     * @return The bytes for version.
      */
     public com.google.protobuf.ByteString
-        getGitBytes() {
-      java.lang.Object ref = git_;
+        getVersionBytes() {
+      java.lang.Object ref = version_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        git_ = b;
+        version_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -6943,6 +6992,88 @@ public final class FkData {
       }
     }
 
+    public static final int NUMBER_FIELD_NUMBER = 3;
+    private volatile java.lang.Object number_;
+    /**
+     * <code>string number = 3;</code>
+     * @return The number.
+     */
+    public java.lang.String getNumber() {
+      java.lang.Object ref = number_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        number_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string number = 3;</code>
+     * @return The bytes for number.
+     */
+    public com.google.protobuf.ByteString
+        getNumberBytes() {
+      java.lang.Object ref = number_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        number_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 4;
+    private long timestamp_;
+    /**
+     * <code>uint64 timestamp = 4;</code>
+     * @return The timestamp.
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int HASH_FIELD_NUMBER = 5;
+    private volatile java.lang.Object hash_;
+    /**
+     * <code>string hash = 5;</code>
+     * @return The hash.
+     */
+    public java.lang.String getHash() {
+      java.lang.Object ref = hash_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hash_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string hash = 5;</code>
+     * @return The bytes for hash.
+     */
+    public com.google.protobuf.ByteString
+        getHashBytes() {
+      java.lang.Object ref = hash_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hash_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6957,11 +7088,20 @@ public final class FkData {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getGitBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, git_);
+      if (!getVersionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, version_);
       }
       if (!getBuildBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, build_);
+      }
+      if (!getNumberBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, number_);
+      }
+      if (timestamp_ != 0L) {
+        output.writeUInt64(4, timestamp_);
+      }
+      if (!getHashBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, hash_);
       }
       unknownFields.writeTo(output);
     }
@@ -6972,11 +7112,21 @@ public final class FkData {
       if (size != -1) return size;
 
       size = 0;
-      if (!getGitBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, git_);
+      if (!getVersionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, version_);
       }
       if (!getBuildBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, build_);
+      }
+      if (!getNumberBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, number_);
+      }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, timestamp_);
+      }
+      if (!getHashBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, hash_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6993,10 +7143,16 @@ public final class FkData {
       }
       org.fieldkit.data.pb.FkData.Firmware other = (org.fieldkit.data.pb.FkData.Firmware) obj;
 
-      if (!getGit()
-          .equals(other.getGit())) return false;
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
       if (!getBuild()
           .equals(other.getBuild())) return false;
+      if (!getNumber()
+          .equals(other.getNumber())) return false;
+      if (getTimestamp()
+          != other.getTimestamp()) return false;
+      if (!getHash()
+          .equals(other.getHash())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7008,10 +7164,17 @@ public final class FkData {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + GIT_FIELD_NUMBER;
-      hash = (53 * hash) + getGit().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
       hash = (37 * hash) + BUILD_FIELD_NUMBER;
       hash = (53 * hash) + getBuild().hashCode();
+      hash = (37 * hash) + NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getNumber().hashCode();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
+      hash = (37 * hash) + HASH_FIELD_NUMBER;
+      hash = (53 * hash) + getHash().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7145,9 +7308,15 @@ public final class FkData {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        git_ = "";
+        version_ = "";
 
         build_ = "";
+
+        number_ = "";
+
+        timestamp_ = 0L;
+
+        hash_ = "";
 
         return this;
       }
@@ -7175,8 +7344,11 @@ public final class FkData {
       @java.lang.Override
       public org.fieldkit.data.pb.FkData.Firmware buildPartial() {
         org.fieldkit.data.pb.FkData.Firmware result = new org.fieldkit.data.pb.FkData.Firmware(this);
-        result.git_ = git_;
+        result.version_ = version_;
         result.build_ = build_;
+        result.number_ = number_;
+        result.timestamp_ = timestamp_;
+        result.hash_ = hash_;
         onBuilt();
         return result;
       }
@@ -7225,12 +7397,23 @@ public final class FkData {
 
       public Builder mergeFrom(org.fieldkit.data.pb.FkData.Firmware other) {
         if (other == org.fieldkit.data.pb.FkData.Firmware.getDefaultInstance()) return this;
-        if (!other.getGit().isEmpty()) {
-          git_ = other.git_;
+        if (!other.getVersion().isEmpty()) {
+          version_ = other.version_;
           onChanged();
         }
         if (!other.getBuild().isEmpty()) {
           build_ = other.build_;
+          onChanged();
+        }
+        if (!other.getNumber().isEmpty()) {
+          number_ = other.number_;
+          onChanged();
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (!other.getHash().isEmpty()) {
+          hash_ = other.hash_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -7262,78 +7445,78 @@ public final class FkData {
         return this;
       }
 
-      private java.lang.Object git_ = "";
+      private java.lang.Object version_ = "";
       /**
-       * <code>string git = 1;</code>
-       * @return The git.
+       * <code>string version = 1;</code>
+       * @return The version.
        */
-      public java.lang.String getGit() {
-        java.lang.Object ref = git_;
+      public java.lang.String getVersion() {
+        java.lang.Object ref = version_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          git_ = s;
+          version_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string git = 1;</code>
-       * @return The bytes for git.
+       * <code>string version = 1;</code>
+       * @return The bytes for version.
        */
       public com.google.protobuf.ByteString
-          getGitBytes() {
-        java.lang.Object ref = git_;
+          getVersionBytes() {
+        java.lang.Object ref = version_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          git_ = b;
+          version_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string git = 1;</code>
-       * @param value The git to set.
+       * <code>string version = 1;</code>
+       * @param value The version to set.
        * @return This builder for chaining.
        */
-      public Builder setGit(
+      public Builder setVersion(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        git_ = value;
+        version_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string git = 1;</code>
+       * <code>string version = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearGit() {
+      public Builder clearVersion() {
         
-        git_ = getDefaultInstance().getGit();
+        version_ = getDefaultInstance().getVersion();
         onChanged();
         return this;
       }
       /**
-       * <code>string git = 1;</code>
-       * @param value The bytes for git to set.
+       * <code>string version = 1;</code>
+       * @param value The bytes for version to set.
        * @return This builder for chaining.
        */
-      public Builder setGitBytes(
+      public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        git_ = value;
+        version_ = value;
         onChanged();
         return this;
       }
@@ -7410,6 +7593,188 @@ public final class FkData {
   checkByteStringIsUtf8(value);
         
         build_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object number_ = "";
+      /**
+       * <code>string number = 3;</code>
+       * @return The number.
+       */
+      public java.lang.String getNumber() {
+        java.lang.Object ref = number_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          number_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string number = 3;</code>
+       * @return The bytes for number.
+       */
+      public com.google.protobuf.ByteString
+          getNumberBytes() {
+        java.lang.Object ref = number_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          number_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string number = 3;</code>
+       * @param value The number to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNumber(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string number = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNumber() {
+        
+        number_ = getDefaultInstance().getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string number = 3;</code>
+       * @param value The bytes for number to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNumberBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        number_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>uint64 timestamp = 4;</code>
+       * @return The timestamp.
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>uint64 timestamp = 4;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 timestamp = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object hash_ = "";
+      /**
+       * <code>string hash = 5;</code>
+       * @return The hash.
+       */
+      public java.lang.String getHash() {
+        java.lang.Object ref = hash_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hash_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string hash = 5;</code>
+       * @return The bytes for hash.
+       */
+      public com.google.protobuf.ByteString
+          getHashBytes() {
+        java.lang.Object ref = hash_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hash_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string hash = 5;</code>
+       * @param value The hash to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHash(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hash_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string hash = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHash() {
+        
+        hash_ = getDefaultInstance().getHash();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string hash = 5;</code>
+       * @param value The bytes for hash to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHashBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hash_ = value;
         onChanged();
         return this;
       }
@@ -23997,68 +24362,69 @@ public final class FkData {
       "SensorInfo\022\n\n\002id\030\007 \001(\014\022\r\n\005flags\030\010 \001(\r\"P\n" +
       "\nSensorInfo\022\016\n\006number\030\001 \001(\r\022\014\n\004name\030\002 \001(" +
       "\t\022\025\n\runitOfMeasure\030\003 \001(\t\022\r\n\005flags\030\004 \001(\r\"" +
-      "&\n\010Firmware\022\013\n\003git\030\001 \001(\t\022\r\n\005build\030\002 \001(\t\"" +
-      "\337\001\n\010Metadata\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002" +
-      " \001(\003\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030\007 \001(\t\022\022\n\nrese" +
-      "tCause\030\004 \001(\r\022$\n\007sensors\030\005 \003(\0132\023.fk_data." +
-      "SensorInfo\022$\n\007modules\030\006 \003(\0132\023.fk_data.Mo" +
-      "duleInfo\022#\n\010firmware\030\010 \001(\0132\021.fk_data.Fir" +
-      "mware\022\022\n\ngeneration\030\t \001(\014\"U\n\006Status\022\014\n\004t" +
-      "ime\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\017\n\007battery\030\003 \001" +
-      "(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030\005 \001(\004\"\\\n\nLogM" +
-      "essage\022\014\n\004time\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\r\n\005" +
-      "level\030\003 \001(\r\022\020\n\010facility\030\004 \001(\t\022\017\n\007message" +
-      "\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006module\030\001 \001(\r\022)\n" +
-      "\010readings\030\002 \003(\0132\027.fk_data.SensorAndValue" +
-      "\"\255\001\n\010Readings\022\014\n\004time\030\001 \001(\003\022\017\n\007reading\030\002" +
-      " \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta\030\006 \001(\r\022\016\n\006upt" +
-      "ime\030\007 \001(\r\022)\n\010location\030\004 \001(\0132\027.fk_data.De" +
-      "viceLocation\022*\n\014sensorGroups\030\005 \003(\0132\024.fk_" +
-      "data.SensorGroup\"?\n\013JobSchedule\022\014\n\004cron\030" +
-      "\001 \001(\014\022\020\n\010interval\030\002 \001(\r\022\020\n\010repeated\030\003 \001(" +
-      "\r\"\240\001\n\010Schedule\022&\n\010readings\030\001 \001(\0132\024.fk_da" +
-      "ta.JobSchedule\022%\n\007network\030\002 \001(\0132\024.fk_dat" +
-      "a.JobSchedule\022\"\n\004lora\030\003 \001(\0132\024.fk_data.Jo" +
-      "bSchedule\022!\n\003gps\030\004 \001(\0132\024.fk_data.JobSche" +
-      "dule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n\tCondit" +
-      "ion\022\r\n\005flags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n" +
-      "\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002" +
-      " \001(\t\"9\n\017NetworkSettings\022&\n\010networks\030\001 \003(" +
-      "\0132\024.fk_data.NetworkInfo\"\321\001\n\014LoraSettings" +
-      "\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006a" +
-      "ppEui\030\003 \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\022\025\n\rde" +
-      "viceAddress\030\005 \001(\014\022\031\n\021networkSessionKey\030\006" +
-      " \001(\014\022\025\n\rappSessionKey\030\007 \001(\014\022\025\n\ruplinkCou" +
-      "nter\030\010 \001(\r\022\027\n\017downlinkCounter\030\t \001(\r\"\340\003\n\n" +
-      "DataRecord\022-\n\rloggedReading\030\001 \001(\0132\026.fk_d" +
-      "ata.LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.fk" +
-      "_data.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.Lo" +
-      "gMessage\022!\n\004logs\030\r \003(\0132\023.fk_data.LogMess" +
-      "age\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n\010" +
-      "readings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007mod" +
-      "ules\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010sched" +
-      "ule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 \001" +
-      "(\004\022#\n\010identity\030\t \001(\0132\021.fk_data.Identity\022" +
-      "%\n\tcondition\030\n \001(\0132\022.fk_data.Condition\022#" +
-      "\n\004lora\030\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007n" +
-      "etwork\030\014 \001(\0132\030.fk_data.NetworkSettings\"q" +
-      "\n\014SignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.S" +
-      "ignedRecordKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 " +
-      "\001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLor" +
-      "aRecord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022" +
-      "\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006senso" +
-      "r\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n" +
-      "\rDownloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037" +
-      "\n\033READING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READI" +
-      "NG_FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024C" +
-      "ONDITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS" +
-      "_RECORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIG" +
-      "NED_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_" +
-      "KIND_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCH" +
-      "EDULE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n" +
-      "\034SIGNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNE" +
-      "D_RECORD_KIND_OTHER\020\377\001B\026\n\024org.fieldkit.d" +
-      "ata.pbb\006proto3"
+      "[\n\010Firmware\022\017\n\007version\030\001 \001(\t\022\r\n\005build\030\002 " +
+      "\001(\t\022\016\n\006number\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\004\022\014" +
+      "\n\004hash\030\005 \001(\t\"\337\001\n\010Metadata\022\020\n\010deviceId\030\001 " +
+      "\001(\014\022\014\n\004time\030\002 \001(\003\022\013\n\003git\030\003 \001(\t\022\r\n\005build\030" +
+      "\007 \001(\t\022\022\n\nresetCause\030\004 \001(\r\022$\n\007sensors\030\005 \003" +
+      "(\0132\023.fk_data.SensorInfo\022$\n\007modules\030\006 \003(\013" +
+      "2\023.fk_data.ModuleInfo\022#\n\010firmware\030\010 \001(\0132" +
+      "\021.fk_data.Firmware\022\022\n\ngeneration\030\t \001(\014\"U" +
+      "\n\006Status\022\014\n\004time\030\001 \001(\003\022\016\n\006uptime\030\002 \001(\r\022\017" +
+      "\n\007battery\030\003 \001(\002\022\016\n\006memory\030\004 \001(\r\022\014\n\004busy\030" +
+      "\005 \001(\004\"\\\n\nLogMessage\022\014\n\004time\030\001 \001(\003\022\016\n\006upt" +
+      "ime\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\020\n\010facility\030\004 \001" +
+      "(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006mo" +
+      "dule\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_data.S" +
+      "ensorAndValue\"\255\001\n\010Readings\022\014\n\004time\030\001 \001(\003" +
+      "\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta" +
+      "\030\006 \001(\r\022\016\n\006uptime\030\007 \001(\r\022)\n\010location\030\004 \001(\013" +
+      "2\027.fk_data.DeviceLocation\022*\n\014sensorGroup" +
+      "s\030\005 \003(\0132\024.fk_data.SensorGroup\"?\n\013JobSche" +
+      "dule\022\014\n\004cron\030\001 \001(\014\022\020\n\010interval\030\002 \001(\r\022\020\n\010" +
+      "repeated\030\003 \001(\r\"\240\001\n\010Schedule\022&\n\010readings\030" +
+      "\001 \001(\0132\024.fk_data.JobSchedule\022%\n\007network\030\002" +
+      " \001(\0132\024.fk_data.JobSchedule\022\"\n\004lora\030\003 \001(\013" +
+      "2\024.fk_data.JobSchedule\022!\n\003gps\030\004 \001(\0132\024.fk" +
+      "_data.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 " +
+      "\001(\t\"-\n\tCondition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecor" +
+      "ding\030\002 \001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022" +
+      "\020\n\010password\030\002 \001(\t\"9\n\017NetworkSettings\022&\n\010" +
+      "networks\030\001 \003(\0132\024.fk_data.NetworkInfo\"\321\001\n" +
+      "\014LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appK" +
+      "ey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBan" +
+      "d\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(\014\022\031\n\021networ" +
+      "kSessionKey\030\006 \001(\014\022\025\n\rappSessionKey\030\007 \001(\014" +
+      "\022\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017downlinkCount" +
+      "er\030\t \001(\r\"\340\003\n\nDataRecord\022-\n\rloggedReading" +
+      "\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metada" +
+      "ta\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\013" +
+      "2\023.fk_data.LogMessage\022!\n\004logs\030\r \003(\0132\023.fk" +
+      "_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_da" +
+      "ta.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data.Re" +
+      "adings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Module" +
+      "Info\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Schedul" +
+      "e\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_d" +
+      "ata.Identity\022%\n\tcondition\030\n \001(\0132\022.fk_dat" +
+      "a.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_data.Lora" +
+      "Settings\022)\n\007network\030\014 \001(\0132\030.fk_data.Netw" +
+      "orkSettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001(" +
+      "\0162\031.fk_data.SignedRecordKind\022\014\n\004time\030\002 \001" +
+      "(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record" +
+      "\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014\022\014" +
+      "\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004" +
+      " \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004" +
+      "data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING_F" +
+      "LAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDI" +
+      "NG\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Condit" +
+      "ionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CO" +
+      "NDITION_FLAGS_RECORDING\020\001*\317\001\n\020SignedReco" +
+      "rdKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032S" +
+      "IGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RE" +
+      "CORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KI" +
+      "ND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_STA" +
+      "TE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001B\026\n\024o" +
+      "rg.fieldkit.data.pbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -24111,7 +24477,7 @@ public final class FkData {
     internal_static_fk_data_Firmware_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_Firmware_descriptor,
-        new java.lang.String[] { "Git", "Build", });
+        new java.lang.String[] { "Version", "Build", "Number", "Timestamp", "Hash", });
     internal_static_fk_data_Metadata_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_fk_data_Metadata_fieldAccessorTable = new

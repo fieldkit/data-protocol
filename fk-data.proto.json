@@ -169,13 +169,25 @@
         },
         "Firmware": {
           "fields": {
-            "git": {
+            "version": {
               "type": "string",
               "id": 1
             },
             "build": {
               "type": "string",
               "id": 2
+            },
+            "number": {
+              "type": "string",
+              "id": 3
+            },
+            "timestamp": {
+              "type": "uint64",
+              "id": 4
+            },
+            "hash": {
+              "type": "string",
+              "id": 5
             }
           }
         },

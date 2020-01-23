@@ -45,13 +45,6 @@ typedef enum _fk_data_SignedRecordKind {
 #define _fk_data_SignedRecordKind_ARRAYSIZE ((fk_data_SignedRecordKind)(fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER+1))
 
 /* Struct definitions */
-typedef struct _fk_data_Firmware {
-    pb_callback_t git;
-    pb_callback_t build;
-/* @@protoc_insertion_point(struct:fk_data_Firmware) */
-} fk_data_Firmware;
-
-
 typedef struct _fk_data_Identity {
     pb_callback_t name;
 /* @@protoc_insertion_point(struct:fk_data_Identity) */
@@ -90,6 +83,16 @@ typedef struct _fk_data_DeviceLocation {
     uint32_t hdop;
 /* @@protoc_insertion_point(struct:fk_data_DeviceLocation) */
 } fk_data_DeviceLocation;
+
+
+typedef struct _fk_data_Firmware {
+    pb_callback_t version;
+    pb_callback_t build;
+    pb_callback_t number;
+    uint64_t timestamp;
+    pb_callback_t hash;
+/* @@protoc_insertion_point(struct:fk_data_Firmware) */
+} fk_data_Firmware;
 
 
 typedef struct _fk_data_JobSchedule {
@@ -134,20 +137,6 @@ typedef struct _fk_data_LoraSettings {
     uint32_t downlinkCounter;
 /* @@protoc_insertion_point(struct:fk_data_LoraSettings) */
 } fk_data_LoraSettings;
-
-
-typedef struct _fk_data_Metadata {
-    pb_callback_t deviceId;
-    int64_t time;
-    pb_callback_t git;
-    uint32_t resetCause;
-    pb_callback_t sensors;
-    pb_callback_t modules;
-    pb_callback_t build;
-    fk_data_Firmware firmware;
-    pb_callback_t generation;
-/* @@protoc_insertion_point(struct:fk_data_Metadata) */
-} fk_data_Metadata;
 
 
 typedef struct _fk_data_ModuleHeader {
@@ -218,6 +207,20 @@ typedef struct _fk_data_LoggedReading {
 } fk_data_LoggedReading;
 
 
+typedef struct _fk_data_Metadata {
+    pb_callback_t deviceId;
+    int64_t time;
+    pb_callback_t git;
+    uint32_t resetCause;
+    pb_callback_t sensors;
+    pb_callback_t modules;
+    pb_callback_t build;
+    fk_data_Firmware firmware;
+    pb_callback_t generation;
+/* @@protoc_insertion_point(struct:fk_data_Metadata) */
+} fk_data_Metadata;
+
+
 typedef struct _fk_data_ModuleInfo {
     uint32_t position;
     uint32_t address;
@@ -278,7 +281,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleHeader_init_default        {0, 0, 0}
 #define fk_data_ModuleInfo_init_default          {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_default, fk_data_Firmware_init_default, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_SensorInfo_init_default          {0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
-#define fk_data_Firmware_init_default            {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_Firmware_init_default            {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, {{NULL}, NULL}}
 #define fk_data_Metadata_init_default            {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_default, {{NULL}, NULL}}
 #define fk_data_Status_init_default              {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
@@ -301,7 +304,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleHeader_init_zero           {0, 0, 0}
 #define fk_data_ModuleInfo_init_zero             {0, 0, {{NULL}, NULL}, fk_data_ModuleHeader_init_zero, fk_data_Firmware_init_zero, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_SensorInfo_init_zero             {0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
-#define fk_data_Firmware_init_zero               {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_Firmware_init_zero               {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, {{NULL}, NULL}}
 #define fk_data_Metadata_init_zero               {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, fk_data_Firmware_init_zero, {{NULL}, NULL}}
 #define fk_data_Status_init_zero                 {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
@@ -319,8 +322,6 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoraRecord_init_zero             {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define fk_data_Firmware_git_tag                 1
-#define fk_data_Firmware_build_tag               2
 #define fk_data_Identity_name_tag                1
 #define fk_data_NetworkInfo_ssid_tag             1
 #define fk_data_NetworkInfo_password_tag         2
@@ -336,6 +337,11 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DeviceLocation_coordinates_tag   6
 #define fk_data_DeviceLocation_satellites_tag    8
 #define fk_data_DeviceLocation_hdop_tag          9
+#define fk_data_Firmware_version_tag             1
+#define fk_data_Firmware_build_tag               2
+#define fk_data_Firmware_number_tag              3
+#define fk_data_Firmware_timestamp_tag           4
+#define fk_data_Firmware_hash_tag                5
 #define fk_data_JobSchedule_cron_tag             1
 #define fk_data_JobSchedule_interval_tag         2
 #define fk_data_JobSchedule_repeated_tag         3
@@ -360,15 +366,6 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoraSettings_appSessionKey_tag   7
 #define fk_data_LoraSettings_uplinkCounter_tag   8
 #define fk_data_LoraSettings_downlinkCounter_tag 9
-#define fk_data_Metadata_deviceId_tag            1
-#define fk_data_Metadata_time_tag                2
-#define fk_data_Metadata_git_tag                 3
-#define fk_data_Metadata_build_tag               7
-#define fk_data_Metadata_resetCause_tag          4
-#define fk_data_Metadata_sensors_tag             5
-#define fk_data_Metadata_modules_tag             6
-#define fk_data_Metadata_firmware_tag            8
-#define fk_data_Metadata_generation_tag          9
 #define fk_data_ModuleHeader_manufacturer_tag    1
 #define fk_data_ModuleHeader_kind_tag            2
 #define fk_data_ModuleHeader_version_tag         3
@@ -397,6 +394,15 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LoggedReading_version_tag        1
 #define fk_data_LoggedReading_location_tag       2
 #define fk_data_LoggedReading_reading_tag        3
+#define fk_data_Metadata_deviceId_tag            1
+#define fk_data_Metadata_time_tag                2
+#define fk_data_Metadata_git_tag                 3
+#define fk_data_Metadata_build_tag               7
+#define fk_data_Metadata_resetCause_tag          4
+#define fk_data_Metadata_sensors_tag             5
+#define fk_data_Metadata_modules_tag             6
+#define fk_data_Metadata_firmware_tag            8
+#define fk_data_Metadata_generation_tag          9
 #define fk_data_ModuleInfo_position_tag          1
 #define fk_data_ModuleInfo_address_tag           2
 #define fk_data_ModuleInfo_name_tag              3
@@ -498,8 +504,11 @@ X(a, STATIC, SINGULAR, UINT32, flags, 4)
 #define fk_data_SensorInfo_DEFAULT NULL
 
 #define fk_data_Firmware_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, STRING, git, 1) \
-X(a, CALLBACK, SINGULAR, STRING, build, 2)
+X(a, CALLBACK, SINGULAR, STRING, version, 1) \
+X(a, CALLBACK, SINGULAR, STRING, build, 2) \
+X(a, CALLBACK, SINGULAR, STRING, number, 3) \
+X(a, STATIC, SINGULAR, UINT64, timestamp, 4) \
+X(a, CALLBACK, SINGULAR, STRING, hash, 5)
 #define fk_data_Firmware_CALLBACK pb_default_field_callback
 #define fk_data_Firmware_DEFAULT NULL
 
