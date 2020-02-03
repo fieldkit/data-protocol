@@ -1,31 +1,35 @@
 PROTOC_VERSION = 3.11.2
-PROTOC = build/bin/protoc
-BUILD = build
+PROTOC_BIN = build/bin
+PROTOC = $(PROTOC_BIN)/protoc
+PROTO_NAME = fk-data
+JAVA_DEP = org/fieldkit/data/pb/FkData.java
 
-all: $(BUILD) fk-data.proto.json fk-data.pb.go src/fk-data.pb.c src/fk-data.pb.h src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h fk_data/FkData.java
+all: build $(PROTO_NAME).proto.json $(PROTO_NAME).pb.go src/$(PROTO_NAME).pb.c src/$(PROTO_NAME).pb.h $(JAVA_DEP)
+
+$(PROTO_NAME).proto.json: node_modules/.bin/pbjs $(PROTO_NAME).proto
+	node_modules/.bin/pbjs $(PROTO_NAME).proto -t json -o $(PROTO_NAME).proto.json
+
+src/$(PROTO_NAME).pb.c src/$(PROTO_NAME).pb.h: $(PROTO_NAME).proto build/nanopb
+	PATH=$(PATH):$(PROTOC_BIN) $(PROTOC) --plugin=protoc-gen-nanopb=build/nanopb/generator/protoc-gen-nanopb --nanopb_out=./src $(PROTO_NAME).proto
+
+$(PROTO_NAME).pb.go: $(PROTO_NAME).proto
+	go get -u github.com/golang/protobuf/protoc-gen-go
+	$(PROTOC) --go_out=./ $(PROTO_NAME).proto
+
+$(JAVA_DEP): $(PROTO_NAME).proto
+	$(PROTOC) --java_out=./ $(PROTO_NAME).proto
+
+build: protoc-$(PROTOC_VERSION)-linux-x86_64.zip
+	mkdir -p build
+	cd build && unzip ../protoc-$(PROTOC_VERSION)-linux-x86_64.zip
+
+build/nanopb:
+	mkdir -p build
+	git clone https://github.com/nanopb/nanopb.git build/nanopb
+	pip install protobuf
 
 node_modules/.bin/pbjs:
 	npm install
-
-fk-data.proto.json: node_modules/.bin/pbjs fk-data.proto
-	pbjs fk-data.proto -t json -o fk-data.proto.json
-
-src/fk-data.pb.c src/fk-data.pb.h: fk-data.proto
-	$(PROTOC) --nanopb_out=./src fk-data.proto
-
-src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h: fk-data.proto
-	$(PROTOC) --cpp_out=./src/cpp fk-data.proto
-
-fk-data.pb.go: fk-data.proto
-	go get -u github.com/golang/protobuf/protoc-gen-go
-	$(PROTOC) --go_out=./ fk-data.proto
-
-fk_data/FkData.java: fk-data.proto
-	$(PROTOC) --java_out=./ fk-data.proto
-
-$(BUILD): protoc-$(PROTOC_VERSION)-linux-x86_64.zip
-	mkdir -p $(BUILD)
-	cd $(BUILD) && unzip ../protoc-$(PROTOC_VERSION)-linux-x86_64.zip
 
 protoc-$(PROTOC_VERSION)-linux-x86_64.zip:
 	wget "https://github.com/protocolbuffers/protobuf/releases/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip"
@@ -33,4 +37,4 @@ protoc-$(PROTOC_VERSION)-linux-x86_64.zip:
 veryclean: clean
 
 clean:
-	rm -rf $(BUILD) *.go src/*.pb.? fk-data.proto.json *.pb.go
+	rm -rf build *.pb.go *.pb.c *.pb.h $(PROTO_NAME).proto.json *.pb.go org
