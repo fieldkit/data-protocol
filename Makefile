@@ -17,6 +17,7 @@ src/cpp/fk-data.pb.cc src/cpp/fk-data.pb.h: fk-data.proto
 	$(PROTOC) --cpp_out=./src/cpp fk-data.proto
 
 fk-data.pb.go: fk-data.proto
+	go get -u github.com/golang/protobuf/protoc-gen-go
 	$(PROTOC) --go_out=./ fk-data.proto
 
 fk_data/FkData.java: fk-data.proto
@@ -29,7 +30,7 @@ $(BUILD): protoc-$(PROTOC_VERSION)-linux-x86_64.zip
 protoc-$(PROTOC_VERSION)-linux-x86_64.zip:
 	wget "https://github.com/protocolbuffers/protobuf/releases/download/v$(PROTOC_VERSION)/protoc-$(PROTOC_VERSION)-linux-x86_64.zip"
 
-veryclean:
+veryclean: clean
 
 clean:
 	rm -rf $(BUILD) *.go src/*.pb.? fk-data.proto.json *.pb.go
