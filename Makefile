@@ -32,4 +32,4 @@ protoc-$(PROTOC_VERSION)-linux-x86_64.zip:
 veryclean:
 
 clean:
-	rm -rf $(BUILD) *.go src/*.pb.? fk-data.proto.json
+	rm -rf $(BUILD) *.go src/*.pb.? fk-data.proto.json *.pb.go
