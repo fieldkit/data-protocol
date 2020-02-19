@@ -13650,6 +13650,12 @@ public final class FkData {
      * @return The repeated.
      */
     int getRepeated();
+
+    /**
+     * <code>uint32 duration = 4;</code>
+     * @return The duration.
+     */
+    int getDuration();
   }
   /**
    * Protobuf type {@code fk_data.JobSchedule}
@@ -13710,6 +13716,11 @@ public final class FkData {
             case 24: {
 
               repeated_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+
+              duration_ = input.readUInt32();
               break;
             }
             default: {
@@ -13774,6 +13785,16 @@ public final class FkData {
       return repeated_;
     }
 
+    public static final int DURATION_FIELD_NUMBER = 4;
+    private int duration_;
+    /**
+     * <code>uint32 duration = 4;</code>
+     * @return The duration.
+     */
+    public int getDuration() {
+      return duration_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13797,6 +13818,9 @@ public final class FkData {
       if (repeated_ != 0) {
         output.writeUInt32(3, repeated_);
       }
+      if (duration_ != 0) {
+        output.writeUInt32(4, duration_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13817,6 +13841,10 @@ public final class FkData {
       if (repeated_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, repeated_);
+      }
+      if (duration_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, duration_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13839,6 +13867,8 @@ public final class FkData {
           != other.getInterval()) return false;
       if (getRepeated()
           != other.getRepeated()) return false;
+      if (getDuration()
+          != other.getDuration()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -13856,6 +13886,8 @@ public final class FkData {
       hash = (53 * hash) + getInterval();
       hash = (37 * hash) + REPEATED_FIELD_NUMBER;
       hash = (53 * hash) + getRepeated();
+      hash = (37 * hash) + DURATION_FIELD_NUMBER;
+      hash = (53 * hash) + getDuration();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13995,6 +14027,8 @@ public final class FkData {
 
         repeated_ = 0;
 
+        duration_ = 0;
+
         return this;
       }
 
@@ -14024,6 +14058,7 @@ public final class FkData {
         result.cron_ = cron_;
         result.interval_ = interval_;
         result.repeated_ = repeated_;
+        result.duration_ = duration_;
         onBuilt();
         return result;
       }
@@ -14080,6 +14115,9 @@ public final class FkData {
         }
         if (other.getRepeated() != 0) {
           setRepeated(other.getRepeated());
+        }
+        if (other.getDuration() != 0) {
+          setDuration(other.getDuration());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -14199,6 +14237,36 @@ public final class FkData {
       public Builder clearRepeated() {
         
         repeated_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int duration_ ;
+      /**
+       * <code>uint32 duration = 4;</code>
+       * @return The duration.
+       */
+      public int getDuration() {
+        return duration_;
+      }
+      /**
+       * <code>uint32 duration = 4;</code>
+       * @param value The duration to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDuration(int value) {
+        
+        duration_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 duration = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDuration() {
+        
+        duration_ = 0;
         onChanged();
         return this;
       }
@@ -24380,51 +24448,52 @@ public final class FkData {
       "\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta" +
       "\030\006 \001(\r\022\016\n\006uptime\030\007 \001(\r\022)\n\010location\030\004 \001(\013" +
       "2\027.fk_data.DeviceLocation\022*\n\014sensorGroup" +
-      "s\030\005 \003(\0132\024.fk_data.SensorGroup\"?\n\013JobSche" +
+      "s\030\005 \003(\0132\024.fk_data.SensorGroup\"Q\n\013JobSche" +
       "dule\022\014\n\004cron\030\001 \001(\014\022\020\n\010interval\030\002 \001(\r\022\020\n\010" +
-      "repeated\030\003 \001(\r\"\240\001\n\010Schedule\022&\n\010readings\030" +
-      "\001 \001(\0132\024.fk_data.JobSchedule\022%\n\007network\030\002" +
-      " \001(\0132\024.fk_data.JobSchedule\022\"\n\004lora\030\003 \001(\013" +
-      "2\024.fk_data.JobSchedule\022!\n\003gps\030\004 \001(\0132\024.fk" +
-      "_data.JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 " +
-      "\001(\t\"-\n\tCondition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecor" +
-      "ding\030\002 \001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022" +
-      "\020\n\010password\030\002 \001(\t\"9\n\017NetworkSettings\022&\n\010" +
-      "networks\030\001 \003(\0132\024.fk_data.NetworkInfo\"\321\001\n" +
-      "\014LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appK" +
-      "ey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBan" +
-      "d\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(\014\022\031\n\021networ" +
-      "kSessionKey\030\006 \001(\014\022\025\n\rappSessionKey\030\007 \001(\014" +
-      "\022\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017downlinkCount" +
-      "er\030\t \001(\r\"\340\003\n\nDataRecord\022-\n\rloggedReading" +
-      "\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metada" +
-      "ta\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\013" +
-      "2\023.fk_data.LogMessage\022!\n\004logs\030\r \003(\0132\023.fk" +
-      "_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_da" +
-      "ta.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data.Re" +
-      "adings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Module" +
-      "Info\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Schedul" +
-      "e\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_d" +
-      "ata.Identity\022%\n\tcondition\030\n \001(\0132\022.fk_dat" +
-      "a.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_data.Lora" +
-      "Settings\022)\n\007network\030\014 \001(\0132\030.fk_data.Netw" +
-      "orkSettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001(" +
-      "\0162\031.fk_data.SignedRecordKind\022\014\n\004time\030\002 \001" +
-      "(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006record" +
-      "\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014\022\014" +
-      "\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004\022\016\n\006module\030\004" +
-      " \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004" +
-      "data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING_F" +
-      "LAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORDI" +
-      "NG\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Condit" +
-      "ionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031CO" +
-      "NDITION_FLAGS_RECORDING\020\001*\317\001\n\020SignedReco" +
-      "rdKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032S" +
-      "IGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_RE" +
-      "CORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_KI" +
-      "ND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_STA" +
-      "TE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001B\026\n\024o" +
-      "rg.fieldkit.data.pbb\006proto3"
+      "repeated\030\003 \001(\r\022\020\n\010duration\030\004 \001(\r\"\240\001\n\010Sch" +
+      "edule\022&\n\010readings\030\001 \001(\0132\024.fk_data.JobSch" +
+      "edule\022%\n\007network\030\002 \001(\0132\024.fk_data.JobSche" +
+      "dule\022\"\n\004lora\030\003 \001(\0132\024.fk_data.JobSchedule" +
+      "\022!\n\003gps\030\004 \001(\0132\024.fk_data.JobSchedule\"\030\n\010I" +
+      "dentity\022\014\n\004name\030\001 \001(\t\"-\n\tCondition\022\r\n\005fl" +
+      "ags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n\013NetworkI" +
+      "nfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9\n\017N" +
+      "etworkSettings\022&\n\010networks\030\001 \003(\0132\024.fk_da" +
+      "ta.NetworkInfo\"\321\001\n\014LoraSettings\022\021\n\tdevic" +
+      "eEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001" +
+      "(\014\022\025\n\rfrequencyBand\030\004 \001(\r\022\025\n\rdeviceAddre" +
+      "ss\030\005 \001(\014\022\031\n\021networkSessionKey\030\006 \001(\014\022\025\n\ra" +
+      "ppSessionKey\030\007 \001(\014\022\025\n\ruplinkCounter\030\010 \001(" +
+      "\r\022\027\n\017downlinkCounter\030\t \001(\r\"\340\003\n\nDataRecor" +
+      "d\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data.Logge" +
+      "dReading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Met" +
+      "adata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022" +
+      "!\n\004logs\030\r \003(\0132\023.fk_data.LogMessage\022\037\n\006st" +
+      "atus\030\004 \001(\0132\017.fk_data.Status\022#\n\010readings\030" +
+      "\005 \001(\0132\021.fk_data.Readings\022$\n\007modules\030\006 \003(" +
+      "\0132\023.fk_data.ModuleInfo\022#\n\010schedule\030\007 \001(\013" +
+      "2\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010ide" +
+      "ntity\030\t \001(\0132\021.fk_data.Identity\022%\n\tcondit" +
+      "ion\030\n \001(\0132\022.fk_data.Condition\022#\n\004lora\030\013 " +
+      "\001(\0132\025.fk_data.LoraSettings\022)\n\007network\030\014 " +
+      "\001(\0132\030.fk_data.NetworkSettings\"q\n\014SignedR" +
+      "ecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedReco" +
+      "rdKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004ha" +
+      "sh\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020" +
+      "\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number" +
+      "\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016" +
+      "\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownload" +
+      "Flags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING" +
+      "_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_" +
+      "MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_" +
+      "FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDIN" +
+      "G\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED_RECOR" +
+      "D_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODU" +
+      "LES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034" +
+      "\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_R" +
+      "ECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_" +
+      "KIND_OTHER\020\377\001B\026\n\024org.fieldkit.data.pbb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -24513,7 +24582,7 @@ public final class FkData {
     internal_static_fk_data_JobSchedule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_JobSchedule_descriptor,
-        new java.lang.String[] { "Cron", "Interval", "Repeated", });
+        new java.lang.String[] { "Cron", "Interval", "Repeated", "Duration", });
     internal_static_fk_data_Schedule_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_fk_data_Schedule_fieldAccessorTable = new
