@@ -412,6 +412,26 @@
             }
           }
         },
+        "WifiTransmission": {
+          "fields": {
+            "url": {
+              "type": "string",
+              "id": 1
+            },
+            "token": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "TransmissionSettings": {
+          "fields": {
+            "wifi": {
+              "type": "WifiTransmission",
+              "id": 1
+            }
+          }
+        },
         "NetworkSettings": {
           "fields": {
             "networks": {
@@ -516,6 +536,10 @@
             "network": {
               "type": "NetworkSettings",
               "id": 12
+            },
+            "transmission": {
+              "type": "TransmissionSettings",
+              "id": 14
             }
           }
         },

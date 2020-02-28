@@ -48,6 +48,11 @@ typedef struct _fk_data_NetworkSettings {
     pb_callback_t networks;
 } fk_data_NetworkSettings;
 
+typedef struct _fk_data_WifiTransmission {
+    pb_callback_t url;
+    pb_callback_t token;
+} fk_data_WifiTransmission;
+
 typedef struct _fk_data_Condition {
     uint32_t flags;
     uint32_t recording;
@@ -156,6 +161,11 @@ typedef struct _fk_data_Status {
     uint64_t busy;
 } fk_data_Status;
 
+typedef struct _fk_data_TransmissionSettings {
+    bool has_wifi;
+    fk_data_WifiTransmission wifi;
+} fk_data_TransmissionSettings;
+
 typedef struct _fk_data_LoggedReading {
     uint32_t version;
     bool has_location;
@@ -236,6 +246,8 @@ typedef struct _fk_data_DataRecord {
     bool has_network;
     fk_data_NetworkSettings network;
     pb_callback_t logs;
+    bool has_transmission;
+    fk_data_TransmissionSettings transmission;
 } fk_data_DataRecord;
 
 
@@ -272,9 +284,11 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
 #define fk_data_Condition_init_default           {0, 0}
 #define fk_data_NetworkInfo_init_default         {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_WifiTransmission_init_default    {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_TransmissionSettings_init_default {false, fk_data_WifiTransmission_init_default}
 #define fk_data_NetworkSettings_init_default     {{{NULL}, NULL}}
 #define fk_data_LoraSettings_init_default        {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, 0}
-#define fk_data_DataRecord_init_default          {false, fk_data_LoggedReading_init_default, false, fk_data_Metadata_init_default, false, fk_data_LogMessage_init_default, false, fk_data_Status_init_default, false, fk_data_Readings_init_default, {{NULL}, NULL}, false, fk_data_Schedule_init_default, 0, false, fk_data_Identity_init_default, false, fk_data_Condition_init_default, false, fk_data_LoraSettings_init_default, false, fk_data_NetworkSettings_init_default, {{NULL}, NULL}}
+#define fk_data_DataRecord_init_default          {false, fk_data_LoggedReading_init_default, false, fk_data_Metadata_init_default, false, fk_data_LogMessage_init_default, false, fk_data_Status_init_default, false, fk_data_Readings_init_default, {{NULL}, NULL}, false, fk_data_Schedule_init_default, 0, false, fk_data_Identity_init_default, false, fk_data_Condition_init_default, false, fk_data_LoraSettings_init_default, false, fk_data_NetworkSettings_init_default, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_default}
 #define fk_data_SignedRecord_init_default        {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_LoraRecord_init_default          {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0, 0, 0}
@@ -295,9 +309,11 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
 #define fk_data_Condition_init_zero              {0, 0}
 #define fk_data_NetworkInfo_init_zero            {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_WifiTransmission_init_zero       {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_TransmissionSettings_init_zero   {false, fk_data_WifiTransmission_init_zero}
 #define fk_data_NetworkSettings_init_zero        {{{NULL}, NULL}}
 #define fk_data_LoraSettings_init_zero           {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, 0}
-#define fk_data_DataRecord_init_zero             {false, fk_data_LoggedReading_init_zero, false, fk_data_Metadata_init_zero, false, fk_data_LogMessage_init_zero, false, fk_data_Status_init_zero, false, fk_data_Readings_init_zero, {{NULL}, NULL}, false, fk_data_Schedule_init_zero, 0, false, fk_data_Identity_init_zero, false, fk_data_Condition_init_zero, false, fk_data_LoraSettings_init_zero, false, fk_data_NetworkSettings_init_zero, {{NULL}, NULL}}
+#define fk_data_DataRecord_init_zero             {false, fk_data_LoggedReading_init_zero, false, fk_data_Metadata_init_zero, false, fk_data_LogMessage_init_zero, false, fk_data_Status_init_zero, false, fk_data_Readings_init_zero, {{NULL}, NULL}, false, fk_data_Schedule_init_zero, 0, false, fk_data_Identity_init_zero, false, fk_data_Condition_init_zero, false, fk_data_LoraSettings_init_zero, false, fk_data_NetworkSettings_init_zero, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_zero}
 #define fk_data_SignedRecord_init_zero           {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_LoraRecord_init_zero             {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 
@@ -306,6 +322,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_NetworkInfo_ssid_tag             1
 #define fk_data_NetworkInfo_password_tag         2
 #define fk_data_NetworkSettings_networks_tag     1
+#define fk_data_WifiTransmission_url_tag         1
+#define fk_data_WifiTransmission_token_tag       2
 #define fk_data_Condition_flags_tag              1
 #define fk_data_Condition_recording_tag          2
 #define fk_data_DeviceLocation_enabled_tag       7
@@ -372,6 +390,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Status_battery_tag               3
 #define fk_data_Status_memory_tag                4
 #define fk_data_Status_busy_tag                  5
+#define fk_data_TransmissionSettings_wifi_tag    1
 #define fk_data_LoggedReading_version_tag        1
 #define fk_data_LoggedReading_location_tag       2
 #define fk_data_LoggedReading_reading_tag        3
@@ -416,6 +435,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_DataRecord_condition_tag         10
 #define fk_data_DataRecord_lora_tag              11
 #define fk_data_DataRecord_network_tag           12
+#define fk_data_DataRecord_transmission_tag      14
 
 /* Struct field encoding specification for nanopb */
 #define fk_data_DeviceLocation_FIELDLIST(X, a) \
@@ -584,6 +604,18 @@ X(a, CALLBACK, SINGULAR, STRING,   password,          2)
 #define fk_data_NetworkInfo_CALLBACK pb_default_field_callback
 #define fk_data_NetworkInfo_DEFAULT NULL
 
+#define fk_data_WifiTransmission_FIELDLIST(X, a) \
+X(a, CALLBACK, SINGULAR, STRING,   url,               1) \
+X(a, CALLBACK, SINGULAR, STRING,   token,             2)
+#define fk_data_WifiTransmission_CALLBACK pb_default_field_callback
+#define fk_data_WifiTransmission_DEFAULT NULL
+
+#define fk_data_TransmissionSettings_FIELDLIST(X, a) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  wifi,              1)
+#define fk_data_TransmissionSettings_CALLBACK NULL
+#define fk_data_TransmissionSettings_DEFAULT NULL
+#define fk_data_TransmissionSettings_wifi_MSGTYPE fk_data_WifiTransmission
+
 #define fk_data_NetworkSettings_FIELDLIST(X, a) \
 X(a, CALLBACK, REPEATED, MESSAGE,  networks,          1)
 #define fk_data_NetworkSettings_CALLBACK pb_default_field_callback
@@ -616,7 +648,8 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  identity,          9) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  condition,        10) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  lora,             11) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  network,          12) \
-X(a, CALLBACK, REPEATED, MESSAGE,  logs,             13)
+X(a, CALLBACK, REPEATED, MESSAGE,  logs,             13) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  transmission,     14)
 #define fk_data_DataRecord_CALLBACK pb_default_field_callback
 #define fk_data_DataRecord_DEFAULT NULL
 #define fk_data_DataRecord_loggedReading_MSGTYPE fk_data_LoggedReading
@@ -631,6 +664,7 @@ X(a, CALLBACK, REPEATED, MESSAGE,  logs,             13)
 #define fk_data_DataRecord_lora_MSGTYPE fk_data_LoraSettings
 #define fk_data_DataRecord_network_MSGTYPE fk_data_NetworkSettings
 #define fk_data_DataRecord_logs_MSGTYPE fk_data_LogMessage
+#define fk_data_DataRecord_transmission_MSGTYPE fk_data_TransmissionSettings
 
 #define fk_data_SignedRecord_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UENUM,    kind,              1) \
@@ -670,6 +704,8 @@ extern const pb_msgdesc_t fk_data_Schedule_msg;
 extern const pb_msgdesc_t fk_data_Identity_msg;
 extern const pb_msgdesc_t fk_data_Condition_msg;
 extern const pb_msgdesc_t fk_data_NetworkInfo_msg;
+extern const pb_msgdesc_t fk_data_WifiTransmission_msg;
+extern const pb_msgdesc_t fk_data_TransmissionSettings_msg;
 extern const pb_msgdesc_t fk_data_NetworkSettings_msg;
 extern const pb_msgdesc_t fk_data_LoraSettings_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
@@ -695,6 +731,8 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 #define fk_data_Identity_fields &fk_data_Identity_msg
 #define fk_data_Condition_fields &fk_data_Condition_msg
 #define fk_data_NetworkInfo_fields &fk_data_NetworkInfo_msg
+#define fk_data_WifiTransmission_fields &fk_data_WifiTransmission_msg
+#define fk_data_TransmissionSettings_fields &fk_data_TransmissionSettings_msg
 #define fk_data_NetworkSettings_fields &fk_data_NetworkSettings_msg
 #define fk_data_LoraSettings_fields &fk_data_LoraSettings_msg
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
@@ -720,6 +758,8 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 /* fk_data_Identity_size depends on runtime parameters */
 #define fk_data_Condition_size                   12
 /* fk_data_NetworkInfo_size depends on runtime parameters */
+/* fk_data_WifiTransmission_size depends on runtime parameters */
+/* fk_data_TransmissionSettings_size depends on runtime parameters */
 /* fk_data_NetworkSettings_size depends on runtime parameters */
 /* fk_data_LoraSettings_size depends on runtime parameters */
 /* fk_data_DataRecord_size depends on runtime parameters */

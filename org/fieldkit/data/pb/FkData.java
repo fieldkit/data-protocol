@@ -17375,6 +17375,1338 @@ public final class FkData {
 
   }
 
+  public interface WifiTransmissionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.WifiTransmission)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string url = 1;</code>
+     * @return The url.
+     */
+    java.lang.String getUrl();
+    /**
+     * <code>string url = 1;</code>
+     * @return The bytes for url.
+     */
+    com.google.protobuf.ByteString
+        getUrlBytes();
+
+    /**
+     * <code>string token = 2;</code>
+     * @return The token.
+     */
+    java.lang.String getToken();
+    /**
+     * <code>string token = 2;</code>
+     * @return The bytes for token.
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
+  }
+  /**
+   * Protobuf type {@code fk_data.WifiTransmission}
+   */
+  public  static final class WifiTransmission extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:fk_data.WifiTransmission)
+      WifiTransmissionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WifiTransmission.newBuilder() to construct.
+    private WifiTransmission(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WifiTransmission() {
+      url_ = "";
+      token_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new WifiTransmission();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WifiTransmission(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              url_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              token_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.fieldkit.data.pb.FkData.internal_static_fk_data_WifiTransmission_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.fieldkit.data.pb.FkData.internal_static_fk_data_WifiTransmission_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.fieldkit.data.pb.FkData.WifiTransmission.class, org.fieldkit.data.pb.FkData.WifiTransmission.Builder.class);
+    }
+
+    public static final int URL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object url_;
+    /**
+     * <code>string url = 1;</code>
+     * @return The url.
+     */
+    public java.lang.String getUrl() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        url_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string url = 1;</code>
+     * @return The bytes for url.
+     */
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        url_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOKEN_FIELD_NUMBER = 2;
+    private volatile java.lang.Object token_;
+    /**
+     * <code>string token = 2;</code>
+     * @return The token.
+     */
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        token_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string token = 2;</code>
+     * @return The bytes for token.
+     */
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUrlBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, url_);
+      }
+      if (!getTokenBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, token_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUrlBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, url_);
+      }
+      if (!getTokenBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.fieldkit.data.pb.FkData.WifiTransmission)) {
+        return super.equals(obj);
+      }
+      org.fieldkit.data.pb.FkData.WifiTransmission other = (org.fieldkit.data.pb.FkData.WifiTransmission) obj;
+
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (!getToken()
+          .equals(other.getToken())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + URL_FIELD_NUMBER;
+      hash = (53 * hash) + getUrl().hashCode();
+      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getToken().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.fieldkit.data.pb.FkData.WifiTransmission parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.fieldkit.data.pb.FkData.WifiTransmission prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code fk_data.WifiTransmission}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.WifiTransmission)
+        org.fieldkit.data.pb.FkData.WifiTransmissionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.fieldkit.data.pb.FkData.internal_static_fk_data_WifiTransmission_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.fieldkit.data.pb.FkData.internal_static_fk_data_WifiTransmission_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.fieldkit.data.pb.FkData.WifiTransmission.class, org.fieldkit.data.pb.FkData.WifiTransmission.Builder.class);
+      }
+
+      // Construct using org.fieldkit.data.pb.FkData.WifiTransmission.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        url_ = "";
+
+        token_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.fieldkit.data.pb.FkData.internal_static_fk_data_WifiTransmission_descriptor;
+      }
+
+      @java.lang.Override
+      public org.fieldkit.data.pb.FkData.WifiTransmission getDefaultInstanceForType() {
+        return org.fieldkit.data.pb.FkData.WifiTransmission.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.fieldkit.data.pb.FkData.WifiTransmission build() {
+        org.fieldkit.data.pb.FkData.WifiTransmission result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.fieldkit.data.pb.FkData.WifiTransmission buildPartial() {
+        org.fieldkit.data.pb.FkData.WifiTransmission result = new org.fieldkit.data.pb.FkData.WifiTransmission(this);
+        result.url_ = url_;
+        result.token_ = token_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.fieldkit.data.pb.FkData.WifiTransmission) {
+          return mergeFrom((org.fieldkit.data.pb.FkData.WifiTransmission)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.fieldkit.data.pb.FkData.WifiTransmission other) {
+        if (other == org.fieldkit.data.pb.FkData.WifiTransmission.getDefaultInstance()) return this;
+        if (!other.getUrl().isEmpty()) {
+          url_ = other.url_;
+          onChanged();
+        }
+        if (!other.getToken().isEmpty()) {
+          token_ = other.token_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.fieldkit.data.pb.FkData.WifiTransmission parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.fieldkit.data.pb.FkData.WifiTransmission) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object url_ = "";
+      /**
+       * <code>string url = 1;</code>
+       * @return The url.
+       */
+      public java.lang.String getUrl() {
+        java.lang.Object ref = url_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          url_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @return The bytes for url.
+       */
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        java.lang.Object ref = url_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          url_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @param value The url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        url_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUrl() {
+        
+        url_ = getDefaultInstance().getUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @param value The bytes for url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        url_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object token_ = "";
+      /**
+       * <code>string token = 2;</code>
+       * @return The token.
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string token = 2;</code>
+       * @return The bytes for token.
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string token = 2;</code>
+       * @param value The token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToken() {
+        
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string token = 2;</code>
+       * @param value The bytes for token to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:fk_data.WifiTransmission)
+    }
+
+    // @@protoc_insertion_point(class_scope:fk_data.WifiTransmission)
+    private static final org.fieldkit.data.pb.FkData.WifiTransmission DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.fieldkit.data.pb.FkData.WifiTransmission();
+    }
+
+    public static org.fieldkit.data.pb.FkData.WifiTransmission getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<WifiTransmission>
+        PARSER = new com.google.protobuf.AbstractParser<WifiTransmission>() {
+      @java.lang.Override
+      public WifiTransmission parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WifiTransmission(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WifiTransmission> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WifiTransmission> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.fieldkit.data.pb.FkData.WifiTransmission getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TransmissionSettingsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.TransmissionSettings)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.fk_data.WifiTransmission wifi = 1;</code>
+     * @return Whether the wifi field is set.
+     */
+    boolean hasWifi();
+    /**
+     * <code>.fk_data.WifiTransmission wifi = 1;</code>
+     * @return The wifi.
+     */
+    org.fieldkit.data.pb.FkData.WifiTransmission getWifi();
+    /**
+     * <code>.fk_data.WifiTransmission wifi = 1;</code>
+     */
+    org.fieldkit.data.pb.FkData.WifiTransmissionOrBuilder getWifiOrBuilder();
+  }
+  /**
+   * Protobuf type {@code fk_data.TransmissionSettings}
+   */
+  public  static final class TransmissionSettings extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:fk_data.TransmissionSettings)
+      TransmissionSettingsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TransmissionSettings.newBuilder() to construct.
+    private TransmissionSettings(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TransmissionSettings() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TransmissionSettings();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TransmissionSettings(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              org.fieldkit.data.pb.FkData.WifiTransmission.Builder subBuilder = null;
+              if (wifi_ != null) {
+                subBuilder = wifi_.toBuilder();
+              }
+              wifi_ = input.readMessage(org.fieldkit.data.pb.FkData.WifiTransmission.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(wifi_);
+                wifi_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.fieldkit.data.pb.FkData.internal_static_fk_data_TransmissionSettings_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.fieldkit.data.pb.FkData.internal_static_fk_data_TransmissionSettings_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.fieldkit.data.pb.FkData.TransmissionSettings.class, org.fieldkit.data.pb.FkData.TransmissionSettings.Builder.class);
+    }
+
+    public static final int WIFI_FIELD_NUMBER = 1;
+    private org.fieldkit.data.pb.FkData.WifiTransmission wifi_;
+    /**
+     * <code>.fk_data.WifiTransmission wifi = 1;</code>
+     * @return Whether the wifi field is set.
+     */
+    public boolean hasWifi() {
+      return wifi_ != null;
+    }
+    /**
+     * <code>.fk_data.WifiTransmission wifi = 1;</code>
+     * @return The wifi.
+     */
+    public org.fieldkit.data.pb.FkData.WifiTransmission getWifi() {
+      return wifi_ == null ? org.fieldkit.data.pb.FkData.WifiTransmission.getDefaultInstance() : wifi_;
+    }
+    /**
+     * <code>.fk_data.WifiTransmission wifi = 1;</code>
+     */
+    public org.fieldkit.data.pb.FkData.WifiTransmissionOrBuilder getWifiOrBuilder() {
+      return getWifi();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (wifi_ != null) {
+        output.writeMessage(1, getWifi());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (wifi_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getWifi());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.fieldkit.data.pb.FkData.TransmissionSettings)) {
+        return super.equals(obj);
+      }
+      org.fieldkit.data.pb.FkData.TransmissionSettings other = (org.fieldkit.data.pb.FkData.TransmissionSettings) obj;
+
+      if (hasWifi() != other.hasWifi()) return false;
+      if (hasWifi()) {
+        if (!getWifi()
+            .equals(other.getWifi())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasWifi()) {
+        hash = (37 * hash) + WIFI_FIELD_NUMBER;
+        hash = (53 * hash) + getWifi().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.fieldkit.data.pb.FkData.TransmissionSettings prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code fk_data.TransmissionSettings}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.TransmissionSettings)
+        org.fieldkit.data.pb.FkData.TransmissionSettingsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.fieldkit.data.pb.FkData.internal_static_fk_data_TransmissionSettings_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.fieldkit.data.pb.FkData.internal_static_fk_data_TransmissionSettings_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.fieldkit.data.pb.FkData.TransmissionSettings.class, org.fieldkit.data.pb.FkData.TransmissionSettings.Builder.class);
+      }
+
+      // Construct using org.fieldkit.data.pb.FkData.TransmissionSettings.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (wifiBuilder_ == null) {
+          wifi_ = null;
+        } else {
+          wifi_ = null;
+          wifiBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.fieldkit.data.pb.FkData.internal_static_fk_data_TransmissionSettings_descriptor;
+      }
+
+      @java.lang.Override
+      public org.fieldkit.data.pb.FkData.TransmissionSettings getDefaultInstanceForType() {
+        return org.fieldkit.data.pb.FkData.TransmissionSettings.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.fieldkit.data.pb.FkData.TransmissionSettings build() {
+        org.fieldkit.data.pb.FkData.TransmissionSettings result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.fieldkit.data.pb.FkData.TransmissionSettings buildPartial() {
+        org.fieldkit.data.pb.FkData.TransmissionSettings result = new org.fieldkit.data.pb.FkData.TransmissionSettings(this);
+        if (wifiBuilder_ == null) {
+          result.wifi_ = wifi_;
+        } else {
+          result.wifi_ = wifiBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.fieldkit.data.pb.FkData.TransmissionSettings) {
+          return mergeFrom((org.fieldkit.data.pb.FkData.TransmissionSettings)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.fieldkit.data.pb.FkData.TransmissionSettings other) {
+        if (other == org.fieldkit.data.pb.FkData.TransmissionSettings.getDefaultInstance()) return this;
+        if (other.hasWifi()) {
+          mergeWifi(other.getWifi());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.fieldkit.data.pb.FkData.TransmissionSettings parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.fieldkit.data.pb.FkData.TransmissionSettings) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private org.fieldkit.data.pb.FkData.WifiTransmission wifi_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.fieldkit.data.pb.FkData.WifiTransmission, org.fieldkit.data.pb.FkData.WifiTransmission.Builder, org.fieldkit.data.pb.FkData.WifiTransmissionOrBuilder> wifiBuilder_;
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       * @return Whether the wifi field is set.
+       */
+      public boolean hasWifi() {
+        return wifiBuilder_ != null || wifi_ != null;
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       * @return The wifi.
+       */
+      public org.fieldkit.data.pb.FkData.WifiTransmission getWifi() {
+        if (wifiBuilder_ == null) {
+          return wifi_ == null ? org.fieldkit.data.pb.FkData.WifiTransmission.getDefaultInstance() : wifi_;
+        } else {
+          return wifiBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       */
+      public Builder setWifi(org.fieldkit.data.pb.FkData.WifiTransmission value) {
+        if (wifiBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          wifi_ = value;
+          onChanged();
+        } else {
+          wifiBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       */
+      public Builder setWifi(
+          org.fieldkit.data.pb.FkData.WifiTransmission.Builder builderForValue) {
+        if (wifiBuilder_ == null) {
+          wifi_ = builderForValue.build();
+          onChanged();
+        } else {
+          wifiBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       */
+      public Builder mergeWifi(org.fieldkit.data.pb.FkData.WifiTransmission value) {
+        if (wifiBuilder_ == null) {
+          if (wifi_ != null) {
+            wifi_ =
+              org.fieldkit.data.pb.FkData.WifiTransmission.newBuilder(wifi_).mergeFrom(value).buildPartial();
+          } else {
+            wifi_ = value;
+          }
+          onChanged();
+        } else {
+          wifiBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       */
+      public Builder clearWifi() {
+        if (wifiBuilder_ == null) {
+          wifi_ = null;
+          onChanged();
+        } else {
+          wifi_ = null;
+          wifiBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       */
+      public org.fieldkit.data.pb.FkData.WifiTransmission.Builder getWifiBuilder() {
+        
+        onChanged();
+        return getWifiFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       */
+      public org.fieldkit.data.pb.FkData.WifiTransmissionOrBuilder getWifiOrBuilder() {
+        if (wifiBuilder_ != null) {
+          return wifiBuilder_.getMessageOrBuilder();
+        } else {
+          return wifi_ == null ?
+              org.fieldkit.data.pb.FkData.WifiTransmission.getDefaultInstance() : wifi_;
+        }
+      }
+      /**
+       * <code>.fk_data.WifiTransmission wifi = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.fieldkit.data.pb.FkData.WifiTransmission, org.fieldkit.data.pb.FkData.WifiTransmission.Builder, org.fieldkit.data.pb.FkData.WifiTransmissionOrBuilder> 
+          getWifiFieldBuilder() {
+        if (wifiBuilder_ == null) {
+          wifiBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.fieldkit.data.pb.FkData.WifiTransmission, org.fieldkit.data.pb.FkData.WifiTransmission.Builder, org.fieldkit.data.pb.FkData.WifiTransmissionOrBuilder>(
+                  getWifi(),
+                  getParentForChildren(),
+                  isClean());
+          wifi_ = null;
+        }
+        return wifiBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:fk_data.TransmissionSettings)
+    }
+
+    // @@protoc_insertion_point(class_scope:fk_data.TransmissionSettings)
+    private static final org.fieldkit.data.pb.FkData.TransmissionSettings DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.fieldkit.data.pb.FkData.TransmissionSettings();
+    }
+
+    public static org.fieldkit.data.pb.FkData.TransmissionSettings getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TransmissionSettings>
+        PARSER = new com.google.protobuf.AbstractParser<TransmissionSettings>() {
+      @java.lang.Override
+      public TransmissionSettings parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TransmissionSettings(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TransmissionSettings> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TransmissionSettings> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.fieldkit.data.pb.FkData.TransmissionSettings getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface NetworkSettingsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:fk_data.NetworkSettings)
       com.google.protobuf.MessageOrBuilder {
@@ -19424,6 +20756,21 @@ public final class FkData {
      * <code>.fk_data.NetworkSettings network = 12;</code>
      */
     org.fieldkit.data.pb.FkData.NetworkSettingsOrBuilder getNetworkOrBuilder();
+
+    /**
+     * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+     * @return Whether the transmission field is set.
+     */
+    boolean hasTransmission();
+    /**
+     * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+     * @return The transmission.
+     */
+    org.fieldkit.data.pb.FkData.TransmissionSettings getTransmission();
+    /**
+     * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+     */
+    org.fieldkit.data.pb.FkData.TransmissionSettingsOrBuilder getTransmissionOrBuilder();
   }
   /**
    * <pre>
@@ -19629,6 +20976,19 @@ public final class FkData {
               }
               logs_.add(
                   input.readMessage(org.fieldkit.data.pb.FkData.LogMessage.parser(), extensionRegistry));
+              break;
+            }
+            case 114: {
+              org.fieldkit.data.pb.FkData.TransmissionSettings.Builder subBuilder = null;
+              if (transmission_ != null) {
+                subBuilder = transmission_.toBuilder();
+              }
+              transmission_ = input.readMessage(org.fieldkit.data.pb.FkData.TransmissionSettings.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(transmission_);
+                transmission_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -19979,6 +21339,29 @@ public final class FkData {
       return getNetwork();
     }
 
+    public static final int TRANSMISSION_FIELD_NUMBER = 14;
+    private org.fieldkit.data.pb.FkData.TransmissionSettings transmission_;
+    /**
+     * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+     * @return Whether the transmission field is set.
+     */
+    public boolean hasTransmission() {
+      return transmission_ != null;
+    }
+    /**
+     * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+     * @return The transmission.
+     */
+    public org.fieldkit.data.pb.FkData.TransmissionSettings getTransmission() {
+      return transmission_ == null ? org.fieldkit.data.pb.FkData.TransmissionSettings.getDefaultInstance() : transmission_;
+    }
+    /**
+     * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+     */
+    public org.fieldkit.data.pb.FkData.TransmissionSettingsOrBuilder getTransmissionOrBuilder() {
+      return getTransmission();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -20031,6 +21414,9 @@ public final class FkData {
       }
       for (int i = 0; i < logs_.size(); i++) {
         output.writeMessage(13, logs_.get(i));
+      }
+      if (transmission_ != null) {
+        output.writeMessage(14, getTransmission());
       }
       unknownFields.writeTo(output);
     }
@@ -20092,6 +21478,10 @@ public final class FkData {
       for (int i = 0; i < logs_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, logs_.get(i));
+      }
+      if (transmission_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, getTransmission());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -20164,6 +21554,11 @@ public final class FkData {
         if (!getNetwork()
             .equals(other.getNetwork())) return false;
       }
+      if (hasTransmission() != other.hasTransmission()) return false;
+      if (hasTransmission()) {
+        if (!getTransmission()
+            .equals(other.getTransmission())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -20225,6 +21620,10 @@ public final class FkData {
       if (hasNetwork()) {
         hash = (37 * hash) + NETWORK_FIELD_NUMBER;
         hash = (53 * hash) + getNetwork().hashCode();
+      }
+      if (hasTransmission()) {
+        hash = (37 * hash) + TRANSMISSION_FIELD_NUMBER;
+        hash = (53 * hash) + getTransmission().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -20440,6 +21839,12 @@ public final class FkData {
           network_ = null;
           networkBuilder_ = null;
         }
+        if (transmissionBuilder_ == null) {
+          transmission_ = null;
+        } else {
+          transmission_ = null;
+          transmissionBuilder_ = null;
+        }
         return this;
       }
 
@@ -20535,6 +21940,11 @@ public final class FkData {
           result.network_ = network_;
         } else {
           result.network_ = networkBuilder_.build();
+        }
+        if (transmissionBuilder_ == null) {
+          result.transmission_ = transmission_;
+        } else {
+          result.transmission_ = transmissionBuilder_.build();
         }
         onBuilt();
         return result;
@@ -20668,6 +22078,9 @@ public final class FkData {
         }
         if (other.hasNetwork()) {
           mergeNetwork(other.getNetwork());
+        }
+        if (other.hasTransmission()) {
+          mergeTransmission(other.getTransmission());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -22397,6 +23810,125 @@ public final class FkData {
           network_ = null;
         }
         return networkBuilder_;
+      }
+
+      private org.fieldkit.data.pb.FkData.TransmissionSettings transmission_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.fieldkit.data.pb.FkData.TransmissionSettings, org.fieldkit.data.pb.FkData.TransmissionSettings.Builder, org.fieldkit.data.pb.FkData.TransmissionSettingsOrBuilder> transmissionBuilder_;
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       * @return Whether the transmission field is set.
+       */
+      public boolean hasTransmission() {
+        return transmissionBuilder_ != null || transmission_ != null;
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       * @return The transmission.
+       */
+      public org.fieldkit.data.pb.FkData.TransmissionSettings getTransmission() {
+        if (transmissionBuilder_ == null) {
+          return transmission_ == null ? org.fieldkit.data.pb.FkData.TransmissionSettings.getDefaultInstance() : transmission_;
+        } else {
+          return transmissionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       */
+      public Builder setTransmission(org.fieldkit.data.pb.FkData.TransmissionSettings value) {
+        if (transmissionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          transmission_ = value;
+          onChanged();
+        } else {
+          transmissionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       */
+      public Builder setTransmission(
+          org.fieldkit.data.pb.FkData.TransmissionSettings.Builder builderForValue) {
+        if (transmissionBuilder_ == null) {
+          transmission_ = builderForValue.build();
+          onChanged();
+        } else {
+          transmissionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       */
+      public Builder mergeTransmission(org.fieldkit.data.pb.FkData.TransmissionSettings value) {
+        if (transmissionBuilder_ == null) {
+          if (transmission_ != null) {
+            transmission_ =
+              org.fieldkit.data.pb.FkData.TransmissionSettings.newBuilder(transmission_).mergeFrom(value).buildPartial();
+          } else {
+            transmission_ = value;
+          }
+          onChanged();
+        } else {
+          transmissionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       */
+      public Builder clearTransmission() {
+        if (transmissionBuilder_ == null) {
+          transmission_ = null;
+          onChanged();
+        } else {
+          transmission_ = null;
+          transmissionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       */
+      public org.fieldkit.data.pb.FkData.TransmissionSettings.Builder getTransmissionBuilder() {
+        
+        onChanged();
+        return getTransmissionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       */
+      public org.fieldkit.data.pb.FkData.TransmissionSettingsOrBuilder getTransmissionOrBuilder() {
+        if (transmissionBuilder_ != null) {
+          return transmissionBuilder_.getMessageOrBuilder();
+        } else {
+          return transmission_ == null ?
+              org.fieldkit.data.pb.FkData.TransmissionSettings.getDefaultInstance() : transmission_;
+        }
+      }
+      /**
+       * <code>.fk_data.TransmissionSettings transmission = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.fieldkit.data.pb.FkData.TransmissionSettings, org.fieldkit.data.pb.FkData.TransmissionSettings.Builder, org.fieldkit.data.pb.FkData.TransmissionSettingsOrBuilder> 
+          getTransmissionFieldBuilder() {
+        if (transmissionBuilder_ == null) {
+          transmissionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.fieldkit.data.pb.FkData.TransmissionSettings, org.fieldkit.data.pb.FkData.TransmissionSettings.Builder, org.fieldkit.data.pb.FkData.TransmissionSettingsOrBuilder>(
+                  getTransmission(),
+                  getParentForChildren(),
+                  isClean());
+          transmission_ = null;
+        }
+        return transmissionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -24377,6 +25909,16 @@ public final class FkData {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_fk_data_NetworkInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fk_data_WifiTransmission_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fk_data_WifiTransmission_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fk_data_TransmissionSettings_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fk_data_TransmissionSettings_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_fk_data_NetworkSettings_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -24457,43 +25999,47 @@ public final class FkData {
       "\022!\n\003gps\030\004 \001(\0132\024.fk_data.JobSchedule\"\030\n\010I" +
       "dentity\022\014\n\004name\030\001 \001(\t\"-\n\tCondition\022\r\n\005fl" +
       "ags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n\013NetworkI" +
-      "nfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"9\n\017N" +
-      "etworkSettings\022&\n\010networks\030\001 \003(\0132\024.fk_da" +
-      "ta.NetworkInfo\"\321\001\n\014LoraSettings\022\021\n\tdevic" +
-      "eEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001" +
-      "(\014\022\025\n\rfrequencyBand\030\004 \001(\r\022\025\n\rdeviceAddre" +
-      "ss\030\005 \001(\014\022\031\n\021networkSessionKey\030\006 \001(\014\022\025\n\ra" +
-      "ppSessionKey\030\007 \001(\014\022\025\n\ruplinkCounter\030\010 \001(" +
-      "\r\022\027\n\017downlinkCounter\030\t \001(\r\"\340\003\n\nDataRecor" +
-      "d\022-\n\rloggedReading\030\001 \001(\0132\026.fk_data.Logge" +
-      "dReading\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Met" +
-      "adata\022 \n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022" +
-      "!\n\004logs\030\r \003(\0132\023.fk_data.LogMessage\022\037\n\006st" +
-      "atus\030\004 \001(\0132\017.fk_data.Status\022#\n\010readings\030" +
-      "\005 \001(\0132\021.fk_data.Readings\022$\n\007modules\030\006 \003(" +
-      "\0132\023.fk_data.ModuleInfo\022#\n\010schedule\030\007 \001(\013" +
-      "2\021.fk_data.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010ide" +
-      "ntity\030\t \001(\0132\021.fk_data.Identity\022%\n\tcondit" +
-      "ion\030\n \001(\0132\022.fk_data.Condition\022#\n\004lora\030\013 " +
-      "\001(\0132\025.fk_data.LoraSettings\022)\n\007network\030\014 " +
-      "\001(\0132\030.fk_data.NetworkSettings\"q\n\014SignedR" +
-      "ecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedReco" +
-      "rdKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004ha" +
-      "sh\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020" +
-      "\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number" +
-      "\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016" +
-      "\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownload" +
-      "Flags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING" +
-      "_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_" +
-      "MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_" +
-      "FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDIN" +
-      "G\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED_RECOR" +
-      "D_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODU" +
-      "LES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034" +
-      "\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_R" +
-      "ECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_" +
-      "KIND_OTHER\020\377\001B\026\n\024org.fieldkit.data.pbb\006p" +
-      "roto3"
+      "nfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\".\n\020W" +
+      "ifiTransmission\022\013\n\003url\030\001 \001(\t\022\r\n\005token\030\002 " +
+      "\001(\t\"?\n\024TransmissionSettings\022\'\n\004wifi\030\001 \001(" +
+      "\0132\031.fk_data.WifiTransmission\"9\n\017NetworkS" +
+      "ettings\022&\n\010networks\030\001 \003(\0132\024.fk_data.Netw" +
+      "orkInfo\"\321\001\n\014LoraSettings\022\021\n\tdeviceEui\030\001 " +
+      "\001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rf" +
+      "requencyBand\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(" +
+      "\014\022\031\n\021networkSessionKey\030\006 \001(\014\022\025\n\rappSessi" +
+      "onKey\030\007 \001(\014\022\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017do" +
+      "wnlinkCounter\030\t \001(\r\"\225\004\n\nDataRecord\022-\n\rlo" +
+      "ggedReading\030\001 \001(\0132\026.fk_data.LoggedReadin" +
+      "g\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022 " +
+      "\n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022!\n\004logs" +
+      "\030\r \003(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004 " +
+      "\001(\0132\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132\021" +
+      ".fk_data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_" +
+      "data.ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_d" +
+      "ata.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t" +
+      " \001(\0132\021.fk_data.Identity\022%\n\tcondition\030\n \001" +
+      "(\0132\022.fk_data.Condition\022#\n\004lora\030\013 \001(\0132\025.f" +
+      "k_data.LoraSettings\022)\n\007network\030\014 \001(\0132\030.f" +
+      "k_data.NetworkSettings\0223\n\014transmission\030\016" +
+      " \001(\0132\035.fk_data.TransmissionSettings\"q\n\014S" +
+      "ignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.Sign" +
+      "edRecordKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014" +
+      "\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRe" +
+      "cord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006" +
+      "number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005" +
+      " \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDo" +
+      "wnloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033R" +
+      "EADING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_" +
+      "FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024COND" +
+      "ITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RE" +
+      "CORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED" +
+      "_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIN" +
+      "D_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDU" +
+      "LE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SI" +
+      "GNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_R" +
+      "ECORD_KIND_OTHER\020\377\001B\026\n\024org.fieldkit.data" +
+      ".pbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -24607,32 +26153,44 @@ public final class FkData {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_NetworkInfo_descriptor,
         new java.lang.String[] { "Ssid", "Password", });
-    internal_static_fk_data_NetworkSettings_descriptor =
+    internal_static_fk_data_WifiTransmission_descriptor =
       getDescriptor().getMessageTypes().get(18);
+    internal_static_fk_data_WifiTransmission_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fk_data_WifiTransmission_descriptor,
+        new java.lang.String[] { "Url", "Token", });
+    internal_static_fk_data_TransmissionSettings_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_fk_data_TransmissionSettings_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fk_data_TransmissionSettings_descriptor,
+        new java.lang.String[] { "Wifi", });
+    internal_static_fk_data_NetworkSettings_descriptor =
+      getDescriptor().getMessageTypes().get(20);
     internal_static_fk_data_NetworkSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_NetworkSettings_descriptor,
         new java.lang.String[] { "Networks", });
     internal_static_fk_data_LoraSettings_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_fk_data_LoraSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_LoraSettings_descriptor,
         new java.lang.String[] { "DeviceEui", "AppKey", "AppEui", "FrequencyBand", "DeviceAddress", "NetworkSessionKey", "AppSessionKey", "UplinkCounter", "DownlinkCounter", });
     internal_static_fk_data_DataRecord_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_fk_data_DataRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_DataRecord_descriptor,
-        new java.lang.String[] { "LoggedReading", "Metadata", "Log", "Logs", "Status", "Readings", "Modules", "Schedule", "Meta", "Identity", "Condition", "Lora", "Network", });
+        new java.lang.String[] { "LoggedReading", "Metadata", "Log", "Logs", "Status", "Readings", "Modules", "Schedule", "Meta", "Identity", "Condition", "Lora", "Network", "Transmission", });
     internal_static_fk_data_SignedRecord_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_fk_data_SignedRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_SignedRecord_descriptor,
         new java.lang.String[] { "Kind", "Time", "Data", "Hash", "Record", });
     internal_static_fk_data_LoraRecord_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_fk_data_LoraRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_LoraRecord_descriptor,

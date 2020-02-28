@@ -146,6 +146,15 @@ message NetworkInfo {
   string password = 2;
 }
 
+message WifiTransmission {
+  string url = 1;
+  string token = 2;
+}
+
+message TransmissionSettings {
+  WifiTransmission wifi = 1;
+}
+
 message NetworkSettings {
   repeated NetworkInfo networks = 1;
 }
@@ -179,6 +188,7 @@ message DataRecord {
   Condition condition = 10;
   LoraSettings lora = 11;
   NetworkSettings network = 12;
+  TransmissionSettings transmission = 14;
 }
 
 enum SignedRecordKind {
