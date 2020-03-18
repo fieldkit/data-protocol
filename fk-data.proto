@@ -149,6 +149,7 @@ message NetworkInfo {
 message WifiTransmission {
   string url = 1;
   string token = 2;
+  bool enabled = 3;
 }
 
 message TransmissionSettings {

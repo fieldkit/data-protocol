@@ -17402,6 +17402,12 @@ public final class FkData {
      */
     com.google.protobuf.ByteString
         getTokenBytes();
+
+    /**
+     * <code>bool enabled = 3;</code>
+     * @return The enabled.
+     */
+    boolean getEnabled();
   }
   /**
    * Protobuf type {@code fk_data.WifiTransmission}
@@ -17460,6 +17466,11 @@ public final class FkData {
               java.lang.String s = input.readStringRequireUtf8();
 
               token_ = s;
+              break;
+            }
+            case 24: {
+
+              enabled_ = input.readBool();
               break;
             }
             default: {
@@ -17566,6 +17577,16 @@ public final class FkData {
       }
     }
 
+    public static final int ENABLED_FIELD_NUMBER = 3;
+    private boolean enabled_;
+    /**
+     * <code>bool enabled = 3;</code>
+     * @return The enabled.
+     */
+    public boolean getEnabled() {
+      return enabled_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -17586,6 +17607,9 @@ public final class FkData {
       if (!getTokenBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, token_);
       }
+      if (enabled_ != false) {
+        output.writeBool(3, enabled_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -17600,6 +17624,10 @@ public final class FkData {
       }
       if (!getTokenBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
+      }
+      if (enabled_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, enabled_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17620,6 +17648,8 @@ public final class FkData {
           .equals(other.getUrl())) return false;
       if (!getToken()
           .equals(other.getToken())) return false;
+      if (getEnabled()
+          != other.getEnabled()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -17635,6 +17665,9 @@ public final class FkData {
       hash = (53 * hash) + getUrl().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
+      hash = (37 * hash) + ENABLED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getEnabled());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -17772,6 +17805,8 @@ public final class FkData {
 
         token_ = "";
 
+        enabled_ = false;
+
         return this;
       }
 
@@ -17800,6 +17835,7 @@ public final class FkData {
         org.fieldkit.data.pb.FkData.WifiTransmission result = new org.fieldkit.data.pb.FkData.WifiTransmission(this);
         result.url_ = url_;
         result.token_ = token_;
+        result.enabled_ = enabled_;
         onBuilt();
         return result;
       }
@@ -17855,6 +17891,9 @@ public final class FkData {
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
           onChanged();
+        }
+        if (other.getEnabled() != false) {
+          setEnabled(other.getEnabled());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18033,6 +18072,36 @@ public final class FkData {
   checkByteStringIsUtf8(value);
         
         token_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean enabled_ ;
+      /**
+       * <code>bool enabled = 3;</code>
+       * @return The enabled.
+       */
+      public boolean getEnabled() {
+        return enabled_;
+      }
+      /**
+       * <code>bool enabled = 3;</code>
+       * @param value The enabled to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnabled(boolean value) {
+        
+        enabled_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool enabled = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnabled() {
+        
+        enabled_ = false;
         onChanged();
         return this;
       }
@@ -25999,47 +26068,47 @@ public final class FkData {
       "\022!\n\003gps\030\004 \001(\0132\024.fk_data.JobSchedule\"\030\n\010I" +
       "dentity\022\014\n\004name\030\001 \001(\t\"-\n\tCondition\022\r\n\005fl" +
       "ags\030\001 \001(\r\022\021\n\trecording\030\002 \001(\r\"-\n\013NetworkI" +
-      "nfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\".\n\020W" +
+      "nfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"?\n\020W" +
       "ifiTransmission\022\013\n\003url\030\001 \001(\t\022\r\n\005token\030\002 " +
-      "\001(\t\"?\n\024TransmissionSettings\022\'\n\004wifi\030\001 \001(" +
-      "\0132\031.fk_data.WifiTransmission\"9\n\017NetworkS" +
-      "ettings\022&\n\010networks\030\001 \003(\0132\024.fk_data.Netw" +
-      "orkInfo\"\321\001\n\014LoraSettings\022\021\n\tdeviceEui\030\001 " +
-      "\001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rf" +
-      "requencyBand\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(" +
-      "\014\022\031\n\021networkSessionKey\030\006 \001(\014\022\025\n\rappSessi" +
-      "onKey\030\007 \001(\014\022\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017do" +
-      "wnlinkCounter\030\t \001(\r\"\225\004\n\nDataRecord\022-\n\rlo" +
-      "ggedReading\030\001 \001(\0132\026.fk_data.LoggedReadin" +
-      "g\022#\n\010metadata\030\002 \001(\0132\021.fk_data.Metadata\022 " +
-      "\n\003log\030\003 \001(\0132\023.fk_data.LogMessage\022!\n\004logs" +
-      "\030\r \003(\0132\023.fk_data.LogMessage\022\037\n\006status\030\004 " +
-      "\001(\0132\017.fk_data.Status\022#\n\010readings\030\005 \001(\0132\021" +
-      ".fk_data.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_" +
-      "data.ModuleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_d" +
-      "ata.Schedule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t" +
-      " \001(\0132\021.fk_data.Identity\022%\n\tcondition\030\n \001" +
-      "(\0132\022.fk_data.Condition\022#\n\004lora\030\013 \001(\0132\025.f" +
-      "k_data.LoraSettings\022)\n\007network\030\014 \001(\0132\030.f" +
-      "k_data.NetworkSettings\0223\n\014transmission\030\016" +
-      " \001(\0132\035.fk_data.TransmissionSettings\"q\n\014S" +
-      "ignedRecord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.Sign" +
-      "edRecordKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014" +
-      "\022\014\n\004hash\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRe" +
-      "cord\022\020\n\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006" +
-      "number\030\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005" +
-      " \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDo" +
-      "wnloadFlags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033R" +
-      "EADING_FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_" +
-      "FLAGS_MANUAL\020\002*I\n\016ConditionFlags\022\030\n\024COND" +
-      "ITION_FLAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RE" +
-      "CORDING\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED" +
-      "_RECORD_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIN" +
-      "D_MODULES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDU" +
-      "LE\020\002\022\034\n\030SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SI" +
-      "GNED_RECORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_R" +
-      "ECORD_KIND_OTHER\020\377\001B\026\n\024org.fieldkit.data" +
-      ".pbb\006proto3"
+      "\001(\t\022\017\n\007enabled\030\003 \001(\010\"?\n\024TransmissionSett" +
+      "ings\022\'\n\004wifi\030\001 \001(\0132\031.fk_data.WifiTransmi" +
+      "ssion\"9\n\017NetworkSettings\022&\n\010networks\030\001 \003" +
+      "(\0132\024.fk_data.NetworkInfo\"\321\001\n\014LoraSetting" +
+      "s\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKey\030\002 \001(\014\022\016\n\006" +
+      "appEui\030\003 \001(\014\022\025\n\rfrequencyBand\030\004 \001(\r\022\025\n\rd" +
+      "eviceAddress\030\005 \001(\014\022\031\n\021networkSessionKey\030" +
+      "\006 \001(\014\022\025\n\rappSessionKey\030\007 \001(\014\022\025\n\ruplinkCo" +
+      "unter\030\010 \001(\r\022\027\n\017downlinkCounter\030\t \001(\r\"\225\004\n" +
+      "\nDataRecord\022-\n\rloggedReading\030\001 \001(\0132\026.fk_" +
+      "data.LoggedReading\022#\n\010metadata\030\002 \001(\0132\021.f" +
+      "k_data.Metadata\022 \n\003log\030\003 \001(\0132\023.fk_data.L" +
+      "ogMessage\022!\n\004logs\030\r \003(\0132\023.fk_data.LogMes" +
+      "sage\022\037\n\006status\030\004 \001(\0132\017.fk_data.Status\022#\n" +
+      "\010readings\030\005 \001(\0132\021.fk_data.Readings\022$\n\007mo" +
+      "dules\030\006 \003(\0132\023.fk_data.ModuleInfo\022#\n\010sche" +
+      "dule\030\007 \001(\0132\021.fk_data.Schedule\022\014\n\004meta\030\010 " +
+      "\001(\004\022#\n\010identity\030\t \001(\0132\021.fk_data.Identity" +
+      "\022%\n\tcondition\030\n \001(\0132\022.fk_data.Condition\022" +
+      "#\n\004lora\030\013 \001(\0132\025.fk_data.LoraSettings\022)\n\007" +
+      "network\030\014 \001(\0132\030.fk_data.NetworkSettings\022" +
+      "3\n\014transmission\030\016 \001(\0132\035.fk_data.Transmis" +
+      "sionSettings\"q\n\014SignedRecord\022\'\n\004kind\030\001 \001" +
+      "(\0162\031.fk_data.SignedRecordKind\022\014\n\004time\030\002 " +
+      "\001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001(\014\022\016\n\006recor" +
+      "d\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010deviceId\030\001 \001(\014\022" +
+      "\014\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004\022\016\n\006module\030" +
+      "\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006values\030\006 \003(\002\022\014\n" +
+      "\004data\030\007 \001(\014*b\n\rDownloadFlags\022\026\n\022READING_" +
+      "FLAGS_NONE\020\000\022\037\n\033READING_FLAGS_NOT_RECORD" +
+      "ING\020\001\022\030\n\024READING_FLAGS_MANUAL\020\002*I\n\016Condi" +
+      "tionFlags\022\030\n\024CONDITION_FLAGS_NONE\020\000\022\035\n\031C" +
+      "ONDITION_FLAGS_RECORDING\020\001*\317\001\n\020SignedRec" +
+      "ordKind\022\033\n\027SIGNED_RECORD_KIND_NONE\020\000\022\036\n\032" +
+      "SIGNED_RECORD_KIND_MODULES\020\001\022\037\n\033SIGNED_R" +
+      "ECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGNED_RECORD_K" +
+      "IND_STATE\020\003\022 \n\034SIGNED_RECORD_KIND_RAW_ST" +
+      "ATE\020\004\022\035\n\030SIGNED_RECORD_KIND_OTHER\020\377\001B\026\n\024" +
+      "org.fieldkit.data.pbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -26158,7 +26227,7 @@ public final class FkData {
     internal_static_fk_data_WifiTransmission_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_WifiTransmission_descriptor,
-        new java.lang.String[] { "Url", "Token", });
+        new java.lang.String[] { "Url", "Token", "Enabled", });
     internal_static_fk_data_TransmissionSettings_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_fk_data_TransmissionSettings_fieldAccessorTable = new

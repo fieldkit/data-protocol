@@ -421,6 +421,10 @@
             "token": {
               "type": "string",
               "id": 2
+            },
+            "enabled": {
+              "type": "bool",
+              "id": 3
             }
           }
         },
