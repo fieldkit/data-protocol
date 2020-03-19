@@ -351,6 +351,10 @@
             "duration": {
               "type": "uint32",
               "id": 4
+            },
+            "jitter": {
+              "type": "uint32",
+              "id": 5
             }
           }
         },

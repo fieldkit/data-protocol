@@ -118,6 +118,7 @@ message JobSchedule {
   uint32 interval = 2;
   uint32 repeated = 3;
   uint32 duration = 4;
+  uint32 jitter = 5;
 }
 
 message Schedule {
