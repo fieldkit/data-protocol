@@ -39,11 +39,6 @@ typedef struct _fk_data_Identity {
     pb_callback_t name;
 } fk_data_Identity;
 
-typedef struct _fk_data_NetworkInfo {
-    pb_callback_t ssid;
-    pb_callback_t password;
-} fk_data_NetworkInfo;
-
 typedef struct _fk_data_NetworkSettings {
     pb_callback_t networks;
 } fk_data_NetworkSettings;
@@ -116,6 +111,13 @@ typedef struct _fk_data_ModuleHeader {
     uint32_t kind;
     uint32_t version;
 } fk_data_ModuleHeader;
+
+typedef struct _fk_data_NetworkInfo {
+    pb_callback_t ssid;
+    pb_callback_t password;
+    bool create;
+    bool preferred;
+} fk_data_NetworkInfo;
 
 typedef struct _fk_data_SensorAndValue {
     uint32_t sensor;
@@ -285,7 +287,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Schedule_init_default            {false, fk_data_JobSchedule_init_default, false, fk_data_JobSchedule_init_default, false, fk_data_JobSchedule_init_default, false, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
 #define fk_data_Condition_init_default           {0, 0}
-#define fk_data_NetworkInfo_init_default         {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_NetworkInfo_init_default         {{{NULL}, NULL}, {{NULL}, NULL}, 0, 0}
 #define fk_data_WifiTransmission_init_default    {{{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_TransmissionSettings_init_default {false, fk_data_WifiTransmission_init_default}
 #define fk_data_NetworkSettings_init_default     {{{NULL}, NULL}}
@@ -310,7 +312,7 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Schedule_init_zero               {false, fk_data_JobSchedule_init_zero, false, fk_data_JobSchedule_init_zero, false, fk_data_JobSchedule_init_zero, false, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
 #define fk_data_Condition_init_zero              {0, 0}
-#define fk_data_NetworkInfo_init_zero            {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_NetworkInfo_init_zero            {{{NULL}, NULL}, {{NULL}, NULL}, 0, 0}
 #define fk_data_WifiTransmission_init_zero       {{{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_TransmissionSettings_init_zero   {false, fk_data_WifiTransmission_init_zero}
 #define fk_data_NetworkSettings_init_zero        {{{NULL}, NULL}}
@@ -321,8 +323,6 @@ typedef struct _fk_data_DataRecord {
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_Identity_name_tag                1
-#define fk_data_NetworkInfo_ssid_tag             1
-#define fk_data_NetworkInfo_password_tag         2
 #define fk_data_NetworkSettings_networks_tag     1
 #define fk_data_Condition_flags_tag              1
 #define fk_data_Condition_recording_tag          2
@@ -369,6 +369,10 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_ModuleHeader_manufacturer_tag    1
 #define fk_data_ModuleHeader_kind_tag            2
 #define fk_data_ModuleHeader_version_tag         3
+#define fk_data_NetworkInfo_ssid_tag             1
+#define fk_data_NetworkInfo_password_tag         2
+#define fk_data_NetworkInfo_create_tag           3
+#define fk_data_NetworkInfo_preferred_tag        4
 #define fk_data_SensorAndValue_sensor_tag        1
 #define fk_data_SensorAndValue_value_tag         2
 #define fk_data_SensorGroup_module_tag           1
@@ -605,7 +609,9 @@ X(a, STATIC,   SINGULAR, UINT32,   recording,         2)
 
 #define fk_data_NetworkInfo_FIELDLIST(X, a) \
 X(a, CALLBACK, SINGULAR, STRING,   ssid,              1) \
-X(a, CALLBACK, SINGULAR, STRING,   password,          2)
+X(a, CALLBACK, SINGULAR, STRING,   password,          2) \
+X(a, STATIC,   SINGULAR, BOOL,     create,            3) \
+X(a, STATIC,   SINGULAR, BOOL,     preferred,         4)
 #define fk_data_NetworkInfo_CALLBACK pb_default_field_callback
 #define fk_data_NetworkInfo_DEFAULT NULL
 

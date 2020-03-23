@@ -16756,6 +16756,18 @@ public final class FkData {
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
+
+    /**
+     * <code>bool create = 3;</code>
+     * @return The create.
+     */
+    boolean getCreate();
+
+    /**
+     * <code>bool preferred = 4;</code>
+     * @return The preferred.
+     */
+    boolean getPreferred();
   }
   /**
    * Protobuf type {@code fk_data.NetworkInfo}
@@ -16814,6 +16826,16 @@ public final class FkData {
               java.lang.String s = input.readStringRequireUtf8();
 
               password_ = s;
+              break;
+            }
+            case 24: {
+
+              create_ = input.readBool();
+              break;
+            }
+            case 32: {
+
+              preferred_ = input.readBool();
               break;
             }
             default: {
@@ -16920,6 +16942,26 @@ public final class FkData {
       }
     }
 
+    public static final int CREATE_FIELD_NUMBER = 3;
+    private boolean create_;
+    /**
+     * <code>bool create = 3;</code>
+     * @return The create.
+     */
+    public boolean getCreate() {
+      return create_;
+    }
+
+    public static final int PREFERRED_FIELD_NUMBER = 4;
+    private boolean preferred_;
+    /**
+     * <code>bool preferred = 4;</code>
+     * @return The preferred.
+     */
+    public boolean getPreferred() {
+      return preferred_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -16940,6 +16982,12 @@ public final class FkData {
       if (!getPasswordBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
       }
+      if (create_ != false) {
+        output.writeBool(3, create_);
+      }
+      if (preferred_ != false) {
+        output.writeBool(4, preferred_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -16954,6 +17002,14 @@ public final class FkData {
       }
       if (!getPasswordBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+      }
+      if (create_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, create_);
+      }
+      if (preferred_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, preferred_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -16974,6 +17030,10 @@ public final class FkData {
           .equals(other.getSsid())) return false;
       if (!getPassword()
           .equals(other.getPassword())) return false;
+      if (getCreate()
+          != other.getCreate()) return false;
+      if (getPreferred()
+          != other.getPreferred()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -16989,6 +17049,12 @@ public final class FkData {
       hash = (53 * hash) + getSsid().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
+      hash = (37 * hash) + CREATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getCreate());
+      hash = (37 * hash) + PREFERRED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getPreferred());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -17126,6 +17192,10 @@ public final class FkData {
 
         password_ = "";
 
+        create_ = false;
+
+        preferred_ = false;
+
         return this;
       }
 
@@ -17154,6 +17224,8 @@ public final class FkData {
         org.fieldkit.data.pb.FkData.NetworkInfo result = new org.fieldkit.data.pb.FkData.NetworkInfo(this);
         result.ssid_ = ssid_;
         result.password_ = password_;
+        result.create_ = create_;
+        result.preferred_ = preferred_;
         onBuilt();
         return result;
       }
@@ -17209,6 +17281,12 @@ public final class FkData {
         if (!other.getPassword().isEmpty()) {
           password_ = other.password_;
           onChanged();
+        }
+        if (other.getCreate() != false) {
+          setCreate(other.getCreate());
+        }
+        if (other.getPreferred() != false) {
+          setPreferred(other.getPreferred());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -17387,6 +17465,66 @@ public final class FkData {
   checkByteStringIsUtf8(value);
         
         password_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean create_ ;
+      /**
+       * <code>bool create = 3;</code>
+       * @return The create.
+       */
+      public boolean getCreate() {
+        return create_;
+      }
+      /**
+       * <code>bool create = 3;</code>
+       * @param value The create to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCreate(boolean value) {
+        
+        create_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool create = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCreate() {
+        
+        create_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean preferred_ ;
+      /**
+       * <code>bool preferred = 4;</code>
+       * @return The preferred.
+       */
+      public boolean getPreferred() {
+        return preferred_;
+      }
+      /**
+       * <code>bool preferred = 4;</code>
+       * @param value The preferred to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreferred(boolean value) {
+        
+        preferred_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool preferred = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreferred() {
+        
+        preferred_ = false;
         onChanged();
         return this;
       }
@@ -26136,48 +26274,48 @@ public final class FkData {
       "data.JobSchedule\022!\n\003gps\030\004 \001(\0132\024.fk_data." +
       "JobSchedule\"\030\n\010Identity\022\014\n\004name\030\001 \001(\t\"-\n" +
       "\tCondition\022\r\n\005flags\030\001 \001(\r\022\021\n\trecording\030\002" +
-      " \001(\r\"-\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010pas" +
-      "sword\030\002 \001(\t\"?\n\020WifiTransmission\022\013\n\003url\030\001" +
-      " \001(\t\022\r\n\005token\030\002 \001(\t\022\017\n\007enabled\030\003 \001(\010\"?\n\024" +
-      "TransmissionSettings\022\'\n\004wifi\030\001 \001(\0132\031.fk_" +
-      "data.WifiTransmission\"9\n\017NetworkSettings" +
-      "\022&\n\010networks\030\001 \003(\0132\024.fk_data.NetworkInfo" +
-      "\"\321\001\n\014LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006" +
-      "appKey\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequenc" +
-      "yBand\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(\014\022\031\n\021ne" +
-      "tworkSessionKey\030\006 \001(\014\022\025\n\rappSessionKey\030\007" +
-      " \001(\014\022\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017downlinkC" +
-      "ounter\030\t \001(\r\"\225\004\n\nDataRecord\022-\n\rloggedRea" +
-      "ding\030\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010me" +
-      "tadata\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003" +
-      " \001(\0132\023.fk_data.LogMessage\022!\n\004logs\030\r \003(\0132" +
-      "\023.fk_data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.f" +
-      "k_data.Status\022#\n\010readings\030\005 \001(\0132\021.fk_dat" +
-      "a.Readings\022$\n\007modules\030\006 \003(\0132\023.fk_data.Mo" +
-      "duleInfo\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Sch" +
-      "edule\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021." +
-      "fk_data.Identity\022%\n\tcondition\030\n \001(\0132\022.fk" +
-      "_data.Condition\022#\n\004lora\030\013 \001(\0132\025.fk_data." +
-      "LoraSettings\022)\n\007network\030\014 \001(\0132\030.fk_data." +
-      "NetworkSettings\0223\n\014transmission\030\016 \001(\0132\035." +
-      "fk_data.TransmissionSettings\"q\n\014SignedRe" +
-      "cord\022\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedRecor" +
-      "dKind\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004has" +
-      "h\030\004 \001(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020\n" +
-      "\010deviceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number\030" +
-      "\003 \001(\004\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n" +
-      "\006values\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownloadF" +
-      "lags\022\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING_" +
-      "FLAGS_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_M" +
-      "ANUAL\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_F" +
-      "LAGS_NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDING" +
-      "\020\001*\317\001\n\020SignedRecordKind\022\033\n\027SIGNED_RECORD" +
-      "_KIND_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODUL" +
-      "ES\020\001\022\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n" +
-      "\030SIGNED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_RE" +
-      "CORD_KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_K" +
-      "IND_OTHER\020\377\001B\026\n\024org.fieldkit.data.pbb\006pr" +
-      "oto3"
+      " \001(\r\"P\n\013NetworkInfo\022\014\n\004ssid\030\001 \001(\t\022\020\n\010pas" +
+      "sword\030\002 \001(\t\022\016\n\006create\030\003 \001(\010\022\021\n\tpreferred" +
+      "\030\004 \001(\010\"?\n\020WifiTransmission\022\013\n\003url\030\001 \001(\t\022" +
+      "\r\n\005token\030\002 \001(\t\022\017\n\007enabled\030\003 \001(\010\"?\n\024Trans" +
+      "missionSettings\022\'\n\004wifi\030\001 \001(\0132\031.fk_data." +
+      "WifiTransmission\"9\n\017NetworkSettings\022&\n\010n" +
+      "etworks\030\001 \003(\0132\024.fk_data.NetworkInfo\"\321\001\n\014" +
+      "LoraSettings\022\021\n\tdeviceEui\030\001 \001(\014\022\016\n\006appKe" +
+      "y\030\002 \001(\014\022\016\n\006appEui\030\003 \001(\014\022\025\n\rfrequencyBand" +
+      "\030\004 \001(\r\022\025\n\rdeviceAddress\030\005 \001(\014\022\031\n\021network" +
+      "SessionKey\030\006 \001(\014\022\025\n\rappSessionKey\030\007 \001(\014\022" +
+      "\025\n\ruplinkCounter\030\010 \001(\r\022\027\n\017downlinkCounte" +
+      "r\030\t \001(\r\"\225\004\n\nDataRecord\022-\n\rloggedReading\030" +
+      "\001 \001(\0132\026.fk_data.LoggedReading\022#\n\010metadat" +
+      "a\030\002 \001(\0132\021.fk_data.Metadata\022 \n\003log\030\003 \001(\0132" +
+      "\023.fk_data.LogMessage\022!\n\004logs\030\r \003(\0132\023.fk_" +
+      "data.LogMessage\022\037\n\006status\030\004 \001(\0132\017.fk_dat" +
+      "a.Status\022#\n\010readings\030\005 \001(\0132\021.fk_data.Rea" +
+      "dings\022$\n\007modules\030\006 \003(\0132\023.fk_data.ModuleI" +
+      "nfo\022#\n\010schedule\030\007 \001(\0132\021.fk_data.Schedule" +
+      "\022\014\n\004meta\030\010 \001(\004\022#\n\010identity\030\t \001(\0132\021.fk_da" +
+      "ta.Identity\022%\n\tcondition\030\n \001(\0132\022.fk_data" +
+      ".Condition\022#\n\004lora\030\013 \001(\0132\025.fk_data.LoraS" +
+      "ettings\022)\n\007network\030\014 \001(\0132\030.fk_data.Netwo" +
+      "rkSettings\0223\n\014transmission\030\016 \001(\0132\035.fk_da" +
+      "ta.TransmissionSettings\"q\n\014SignedRecord\022" +
+      "\'\n\004kind\030\001 \001(\0162\031.fk_data.SignedRecordKind" +
+      "\022\014\n\004time\030\002 \001(\003\022\014\n\004data\030\003 \001(\014\022\014\n\004hash\030\004 \001" +
+      "(\014\022\016\n\006record\030\005 \001(\004\"z\n\nLoraRecord\022\020\n\010devi" +
+      "ceId\030\001 \001(\014\022\014\n\004time\030\002 \001(\003\022\016\n\006number\030\003 \001(\004" +
+      "\022\016\n\006module\030\004 \001(\r\022\016\n\006sensor\030\005 \001(\004\022\016\n\006valu" +
+      "es\030\006 \003(\002\022\014\n\004data\030\007 \001(\014*b\n\rDownloadFlags\022" +
+      "\026\n\022READING_FLAGS_NONE\020\000\022\037\n\033READING_FLAGS" +
+      "_NOT_RECORDING\020\001\022\030\n\024READING_FLAGS_MANUAL" +
+      "\020\002*I\n\016ConditionFlags\022\030\n\024CONDITION_FLAGS_" +
+      "NONE\020\000\022\035\n\031CONDITION_FLAGS_RECORDING\020\001*\317\001" +
+      "\n\020SignedRecordKind\022\033\n\027SIGNED_RECORD_KIND" +
+      "_NONE\020\000\022\036\n\032SIGNED_RECORD_KIND_MODULES\020\001\022" +
+      "\037\n\033SIGNED_RECORD_KIND_SCHEDULE\020\002\022\034\n\030SIGN" +
+      "ED_RECORD_KIND_STATE\020\003\022 \n\034SIGNED_RECORD_" +
+      "KIND_RAW_STATE\020\004\022\035\n\030SIGNED_RECORD_KIND_O" +
+      "THER\020\377\001B\026\n\024org.fieldkit.data.pbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -26290,7 +26428,7 @@ public final class FkData {
     internal_static_fk_data_NetworkInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fk_data_NetworkInfo_descriptor,
-        new java.lang.String[] { "Ssid", "Password", });
+        new java.lang.String[] { "Ssid", "Password", "Create", "Preferred", });
     internal_static_fk_data_WifiTransmission_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_fk_data_WifiTransmission_fieldAccessorTable = new
