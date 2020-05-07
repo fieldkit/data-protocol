@@ -49,7 +49,7 @@
         "SensorReading": {
           "fields": {
             "reading": {
-              "type": "uint32",
+              "type": "uint64",
               "id": 1
             },
             "time": {
@@ -308,7 +308,7 @@
               "id": 1
             },
             "reading": {
-              "type": "uint32",
+              "type": "uint64",
               "id": 2
             },
             "flags": {
@@ -316,7 +316,7 @@
               "id": 3
             },
             "meta": {
-              "type": "uint32",
+              "type": "uint64",
               "id": 6
             },
             "uptime": {

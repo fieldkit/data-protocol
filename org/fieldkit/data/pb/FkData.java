@@ -1538,10 +1538,10 @@ public final class FkData {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 reading = 1;</code>
+     * <code>uint64 reading = 1;</code>
      * @return The reading.
      */
-    int getReading();
+    long getReading();
 
     /**
      * <code>int64 time = 2;</code>
@@ -1608,7 +1608,7 @@ public final class FkData {
               break;
             case 8: {
 
-              reading_ = input.readUInt32();
+              reading_ = input.readUInt64();
               break;
             }
             case 16: {
@@ -1659,12 +1659,12 @@ public final class FkData {
     }
 
     public static final int READING_FIELD_NUMBER = 1;
-    private int reading_;
+    private long reading_;
     /**
-     * <code>uint32 reading = 1;</code>
+     * <code>uint64 reading = 1;</code>
      * @return The reading.
      */
-    public int getReading() {
+    public long getReading() {
       return reading_;
     }
 
@@ -1712,8 +1712,8 @@ public final class FkData {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (reading_ != 0) {
-        output.writeUInt32(1, reading_);
+      if (reading_ != 0L) {
+        output.writeUInt64(1, reading_);
       }
       if (time_ != 0L) {
         output.writeInt64(2, time_);
@@ -1733,9 +1733,9 @@ public final class FkData {
       if (size != -1) return size;
 
       size = 0;
-      if (reading_ != 0) {
+      if (reading_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, reading_);
+          .computeUInt64Size(1, reading_);
       }
       if (time_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -1785,7 +1785,8 @@ public final class FkData {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + READING_FIELD_NUMBER;
-      hash = (53 * hash) + getReading();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getReading());
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTime());
@@ -1927,7 +1928,7 @@ public final class FkData {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        reading_ = 0;
+        reading_ = 0L;
 
         time_ = 0L;
 
@@ -2013,7 +2014,7 @@ public final class FkData {
 
       public Builder mergeFrom(org.fieldkit.data.pb.FkData.SensorReading other) {
         if (other == org.fieldkit.data.pb.FkData.SensorReading.getDefaultInstance()) return this;
-        if (other.getReading() != 0) {
+        if (other.getReading() != 0L) {
           setReading(other.getReading());
         }
         if (other.getTime() != 0L) {
@@ -2054,32 +2055,32 @@ public final class FkData {
         return this;
       }
 
-      private int reading_ ;
+      private long reading_ ;
       /**
-       * <code>uint32 reading = 1;</code>
+       * <code>uint64 reading = 1;</code>
        * @return The reading.
        */
-      public int getReading() {
+      public long getReading() {
         return reading_;
       }
       /**
-       * <code>uint32 reading = 1;</code>
+       * <code>uint64 reading = 1;</code>
        * @param value The reading to set.
        * @return This builder for chaining.
        */
-      public Builder setReading(int value) {
+      public Builder setReading(long value) {
         
         reading_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 reading = 1;</code>
+       * <code>uint64 reading = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearReading() {
         
-        reading_ = 0;
+        reading_ = 0L;
         onChanged();
         return this;
       }
@@ -12311,10 +12312,10 @@ public final class FkData {
     long getTime();
 
     /**
-     * <code>uint32 reading = 2;</code>
+     * <code>uint64 reading = 2;</code>
      * @return The reading.
      */
-    int getReading();
+    long getReading();
 
     /**
      * <code>uint32 flags = 3;</code>
@@ -12323,10 +12324,10 @@ public final class FkData {
     int getFlags();
 
     /**
-     * <code>uint32 meta = 6;</code>
+     * <code>uint64 meta = 6;</code>
      * @return The meta.
      */
-    int getMeta();
+    long getMeta();
 
     /**
      * <code>uint32 uptime = 7;</code>
@@ -12427,7 +12428,7 @@ public final class FkData {
             }
             case 16: {
 
-              reading_ = input.readUInt32();
+              reading_ = input.readUInt64();
               break;
             }
             case 24: {
@@ -12459,7 +12460,7 @@ public final class FkData {
             }
             case 48: {
 
-              meta_ = input.readUInt32();
+              meta_ = input.readUInt64();
               break;
             }
             case 56: {
@@ -12513,12 +12514,12 @@ public final class FkData {
     }
 
     public static final int READING_FIELD_NUMBER = 2;
-    private int reading_;
+    private long reading_;
     /**
-     * <code>uint32 reading = 2;</code>
+     * <code>uint64 reading = 2;</code>
      * @return The reading.
      */
-    public int getReading() {
+    public long getReading() {
       return reading_;
     }
 
@@ -12533,12 +12534,12 @@ public final class FkData {
     }
 
     public static final int META_FIELD_NUMBER = 6;
-    private int meta_;
+    private long meta_;
     /**
-     * <code>uint32 meta = 6;</code>
+     * <code>uint64 meta = 6;</code>
      * @return The meta.
      */
-    public int getMeta() {
+    public long getMeta() {
       return meta_;
     }
 
@@ -12627,8 +12628,8 @@ public final class FkData {
       if (time_ != 0L) {
         output.writeInt64(1, time_);
       }
-      if (reading_ != 0) {
-        output.writeUInt32(2, reading_);
+      if (reading_ != 0L) {
+        output.writeUInt64(2, reading_);
       }
       if (flags_ != 0) {
         output.writeUInt32(3, flags_);
@@ -12639,8 +12640,8 @@ public final class FkData {
       for (int i = 0; i < sensorGroups_.size(); i++) {
         output.writeMessage(5, sensorGroups_.get(i));
       }
-      if (meta_ != 0) {
-        output.writeUInt32(6, meta_);
+      if (meta_ != 0L) {
+        output.writeUInt64(6, meta_);
       }
       if (uptime_ != 0) {
         output.writeUInt32(7, uptime_);
@@ -12658,9 +12659,9 @@ public final class FkData {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, time_);
       }
-      if (reading_ != 0) {
+      if (reading_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, reading_);
+          .computeUInt64Size(2, reading_);
       }
       if (flags_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -12674,9 +12675,9 @@ public final class FkData {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, sensorGroups_.get(i));
       }
-      if (meta_ != 0) {
+      if (meta_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(6, meta_);
+          .computeUInt64Size(6, meta_);
       }
       if (uptime_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -12729,11 +12730,13 @@ public final class FkData {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTime());
       hash = (37 * hash) + READING_FIELD_NUMBER;
-      hash = (53 * hash) + getReading();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getReading());
       hash = (37 * hash) + FLAGS_FIELD_NUMBER;
       hash = (53 * hash) + getFlags();
       hash = (37 * hash) + META_FIELD_NUMBER;
-      hash = (53 * hash) + getMeta();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMeta());
       hash = (37 * hash) + UPTIME_FIELD_NUMBER;
       hash = (53 * hash) + getUptime();
       if (hasLocation()) {
@@ -12880,11 +12883,11 @@ public final class FkData {
         super.clear();
         time_ = 0L;
 
-        reading_ = 0;
+        reading_ = 0L;
 
         flags_ = 0;
 
-        meta_ = 0;
+        meta_ = 0L;
 
         uptime_ = 0;
 
@@ -12997,13 +13000,13 @@ public final class FkData {
         if (other.getTime() != 0L) {
           setTime(other.getTime());
         }
-        if (other.getReading() != 0) {
+        if (other.getReading() != 0L) {
           setReading(other.getReading());
         }
         if (other.getFlags() != 0) {
           setFlags(other.getFlags());
         }
-        if (other.getMeta() != 0) {
+        if (other.getMeta() != 0L) {
           setMeta(other.getMeta());
         }
         if (other.getUptime() != 0) {
@@ -13098,32 +13101,32 @@ public final class FkData {
         return this;
       }
 
-      private int reading_ ;
+      private long reading_ ;
       /**
-       * <code>uint32 reading = 2;</code>
+       * <code>uint64 reading = 2;</code>
        * @return The reading.
        */
-      public int getReading() {
+      public long getReading() {
         return reading_;
       }
       /**
-       * <code>uint32 reading = 2;</code>
+       * <code>uint64 reading = 2;</code>
        * @param value The reading to set.
        * @return This builder for chaining.
        */
-      public Builder setReading(int value) {
+      public Builder setReading(long value) {
         
         reading_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 reading = 2;</code>
+       * <code>uint64 reading = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearReading() {
         
-        reading_ = 0;
+        reading_ = 0L;
         onChanged();
         return this;
       }
@@ -13158,32 +13161,32 @@ public final class FkData {
         return this;
       }
 
-      private int meta_ ;
+      private long meta_ ;
       /**
-       * <code>uint32 meta = 6;</code>
+       * <code>uint64 meta = 6;</code>
        * @return The meta.
        */
-      public int getMeta() {
+      public long getMeta() {
         return meta_;
       }
       /**
-       * <code>uint32 meta = 6;</code>
+       * <code>uint64 meta = 6;</code>
        * @param value The meta to set.
        * @return This builder for chaining.
        */
-      public Builder setMeta(int value) {
+      public Builder setMeta(long value) {
         
         meta_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 meta = 6;</code>
+       * <code>uint64 meta = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearMeta() {
         
-        meta_ = 0;
+        meta_ = 0L;
         onChanged();
         return this;
       }
@@ -26232,7 +26235,7 @@ public final class FkData {
       "e\030\002 \001(\003\022\021\n\tlongitude\030\003 \001(\002\022\020\n\010latitude\030\004" +
       " \001(\002\022\020\n\010altitude\030\005 \001(\002\022\023\n\013coordinates\030\006 " +
       "\003(\002\022\022\n\nsatellites\030\010 \001(\r\022\014\n\004hdop\030\t \001(\r\"M\n" +
-      "\rSensorReading\022\017\n\007reading\030\001 \001(\r\022\014\n\004time\030" +
+      "\rSensorReading\022\017\n\007reading\030\001 \001(\004\022\014\n\004time\030" +
       "\002 \001(\003\022\016\n\006sensor\030\003 \001(\r\022\r\n\005value\030\004 \001(\002\"t\n\r" +
       "LoggedReading\022\017\n\007version\030\001 \001(\r\022)\n\010locati" +
       "on\030\002 \001(\0132\027.fk_data.DeviceLocation\022\'\n\007rea" +
@@ -26262,8 +26265,8 @@ public final class FkData {
       "(\t\022\017\n\007message\030\005 \001(\t\"H\n\013SensorGroup\022\016\n\006mo" +
       "dule\030\001 \001(\r\022)\n\010readings\030\002 \003(\0132\027.fk_data.S" +
       "ensorAndValue\"\255\001\n\010Readings\022\014\n\004time\030\001 \001(\003" +
-      "\022\017\n\007reading\030\002 \001(\r\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta" +
-      "\030\006 \001(\r\022\016\n\006uptime\030\007 \001(\r\022)\n\010location\030\004 \001(\013" +
+      "\022\017\n\007reading\030\002 \001(\004\022\r\n\005flags\030\003 \001(\r\022\014\n\004meta" +
+      "\030\006 \001(\004\022\016\n\006uptime\030\007 \001(\r\022)\n\010location\030\004 \001(\013" +
       "2\027.fk_data.DeviceLocation\022*\n\014sensorGroup" +
       "s\030\005 \003(\0132\024.fk_data.SensorGroup\"a\n\013JobSche" +
       "dule\022\014\n\004cron\030\001 \001(\014\022\020\n\010interval\030\002 \001(\r\022\020\n\010" +

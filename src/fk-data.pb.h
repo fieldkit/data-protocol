@@ -137,7 +137,7 @@ typedef struct _fk_data_SensorInfo {
 } fk_data_SensorInfo;
 
 typedef struct _fk_data_SensorReading {
-    uint32_t reading;
+    uint64_t reading;
     int64_t time;
     uint32_t sensor;
     float value;
@@ -201,12 +201,12 @@ typedef struct _fk_data_ModuleInfo {
 
 typedef struct _fk_data_Readings {
     int64_t time;
-    uint32_t reading;
+    uint64_t reading;
     uint32_t flags;
     bool has_location;
     fk_data_DeviceLocation location;
     pb_callback_t sensorGroups;
-    uint32_t meta;
+    uint64_t meta;
     uint32_t uptime;
 } fk_data_Readings;
 
@@ -460,7 +460,7 @@ X(a, STATIC,   SINGULAR, UINT32,   hdop,              9)
 #define fk_data_DeviceLocation_DEFAULT NULL
 
 #define fk_data_SensorReading_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, UINT32,   reading,           1) \
+X(a, STATIC,   SINGULAR, UINT64,   reading,           1) \
 X(a, STATIC,   SINGULAR, INT64,    time,              2) \
 X(a, STATIC,   SINGULAR, UINT32,   sensor,            3) \
 X(a, STATIC,   SINGULAR, FLOAT,    value,             4)
@@ -564,11 +564,11 @@ X(a, CALLBACK, REPEATED, MESSAGE,  readings,          2)
 
 #define fk_data_Readings_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, INT64,    time,              1) \
-X(a, STATIC,   SINGULAR, UINT32,   reading,           2) \
+X(a, STATIC,   SINGULAR, UINT64,   reading,           2) \
 X(a, STATIC,   SINGULAR, UINT32,   flags,             3) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  location,          4) \
 X(a, CALLBACK, REPEATED, MESSAGE,  sensorGroups,      5) \
-X(a, STATIC,   SINGULAR, UINT32,   meta,              6) \
+X(a, STATIC,   SINGULAR, UINT64,   meta,              6) \
 X(a, STATIC,   SINGULAR, UINT32,   uptime,            7)
 #define fk_data_Readings_CALLBACK pb_default_field_callback
 #define fk_data_Readings_DEFAULT NULL
@@ -753,7 +753,7 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 
 /* Maximum encoded size of messages (where known) */
 /* fk_data_DeviceLocation_size depends on runtime parameters */
-#define fk_data_SensorReading_size               28
+#define fk_data_SensorReading_size               33
 /* fk_data_LoggedReading_size depends on runtime parameters */
 #define fk_data_SensorAndValue_size              11
 #define fk_data_ModuleHeader_size                18
