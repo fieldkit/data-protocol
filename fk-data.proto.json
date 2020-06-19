@@ -2,7 +2,7 @@
   "nested": {
     "fk_data": {
       "options": {
-        "java_package": "org.fieldkit.data.pb"
+        "java_package": "org.conservify.fieldkit.data.pb"
       },
       "nested": {
         "DeviceLocation": {

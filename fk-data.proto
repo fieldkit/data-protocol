@@ -1,6 +1,6 @@
 syntax = "proto3";
 package fk_data;
-option java_package = "org.fieldkit.data.pb";
+option java_package = "org.conservify.fieldkit.data.pb";
 
 message DeviceLocation {
   uint32 enabled = 7;
