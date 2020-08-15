@@ -68,12 +68,19 @@ typedef struct _fk_data_Firmware {
     pb_callback_t hash;
 } fk_data_Firmware;
 
+typedef struct _fk_data_Interval {
+    uint64_t start;
+    uint64_t end;
+    uint32_t interval;
+} fk_data_Interval;
+
 typedef struct _fk_data_JobSchedule {
     pb_callback_t cron;
     uint32_t interval;
     uint32_t repeated;
     uint32_t duration;
     uint32_t jitter;
+    pb_callback_t intervals;
 } fk_data_JobSchedule;
 
 typedef struct _fk_data_LogMessage {
@@ -283,7 +290,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_default            {0, 0, 0, false, fk_data_DeviceLocation_init_default, {{NULL}, NULL}, 0, 0}
-#define fk_data_JobSchedule_init_default         {{{NULL}, NULL}, 0, 0, 0, 0}
+#define fk_data_Interval_init_default            {0, 0, 0}
+#define fk_data_JobSchedule_init_default         {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}}
 #define fk_data_Schedule_init_default            {false, fk_data_JobSchedule_init_default, false, fk_data_JobSchedule_init_default, false, fk_data_JobSchedule_init_default, false, fk_data_JobSchedule_init_default}
 #define fk_data_Identity_init_default            {{{NULL}, NULL}}
 #define fk_data_Condition_init_default           {0, 0}
@@ -308,7 +316,8 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
 #define fk_data_Readings_init_zero               {0, 0, 0, false, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}, 0, 0}
-#define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}, 0, 0, 0, 0}
+#define fk_data_Interval_init_zero               {0, 0, 0}
+#define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}}
 #define fk_data_Schedule_init_zero               {false, fk_data_JobSchedule_init_zero, false, fk_data_JobSchedule_init_zero, false, fk_data_JobSchedule_init_zero, false, fk_data_JobSchedule_init_zero}
 #define fk_data_Identity_init_zero               {{{NULL}, NULL}}
 #define fk_data_Condition_init_zero              {0, 0}
@@ -340,11 +349,15 @@ typedef struct _fk_data_DataRecord {
 #define fk_data_Firmware_number_tag              3
 #define fk_data_Firmware_timestamp_tag           4
 #define fk_data_Firmware_hash_tag                5
+#define fk_data_Interval_start_tag               1
+#define fk_data_Interval_end_tag                 2
+#define fk_data_Interval_interval_tag            3
 #define fk_data_JobSchedule_cron_tag             1
 #define fk_data_JobSchedule_interval_tag         2
 #define fk_data_JobSchedule_repeated_tag         3
 #define fk_data_JobSchedule_duration_tag         4
 #define fk_data_JobSchedule_jitter_tag           5
+#define fk_data_JobSchedule_intervals_tag        6
 #define fk_data_LogMessage_time_tag              1
 #define fk_data_LogMessage_uptime_tag            2
 #define fk_data_LogMessage_level_tag             3
@@ -575,14 +588,23 @@ X(a, STATIC,   SINGULAR, UINT32,   uptime,            7)
 #define fk_data_Readings_location_MSGTYPE fk_data_DeviceLocation
 #define fk_data_Readings_sensorGroups_MSGTYPE fk_data_SensorGroup
 
+#define fk_data_Interval_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, UINT64,   start,             1) \
+X(a, STATIC,   SINGULAR, UINT64,   end,               2) \
+X(a, STATIC,   SINGULAR, UINT32,   interval,          3)
+#define fk_data_Interval_CALLBACK NULL
+#define fk_data_Interval_DEFAULT NULL
+
 #define fk_data_JobSchedule_FIELDLIST(X, a) \
 X(a, CALLBACK, SINGULAR, BYTES,    cron,              1) \
 X(a, STATIC,   SINGULAR, UINT32,   interval,          2) \
 X(a, STATIC,   SINGULAR, UINT32,   repeated,          3) \
 X(a, STATIC,   SINGULAR, UINT32,   duration,          4) \
-X(a, STATIC,   SINGULAR, UINT32,   jitter,            5)
+X(a, STATIC,   SINGULAR, UINT32,   jitter,            5) \
+X(a, CALLBACK, REPEATED, MESSAGE,  intervals,         6)
 #define fk_data_JobSchedule_CALLBACK pb_default_field_callback
 #define fk_data_JobSchedule_DEFAULT NULL
+#define fk_data_JobSchedule_intervals_MSGTYPE fk_data_Interval
 
 #define fk_data_Schedule_FIELDLIST(X, a) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  readings,          1) \
@@ -711,6 +733,7 @@ extern const pb_msgdesc_t fk_data_Status_msg;
 extern const pb_msgdesc_t fk_data_LogMessage_msg;
 extern const pb_msgdesc_t fk_data_SensorGroup_msg;
 extern const pb_msgdesc_t fk_data_Readings_msg;
+extern const pb_msgdesc_t fk_data_Interval_msg;
 extern const pb_msgdesc_t fk_data_JobSchedule_msg;
 extern const pb_msgdesc_t fk_data_Schedule_msg;
 extern const pb_msgdesc_t fk_data_Identity_msg;
@@ -738,6 +761,7 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 #define fk_data_LogMessage_fields &fk_data_LogMessage_msg
 #define fk_data_SensorGroup_fields &fk_data_SensorGroup_msg
 #define fk_data_Readings_fields &fk_data_Readings_msg
+#define fk_data_Interval_fields &fk_data_Interval_msg
 #define fk_data_JobSchedule_fields &fk_data_JobSchedule_msg
 #define fk_data_Schedule_fields &fk_data_Schedule_msg
 #define fk_data_Identity_fields &fk_data_Identity_msg
@@ -765,6 +789,7 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 /* fk_data_LogMessage_size depends on runtime parameters */
 /* fk_data_SensorGroup_size depends on runtime parameters */
 /* fk_data_Readings_size depends on runtime parameters */
+#define fk_data_Interval_size                    28
 /* fk_data_JobSchedule_size depends on runtime parameters */
 /* fk_data_Schedule_size depends on runtime parameters */
 /* fk_data_Identity_size depends on runtime parameters */

@@ -113,12 +113,19 @@ message Readings {
   repeated SensorGroup sensorGroups = 5;
 }
 
+message Interval {
+  uint64 start = 1;
+  uint64 end = 2;
+  uint32 interval = 3;
+}
+
 message JobSchedule {
   bytes cron = 1;
   uint32 interval = 2;
   uint32 repeated = 3;
   uint32 duration = 4;
   uint32 jitter = 5;
+  repeated Interval intervals = 6;
 }
 
 message Schedule {

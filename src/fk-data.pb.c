@@ -45,6 +45,9 @@ PB_BIND(fk_data_SensorGroup, fk_data_SensorGroup, AUTO)
 PB_BIND(fk_data_Readings, fk_data_Readings, AUTO)
 
 
+PB_BIND(fk_data_Interval, fk_data_Interval, AUTO)
+
+
 PB_BIND(fk_data_JobSchedule, fk_data_JobSchedule, AUTO)
 
 

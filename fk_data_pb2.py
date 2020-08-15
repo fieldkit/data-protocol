@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='fk_data',
   syntax='proto3',
   serialized_options=b'\n\037org.conservify.fieldkit.data.pb',
-  serialized_pb=b'\n\rfk-data.proto\x12\x07\x66k_data\"\xaa\x01\n\x0e\x44\x65viceLocation\x12\x0f\n\x07\x65nabled\x18\x07 \x01(\r\x12\x0b\n\x03\x66ix\x18\x01 \x01(\r\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x11\n\tlongitude\x18\x03 \x01(\x02\x12\x10\n\x08latitude\x18\x04 \x01(\x02\x12\x10\n\x08\x61ltitude\x18\x05 \x01(\x02\x12\x13\n\x0b\x63oordinates\x18\x06 \x03(\x02\x12\x12\n\nsatellites\x18\x08 \x01(\r\x12\x0c\n\x04hdop\x18\t \x01(\r\"M\n\rSensorReading\x12\x0f\n\x07reading\x18\x01 \x01(\x04\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0e\n\x06sensor\x18\x03 \x01(\r\x12\r\n\x05value\x18\x04 \x01(\x02\"t\n\rLoggedReading\x12\x0f\n\x07version\x18\x01 \x01(\r\x12)\n\x08location\x18\x02 \x01(\x0b\x32\x17.fk_data.DeviceLocation\x12\'\n\x07reading\x18\x03 \x01(\x0b\x32\x16.fk_data.SensorReading\"/\n\x0eSensorAndValue\x12\x0e\n\x06sensor\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\x02\"C\n\x0cModuleHeader\x12\x14\n\x0cmanufacturer\x18\x01 \x01(\r\x12\x0c\n\x04kind\x18\x02 \x01(\r\x12\x0f\n\x07version\x18\x03 \x01(\r\"\xca\x01\n\nModuleInfo\x12\x10\n\x08position\x18\x01 \x01(\r\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12%\n\x06header\x18\x04 \x01(\x0b\x32\x15.fk_data.ModuleHeader\x12#\n\x08\x66irmware\x18\x05 \x01(\x0b\x32\x11.fk_data.Firmware\x12$\n\x07sensors\x18\x06 \x03(\x0b\x32\x13.fk_data.SensorInfo\x12\n\n\x02id\x18\x07 \x01(\x0c\x12\r\n\x05\x66lags\x18\x08 \x01(\r\"P\n\nSensorInfo\x12\x0e\n\x06number\x18\x01 \x01(\r\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x15\n\runitOfMeasure\x18\x03 \x01(\t\x12\r\n\x05\x66lags\x18\x04 \x01(\r\"[\n\x08\x46irmware\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\r\n\x05\x62uild\x18\x02 \x01(\t\x12\x0e\n\x06number\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x04\x12\x0c\n\x04hash\x18\x05 \x01(\t\"\xdf\x01\n\x08Metadata\x12\x10\n\x08\x64\x65viceId\x18\x01 \x01(\x0c\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0b\n\x03git\x18\x03 \x01(\t\x12\r\n\x05\x62uild\x18\x07 \x01(\t\x12\x12\n\nresetCause\x18\x04 \x01(\r\x12$\n\x07sensors\x18\x05 \x03(\x0b\x32\x13.fk_data.SensorInfo\x12$\n\x07modules\x18\x06 \x03(\x0b\x32\x13.fk_data.ModuleInfo\x12#\n\x08\x66irmware\x18\x08 \x01(\x0b\x32\x11.fk_data.Firmware\x12\x12\n\ngeneration\x18\t \x01(\x0c\"U\n\x06Status\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x0e\n\x06uptime\x18\x02 \x01(\r\x12\x0f\n\x07\x62\x61ttery\x18\x03 \x01(\x02\x12\x0e\n\x06memory\x18\x04 \x01(\r\x12\x0c\n\x04\x62usy\x18\x05 \x01(\x04\"\\\n\nLogMessage\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x0e\n\x06uptime\x18\x02 \x01(\r\x12\r\n\x05level\x18\x03 \x01(\r\x12\x10\n\x08\x66\x61\x63ility\x18\x04 \x01(\t\x12\x0f\n\x07message\x18\x05 \x01(\t\"H\n\x0bSensorGroup\x12\x0e\n\x06module\x18\x01 \x01(\r\x12)\n\x08readings\x18\x02 \x03(\x0b\x32\x17.fk_data.SensorAndValue\"\xad\x01\n\x08Readings\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x0f\n\x07reading\x18\x02 \x01(\x04\x12\r\n\x05\x66lags\x18\x03 \x01(\r\x12\x0c\n\x04meta\x18\x06 \x01(\x04\x12\x0e\n\x06uptime\x18\x07 \x01(\r\x12)\n\x08location\x18\x04 \x01(\x0b\x32\x17.fk_data.DeviceLocation\x12*\n\x0csensorGroups\x18\x05 \x03(\x0b\x32\x14.fk_data.SensorGroup\"a\n\x0bJobSchedule\x12\x0c\n\x04\x63ron\x18\x01 \x01(\x0c\x12\x10\n\x08interval\x18\x02 \x01(\r\x12\x10\n\x08repeated\x18\x03 \x01(\r\x12\x10\n\x08\x64uration\x18\x04 \x01(\r\x12\x0e\n\x06jitter\x18\x05 \x01(\r\"\xa0\x01\n\x08Schedule\x12&\n\x08readings\x18\x01 \x01(\x0b\x32\x14.fk_data.JobSchedule\x12%\n\x07network\x18\x02 \x01(\x0b\x32\x14.fk_data.JobSchedule\x12\"\n\x04lora\x18\x03 \x01(\x0b\x32\x14.fk_data.JobSchedule\x12!\n\x03gps\x18\x04 \x01(\x0b\x32\x14.fk_data.JobSchedule\"\x18\n\x08Identity\x12\x0c\n\x04name\x18\x01 \x01(\t\"-\n\tCondition\x12\r\n\x05\x66lags\x18\x01 \x01(\r\x12\x11\n\trecording\x18\x02 \x01(\r\"P\n\x0bNetworkInfo\x12\x0c\n\x04ssid\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0e\n\x06\x63reate\x18\x03 \x01(\x08\x12\x11\n\tpreferred\x18\x04 \x01(\x08\"?\n\x10WifiTransmission\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\r\n\x05token\x18\x02 \x01(\t\x12\x0f\n\x07\x65nabled\x18\x03 \x01(\x08\"?\n\x14TransmissionSettings\x12\'\n\x04wifi\x18\x01 \x01(\x0b\x32\x19.fk_data.WifiTransmission\"9\n\x0fNetworkSettings\x12&\n\x08networks\x18\x01 \x03(\x0b\x32\x14.fk_data.NetworkInfo\"\xd1\x01\n\x0cLoraSettings\x12\x11\n\tdeviceEui\x18\x01 \x01(\x0c\x12\x0e\n\x06\x61ppKey\x18\x02 \x01(\x0c\x12\x0e\n\x06\x61ppEui\x18\x03 \x01(\x0c\x12\x15\n\rfrequencyBand\x18\x04 \x01(\r\x12\x15\n\rdeviceAddress\x18\x05 \x01(\x0c\x12\x19\n\x11networkSessionKey\x18\x06 \x01(\x0c\x12\x15\n\rappSessionKey\x18\x07 \x01(\x0c\x12\x15\n\ruplinkCounter\x18\x08 \x01(\r\x12\x17\n\x0f\x64ownlinkCounter\x18\t \x01(\r\"\x95\x04\n\nDataRecord\x12-\n\rloggedReading\x18\x01 \x01(\x0b\x32\x16.fk_data.LoggedReading\x12#\n\x08metadata\x18\x02 \x01(\x0b\x32\x11.fk_data.Metadata\x12 \n\x03log\x18\x03 \x01(\x0b\x32\x13.fk_data.LogMessage\x12!\n\x04logs\x18\r \x03(\x0b\x32\x13.fk_data.LogMessage\x12\x1f\n\x06status\x18\x04 \x01(\x0b\x32\x0f.fk_data.Status\x12#\n\x08readings\x18\x05 \x01(\x0b\x32\x11.fk_data.Readings\x12$\n\x07modules\x18\x06 \x03(\x0b\x32\x13.fk_data.ModuleInfo\x12#\n\x08schedule\x18\x07 \x01(\x0b\x32\x11.fk_data.Schedule\x12\x0c\n\x04meta\x18\x08 \x01(\x04\x12#\n\x08identity\x18\t \x01(\x0b\x32\x11.fk_data.Identity\x12%\n\tcondition\x18\n \x01(\x0b\x32\x12.fk_data.Condition\x12#\n\x04lora\x18\x0b \x01(\x0b\x32\x15.fk_data.LoraSettings\x12)\n\x07network\x18\x0c \x01(\x0b\x32\x18.fk_data.NetworkSettings\x12\x33\n\x0ctransmission\x18\x0e \x01(\x0b\x32\x1d.fk_data.TransmissionSettings\"q\n\x0cSignedRecord\x12\'\n\x04kind\x18\x01 \x01(\x0e\x32\x19.fk_data.SignedRecordKind\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\x12\x0c\n\x04hash\x18\x04 \x01(\x0c\x12\x0e\n\x06record\x18\x05 \x01(\x04\"z\n\nLoraRecord\x12\x10\n\x08\x64\x65viceId\x18\x01 \x01(\x0c\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0e\n\x06number\x18\x03 \x01(\x04\x12\x0e\n\x06module\x18\x04 \x01(\r\x12\x0e\n\x06sensor\x18\x05 \x01(\x04\x12\x0e\n\x06values\x18\x06 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x07 \x01(\x0c*b\n\rDownloadFlags\x12\x16\n\x12READING_FLAGS_NONE\x10\x00\x12\x1f\n\x1bREADING_FLAGS_NOT_RECORDING\x10\x01\x12\x18\n\x14READING_FLAGS_MANUAL\x10\x02*I\n\x0e\x43onditionFlags\x12\x18\n\x14\x43ONDITION_FLAGS_NONE\x10\x00\x12\x1d\n\x19\x43ONDITION_FLAGS_RECORDING\x10\x01*\xcf\x01\n\x10SignedRecordKind\x12\x1b\n\x17SIGNED_RECORD_KIND_NONE\x10\x00\x12\x1e\n\x1aSIGNED_RECORD_KIND_MODULES\x10\x01\x12\x1f\n\x1bSIGNED_RECORD_KIND_SCHEDULE\x10\x02\x12\x1c\n\x18SIGNED_RECORD_KIND_STATE\x10\x03\x12 \n\x1cSIGNED_RECORD_KIND_RAW_STATE\x10\x04\x12\x1d\n\x18SIGNED_RECORD_KIND_OTHER\x10\xff\x01\x42!\n\x1forg.conservify.fieldkit.data.pbb\x06proto3'
+  serialized_pb=b'\n\rfk-data.proto\x12\x07\x66k_data\"\xaa\x01\n\x0e\x44\x65viceLocation\x12\x0f\n\x07\x65nabled\x18\x07 \x01(\r\x12\x0b\n\x03\x66ix\x18\x01 \x01(\r\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x11\n\tlongitude\x18\x03 \x01(\x02\x12\x10\n\x08latitude\x18\x04 \x01(\x02\x12\x10\n\x08\x61ltitude\x18\x05 \x01(\x02\x12\x13\n\x0b\x63oordinates\x18\x06 \x03(\x02\x12\x12\n\nsatellites\x18\x08 \x01(\r\x12\x0c\n\x04hdop\x18\t \x01(\r\"M\n\rSensorReading\x12\x0f\n\x07reading\x18\x01 \x01(\x04\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0e\n\x06sensor\x18\x03 \x01(\r\x12\r\n\x05value\x18\x04 \x01(\x02\"t\n\rLoggedReading\x12\x0f\n\x07version\x18\x01 \x01(\r\x12)\n\x08location\x18\x02 \x01(\x0b\x32\x17.fk_data.DeviceLocation\x12\'\n\x07reading\x18\x03 \x01(\x0b\x32\x16.fk_data.SensorReading\"/\n\x0eSensorAndValue\x12\x0e\n\x06sensor\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\x02\"C\n\x0cModuleHeader\x12\x14\n\x0cmanufacturer\x18\x01 \x01(\r\x12\x0c\n\x04kind\x18\x02 \x01(\r\x12\x0f\n\x07version\x18\x03 \x01(\r\"\xca\x01\n\nModuleInfo\x12\x10\n\x08position\x18\x01 \x01(\r\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12%\n\x06header\x18\x04 \x01(\x0b\x32\x15.fk_data.ModuleHeader\x12#\n\x08\x66irmware\x18\x05 \x01(\x0b\x32\x11.fk_data.Firmware\x12$\n\x07sensors\x18\x06 \x03(\x0b\x32\x13.fk_data.SensorInfo\x12\n\n\x02id\x18\x07 \x01(\x0c\x12\r\n\x05\x66lags\x18\x08 \x01(\r\"P\n\nSensorInfo\x12\x0e\n\x06number\x18\x01 \x01(\r\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x15\n\runitOfMeasure\x18\x03 \x01(\t\x12\r\n\x05\x66lags\x18\x04 \x01(\r\"[\n\x08\x46irmware\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\r\n\x05\x62uild\x18\x02 \x01(\t\x12\x0e\n\x06number\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x04\x12\x0c\n\x04hash\x18\x05 \x01(\t\"\xdf\x01\n\x08Metadata\x12\x10\n\x08\x64\x65viceId\x18\x01 \x01(\x0c\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0b\n\x03git\x18\x03 \x01(\t\x12\r\n\x05\x62uild\x18\x07 \x01(\t\x12\x12\n\nresetCause\x18\x04 \x01(\r\x12$\n\x07sensors\x18\x05 \x03(\x0b\x32\x13.fk_data.SensorInfo\x12$\n\x07modules\x18\x06 \x03(\x0b\x32\x13.fk_data.ModuleInfo\x12#\n\x08\x66irmware\x18\x08 \x01(\x0b\x32\x11.fk_data.Firmware\x12\x12\n\ngeneration\x18\t \x01(\x0c\"U\n\x06Status\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x0e\n\x06uptime\x18\x02 \x01(\r\x12\x0f\n\x07\x62\x61ttery\x18\x03 \x01(\x02\x12\x0e\n\x06memory\x18\x04 \x01(\r\x12\x0c\n\x04\x62usy\x18\x05 \x01(\x04\"\\\n\nLogMessage\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x0e\n\x06uptime\x18\x02 \x01(\r\x12\r\n\x05level\x18\x03 \x01(\r\x12\x10\n\x08\x66\x61\x63ility\x18\x04 \x01(\t\x12\x0f\n\x07message\x18\x05 \x01(\t\"H\n\x0bSensorGroup\x12\x0e\n\x06module\x18\x01 \x01(\r\x12)\n\x08readings\x18\x02 \x03(\x0b\x32\x17.fk_data.SensorAndValue\"\xad\x01\n\x08Readings\x12\x0c\n\x04time\x18\x01 \x01(\x03\x12\x0f\n\x07reading\x18\x02 \x01(\x04\x12\r\n\x05\x66lags\x18\x03 \x01(\r\x12\x0c\n\x04meta\x18\x06 \x01(\x04\x12\x0e\n\x06uptime\x18\x07 \x01(\r\x12)\n\x08location\x18\x04 \x01(\x0b\x32\x17.fk_data.DeviceLocation\x12*\n\x0csensorGroups\x18\x05 \x03(\x0b\x32\x14.fk_data.SensorGroup\"8\n\x08Interval\x12\r\n\x05start\x18\x01 \x01(\x04\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x04\x12\x10\n\x08interval\x18\x03 \x01(\r\"\x87\x01\n\x0bJobSchedule\x12\x0c\n\x04\x63ron\x18\x01 \x01(\x0c\x12\x10\n\x08interval\x18\x02 \x01(\r\x12\x10\n\x08repeated\x18\x03 \x01(\r\x12\x10\n\x08\x64uration\x18\x04 \x01(\r\x12\x0e\n\x06jitter\x18\x05 \x01(\r\x12$\n\tintervals\x18\x06 \x03(\x0b\x32\x11.fk_data.Interval\"\xa0\x01\n\x08Schedule\x12&\n\x08readings\x18\x01 \x01(\x0b\x32\x14.fk_data.JobSchedule\x12%\n\x07network\x18\x02 \x01(\x0b\x32\x14.fk_data.JobSchedule\x12\"\n\x04lora\x18\x03 \x01(\x0b\x32\x14.fk_data.JobSchedule\x12!\n\x03gps\x18\x04 \x01(\x0b\x32\x14.fk_data.JobSchedule\"\x18\n\x08Identity\x12\x0c\n\x04name\x18\x01 \x01(\t\"-\n\tCondition\x12\r\n\x05\x66lags\x18\x01 \x01(\r\x12\x11\n\trecording\x18\x02 \x01(\r\"P\n\x0bNetworkInfo\x12\x0c\n\x04ssid\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0e\n\x06\x63reate\x18\x03 \x01(\x08\x12\x11\n\tpreferred\x18\x04 \x01(\x08\"?\n\x10WifiTransmission\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\r\n\x05token\x18\x02 \x01(\t\x12\x0f\n\x07\x65nabled\x18\x03 \x01(\x08\"?\n\x14TransmissionSettings\x12\'\n\x04wifi\x18\x01 \x01(\x0b\x32\x19.fk_data.WifiTransmission\"9\n\x0fNetworkSettings\x12&\n\x08networks\x18\x01 \x03(\x0b\x32\x14.fk_data.NetworkInfo\"\xd1\x01\n\x0cLoraSettings\x12\x11\n\tdeviceEui\x18\x01 \x01(\x0c\x12\x0e\n\x06\x61ppKey\x18\x02 \x01(\x0c\x12\x0e\n\x06\x61ppEui\x18\x03 \x01(\x0c\x12\x15\n\rfrequencyBand\x18\x04 \x01(\r\x12\x15\n\rdeviceAddress\x18\x05 \x01(\x0c\x12\x19\n\x11networkSessionKey\x18\x06 \x01(\x0c\x12\x15\n\rappSessionKey\x18\x07 \x01(\x0c\x12\x15\n\ruplinkCounter\x18\x08 \x01(\r\x12\x17\n\x0f\x64ownlinkCounter\x18\t \x01(\r\"\x95\x04\n\nDataRecord\x12-\n\rloggedReading\x18\x01 \x01(\x0b\x32\x16.fk_data.LoggedReading\x12#\n\x08metadata\x18\x02 \x01(\x0b\x32\x11.fk_data.Metadata\x12 \n\x03log\x18\x03 \x01(\x0b\x32\x13.fk_data.LogMessage\x12!\n\x04logs\x18\r \x03(\x0b\x32\x13.fk_data.LogMessage\x12\x1f\n\x06status\x18\x04 \x01(\x0b\x32\x0f.fk_data.Status\x12#\n\x08readings\x18\x05 \x01(\x0b\x32\x11.fk_data.Readings\x12$\n\x07modules\x18\x06 \x03(\x0b\x32\x13.fk_data.ModuleInfo\x12#\n\x08schedule\x18\x07 \x01(\x0b\x32\x11.fk_data.Schedule\x12\x0c\n\x04meta\x18\x08 \x01(\x04\x12#\n\x08identity\x18\t \x01(\x0b\x32\x11.fk_data.Identity\x12%\n\tcondition\x18\n \x01(\x0b\x32\x12.fk_data.Condition\x12#\n\x04lora\x18\x0b \x01(\x0b\x32\x15.fk_data.LoraSettings\x12)\n\x07network\x18\x0c \x01(\x0b\x32\x18.fk_data.NetworkSettings\x12\x33\n\x0ctransmission\x18\x0e \x01(\x0b\x32\x1d.fk_data.TransmissionSettings\"q\n\x0cSignedRecord\x12\'\n\x04kind\x18\x01 \x01(\x0e\x32\x19.fk_data.SignedRecordKind\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\x12\x0c\n\x04hash\x18\x04 \x01(\x0c\x12\x0e\n\x06record\x18\x05 \x01(\x04\"z\n\nLoraRecord\x12\x10\n\x08\x64\x65viceId\x18\x01 \x01(\x0c\x12\x0c\n\x04time\x18\x02 \x01(\x03\x12\x0e\n\x06number\x18\x03 \x01(\x04\x12\x0e\n\x06module\x18\x04 \x01(\r\x12\x0e\n\x06sensor\x18\x05 \x01(\x04\x12\x0e\n\x06values\x18\x06 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x07 \x01(\x0c*b\n\rDownloadFlags\x12\x16\n\x12READING_FLAGS_NONE\x10\x00\x12\x1f\n\x1bREADING_FLAGS_NOT_RECORDING\x10\x01\x12\x18\n\x14READING_FLAGS_MANUAL\x10\x02*I\n\x0e\x43onditionFlags\x12\x18\n\x14\x43ONDITION_FLAGS_NONE\x10\x00\x12\x1d\n\x19\x43ONDITION_FLAGS_RECORDING\x10\x01*\xcf\x01\n\x10SignedRecordKind\x12\x1b\n\x17SIGNED_RECORD_KIND_NONE\x10\x00\x12\x1e\n\x1aSIGNED_RECORD_KIND_MODULES\x10\x01\x12\x1f\n\x1bSIGNED_RECORD_KIND_SCHEDULE\x10\x02\x12\x1c\n\x18SIGNED_RECORD_KIND_STATE\x10\x03\x12 \n\x1cSIGNED_RECORD_KIND_RAW_STATE\x10\x04\x12\x1d\n\x18SIGNED_RECORD_KIND_OTHER\x10\xff\x01\x42!\n\x1forg.conservify.fieldkit.data.pbb\x06proto3'
 )
 
 _DOWNLOADFLAGS = _descriptor.EnumDescriptor(
@@ -43,8 +43,8 @@ _DOWNLOADFLAGS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3144,
-  serialized_end=3242,
+  serialized_start=3241,
+  serialized_end=3339,
 )
 _sym_db.RegisterEnumDescriptor(_DOWNLOADFLAGS)
 
@@ -66,8 +66,8 @@ _CONDITIONFLAGS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3244,
-  serialized_end=3317,
+  serialized_start=3341,
+  serialized_end=3414,
 )
 _sym_db.RegisterEnumDescriptor(_CONDITIONFLAGS)
 
@@ -105,8 +105,8 @@ _SIGNEDRECORDKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3320,
-  serialized_end=3527,
+  serialized_start=3417,
+  serialized_end=3624,
 )
 _sym_db.RegisterEnumDescriptor(_SIGNEDRECORDKIND)
 
@@ -899,6 +899,51 @@ _READINGS = _descriptor.Descriptor(
 )
 
 
+_INTERVAL = _descriptor.Descriptor(
+  name='Interval',
+  full_name='fk_data.Interval',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start', full_name='fk_data.Interval.start', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='end', full_name='fk_data.Interval.end', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='interval', full_name='fk_data.Interval.interval', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1551,
+  serialized_end=1607,
+)
+
+
 _JOBSCHEDULE = _descriptor.Descriptor(
   name='JobSchedule',
   full_name='fk_data.JobSchedule',
@@ -941,6 +986,13 @@ _JOBSCHEDULE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='intervals', full_name='fk_data.JobSchedule.intervals', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -953,8 +1005,8 @@ _JOBSCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1551,
-  serialized_end=1648,
+  serialized_start=1610,
+  serialized_end=1745,
 )
 
 
@@ -1005,8 +1057,8 @@ _SCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1651,
-  serialized_end=1811,
+  serialized_start=1748,
+  serialized_end=1908,
 )
 
 
@@ -1036,8 +1088,8 @@ _IDENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1813,
-  serialized_end=1837,
+  serialized_start=1910,
+  serialized_end=1934,
 )
 
 
@@ -1074,8 +1126,8 @@ _CONDITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1839,
-  serialized_end=1884,
+  serialized_start=1936,
+  serialized_end=1981,
 )
 
 
@@ -1126,8 +1178,8 @@ _NETWORKINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1886,
-  serialized_end=1966,
+  serialized_start=1983,
+  serialized_end=2063,
 )
 
 
@@ -1171,8 +1223,8 @@ _WIFITRANSMISSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1968,
-  serialized_end=2031,
+  serialized_start=2065,
+  serialized_end=2128,
 )
 
 
@@ -1202,8 +1254,8 @@ _TRANSMISSIONSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2033,
-  serialized_end=2096,
+  serialized_start=2130,
+  serialized_end=2193,
 )
 
 
@@ -1233,8 +1285,8 @@ _NETWORKSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2098,
-  serialized_end=2155,
+  serialized_start=2195,
+  serialized_end=2252,
 )
 
 
@@ -1320,8 +1372,8 @@ _LORASETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2158,
-  serialized_end=2367,
+  serialized_start=2255,
+  serialized_end=2464,
 )
 
 
@@ -1442,8 +1494,8 @@ _DATARECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2370,
-  serialized_end=2903,
+  serialized_start=2467,
+  serialized_end=3000,
 )
 
 
@@ -1501,8 +1553,8 @@ _SIGNEDRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2905,
-  serialized_end=3018,
+  serialized_start=3002,
+  serialized_end=3115,
 )
 
 
@@ -1574,8 +1626,8 @@ _LORARECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3020,
-  serialized_end=3142,
+  serialized_start=3117,
+  serialized_end=3239,
 )
 
 _LOGGEDREADING.fields_by_name['location'].message_type = _DEVICELOCATION
@@ -1589,6 +1641,7 @@ _METADATA.fields_by_name['firmware'].message_type = _FIRMWARE
 _SENSORGROUP.fields_by_name['readings'].message_type = _SENSORANDVALUE
 _READINGS.fields_by_name['location'].message_type = _DEVICELOCATION
 _READINGS.fields_by_name['sensorGroups'].message_type = _SENSORGROUP
+_JOBSCHEDULE.fields_by_name['intervals'].message_type = _INTERVAL
 _SCHEDULE.fields_by_name['readings'].message_type = _JOBSCHEDULE
 _SCHEDULE.fields_by_name['network'].message_type = _JOBSCHEDULE
 _SCHEDULE.fields_by_name['lora'].message_type = _JOBSCHEDULE
@@ -1622,6 +1675,7 @@ DESCRIPTOR.message_types_by_name['Status'] = _STATUS
 DESCRIPTOR.message_types_by_name['LogMessage'] = _LOGMESSAGE
 DESCRIPTOR.message_types_by_name['SensorGroup'] = _SENSORGROUP
 DESCRIPTOR.message_types_by_name['Readings'] = _READINGS
+DESCRIPTOR.message_types_by_name['Interval'] = _INTERVAL
 DESCRIPTOR.message_types_by_name['JobSchedule'] = _JOBSCHEDULE
 DESCRIPTOR.message_types_by_name['Schedule'] = _SCHEDULE
 DESCRIPTOR.message_types_by_name['Identity'] = _IDENTITY
@@ -1729,6 +1783,13 @@ Readings = _reflection.GeneratedProtocolMessageType('Readings', (_message.Messag
   # @@protoc_insertion_point(class_scope:fk_data.Readings)
   })
 _sym_db.RegisterMessage(Readings)
+
+Interval = _reflection.GeneratedProtocolMessageType('Interval', (_message.Message,), {
+  'DESCRIPTOR' : _INTERVAL,
+  '__module__' : 'fk_data_pb2'
+  # @@protoc_insertion_point(class_scope:fk_data.Interval)
+  })
+_sym_db.RegisterMessage(Interval)
 
 JobSchedule = _reflection.GeneratedProtocolMessageType('JobSchedule', (_message.Message,), {
   'DESCRIPTOR' : _JOBSCHEDULE,
