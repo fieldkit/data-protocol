@@ -144,6 +144,10 @@
             "flags": {
               "type": "uint32",
               "id": 8
+            },
+            "status": {
+              "type": "bytes",
+              "id": 9
             }
           }
         },

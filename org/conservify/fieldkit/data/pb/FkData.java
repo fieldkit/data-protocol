@@ -2776,6 +2776,12 @@ public final class FkData {
      * @return The flags.
      */
     int getFlags();
+
+    /**
+     * <code>bytes status = 9;</code>
+     * @return The status.
+     */
+    com.google.protobuf.ByteString getStatus();
   }
   /**
    * Protobuf type {@code fk_data.ModuleInfo}
@@ -2789,6 +2795,7 @@ public final class FkData {
       name_ = "";
       sensors_ = emptyProtobufList();
       id_ = com.google.protobuf.ByteString.EMPTY;
+      status_ = com.google.protobuf.ByteString.EMPTY;
     }
     public static final int POSITION_FIELD_NUMBER = 1;
     private int position_;
@@ -3125,6 +3132,33 @@ public final class FkData {
     private void clearFlags() {
       
       flags_ = 0;
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 9;
+    private com.google.protobuf.ByteString status_;
+    /**
+     * <code>bytes status = 9;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getStatus() {
+      return status_;
+    }
+    /**
+     * <code>bytes status = 9;</code>
+     * @param value The status to set.
+     */
+    private void setStatus(com.google.protobuf.ByteString value) {
+      value.getClass();
+  
+      status_ = value;
+    }
+    /**
+     * <code>bytes status = 9;</code>
+     */
+    private void clearStatus() {
+      
+      status_ = getDefaultInstance().getStatus();
     }
 
     public static org.conservify.fieldkit.data.pb.FkData.ModuleInfo parseFrom(
@@ -3579,6 +3613,34 @@ public final class FkData {
         return this;
       }
 
+      /**
+       * <code>bytes status = 9;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getStatus() {
+        return instance.getStatus();
+      }
+      /**
+       * <code>bytes status = 9;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setStatus(value);
+        return this;
+      }
+      /**
+       * <code>bytes status = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        copyOnWrite();
+        instance.clearStatus();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:fk_data.ModuleInfo)
     }
     @java.lang.Override
@@ -3604,10 +3666,11 @@ public final class FkData {
               org.conservify.fieldkit.data.pb.FkData.SensorInfo.class,
               "id_",
               "flags_",
+              "status_",
             };
             java.lang.String info =
-                "\u0000\b\u0000\u0000\u0001\b\b\u0000\u0001\u0000\u0001\u000b\u0002\u000b\u0003\u0208" +
-                "\u0004\t\u0005\t\u0006\u001b\u0007\n\b\u000b";
+                "\u0000\t\u0000\u0000\u0001\t\t\u0000\u0001\u0000\u0001\u000b\u0002\u000b\u0003\u0208" +
+                "\u0004\t\u0005\t\u0006\u001b\u0007\n\b\u000b\t\n";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
