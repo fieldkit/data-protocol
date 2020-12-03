@@ -30,6 +30,7 @@ message LoggedReading {
 message SensorAndValue {
   uint32 sensor = 1;
   float value = 2;
+  float uncalibrated = 3;
 }
 
 message ModuleHeader {

@@ -359,6 +359,9 @@ export namespace fk_data {
 
         /** SensorAndValue value */
         value?: (number|null);
+
+        /** SensorAndValue uncalibrated */
+        uncalibrated?: (number|null);
     }
 
     /** Represents a SensorAndValue. */
@@ -375,6 +378,9 @@ export namespace fk_data {
 
         /** SensorAndValue value. */
         public value: number;
+
+        /** SensorAndValue uncalibrated. */
+        public uncalibrated: number;
 
         /**
          * Creates a new SensorAndValue instance using the specified properties.

@@ -91,6 +91,10 @@
             "value": {
               "type": "float",
               "id": 2
+            },
+            "uncalibrated": {
+              "type": "float",
+              "id": 3
             }
           }
         },

@@ -960,6 +960,7 @@
              * @interface ISensorAndValue
              * @property {number|null} [sensor] SensorAndValue sensor
              * @property {number|null} [value] SensorAndValue value
+             * @property {number|null} [uncalibrated] SensorAndValue uncalibrated
              */
     
             /**
@@ -994,6 +995,14 @@
             SensorAndValue.prototype.value = 0;
     
             /**
+             * SensorAndValue uncalibrated.
+             * @member {number} uncalibrated
+             * @memberof fk_data.SensorAndValue
+             * @instance
+             */
+            SensorAndValue.prototype.uncalibrated = 0;
+    
+            /**
              * Creates a new SensorAndValue instance using the specified properties.
              * @function create
              * @memberof fk_data.SensorAndValue
@@ -1021,6 +1030,8 @@
                     writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.sensor);
                 if (message.value != null && message.hasOwnProperty("value"))
                     writer.uint32(/* id 2, wireType 5 =*/21).float(message.value);
+                if (message.uncalibrated != null && message.hasOwnProperty("uncalibrated"))
+                    writer.uint32(/* id 3, wireType 5 =*/29).float(message.uncalibrated);
                 return writer;
             };
     
@@ -1060,6 +1071,9 @@
                         break;
                     case 2:
                         message.value = reader.float();
+                        break;
+                    case 3:
+                        message.uncalibrated = reader.float();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -1102,6 +1116,9 @@
                 if (message.value != null && message.hasOwnProperty("value"))
                     if (typeof message.value !== "number")
                         return "value: number expected";
+                if (message.uncalibrated != null && message.hasOwnProperty("uncalibrated"))
+                    if (typeof message.uncalibrated !== "number")
+                        return "uncalibrated: number expected";
                 return null;
             };
     
@@ -1121,6 +1138,8 @@
                     message.sensor = object.sensor >>> 0;
                 if (object.value != null)
                     message.value = Number(object.value);
+                if (object.uncalibrated != null)
+                    message.uncalibrated = Number(object.uncalibrated);
                 return message;
             };
     
@@ -1140,11 +1159,14 @@
                 if (options.defaults) {
                     object.sensor = 0;
                     object.value = 0;
+                    object.uncalibrated = 0;
                 }
                 if (message.sensor != null && message.hasOwnProperty("sensor"))
                     object.sensor = message.sensor;
                 if (message.value != null && message.hasOwnProperty("value"))
                     object.value = options.json && !isFinite(message.value) ? String(message.value) : message.value;
+                if (message.uncalibrated != null && message.hasOwnProperty("uncalibrated"))
+                    object.uncalibrated = options.json && !isFinite(message.uncalibrated) ? String(message.uncalibrated) : message.uncalibrated;
                 return object;
             };
     

@@ -2045,6 +2045,12 @@ public final class FkData {
      * @return The value.
      */
     float getValue();
+
+    /**
+     * <code>float uncalibrated = 3;</code>
+     * @return The uncalibrated.
+     */
+    float getUncalibrated();
   }
   /**
    * Protobuf type {@code fk_data.SensorAndValue}
@@ -2106,6 +2112,32 @@ public final class FkData {
     private void clearValue() {
       
       value_ = 0F;
+    }
+
+    public static final int UNCALIBRATED_FIELD_NUMBER = 3;
+    private float uncalibrated_;
+    /**
+     * <code>float uncalibrated = 3;</code>
+     * @return The uncalibrated.
+     */
+    @java.lang.Override
+    public float getUncalibrated() {
+      return uncalibrated_;
+    }
+    /**
+     * <code>float uncalibrated = 3;</code>
+     * @param value The uncalibrated to set.
+     */
+    private void setUncalibrated(float value) {
+      
+      uncalibrated_ = value;
+    }
+    /**
+     * <code>float uncalibrated = 3;</code>
+     */
+    private void clearUncalibrated() {
+      
+      uncalibrated_ = 0F;
     }
 
     public static org.conservify.fieldkit.data.pb.FkData.SensorAndValue parseFrom(
@@ -2259,6 +2291,34 @@ public final class FkData {
         return this;
       }
 
+      /**
+       * <code>float uncalibrated = 3;</code>
+       * @return The uncalibrated.
+       */
+      @java.lang.Override
+      public float getUncalibrated() {
+        return instance.getUncalibrated();
+      }
+      /**
+       * <code>float uncalibrated = 3;</code>
+       * @param value The uncalibrated to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUncalibrated(float value) {
+        copyOnWrite();
+        instance.setUncalibrated(value);
+        return this;
+      }
+      /**
+       * <code>float uncalibrated = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUncalibrated() {
+        copyOnWrite();
+        instance.clearUncalibrated();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:fk_data.SensorAndValue)
     }
     @java.lang.Override
@@ -2277,10 +2337,11 @@ public final class FkData {
             java.lang.Object[] objects = new java.lang.Object[] {
               "sensor_",
               "value_",
+              "uncalibrated_",
             };
             java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u000b\u0002\u0001" +
-                "";
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u000b\u0002\u0001" +
+                "\u0003\u0001";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
