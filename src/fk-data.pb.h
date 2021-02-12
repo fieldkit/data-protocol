@@ -56,6 +56,13 @@ typedef struct _fk_data_DeviceLocation {
     uint32_t hdop;
 } fk_data_DeviceLocation;
 
+typedef struct _fk_data_Fault {
+    uint32_t time;
+    uint32_t code;
+    pb_callback_t description;
+    pb_callback_t debug;
+} fk_data_Fault;
+
 typedef struct _fk_data_Firmware {
     pb_callback_t version;
     pb_callback_t build;
@@ -257,6 +264,7 @@ typedef struct _fk_data_DataRecord {
     pb_callback_t logs;
     bool has_transmission;
     fk_data_TransmissionSettings transmission;
+    pb_callback_t faults;
 } fk_data_DataRecord;
 
 
@@ -302,7 +310,8 @@ extern "C" {
 #define fk_data_TransmissionSettings_init_default {false, fk_data_WifiTransmission_init_default}
 #define fk_data_NetworkSettings_init_default     {{{NULL}, NULL}}
 #define fk_data_LoraSettings_init_default        {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, 0}
-#define fk_data_DataRecord_init_default          {false, fk_data_LoggedReading_init_default, false, fk_data_Metadata_init_default, false, fk_data_LogMessage_init_default, false, fk_data_Status_init_default, false, fk_data_Readings_init_default, {{NULL}, NULL}, false, fk_data_Schedule_init_default, 0, false, fk_data_Identity_init_default, false, fk_data_Condition_init_default, false, fk_data_LoraSettings_init_default, false, fk_data_NetworkSettings_init_default, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_default}
+#define fk_data_Fault_init_default               {0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_DataRecord_init_default          {false, fk_data_LoggedReading_init_default, false, fk_data_Metadata_init_default, false, fk_data_LogMessage_init_default, false, fk_data_Status_init_default, false, fk_data_Readings_init_default, {{NULL}, NULL}, false, fk_data_Schedule_init_default, 0, false, fk_data_Identity_init_default, false, fk_data_Condition_init_default, false, fk_data_LoraSettings_init_default, false, fk_data_NetworkSettings_init_default, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_default, {{NULL}, NULL}}
 #define fk_data_SignedRecord_init_default        {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_LoraRecord_init_default          {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0, 0, 0}
@@ -328,7 +337,8 @@ extern "C" {
 #define fk_data_TransmissionSettings_init_zero   {false, fk_data_WifiTransmission_init_zero}
 #define fk_data_NetworkSettings_init_zero        {{{NULL}, NULL}}
 #define fk_data_LoraSettings_init_zero           {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, 0, 0}
-#define fk_data_DataRecord_init_zero             {false, fk_data_LoggedReading_init_zero, false, fk_data_Metadata_init_zero, false, fk_data_LogMessage_init_zero, false, fk_data_Status_init_zero, false, fk_data_Readings_init_zero, {{NULL}, NULL}, false, fk_data_Schedule_init_zero, 0, false, fk_data_Identity_init_zero, false, fk_data_Condition_init_zero, false, fk_data_LoraSettings_init_zero, false, fk_data_NetworkSettings_init_zero, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_zero}
+#define fk_data_Fault_init_zero                  {0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_DataRecord_init_zero             {false, fk_data_LoggedReading_init_zero, false, fk_data_Metadata_init_zero, false, fk_data_LogMessage_init_zero, false, fk_data_Status_init_zero, false, fk_data_Readings_init_zero, {{NULL}, NULL}, false, fk_data_Schedule_init_zero, 0, false, fk_data_Identity_init_zero, false, fk_data_Condition_init_zero, false, fk_data_LoraSettings_init_zero, false, fk_data_NetworkSettings_init_zero, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_zero, {{NULL}, NULL}}
 #define fk_data_SignedRecord_init_zero           {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_LoraRecord_init_zero             {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 
@@ -346,6 +356,10 @@ extern "C" {
 #define fk_data_DeviceLocation_enabled_tag       7
 #define fk_data_DeviceLocation_satellites_tag    8
 #define fk_data_DeviceLocation_hdop_tag          9
+#define fk_data_Fault_time_tag                   1
+#define fk_data_Fault_code_tag                   2
+#define fk_data_Fault_description_tag            3
+#define fk_data_Fault_debug_tag                  4
 #define fk_data_Firmware_version_tag             1
 #define fk_data_Firmware_build_tag               2
 #define fk_data_Firmware_number_tag              3
@@ -461,6 +475,7 @@ extern "C" {
 #define fk_data_DataRecord_network_tag           12
 #define fk_data_DataRecord_logs_tag              13
 #define fk_data_DataRecord_transmission_tag      14
+#define fk_data_DataRecord_faults_tag            15
 
 /* Struct field encoding specification for nanopb */
 #define fk_data_DeviceLocation_FIELDLIST(X, a) \
@@ -675,6 +690,14 @@ X(a, STATIC,   SINGULAR, UINT32,   downlinkCounter,   9)
 #define fk_data_LoraSettings_CALLBACK pb_default_field_callback
 #define fk_data_LoraSettings_DEFAULT NULL
 
+#define fk_data_Fault_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, UINT32,   time,              1) \
+X(a, STATIC,   SINGULAR, UINT32,   code,              2) \
+X(a, CALLBACK, SINGULAR, STRING,   description,       3) \
+X(a, CALLBACK, SINGULAR, BYTES,    debug,             4)
+#define fk_data_Fault_CALLBACK pb_default_field_callback
+#define fk_data_Fault_DEFAULT NULL
+
 #define fk_data_DataRecord_FIELDLIST(X, a) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  loggedReading,     1) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  metadata,          2) \
@@ -689,7 +712,8 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  condition,        10) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  lora,             11) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  network,          12) \
 X(a, CALLBACK, REPEATED, MESSAGE,  logs,             13) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  transmission,     14)
+X(a, STATIC,   OPTIONAL, MESSAGE,  transmission,     14) \
+X(a, CALLBACK, REPEATED, MESSAGE,  faults,           15)
 #define fk_data_DataRecord_CALLBACK pb_default_field_callback
 #define fk_data_DataRecord_DEFAULT NULL
 #define fk_data_DataRecord_loggedReading_MSGTYPE fk_data_LoggedReading
@@ -705,6 +729,7 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  transmission,     14)
 #define fk_data_DataRecord_network_MSGTYPE fk_data_NetworkSettings
 #define fk_data_DataRecord_logs_MSGTYPE fk_data_LogMessage
 #define fk_data_DataRecord_transmission_MSGTYPE fk_data_TransmissionSettings
+#define fk_data_DataRecord_faults_MSGTYPE fk_data_Fault
 
 #define fk_data_SignedRecord_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UENUM,    kind,              1) \
@@ -749,6 +774,7 @@ extern const pb_msgdesc_t fk_data_WifiTransmission_msg;
 extern const pb_msgdesc_t fk_data_TransmissionSettings_msg;
 extern const pb_msgdesc_t fk_data_NetworkSettings_msg;
 extern const pb_msgdesc_t fk_data_LoraSettings_msg;
+extern const pb_msgdesc_t fk_data_Fault_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
 extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 extern const pb_msgdesc_t fk_data_LoraRecord_msg;
@@ -777,6 +803,7 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 #define fk_data_TransmissionSettings_fields &fk_data_TransmissionSettings_msg
 #define fk_data_NetworkSettings_fields &fk_data_NetworkSettings_msg
 #define fk_data_LoraSettings_fields &fk_data_LoraSettings_msg
+#define fk_data_Fault_fields &fk_data_Fault_msg
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
 #define fk_data_SignedRecord_fields &fk_data_SignedRecord_msg
 #define fk_data_LoraRecord_fields &fk_data_LoraRecord_msg
@@ -805,6 +832,7 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 /* fk_data_TransmissionSettings_size depends on runtime parameters */
 /* fk_data_NetworkSettings_size depends on runtime parameters */
 /* fk_data_LoraSettings_size depends on runtime parameters */
+/* fk_data_Fault_size depends on runtime parameters */
 /* fk_data_DataRecord_size depends on runtime parameters */
 /* fk_data_SignedRecord_size depends on runtime parameters */
 /* fk_data_LoraRecord_size depends on runtime parameters */

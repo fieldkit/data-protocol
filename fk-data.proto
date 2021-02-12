@@ -184,6 +184,13 @@ message LoraSettings {
   uint32 downlinkCounter = 9;
 }
 
+message Fault {
+  uint32 time = 1;
+  uint32 code = 2;
+  string description = 3;
+  bytes debug = 4;
+}
+
 /**
  * I may break this into a MetaRecord.
  */
@@ -202,6 +209,7 @@ message DataRecord {
   LoraSettings lora = 11;
   NetworkSettings network = 12;
   TransmissionSettings transmission = 14;
+  repeated Fault faults = 15;
 }
 
 enum SignedRecordKind {

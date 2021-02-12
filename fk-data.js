@@ -6561,6 +6561,263 @@
             return LoraSettings;
         })();
     
+        fk_data.Fault = (function() {
+    
+            /**
+             * Properties of a Fault.
+             * @memberof fk_data
+             * @interface IFault
+             * @property {number|null} [time] Fault time
+             * @property {number|null} [code] Fault code
+             * @property {string|null} [description] Fault description
+             * @property {Uint8Array|null} [debug] Fault debug
+             */
+    
+            /**
+             * Constructs a new Fault.
+             * @memberof fk_data
+             * @classdesc Represents a Fault.
+             * @implements IFault
+             * @constructor
+             * @param {fk_data.IFault=} [properties] Properties to set
+             */
+            function Fault(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Fault time.
+             * @member {number} time
+             * @memberof fk_data.Fault
+             * @instance
+             */
+            Fault.prototype.time = 0;
+    
+            /**
+             * Fault code.
+             * @member {number} code
+             * @memberof fk_data.Fault
+             * @instance
+             */
+            Fault.prototype.code = 0;
+    
+            /**
+             * Fault description.
+             * @member {string} description
+             * @memberof fk_data.Fault
+             * @instance
+             */
+            Fault.prototype.description = "";
+    
+            /**
+             * Fault debug.
+             * @member {Uint8Array} debug
+             * @memberof fk_data.Fault
+             * @instance
+             */
+            Fault.prototype.debug = $util.newBuffer([]);
+    
+            /**
+             * Creates a new Fault instance using the specified properties.
+             * @function create
+             * @memberof fk_data.Fault
+             * @static
+             * @param {fk_data.IFault=} [properties] Properties to set
+             * @returns {fk_data.Fault} Fault instance
+             */
+            Fault.create = function create(properties) {
+                return new Fault(properties);
+            };
+    
+            /**
+             * Encodes the specified Fault message. Does not implicitly {@link fk_data.Fault.verify|verify} messages.
+             * @function encode
+             * @memberof fk_data.Fault
+             * @static
+             * @param {fk_data.IFault} message Fault message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Fault.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.time != null && message.hasOwnProperty("time"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.time);
+                if (message.code != null && message.hasOwnProperty("code"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.code);
+                if (message.description != null && message.hasOwnProperty("description"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
+                if (message.debug != null && message.hasOwnProperty("debug"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.debug);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified Fault message, length delimited. Does not implicitly {@link fk_data.Fault.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof fk_data.Fault
+             * @static
+             * @param {fk_data.IFault} message Fault message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Fault.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a Fault message from the specified reader or buffer.
+             * @function decode
+             * @memberof fk_data.Fault
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {fk_data.Fault} Fault
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Fault.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.Fault();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.time = reader.uint32();
+                        break;
+                    case 2:
+                        message.code = reader.uint32();
+                        break;
+                    case 3:
+                        message.description = reader.string();
+                        break;
+                    case 4:
+                        message.debug = reader.bytes();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a Fault message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof fk_data.Fault
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {fk_data.Fault} Fault
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Fault.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a Fault message.
+             * @function verify
+             * @memberof fk_data.Fault
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Fault.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.time != null && message.hasOwnProperty("time"))
+                    if (!$util.isInteger(message.time))
+                        return "time: integer expected";
+                if (message.code != null && message.hasOwnProperty("code"))
+                    if (!$util.isInteger(message.code))
+                        return "code: integer expected";
+                if (message.description != null && message.hasOwnProperty("description"))
+                    if (!$util.isString(message.description))
+                        return "description: string expected";
+                if (message.debug != null && message.hasOwnProperty("debug"))
+                    if (!(message.debug && typeof message.debug.length === "number" || $util.isString(message.debug)))
+                        return "debug: buffer expected";
+                return null;
+            };
+    
+            /**
+             * Creates a Fault message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof fk_data.Fault
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {fk_data.Fault} Fault
+             */
+            Fault.fromObject = function fromObject(object) {
+                if (object instanceof $root.fk_data.Fault)
+                    return object;
+                var message = new $root.fk_data.Fault();
+                if (object.time != null)
+                    message.time = object.time >>> 0;
+                if (object.code != null)
+                    message.code = object.code >>> 0;
+                if (object.description != null)
+                    message.description = String(object.description);
+                if (object.debug != null)
+                    if (typeof object.debug === "string")
+                        $util.base64.decode(object.debug, message.debug = $util.newBuffer($util.base64.length(object.debug)), 0);
+                    else if (object.debug.length)
+                        message.debug = object.debug;
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a Fault message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof fk_data.Fault
+             * @static
+             * @param {fk_data.Fault} message Fault
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Fault.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.time = 0;
+                    object.code = 0;
+                    object.description = "";
+                    object.debug = options.bytes === String ? "" : [];
+                }
+                if (message.time != null && message.hasOwnProperty("time"))
+                    object.time = message.time;
+                if (message.code != null && message.hasOwnProperty("code"))
+                    object.code = message.code;
+                if (message.description != null && message.hasOwnProperty("description"))
+                    object.description = message.description;
+                if (message.debug != null && message.hasOwnProperty("debug"))
+                    object.debug = options.bytes === String ? $util.base64.encode(message.debug, 0, message.debug.length) : options.bytes === Array ? Array.prototype.slice.call(message.debug) : message.debug;
+                return object;
+            };
+    
+            /**
+             * Converts this Fault to JSON.
+             * @function toJSON
+             * @memberof fk_data.Fault
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Fault.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return Fault;
+        })();
+    
         fk_data.DataRecord = (function() {
     
             /**
@@ -6581,6 +6838,7 @@
              * @property {fk_data.ILoraSettings|null} [lora] DataRecord lora
              * @property {fk_data.INetworkSettings|null} [network] DataRecord network
              * @property {fk_data.ITransmissionSettings|null} [transmission] DataRecord transmission
+             * @property {Array.<fk_data.IFault>|null} [faults] DataRecord faults
              */
     
             /**
@@ -6594,6 +6852,7 @@
             function DataRecord(properties) {
                 this.logs = [];
                 this.modules = [];
+                this.faults = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -6713,6 +6972,14 @@
             DataRecord.prototype.transmission = null;
     
             /**
+             * DataRecord faults.
+             * @member {Array.<fk_data.IFault>} faults
+             * @memberof fk_data.DataRecord
+             * @instance
+             */
+            DataRecord.prototype.faults = $util.emptyArray;
+    
+            /**
              * Creates a new DataRecord instance using the specified properties.
              * @function create
              * @memberof fk_data.DataRecord
@@ -6766,6 +7033,9 @@
                         $root.fk_data.LogMessage.encode(message.logs[i], writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
                 if (message.transmission != null && message.hasOwnProperty("transmission"))
                     $root.fk_data.TransmissionSettings.encode(message.transmission, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
+                if (message.faults != null && message.faults.length)
+                    for (var i = 0; i < message.faults.length; ++i)
+                        $root.fk_data.Fault.encode(message.faults[i], writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
                 return writer;
             };
     
@@ -6845,6 +7115,11 @@
                         break;
                     case 14:
                         message.transmission = $root.fk_data.TransmissionSettings.decode(reader, reader.uint32());
+                        break;
+                    case 15:
+                        if (!(message.faults && message.faults.length))
+                            message.faults = [];
+                        message.faults.push($root.fk_data.Fault.decode(reader, reader.uint32()));
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -6957,6 +7232,15 @@
                     if (error)
                         return "transmission." + error;
                 }
+                if (message.faults != null && message.hasOwnProperty("faults")) {
+                    if (!Array.isArray(message.faults))
+                        return "faults: array expected";
+                    for (var i = 0; i < message.faults.length; ++i) {
+                        var error = $root.fk_data.Fault.verify(message.faults[i]);
+                        if (error)
+                            return "faults." + error;
+                    }
+                }
                 return null;
             };
     
@@ -7056,6 +7340,16 @@
                         throw TypeError(".fk_data.DataRecord.transmission: object expected");
                     message.transmission = $root.fk_data.TransmissionSettings.fromObject(object.transmission);
                 }
+                if (object.faults) {
+                    if (!Array.isArray(object.faults))
+                        throw TypeError(".fk_data.DataRecord.faults: array expected");
+                    message.faults = [];
+                    for (var i = 0; i < object.faults.length; ++i) {
+                        if (typeof object.faults[i] !== "object")
+                            throw TypeError(".fk_data.DataRecord.faults: object expected");
+                        message.faults[i] = $root.fk_data.Fault.fromObject(object.faults[i]);
+                    }
+                }
                 return message;
             };
     
@@ -7075,6 +7369,7 @@
                 if (options.arrays || options.defaults) {
                     object.modules = [];
                     object.logs = [];
+                    object.faults = [];
                 }
                 if (options.defaults) {
                     object.loggedReading = null;
@@ -7131,6 +7426,11 @@
                 }
                 if (message.transmission != null && message.hasOwnProperty("transmission"))
                     object.transmission = $root.fk_data.TransmissionSettings.toObject(message.transmission, options);
+                if (message.faults && message.faults.length) {
+                    object.faults = [];
+                    for (var j = 0; j < message.faults.length; ++j)
+                        object.faults[j] = $root.fk_data.Fault.toObject(message.faults[j], options);
+                }
                 return object;
             };
     
