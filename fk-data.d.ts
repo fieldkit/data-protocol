@@ -2849,6 +2849,7 @@ export namespace fk_data {
         SIGNED_RECORD_KIND_SCHEDULE = 2,
         SIGNED_RECORD_KIND_STATE = 3,
         SIGNED_RECORD_KIND_RAW_STATE = 4,
+        SIGNED_RECORD_KIND_FAULTS = 5,
         SIGNED_RECORD_KIND_OTHER = 255
     }
 
