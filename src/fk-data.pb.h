@@ -31,7 +31,22 @@ typedef enum _fk_data_SignedRecordKind {
     fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER = 255
 } fk_data_SignedRecordKind;
 
+typedef enum _fk_data_CurveType {
+    fk_data_CurveType_CURVE_NONE = 0,
+    fk_data_CurveType_CURVE_LINEAR = 1,
+    fk_data_CurveType_CURVE_LOGARITHMIC = 2
+} fk_data_CurveType;
+
 /* Struct definitions */
+typedef struct _fk_data_CalibrationCoefficients {
+    pb_callback_t values;
+} fk_data_CalibrationCoefficients;
+
+typedef struct _fk_data_CalibrationPoint {
+    pb_callback_t references;
+    pb_callback_t uncalibrated;
+} fk_data_CalibrationPoint;
+
 typedef struct _fk_data_Identity {
     pb_callback_t name;
 } fk_data_Identity;
@@ -39,6 +54,14 @@ typedef struct _fk_data_Identity {
 typedef struct _fk_data_NetworkSettings {
     pb_callback_t networks;
 } fk_data_NetworkSettings;
+
+typedef struct _fk_data_Calibration {
+    fk_data_CurveType type;
+    uint32_t time;
+    pb_callback_t points;
+    bool has_coefficients;
+    fk_data_CalibrationCoefficients coefficients;
+} fk_data_Calibration;
 
 typedef struct _fk_data_Condition {
     uint32_t flags;
@@ -282,6 +305,10 @@ typedef struct _fk_data_DataRecord {
 #define _fk_data_SignedRecordKind_MAX fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER
 #define _fk_data_SignedRecordKind_ARRAYSIZE ((fk_data_SignedRecordKind)(fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER+1))
 
+#define _fk_data_CurveType_MIN fk_data_CurveType_CURVE_NONE
+#define _fk_data_CurveType_MAX fk_data_CurveType_CURVE_LOGARITHMIC
+#define _fk_data_CurveType_ARRAYSIZE ((fk_data_CurveType)(fk_data_CurveType_CURVE_LOGARITHMIC+1))
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -315,6 +342,9 @@ extern "C" {
 #define fk_data_DataRecord_init_default          {false, fk_data_LoggedReading_init_default, false, fk_data_Metadata_init_default, false, fk_data_LogMessage_init_default, false, fk_data_Status_init_default, false, fk_data_Readings_init_default, {{NULL}, NULL}, false, fk_data_Schedule_init_default, 0, false, fk_data_Identity_init_default, false, fk_data_Condition_init_default, false, fk_data_LoraSettings_init_default, false, fk_data_NetworkSettings_init_default, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_default, {{NULL}, NULL}}
 #define fk_data_SignedRecord_init_default        {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_LoraRecord_init_default          {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_CalibrationPoint_init_default    {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_CalibrationCoefficients_init_default {{{NULL}, NULL}}
+#define fk_data_Calibration_init_default         {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_default}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0, 0, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, false, fk_data_DeviceLocation_init_zero, false, fk_data_SensorReading_init_zero}
@@ -342,10 +372,20 @@ extern "C" {
 #define fk_data_DataRecord_init_zero             {false, fk_data_LoggedReading_init_zero, false, fk_data_Metadata_init_zero, false, fk_data_LogMessage_init_zero, false, fk_data_Status_init_zero, false, fk_data_Readings_init_zero, {{NULL}, NULL}, false, fk_data_Schedule_init_zero, 0, false, fk_data_Identity_init_zero, false, fk_data_Condition_init_zero, false, fk_data_LoraSettings_init_zero, false, fk_data_NetworkSettings_init_zero, {{NULL}, NULL}, false, fk_data_TransmissionSettings_init_zero, {{NULL}, NULL}}
 #define fk_data_SignedRecord_init_zero           {_fk_data_SignedRecordKind_MIN, 0, {{NULL}, NULL}, {{NULL}, NULL}, 0}
 #define fk_data_LoraRecord_init_zero             {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_CalibrationPoint_init_zero       {{{NULL}, NULL}, {{NULL}, NULL}}
+#define fk_data_CalibrationCoefficients_init_zero {{{NULL}, NULL}}
+#define fk_data_Calibration_init_zero            {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_zero}
 
 /* Field tags (for use in manual encoding/decoding) */
+#define fk_data_CalibrationCoefficients_values_tag 1
+#define fk_data_CalibrationPoint_references_tag  1
+#define fk_data_CalibrationPoint_uncalibrated_tag 2
 #define fk_data_Identity_name_tag                1
 #define fk_data_NetworkSettings_networks_tag     1
+#define fk_data_Calibration_type_tag             1
+#define fk_data_Calibration_time_tag             2
+#define fk_data_Calibration_points_tag           3
+#define fk_data_Calibration_coefficients_tag     4
 #define fk_data_Condition_flags_tag              1
 #define fk_data_Condition_recording_tag          2
 #define fk_data_DeviceLocation_fix_tag           1
@@ -752,6 +792,27 @@ X(a, CALLBACK, SINGULAR, BYTES,    data,              7)
 #define fk_data_LoraRecord_CALLBACK pb_default_field_callback
 #define fk_data_LoraRecord_DEFAULT NULL
 
+#define fk_data_CalibrationPoint_FIELDLIST(X, a) \
+X(a, CALLBACK, REPEATED, FLOAT,    references,        1) \
+X(a, CALLBACK, REPEATED, FLOAT,    uncalibrated,      2)
+#define fk_data_CalibrationPoint_CALLBACK pb_default_field_callback
+#define fk_data_CalibrationPoint_DEFAULT NULL
+
+#define fk_data_CalibrationCoefficients_FIELDLIST(X, a) \
+X(a, CALLBACK, REPEATED, FLOAT,    values,            1)
+#define fk_data_CalibrationCoefficients_CALLBACK pb_default_field_callback
+#define fk_data_CalibrationCoefficients_DEFAULT NULL
+
+#define fk_data_Calibration_FIELDLIST(X, a) \
+X(a, STATIC,   SINGULAR, UENUM,    type,              1) \
+X(a, STATIC,   SINGULAR, UINT32,   time,              2) \
+X(a, CALLBACK, REPEATED, MESSAGE,  points,            3) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  coefficients,      4)
+#define fk_data_Calibration_CALLBACK pb_default_field_callback
+#define fk_data_Calibration_DEFAULT NULL
+#define fk_data_Calibration_points_MSGTYPE fk_data_CalibrationPoint
+#define fk_data_Calibration_coefficients_MSGTYPE fk_data_CalibrationCoefficients
+
 extern const pb_msgdesc_t fk_data_DeviceLocation_msg;
 extern const pb_msgdesc_t fk_data_SensorReading_msg;
 extern const pb_msgdesc_t fk_data_LoggedReading_msg;
@@ -779,6 +840,9 @@ extern const pb_msgdesc_t fk_data_Fault_msg;
 extern const pb_msgdesc_t fk_data_DataRecord_msg;
 extern const pb_msgdesc_t fk_data_SignedRecord_msg;
 extern const pb_msgdesc_t fk_data_LoraRecord_msg;
+extern const pb_msgdesc_t fk_data_CalibrationPoint_msg;
+extern const pb_msgdesc_t fk_data_CalibrationCoefficients_msg;
+extern const pb_msgdesc_t fk_data_Calibration_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define fk_data_DeviceLocation_fields &fk_data_DeviceLocation_msg
@@ -808,6 +872,9 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 #define fk_data_DataRecord_fields &fk_data_DataRecord_msg
 #define fk_data_SignedRecord_fields &fk_data_SignedRecord_msg
 #define fk_data_LoraRecord_fields &fk_data_LoraRecord_msg
+#define fk_data_CalibrationPoint_fields &fk_data_CalibrationPoint_msg
+#define fk_data_CalibrationCoefficients_fields &fk_data_CalibrationCoefficients_msg
+#define fk_data_Calibration_fields &fk_data_Calibration_msg
 
 /* Maximum encoded size of messages (where known) */
 /* fk_data_DeviceLocation_size depends on runtime parameters */
@@ -837,6 +904,9 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 /* fk_data_DataRecord_size depends on runtime parameters */
 /* fk_data_SignedRecord_size depends on runtime parameters */
 /* fk_data_LoraRecord_size depends on runtime parameters */
+/* fk_data_CalibrationPoint_size depends on runtime parameters */
+/* fk_data_CalibrationCoefficients_size depends on runtime parameters */
+/* fk_data_Calibration_size depends on runtime parameters */
 
 #ifdef __cplusplus
 } /* extern "C" */

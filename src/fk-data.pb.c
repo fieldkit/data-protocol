@@ -87,6 +87,16 @@ PB_BIND(fk_data_SignedRecord, fk_data_SignedRecord, AUTO)
 PB_BIND(fk_data_LoraRecord, fk_data_LoraRecord, AUTO)
 
 
+PB_BIND(fk_data_CalibrationPoint, fk_data_CalibrationPoint, AUTO)
+
+
+PB_BIND(fk_data_CalibrationCoefficients, fk_data_CalibrationCoefficients, AUTO)
+
+
+PB_BIND(fk_data_Calibration, fk_data_Calibration, AUTO)
+
+
+
 
 
 

@@ -329,6 +329,104 @@ public final class FkData {
     // @@protoc_insertion_point(enum_scope:fk_data.SignedRecordKind)
   }
 
+  /**
+   * Protobuf enum {@code fk_data.CurveType}
+   */
+  public enum CurveType
+      implements com.google.protobuf.Internal.EnumLite {
+    /**
+     * <code>CURVE_NONE = 0;</code>
+     */
+    CURVE_NONE(0),
+    /**
+     * <code>CURVE_LINEAR = 1;</code>
+     */
+    CURVE_LINEAR(1),
+    /**
+     * <code>CURVE_LOGARITHMIC = 2;</code>
+     */
+    CURVE_LOGARITHMIC(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>CURVE_NONE = 0;</code>
+     */
+    public static final int CURVE_NONE_VALUE = 0;
+    /**
+     * <code>CURVE_LINEAR = 1;</code>
+     */
+    public static final int CURVE_LINEAR_VALUE = 1;
+    /**
+     * <code>CURVE_LOGARITHMIC = 2;</code>
+     */
+    public static final int CURVE_LOGARITHMIC_VALUE = 2;
+
+
+    @java.lang.Override
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CurveType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static CurveType forNumber(int value) {
+      switch (value) {
+        case 0: return CURVE_NONE;
+        case 1: return CURVE_LINEAR;
+        case 2: return CURVE_LOGARITHMIC;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<CurveType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        CurveType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<CurveType>() {
+            @java.lang.Override
+            public CurveType findValueByNumber(int number) {
+              return CurveType.forNumber(number);
+            }
+          };
+
+    public static com.google.protobuf.Internal.EnumVerifier 
+        internalGetVerifier() {
+      return CurveTypeVerifier.INSTANCE;
+    }
+
+    private static final class CurveTypeVerifier implements 
+         com.google.protobuf.Internal.EnumVerifier { 
+            static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new CurveTypeVerifier();
+            @java.lang.Override
+            public boolean isInRange(int number) {
+              return CurveType.forNumber(number) != null;
+            }
+          };
+
+    private final int value;
+
+    private CurveType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:fk_data.CurveType)
+  }
+
   public interface DeviceLocationOrBuilder extends
       // @@protoc_insertion_point(interface_extends:fk_data.DeviceLocation)
       com.google.protobuf.MessageLiteOrBuilder {
@@ -16963,6 +17061,1505 @@ public final class FkData {
     private static volatile com.google.protobuf.Parser<LoraRecord> PARSER;
 
     public static com.google.protobuf.Parser<LoraRecord> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface CalibrationPointOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.CalibrationPoint)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>repeated float references = 1;</code>
+     * @return A list containing the references.
+     */
+    java.util.List<java.lang.Float> getReferencesList();
+    /**
+     * <code>repeated float references = 1;</code>
+     * @return The count of references.
+     */
+    int getReferencesCount();
+    /**
+     * <code>repeated float references = 1;</code>
+     * @param index The index of the element to return.
+     * @return The references at the given index.
+     */
+    float getReferences(int index);
+
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @return A list containing the uncalibrated.
+     */
+    java.util.List<java.lang.Float> getUncalibratedList();
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @return The count of uncalibrated.
+     */
+    int getUncalibratedCount();
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @param index The index of the element to return.
+     * @return The uncalibrated at the given index.
+     */
+    float getUncalibrated(int index);
+  }
+  /**
+   * Protobuf type {@code fk_data.CalibrationPoint}
+   */
+  public  static final class CalibrationPoint extends
+      com.google.protobuf.GeneratedMessageLite<
+          CalibrationPoint, CalibrationPoint.Builder> implements
+      // @@protoc_insertion_point(message_implements:fk_data.CalibrationPoint)
+      CalibrationPointOrBuilder {
+    private CalibrationPoint() {
+      references_ = emptyFloatList();
+      uncalibrated_ = emptyFloatList();
+    }
+    public static final int REFERENCES_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.FloatList references_;
+    /**
+     * <code>repeated float references = 1;</code>
+     * @return A list containing the references.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getReferencesList() {
+      return references_;
+    }
+    /**
+     * <code>repeated float references = 1;</code>
+     * @return The count of references.
+     */
+    @java.lang.Override
+    public int getReferencesCount() {
+      return references_.size();
+    }
+    /**
+     * <code>repeated float references = 1;</code>
+     * @param index The index of the element to return.
+     * @return The references at the given index.
+     */
+    @java.lang.Override
+    public float getReferences(int index) {
+      return references_.getFloat(index);
+    }
+    private int referencesMemoizedSerializedSize = -1;
+    private void ensureReferencesIsMutable() {
+      if (!references_.isModifiable()) {
+        references_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(references_);
+       }
+    }
+    /**
+     * <code>repeated float references = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The references to set.
+     */
+    private void setReferences(
+        int index, float value) {
+      ensureReferencesIsMutable();
+      references_.setFloat(index, value);
+    }
+    /**
+     * <code>repeated float references = 1;</code>
+     * @param value The references to add.
+     */
+    private void addReferences(float value) {
+      ensureReferencesIsMutable();
+      references_.addFloat(value);
+    }
+    /**
+     * <code>repeated float references = 1;</code>
+     * @param values The references to add.
+     */
+    private void addAllReferences(
+        java.lang.Iterable<? extends java.lang.Float> values) {
+      ensureReferencesIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, references_);
+    }
+    /**
+     * <code>repeated float references = 1;</code>
+     */
+    private void clearReferences() {
+      references_ = emptyFloatList();
+    }
+
+    public static final int UNCALIBRATED_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.FloatList uncalibrated_;
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @return A list containing the uncalibrated.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getUncalibratedList() {
+      return uncalibrated_;
+    }
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @return The count of uncalibrated.
+     */
+    @java.lang.Override
+    public int getUncalibratedCount() {
+      return uncalibrated_.size();
+    }
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @param index The index of the element to return.
+     * @return The uncalibrated at the given index.
+     */
+    @java.lang.Override
+    public float getUncalibrated(int index) {
+      return uncalibrated_.getFloat(index);
+    }
+    private int uncalibratedMemoizedSerializedSize = -1;
+    private void ensureUncalibratedIsMutable() {
+      if (!uncalibrated_.isModifiable()) {
+        uncalibrated_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(uncalibrated_);
+       }
+    }
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The uncalibrated to set.
+     */
+    private void setUncalibrated(
+        int index, float value) {
+      ensureUncalibratedIsMutable();
+      uncalibrated_.setFloat(index, value);
+    }
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @param value The uncalibrated to add.
+     */
+    private void addUncalibrated(float value) {
+      ensureUncalibratedIsMutable();
+      uncalibrated_.addFloat(value);
+    }
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     * @param values The uncalibrated to add.
+     */
+    private void addAllUncalibrated(
+        java.lang.Iterable<? extends java.lang.Float> values) {
+      ensureUncalibratedIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, uncalibrated_);
+    }
+    /**
+     * <code>repeated float uncalibrated = 2;</code>
+     */
+    private void clearUncalibrated() {
+      uncalibrated_ = emptyFloatList();
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(org.conservify.fieldkit.data.pb.FkData.CalibrationPoint prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code fk_data.CalibrationPoint}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          org.conservify.fieldkit.data.pb.FkData.CalibrationPoint, Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.CalibrationPoint)
+        org.conservify.fieldkit.data.pb.FkData.CalibrationPointOrBuilder {
+      // Construct using org.conservify.fieldkit.data.pb.FkData.CalibrationPoint.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>repeated float references = 1;</code>
+       * @return A list containing the references.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Float>
+          getReferencesList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getReferencesList());
+      }
+      /**
+       * <code>repeated float references = 1;</code>
+       * @return The count of references.
+       */
+      @java.lang.Override
+      public int getReferencesCount() {
+        return instance.getReferencesCount();
+      }
+      /**
+       * <code>repeated float references = 1;</code>
+       * @param index The index of the element to return.
+       * @return The references at the given index.
+       */
+      @java.lang.Override
+      public float getReferences(int index) {
+        return instance.getReferences(index);
+      }
+      /**
+       * <code>repeated float references = 1;</code>
+       * @param value The references to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReferences(
+          int index, float value) {
+        copyOnWrite();
+        instance.setReferences(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated float references = 1;</code>
+       * @param value The references to add.
+       * @return This builder for chaining.
+       */
+      public Builder addReferences(float value) {
+        copyOnWrite();
+        instance.addReferences(value);
+        return this;
+      }
+      /**
+       * <code>repeated float references = 1;</code>
+       * @param values The references to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllReferences(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        copyOnWrite();
+        instance.addAllReferences(values);
+        return this;
+      }
+      /**
+       * <code>repeated float references = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReferences() {
+        copyOnWrite();
+        instance.clearReferences();
+        return this;
+      }
+
+      /**
+       * <code>repeated float uncalibrated = 2;</code>
+       * @return A list containing the uncalibrated.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Float>
+          getUncalibratedList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getUncalibratedList());
+      }
+      /**
+       * <code>repeated float uncalibrated = 2;</code>
+       * @return The count of uncalibrated.
+       */
+      @java.lang.Override
+      public int getUncalibratedCount() {
+        return instance.getUncalibratedCount();
+      }
+      /**
+       * <code>repeated float uncalibrated = 2;</code>
+       * @param index The index of the element to return.
+       * @return The uncalibrated at the given index.
+       */
+      @java.lang.Override
+      public float getUncalibrated(int index) {
+        return instance.getUncalibrated(index);
+      }
+      /**
+       * <code>repeated float uncalibrated = 2;</code>
+       * @param value The uncalibrated to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUncalibrated(
+          int index, float value) {
+        copyOnWrite();
+        instance.setUncalibrated(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated float uncalibrated = 2;</code>
+       * @param value The uncalibrated to add.
+       * @return This builder for chaining.
+       */
+      public Builder addUncalibrated(float value) {
+        copyOnWrite();
+        instance.addUncalibrated(value);
+        return this;
+      }
+      /**
+       * <code>repeated float uncalibrated = 2;</code>
+       * @param values The uncalibrated to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllUncalibrated(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        copyOnWrite();
+        instance.addAllUncalibrated(values);
+        return this;
+      }
+      /**
+       * <code>repeated float uncalibrated = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUncalibrated() {
+        copyOnWrite();
+        instance.clearUncalibrated();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:fk_data.CalibrationPoint)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new org.conservify.fieldkit.data.pb.FkData.CalibrationPoint();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "references_",
+              "uncalibrated_",
+            };
+            java.lang.String info =
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0002\u0000\u0001$\u0002$";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<org.conservify.fieldkit.data.pb.FkData.CalibrationPoint> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.conservify.fieldkit.data.pb.FkData.CalibrationPoint.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.conservify.fieldkit.data.pb.FkData.CalibrationPoint>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:fk_data.CalibrationPoint)
+    private static final org.conservify.fieldkit.data.pb.FkData.CalibrationPoint DEFAULT_INSTANCE;
+    static {
+      CalibrationPoint defaultInstance = new CalibrationPoint();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        CalibrationPoint.class, defaultInstance);
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationPoint getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<CalibrationPoint> PARSER;
+
+    public static com.google.protobuf.Parser<CalibrationPoint> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface CalibrationCoefficientsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.CalibrationCoefficients)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>repeated float values = 1;</code>
+     * @return A list containing the values.
+     */
+    java.util.List<java.lang.Float> getValuesList();
+    /**
+     * <code>repeated float values = 1;</code>
+     * @return The count of values.
+     */
+    int getValuesCount();
+    /**
+     * <code>repeated float values = 1;</code>
+     * @param index The index of the element to return.
+     * @return The values at the given index.
+     */
+    float getValues(int index);
+  }
+  /**
+   * Protobuf type {@code fk_data.CalibrationCoefficients}
+   */
+  public  static final class CalibrationCoefficients extends
+      com.google.protobuf.GeneratedMessageLite<
+          CalibrationCoefficients, CalibrationCoefficients.Builder> implements
+      // @@protoc_insertion_point(message_implements:fk_data.CalibrationCoefficients)
+      CalibrationCoefficientsOrBuilder {
+    private CalibrationCoefficients() {
+      values_ = emptyFloatList();
+    }
+    public static final int VALUES_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.FloatList values_;
+    /**
+     * <code>repeated float values = 1;</code>
+     * @return A list containing the values.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getValuesList() {
+      return values_;
+    }
+    /**
+     * <code>repeated float values = 1;</code>
+     * @return The count of values.
+     */
+    @java.lang.Override
+    public int getValuesCount() {
+      return values_.size();
+    }
+    /**
+     * <code>repeated float values = 1;</code>
+     * @param index The index of the element to return.
+     * @return The values at the given index.
+     */
+    @java.lang.Override
+    public float getValues(int index) {
+      return values_.getFloat(index);
+    }
+    private int valuesMemoizedSerializedSize = -1;
+    private void ensureValuesIsMutable() {
+      if (!values_.isModifiable()) {
+        values_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(values_);
+       }
+    }
+    /**
+     * <code>repeated float values = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The values to set.
+     */
+    private void setValues(
+        int index, float value) {
+      ensureValuesIsMutable();
+      values_.setFloat(index, value);
+    }
+    /**
+     * <code>repeated float values = 1;</code>
+     * @param value The values to add.
+     */
+    private void addValues(float value) {
+      ensureValuesIsMutable();
+      values_.addFloat(value);
+    }
+    /**
+     * <code>repeated float values = 1;</code>
+     * @param values The values to add.
+     */
+    private void addAllValues(
+        java.lang.Iterable<? extends java.lang.Float> values) {
+      ensureValuesIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, values_);
+    }
+    /**
+     * <code>repeated float values = 1;</code>
+     */
+    private void clearValues() {
+      values_ = emptyFloatList();
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code fk_data.CalibrationCoefficients}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients, Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.CalibrationCoefficients)
+        org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficientsOrBuilder {
+      // Construct using org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>repeated float values = 1;</code>
+       * @return A list containing the values.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Float>
+          getValuesList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getValuesList());
+      }
+      /**
+       * <code>repeated float values = 1;</code>
+       * @return The count of values.
+       */
+      @java.lang.Override
+      public int getValuesCount() {
+        return instance.getValuesCount();
+      }
+      /**
+       * <code>repeated float values = 1;</code>
+       * @param index The index of the element to return.
+       * @return The values at the given index.
+       */
+      @java.lang.Override
+      public float getValues(int index) {
+        return instance.getValues(index);
+      }
+      /**
+       * <code>repeated float values = 1;</code>
+       * @param value The values to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValues(
+          int index, float value) {
+        copyOnWrite();
+        instance.setValues(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated float values = 1;</code>
+       * @param value The values to add.
+       * @return This builder for chaining.
+       */
+      public Builder addValues(float value) {
+        copyOnWrite();
+        instance.addValues(value);
+        return this;
+      }
+      /**
+       * <code>repeated float values = 1;</code>
+       * @param values The values to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllValues(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        copyOnWrite();
+        instance.addAllValues(values);
+        return this;
+      }
+      /**
+       * <code>repeated float values = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValues() {
+        copyOnWrite();
+        instance.clearValues();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:fk_data.CalibrationCoefficients)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "values_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001$";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:fk_data.CalibrationCoefficients)
+    private static final org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients DEFAULT_INSTANCE;
+    static {
+      CalibrationCoefficients defaultInstance = new CalibrationCoefficients();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        CalibrationCoefficients.class, defaultInstance);
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<CalibrationCoefficients> PARSER;
+
+    public static com.google.protobuf.Parser<CalibrationCoefficients> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface CalibrationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.Calibration)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>.fk_data.CurveType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.fk_data.CurveType type = 1;</code>
+     * @return The type.
+     */
+    org.conservify.fieldkit.data.pb.FkData.CurveType getType();
+
+    /**
+     * <code>uint32 time = 2;</code>
+     * @return The time.
+     */
+    int getTime();
+
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    java.util.List<org.conservify.fieldkit.data.pb.FkData.CalibrationPoint> 
+        getPointsList();
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    org.conservify.fieldkit.data.pb.FkData.CalibrationPoint getPoints(int index);
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    int getPointsCount();
+
+    /**
+     * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+     * @return Whether the coefficients field is set.
+     */
+    boolean hasCoefficients();
+    /**
+     * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+     * @return The coefficients.
+     */
+    org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients getCoefficients();
+  }
+  /**
+   * Protobuf type {@code fk_data.Calibration}
+   */
+  public  static final class Calibration extends
+      com.google.protobuf.GeneratedMessageLite<
+          Calibration, Calibration.Builder> implements
+      // @@protoc_insertion_point(message_implements:fk_data.Calibration)
+      CalibrationOrBuilder {
+    private Calibration() {
+      points_ = emptyProtobufList();
+    }
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_;
+    /**
+     * <code>.fk_data.CurveType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.fk_data.CurveType type = 1;</code>
+     * @return The type.
+     */
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.CurveType getType() {
+      org.conservify.fieldkit.data.pb.FkData.CurveType result = org.conservify.fieldkit.data.pb.FkData.CurveType.forNumber(type_);
+      return result == null ? org.conservify.fieldkit.data.pb.FkData.CurveType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.fk_data.CurveType type = 1;</code>
+     * @param value The enum numeric value on the wire for type to set.
+     */
+    private void setTypeValue(int value) {
+        type_ = value;
+    }
+    /**
+     * <code>.fk_data.CurveType type = 1;</code>
+     * @param value The type to set.
+     */
+    private void setType(org.conservify.fieldkit.data.pb.FkData.CurveType value) {
+      type_ = value.getNumber();
+      
+    }
+    /**
+     * <code>.fk_data.CurveType type = 1;</code>
+     */
+    private void clearType() {
+      
+      type_ = 0;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 2;
+    private int time_;
+    /**
+     * <code>uint32 time = 2;</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public int getTime() {
+      return time_;
+    }
+    /**
+     * <code>uint32 time = 2;</code>
+     * @param value The time to set.
+     */
+    private void setTime(int value) {
+      
+      time_ = value;
+    }
+    /**
+     * <code>uint32 time = 2;</code>
+     */
+    private void clearTime() {
+      
+      time_ = 0;
+    }
+
+    public static final int POINTS_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.ProtobufList<org.conservify.fieldkit.data.pb.FkData.CalibrationPoint> points_;
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<org.conservify.fieldkit.data.pb.FkData.CalibrationPoint> getPointsList() {
+      return points_;
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    public java.util.List<? extends org.conservify.fieldkit.data.pb.FkData.CalibrationPointOrBuilder> 
+        getPointsOrBuilderList() {
+      return points_;
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    @java.lang.Override
+    public int getPointsCount() {
+      return points_.size();
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.CalibrationPoint getPoints(int index) {
+      return points_.get(index);
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    public org.conservify.fieldkit.data.pb.FkData.CalibrationPointOrBuilder getPointsOrBuilder(
+        int index) {
+      return points_.get(index);
+    }
+    private void ensurePointsIsMutable() {
+      if (!points_.isModifiable()) {
+        points_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(points_);
+       }
+    }
+
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    private void setPoints(
+        int index, org.conservify.fieldkit.data.pb.FkData.CalibrationPoint value) {
+      value.getClass();
+  ensurePointsIsMutable();
+      points_.set(index, value);
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    private void addPoints(org.conservify.fieldkit.data.pb.FkData.CalibrationPoint value) {
+      value.getClass();
+  ensurePointsIsMutable();
+      points_.add(value);
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    private void addPoints(
+        int index, org.conservify.fieldkit.data.pb.FkData.CalibrationPoint value) {
+      value.getClass();
+  ensurePointsIsMutable();
+      points_.add(index, value);
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    private void addAllPoints(
+        java.lang.Iterable<? extends org.conservify.fieldkit.data.pb.FkData.CalibrationPoint> values) {
+      ensurePointsIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, points_);
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    private void clearPoints() {
+      points_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+     */
+    private void removePoints(int index) {
+      ensurePointsIsMutable();
+      points_.remove(index);
+    }
+
+    public static final int COEFFICIENTS_FIELD_NUMBER = 4;
+    private org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients coefficients_;
+    /**
+     * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+     */
+    @java.lang.Override
+    public boolean hasCoefficients() {
+      return coefficients_ != null;
+    }
+    /**
+     * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+     */
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients getCoefficients() {
+      return coefficients_ == null ? org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients.getDefaultInstance() : coefficients_;
+    }
+    /**
+     * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+     */
+    private void setCoefficients(org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients value) {
+      value.getClass();
+  coefficients_ = value;
+      
+      }
+    /**
+     * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeCoefficients(org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients value) {
+      value.getClass();
+  if (coefficients_ != null &&
+          coefficients_ != org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients.getDefaultInstance()) {
+        coefficients_ =
+          org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients.newBuilder(coefficients_).mergeFrom(value).buildPartial();
+      } else {
+        coefficients_ = value;
+      }
+      
+    }
+    /**
+     * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+     */
+    private void clearCoefficients() {  coefficients_ = null;
+      
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(org.conservify.fieldkit.data.pb.FkData.Calibration prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code fk_data.Calibration}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          org.conservify.fieldkit.data.pb.FkData.Calibration, Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.Calibration)
+        org.conservify.fieldkit.data.pb.FkData.CalibrationOrBuilder {
+      // Construct using org.conservify.fieldkit.data.pb.FkData.Calibration.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>.fk_data.CurveType type = 1;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override
+      public int getTypeValue() {
+        return instance.getTypeValue();
+      }
+      /**
+       * <code>.fk_data.CurveType type = 1;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        copyOnWrite();
+        instance.setTypeValue(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.CurveType type = 1;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public org.conservify.fieldkit.data.pb.FkData.CurveType getType() {
+        return instance.getType();
+      }
+      /**
+       * <code>.fk_data.CurveType type = 1;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(org.conservify.fieldkit.data.pb.FkData.CurveType value) {
+        copyOnWrite();
+        instance.setType(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.CurveType type = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        copyOnWrite();
+        instance.clearType();
+        return this;
+      }
+
+      /**
+       * <code>uint32 time = 2;</code>
+       * @return The time.
+       */
+      @java.lang.Override
+      public int getTime() {
+        return instance.getTime();
+      }
+      /**
+       * <code>uint32 time = 2;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTime(int value) {
+        copyOnWrite();
+        instance.setTime(value);
+        return this;
+      }
+      /**
+       * <code>uint32 time = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTime() {
+        copyOnWrite();
+        instance.clearTime();
+        return this;
+      }
+
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      @java.lang.Override
+      public java.util.List<org.conservify.fieldkit.data.pb.FkData.CalibrationPoint> getPointsList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getPointsList());
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      @java.lang.Override
+      public int getPointsCount() {
+        return instance.getPointsCount();
+      }/**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      @java.lang.Override
+      public org.conservify.fieldkit.data.pb.FkData.CalibrationPoint getPoints(int index) {
+        return instance.getPoints(index);
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder setPoints(
+          int index, org.conservify.fieldkit.data.pb.FkData.CalibrationPoint value) {
+        copyOnWrite();
+        instance.setPoints(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder setPoints(
+          int index, org.conservify.fieldkit.data.pb.FkData.CalibrationPoint.Builder builderForValue) {
+        copyOnWrite();
+        instance.setPoints(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder addPoints(org.conservify.fieldkit.data.pb.FkData.CalibrationPoint value) {
+        copyOnWrite();
+        instance.addPoints(value);
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder addPoints(
+          int index, org.conservify.fieldkit.data.pb.FkData.CalibrationPoint value) {
+        copyOnWrite();
+        instance.addPoints(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder addPoints(
+          org.conservify.fieldkit.data.pb.FkData.CalibrationPoint.Builder builderForValue) {
+        copyOnWrite();
+        instance.addPoints(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder addPoints(
+          int index, org.conservify.fieldkit.data.pb.FkData.CalibrationPoint.Builder builderForValue) {
+        copyOnWrite();
+        instance.addPoints(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder addAllPoints(
+          java.lang.Iterable<? extends org.conservify.fieldkit.data.pb.FkData.CalibrationPoint> values) {
+        copyOnWrite();
+        instance.addAllPoints(values);
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder clearPoints() {
+        copyOnWrite();
+        instance.clearPoints();
+        return this;
+      }
+      /**
+       * <code>repeated .fk_data.CalibrationPoint points = 3;</code>
+       */
+      public Builder removePoints(int index) {
+        copyOnWrite();
+        instance.removePoints(index);
+        return this;
+      }
+
+      /**
+       * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+       */
+      @java.lang.Override
+      public boolean hasCoefficients() {
+        return instance.hasCoefficients();
+      }
+      /**
+       * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+       */
+      @java.lang.Override
+      public org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients getCoefficients() {
+        return instance.getCoefficients();
+      }
+      /**
+       * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+       */
+      public Builder setCoefficients(org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients value) {
+        copyOnWrite();
+        instance.setCoefficients(value);
+        return this;
+        }
+      /**
+       * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+       */
+      public Builder setCoefficients(
+          org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients.Builder builderForValue) {
+        copyOnWrite();
+        instance.setCoefficients(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+       */
+      public Builder mergeCoefficients(org.conservify.fieldkit.data.pb.FkData.CalibrationCoefficients value) {
+        copyOnWrite();
+        instance.mergeCoefficients(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.CalibrationCoefficients coefficients = 4;</code>
+       */
+      public Builder clearCoefficients() {  copyOnWrite();
+        instance.clearCoefficients();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:fk_data.Calibration)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new org.conservify.fieldkit.data.pb.FkData.Calibration();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "type_",
+              "time_",
+              "points_",
+              org.conservify.fieldkit.data.pb.FkData.CalibrationPoint.class,
+              "coefficients_",
+            };
+            java.lang.String info =
+                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0001\u0000\u0001\f\u0002\u000b" +
+                "\u0003\u001b\u0004\t";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<org.conservify.fieldkit.data.pb.FkData.Calibration> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.conservify.fieldkit.data.pb.FkData.Calibration.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.conservify.fieldkit.data.pb.FkData.Calibration>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:fk_data.Calibration)
+    private static final org.conservify.fieldkit.data.pb.FkData.Calibration DEFAULT_INSTANCE;
+    static {
+      Calibration defaultInstance = new Calibration();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Calibration.class, defaultInstance);
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.Calibration getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Calibration> PARSER;
+
+    public static com.google.protobuf.Parser<Calibration> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }

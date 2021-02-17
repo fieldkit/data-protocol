@@ -181,6 +181,55 @@ func (SignedRecordKind) EnumDescriptor() ([]byte, []int) {
 	return file_fk_data_proto_rawDescGZIP(), []int{2}
 }
 
+type CurveType int32
+
+const (
+	CurveType_CURVE_NONE        CurveType = 0
+	CurveType_CURVE_LINEAR      CurveType = 1
+	CurveType_CURVE_LOGARITHMIC CurveType = 2
+)
+
+// Enum value maps for CurveType.
+var (
+	CurveType_name = map[int32]string{
+		0: "CURVE_NONE",
+		1: "CURVE_LINEAR",
+		2: "CURVE_LOGARITHMIC",
+	}
+	CurveType_value = map[string]int32{
+		"CURVE_NONE":        0,
+		"CURVE_LINEAR":      1,
+		"CURVE_LOGARITHMIC": 2,
+	}
+)
+
+func (x CurveType) Enum() *CurveType {
+	p := new(CurveType)
+	*p = x
+	return p
+}
+
+func (x CurveType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CurveType) Descriptor() protoreflect.EnumDescriptor {
+	return file_fk_data_proto_enumTypes[3].Descriptor()
+}
+
+func (CurveType) Type() protoreflect.EnumType {
+	return &file_fk_data_proto_enumTypes[3]
+}
+
+func (x CurveType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use CurveType.Descriptor instead.
+func (CurveType) EnumDescriptor() ([]byte, []int) {
+	return file_fk_data_proto_rawDescGZIP(), []int{3}
+}
+
 type DeviceLocation struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2300,6 +2349,179 @@ func (x *LoraRecord) GetData() []byte {
 	return nil
 }
 
+type CalibrationPoint struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	References   []float32 `protobuf:"fixed32,1,rep,packed,name=references,proto3" json:"references,omitempty"`
+	Uncalibrated []float32 `protobuf:"fixed32,2,rep,packed,name=uncalibrated,proto3" json:"uncalibrated,omitempty"`
+}
+
+func (x *CalibrationPoint) Reset() {
+	*x = CalibrationPoint{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_fk_data_proto_msgTypes[27]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CalibrationPoint) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CalibrationPoint) ProtoMessage() {}
+
+func (x *CalibrationPoint) ProtoReflect() protoreflect.Message {
+	mi := &file_fk_data_proto_msgTypes[27]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CalibrationPoint.ProtoReflect.Descriptor instead.
+func (*CalibrationPoint) Descriptor() ([]byte, []int) {
+	return file_fk_data_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *CalibrationPoint) GetReferences() []float32 {
+	if x != nil {
+		return x.References
+	}
+	return nil
+}
+
+func (x *CalibrationPoint) GetUncalibrated() []float32 {
+	if x != nil {
+		return x.Uncalibrated
+	}
+	return nil
+}
+
+type CalibrationCoefficients struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Values []float32 `protobuf:"fixed32,1,rep,packed,name=values,proto3" json:"values,omitempty"`
+}
+
+func (x *CalibrationCoefficients) Reset() {
+	*x = CalibrationCoefficients{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_fk_data_proto_msgTypes[28]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CalibrationCoefficients) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CalibrationCoefficients) ProtoMessage() {}
+
+func (x *CalibrationCoefficients) ProtoReflect() protoreflect.Message {
+	mi := &file_fk_data_proto_msgTypes[28]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CalibrationCoefficients.ProtoReflect.Descriptor instead.
+func (*CalibrationCoefficients) Descriptor() ([]byte, []int) {
+	return file_fk_data_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *CalibrationCoefficients) GetValues() []float32 {
+	if x != nil {
+		return x.Values
+	}
+	return nil
+}
+
+type Calibration struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Type         CurveType                `protobuf:"varint,1,opt,name=type,proto3,enum=fk_data.CurveType" json:"type,omitempty"`
+	Time         uint32                   `protobuf:"varint,2,opt,name=time,proto3" json:"time,omitempty"`
+	Points       []*CalibrationPoint      `protobuf:"bytes,3,rep,name=points,proto3" json:"points,omitempty"`
+	Coefficients *CalibrationCoefficients `protobuf:"bytes,4,opt,name=coefficients,proto3" json:"coefficients,omitempty"`
+}
+
+func (x *Calibration) Reset() {
+	*x = Calibration{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_fk_data_proto_msgTypes[29]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Calibration) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Calibration) ProtoMessage() {}
+
+func (x *Calibration) ProtoReflect() protoreflect.Message {
+	mi := &file_fk_data_proto_msgTypes[29]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Calibration.ProtoReflect.Descriptor instead.
+func (*Calibration) Descriptor() ([]byte, []int) {
+	return file_fk_data_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *Calibration) GetType() CurveType {
+	if x != nil {
+		return x.Type
+	}
+	return CurveType_CURVE_NONE
+}
+
+func (x *Calibration) GetTime() uint32 {
+	if x != nil {
+		return x.Time
+	}
+	return 0
+}
+
+func (x *Calibration) GetPoints() []*CalibrationPoint {
+	if x != nil {
+		return x.Points
+	}
+	return nil
+}
+
+func (x *Calibration) GetCoefficients() *CalibrationCoefficients {
+	if x != nil {
+		return x.Coefficients
+	}
+	return nil
+}
+
 var File_fk_data_proto protoreflect.FileDescriptor
 
 var file_fk_data_proto_rawDesc = []byte{
@@ -2587,7 +2809,28 @@ var file_fk_data_proto_rawDesc = []byte{
 	0x04, 0x52, 0x06, 0x73, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c,
 	0x75, 0x65, 0x73, 0x18, 0x06, 0x20, 0x03, 0x28, 0x02, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65,
 	0x73, 0x12, 0x12, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0c, 0x52,
-	0x04, 0x64, 0x61, 0x74, 0x61, 0x2a, 0x62, 0x0a, 0x0d, 0x44, 0x6f, 0x77, 0x6e, 0x6c, 0x6f, 0x61,
+	0x04, 0x64, 0x61, 0x74, 0x61, 0x22, 0x56, 0x0a, 0x10, 0x43, 0x61, 0x6c, 0x69, 0x62, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x72, 0x65, 0x66,
+	0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x02, 0x52, 0x0a, 0x72,
+	0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x73, 0x12, 0x22, 0x0a, 0x0c, 0x75, 0x6e, 0x63,
+	0x61, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x74, 0x65, 0x64, 0x18, 0x02, 0x20, 0x03, 0x28, 0x02, 0x52,
+	0x0c, 0x75, 0x6e, 0x63, 0x61, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x74, 0x65, 0x64, 0x22, 0x31, 0x0a,
+	0x17, 0x43, 0x61, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x6f, 0x65, 0x66,
+	0x66, 0x69, 0x63, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x16, 0x0a, 0x06, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x02, 0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73,
+	0x22, 0xc2, 0x01, 0x0a, 0x0b, 0x43, 0x61, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x12, 0x26, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x12,
+	0x2e, 0x66, 0x6b, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x43, 0x75, 0x72, 0x76, 0x65, 0x54, 0x79,
+	0x70, 0x65, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x69, 0x6d, 0x65,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x74, 0x69, 0x6d, 0x65, 0x12, 0x31, 0x0a, 0x06,
+	0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x66,
+	0x6b, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x43, 0x61, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x50, 0x6f, 0x69, 0x6e, 0x74, 0x52, 0x06, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73, 0x12,
+	0x44, 0x0a, 0x0c, 0x63, 0x6f, 0x65, 0x66, 0x66, 0x69, 0x63, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x66, 0x6b, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x2e,
+	0x43, 0x61, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x6f, 0x65, 0x66, 0x66,
+	0x69, 0x63, 0x69, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x0c, 0x63, 0x6f, 0x65, 0x66, 0x66, 0x69, 0x63,
+	0x69, 0x65, 0x6e, 0x74, 0x73, 0x2a, 0x62, 0x0a, 0x0d, 0x44, 0x6f, 0x77, 0x6e, 0x6c, 0x6f, 0x61,
 	0x64, 0x46, 0x6c, 0x61, 0x67, 0x73, 0x12, 0x16, 0x0a, 0x12, 0x52, 0x45, 0x41, 0x44, 0x49, 0x4e,
 	0x47, 0x5f, 0x46, 0x4c, 0x41, 0x47, 0x53, 0x5f, 0x4e, 0x4f, 0x4e, 0x45, 0x10, 0x00, 0x12, 0x1f,
 	0x0a, 0x1b, 0x52, 0x45, 0x41, 0x44, 0x49, 0x4e, 0x47, 0x5f, 0x46, 0x4c, 0x41, 0x47, 0x53, 0x5f,
@@ -2613,9 +2856,14 @@ var file_fk_data_proto_rawDesc = []byte{
 	0x44, 0x5f, 0x52, 0x45, 0x43, 0x4f, 0x52, 0x44, 0x5f, 0x4b, 0x49, 0x4e, 0x44, 0x5f, 0x46, 0x41,
 	0x55, 0x4c, 0x54, 0x53, 0x10, 0x05, 0x12, 0x1d, 0x0a, 0x18, 0x53, 0x49, 0x47, 0x4e, 0x45, 0x44,
 	0x5f, 0x52, 0x45, 0x43, 0x4f, 0x52, 0x44, 0x5f, 0x4b, 0x49, 0x4e, 0x44, 0x5f, 0x4f, 0x54, 0x48,
-	0x45, 0x52, 0x10, 0xff, 0x01, 0x42, 0x21, 0x0a, 0x1f, 0x6f, 0x72, 0x67, 0x2e, 0x63, 0x6f, 0x6e,
-	0x73, 0x65, 0x72, 0x76, 0x69, 0x66, 0x79, 0x2e, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x6b, 0x69, 0x74,
-	0x2e, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x45, 0x52, 0x10, 0xff, 0x01, 0x2a, 0x44, 0x0a, 0x09, 0x43, 0x75, 0x72, 0x76, 0x65, 0x54, 0x79,
+	0x70, 0x65, 0x12, 0x0e, 0x0a, 0x0a, 0x43, 0x55, 0x52, 0x56, 0x45, 0x5f, 0x4e, 0x4f, 0x4e, 0x45,
+	0x10, 0x00, 0x12, 0x10, 0x0a, 0x0c, 0x43, 0x55, 0x52, 0x56, 0x45, 0x5f, 0x4c, 0x49, 0x4e, 0x45,
+	0x41, 0x52, 0x10, 0x01, 0x12, 0x15, 0x0a, 0x11, 0x43, 0x55, 0x52, 0x56, 0x45, 0x5f, 0x4c, 0x4f,
+	0x47, 0x41, 0x52, 0x49, 0x54, 0x48, 0x4d, 0x49, 0x43, 0x10, 0x02, 0x42, 0x21, 0x0a, 0x1f, 0x6f,
+	0x72, 0x67, 0x2e, 0x63, 0x6f, 0x6e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x66, 0x79, 0x2e, 0x66, 0x69,
+	0x65, 0x6c, 0x64, 0x6b, 0x69, 0x74, 0x2e, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x70, 0x62, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2630,79 +2878,86 @@ func file_fk_data_proto_rawDescGZIP() []byte {
 	return file_fk_data_proto_rawDescData
 }
 
-var file_fk_data_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_fk_data_proto_msgTypes = make([]protoimpl.MessageInfo, 27)
+var file_fk_data_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_fk_data_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
 var file_fk_data_proto_goTypes = []interface{}{
-	(DownloadFlags)(0),           // 0: fk_data.DownloadFlags
-	(ConditionFlags)(0),          // 1: fk_data.ConditionFlags
-	(SignedRecordKind)(0),        // 2: fk_data.SignedRecordKind
-	(*DeviceLocation)(nil),       // 3: fk_data.DeviceLocation
-	(*SensorReading)(nil),        // 4: fk_data.SensorReading
-	(*LoggedReading)(nil),        // 5: fk_data.LoggedReading
-	(*SensorAndValue)(nil),       // 6: fk_data.SensorAndValue
-	(*ModuleHeader)(nil),         // 7: fk_data.ModuleHeader
-	(*ModuleInfo)(nil),           // 8: fk_data.ModuleInfo
-	(*SensorInfo)(nil),           // 9: fk_data.SensorInfo
-	(*Firmware)(nil),             // 10: fk_data.Firmware
-	(*Metadata)(nil),             // 11: fk_data.Metadata
-	(*Status)(nil),               // 12: fk_data.Status
-	(*LogMessage)(nil),           // 13: fk_data.LogMessage
-	(*SensorGroup)(nil),          // 14: fk_data.SensorGroup
-	(*Readings)(nil),             // 15: fk_data.Readings
-	(*Interval)(nil),             // 16: fk_data.Interval
-	(*JobSchedule)(nil),          // 17: fk_data.JobSchedule
-	(*Schedule)(nil),             // 18: fk_data.Schedule
-	(*Identity)(nil),             // 19: fk_data.Identity
-	(*Condition)(nil),            // 20: fk_data.Condition
-	(*NetworkInfo)(nil),          // 21: fk_data.NetworkInfo
-	(*WifiTransmission)(nil),     // 22: fk_data.WifiTransmission
-	(*TransmissionSettings)(nil), // 23: fk_data.TransmissionSettings
-	(*NetworkSettings)(nil),      // 24: fk_data.NetworkSettings
-	(*LoraSettings)(nil),         // 25: fk_data.LoraSettings
-	(*Fault)(nil),                // 26: fk_data.Fault
-	(*DataRecord)(nil),           // 27: fk_data.DataRecord
-	(*SignedRecord)(nil),         // 28: fk_data.SignedRecord
-	(*LoraRecord)(nil),           // 29: fk_data.LoraRecord
+	(DownloadFlags)(0),              // 0: fk_data.DownloadFlags
+	(ConditionFlags)(0),             // 1: fk_data.ConditionFlags
+	(SignedRecordKind)(0),           // 2: fk_data.SignedRecordKind
+	(CurveType)(0),                  // 3: fk_data.CurveType
+	(*DeviceLocation)(nil),          // 4: fk_data.DeviceLocation
+	(*SensorReading)(nil),           // 5: fk_data.SensorReading
+	(*LoggedReading)(nil),           // 6: fk_data.LoggedReading
+	(*SensorAndValue)(nil),          // 7: fk_data.SensorAndValue
+	(*ModuleHeader)(nil),            // 8: fk_data.ModuleHeader
+	(*ModuleInfo)(nil),              // 9: fk_data.ModuleInfo
+	(*SensorInfo)(nil),              // 10: fk_data.SensorInfo
+	(*Firmware)(nil),                // 11: fk_data.Firmware
+	(*Metadata)(nil),                // 12: fk_data.Metadata
+	(*Status)(nil),                  // 13: fk_data.Status
+	(*LogMessage)(nil),              // 14: fk_data.LogMessage
+	(*SensorGroup)(nil),             // 15: fk_data.SensorGroup
+	(*Readings)(nil),                // 16: fk_data.Readings
+	(*Interval)(nil),                // 17: fk_data.Interval
+	(*JobSchedule)(nil),             // 18: fk_data.JobSchedule
+	(*Schedule)(nil),                // 19: fk_data.Schedule
+	(*Identity)(nil),                // 20: fk_data.Identity
+	(*Condition)(nil),               // 21: fk_data.Condition
+	(*NetworkInfo)(nil),             // 22: fk_data.NetworkInfo
+	(*WifiTransmission)(nil),        // 23: fk_data.WifiTransmission
+	(*TransmissionSettings)(nil),    // 24: fk_data.TransmissionSettings
+	(*NetworkSettings)(nil),         // 25: fk_data.NetworkSettings
+	(*LoraSettings)(nil),            // 26: fk_data.LoraSettings
+	(*Fault)(nil),                   // 27: fk_data.Fault
+	(*DataRecord)(nil),              // 28: fk_data.DataRecord
+	(*SignedRecord)(nil),            // 29: fk_data.SignedRecord
+	(*LoraRecord)(nil),              // 30: fk_data.LoraRecord
+	(*CalibrationPoint)(nil),        // 31: fk_data.CalibrationPoint
+	(*CalibrationCoefficients)(nil), // 32: fk_data.CalibrationCoefficients
+	(*Calibration)(nil),             // 33: fk_data.Calibration
 }
 var file_fk_data_proto_depIdxs = []int32{
-	3,  // 0: fk_data.LoggedReading.location:type_name -> fk_data.DeviceLocation
-	4,  // 1: fk_data.LoggedReading.reading:type_name -> fk_data.SensorReading
-	7,  // 2: fk_data.ModuleInfo.header:type_name -> fk_data.ModuleHeader
-	10, // 3: fk_data.ModuleInfo.firmware:type_name -> fk_data.Firmware
-	9,  // 4: fk_data.ModuleInfo.sensors:type_name -> fk_data.SensorInfo
-	9,  // 5: fk_data.Metadata.sensors:type_name -> fk_data.SensorInfo
-	8,  // 6: fk_data.Metadata.modules:type_name -> fk_data.ModuleInfo
-	10, // 7: fk_data.Metadata.firmware:type_name -> fk_data.Firmware
-	6,  // 8: fk_data.SensorGroup.readings:type_name -> fk_data.SensorAndValue
-	3,  // 9: fk_data.Readings.location:type_name -> fk_data.DeviceLocation
-	14, // 10: fk_data.Readings.sensorGroups:type_name -> fk_data.SensorGroup
-	16, // 11: fk_data.JobSchedule.intervals:type_name -> fk_data.Interval
-	17, // 12: fk_data.Schedule.readings:type_name -> fk_data.JobSchedule
-	17, // 13: fk_data.Schedule.network:type_name -> fk_data.JobSchedule
-	17, // 14: fk_data.Schedule.lora:type_name -> fk_data.JobSchedule
-	17, // 15: fk_data.Schedule.gps:type_name -> fk_data.JobSchedule
-	22, // 16: fk_data.TransmissionSettings.wifi:type_name -> fk_data.WifiTransmission
-	21, // 17: fk_data.NetworkSettings.networks:type_name -> fk_data.NetworkInfo
-	5,  // 18: fk_data.DataRecord.loggedReading:type_name -> fk_data.LoggedReading
-	11, // 19: fk_data.DataRecord.metadata:type_name -> fk_data.Metadata
-	13, // 20: fk_data.DataRecord.log:type_name -> fk_data.LogMessage
-	13, // 21: fk_data.DataRecord.logs:type_name -> fk_data.LogMessage
-	12, // 22: fk_data.DataRecord.status:type_name -> fk_data.Status
-	15, // 23: fk_data.DataRecord.readings:type_name -> fk_data.Readings
-	8,  // 24: fk_data.DataRecord.modules:type_name -> fk_data.ModuleInfo
-	18, // 25: fk_data.DataRecord.schedule:type_name -> fk_data.Schedule
-	19, // 26: fk_data.DataRecord.identity:type_name -> fk_data.Identity
-	20, // 27: fk_data.DataRecord.condition:type_name -> fk_data.Condition
-	25, // 28: fk_data.DataRecord.lora:type_name -> fk_data.LoraSettings
-	24, // 29: fk_data.DataRecord.network:type_name -> fk_data.NetworkSettings
-	23, // 30: fk_data.DataRecord.transmission:type_name -> fk_data.TransmissionSettings
-	26, // 31: fk_data.DataRecord.faults:type_name -> fk_data.Fault
+	4,  // 0: fk_data.LoggedReading.location:type_name -> fk_data.DeviceLocation
+	5,  // 1: fk_data.LoggedReading.reading:type_name -> fk_data.SensorReading
+	8,  // 2: fk_data.ModuleInfo.header:type_name -> fk_data.ModuleHeader
+	11, // 3: fk_data.ModuleInfo.firmware:type_name -> fk_data.Firmware
+	10, // 4: fk_data.ModuleInfo.sensors:type_name -> fk_data.SensorInfo
+	10, // 5: fk_data.Metadata.sensors:type_name -> fk_data.SensorInfo
+	9,  // 6: fk_data.Metadata.modules:type_name -> fk_data.ModuleInfo
+	11, // 7: fk_data.Metadata.firmware:type_name -> fk_data.Firmware
+	7,  // 8: fk_data.SensorGroup.readings:type_name -> fk_data.SensorAndValue
+	4,  // 9: fk_data.Readings.location:type_name -> fk_data.DeviceLocation
+	15, // 10: fk_data.Readings.sensorGroups:type_name -> fk_data.SensorGroup
+	17, // 11: fk_data.JobSchedule.intervals:type_name -> fk_data.Interval
+	18, // 12: fk_data.Schedule.readings:type_name -> fk_data.JobSchedule
+	18, // 13: fk_data.Schedule.network:type_name -> fk_data.JobSchedule
+	18, // 14: fk_data.Schedule.lora:type_name -> fk_data.JobSchedule
+	18, // 15: fk_data.Schedule.gps:type_name -> fk_data.JobSchedule
+	23, // 16: fk_data.TransmissionSettings.wifi:type_name -> fk_data.WifiTransmission
+	22, // 17: fk_data.NetworkSettings.networks:type_name -> fk_data.NetworkInfo
+	6,  // 18: fk_data.DataRecord.loggedReading:type_name -> fk_data.LoggedReading
+	12, // 19: fk_data.DataRecord.metadata:type_name -> fk_data.Metadata
+	14, // 20: fk_data.DataRecord.log:type_name -> fk_data.LogMessage
+	14, // 21: fk_data.DataRecord.logs:type_name -> fk_data.LogMessage
+	13, // 22: fk_data.DataRecord.status:type_name -> fk_data.Status
+	16, // 23: fk_data.DataRecord.readings:type_name -> fk_data.Readings
+	9,  // 24: fk_data.DataRecord.modules:type_name -> fk_data.ModuleInfo
+	19, // 25: fk_data.DataRecord.schedule:type_name -> fk_data.Schedule
+	20, // 26: fk_data.DataRecord.identity:type_name -> fk_data.Identity
+	21, // 27: fk_data.DataRecord.condition:type_name -> fk_data.Condition
+	26, // 28: fk_data.DataRecord.lora:type_name -> fk_data.LoraSettings
+	25, // 29: fk_data.DataRecord.network:type_name -> fk_data.NetworkSettings
+	24, // 30: fk_data.DataRecord.transmission:type_name -> fk_data.TransmissionSettings
+	27, // 31: fk_data.DataRecord.faults:type_name -> fk_data.Fault
 	2,  // 32: fk_data.SignedRecord.kind:type_name -> fk_data.SignedRecordKind
-	33, // [33:33] is the sub-list for method output_type
-	33, // [33:33] is the sub-list for method input_type
-	33, // [33:33] is the sub-list for extension type_name
-	33, // [33:33] is the sub-list for extension extendee
-	0,  // [0:33] is the sub-list for field type_name
+	3,  // 33: fk_data.Calibration.type:type_name -> fk_data.CurveType
+	31, // 34: fk_data.Calibration.points:type_name -> fk_data.CalibrationPoint
+	32, // 35: fk_data.Calibration.coefficients:type_name -> fk_data.CalibrationCoefficients
+	36, // [36:36] is the sub-list for method output_type
+	36, // [36:36] is the sub-list for method input_type
+	36, // [36:36] is the sub-list for extension type_name
+	36, // [36:36] is the sub-list for extension extendee
+	0,  // [0:36] is the sub-list for field type_name
 }
 
 func init() { file_fk_data_proto_init() }
@@ -3035,14 +3290,50 @@ func file_fk_data_proto_init() {
 				return nil
 			}
 		}
+		file_fk_data_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CalibrationPoint); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_fk_data_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CalibrationCoefficients); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_fk_data_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Calibration); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_fk_data_proto_rawDesc,
-			NumEnums:      3,
-			NumMessages:   27,
+			NumEnums:      4,
+			NumMessages:   30,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

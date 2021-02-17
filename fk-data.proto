@@ -239,3 +239,25 @@ message LoraRecord {
   repeated float values = 6;
   bytes data = 7;
 }
+
+enum CurveType {
+  CURVE_NONE = 0;
+  CURVE_LINEAR = 1;
+  CURVE_LOGARITHMIC = 2;
+}
+
+message CalibrationPoint {
+  repeated float references = 1;
+  repeated float uncalibrated = 2;
+}
+
+message CalibrationCoefficients {
+  repeated float values = 1;
+}
+
+message Calibration {
+  CurveType type = 1;
+  uint32 time = 2;
+  repeated CalibrationPoint points = 3;
+  CalibrationCoefficients coefficients = 4;
+}

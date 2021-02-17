@@ -680,6 +680,57 @@
               "id": 7
             }
           }
+        },
+        "CurveType": {
+          "values": {
+            "CURVE_NONE": 0,
+            "CURVE_LINEAR": 1,
+            "CURVE_LOGARITHMIC": 2
+          }
+        },
+        "CalibrationPoint": {
+          "fields": {
+            "references": {
+              "rule": "repeated",
+              "type": "float",
+              "id": 1
+            },
+            "uncalibrated": {
+              "rule": "repeated",
+              "type": "float",
+              "id": 2
+            }
+          }
+        },
+        "CalibrationCoefficients": {
+          "fields": {
+            "values": {
+              "rule": "repeated",
+              "type": "float",
+              "id": 1
+            }
+          }
+        },
+        "Calibration": {
+          "fields": {
+            "type": {
+              "type": "CurveType",
+              "id": 1
+            },
+            "time": {
+              "type": "uint32",
+              "id": 2
+            },
+            "points": {
+              "rule": "repeated",
+              "type": "CalibrationPoint",
+              "id": 3
+            },
+            "coefficients": {
+              "type": "CalibrationCoefficients",
+              "id": 4
+            }
+          }
         }
       }
     }

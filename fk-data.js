@@ -8213,6 +8213,790 @@
             return LoraRecord;
         })();
     
+        /**
+         * CurveType enum.
+         * @name fk_data.CurveType
+         * @enum {string}
+         * @property {number} CURVE_NONE=0 CURVE_NONE value
+         * @property {number} CURVE_LINEAR=1 CURVE_LINEAR value
+         * @property {number} CURVE_LOGARITHMIC=2 CURVE_LOGARITHMIC value
+         */
+        fk_data.CurveType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "CURVE_NONE"] = 0;
+            values[valuesById[1] = "CURVE_LINEAR"] = 1;
+            values[valuesById[2] = "CURVE_LOGARITHMIC"] = 2;
+            return values;
+        })();
+    
+        fk_data.CalibrationPoint = (function() {
+    
+            /**
+             * Properties of a CalibrationPoint.
+             * @memberof fk_data
+             * @interface ICalibrationPoint
+             * @property {Array.<number>|null} [references] CalibrationPoint references
+             * @property {Array.<number>|null} [uncalibrated] CalibrationPoint uncalibrated
+             */
+    
+            /**
+             * Constructs a new CalibrationPoint.
+             * @memberof fk_data
+             * @classdesc Represents a CalibrationPoint.
+             * @implements ICalibrationPoint
+             * @constructor
+             * @param {fk_data.ICalibrationPoint=} [properties] Properties to set
+             */
+            function CalibrationPoint(properties) {
+                this.references = [];
+                this.uncalibrated = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * CalibrationPoint references.
+             * @member {Array.<number>} references
+             * @memberof fk_data.CalibrationPoint
+             * @instance
+             */
+            CalibrationPoint.prototype.references = $util.emptyArray;
+    
+            /**
+             * CalibrationPoint uncalibrated.
+             * @member {Array.<number>} uncalibrated
+             * @memberof fk_data.CalibrationPoint
+             * @instance
+             */
+            CalibrationPoint.prototype.uncalibrated = $util.emptyArray;
+    
+            /**
+             * Creates a new CalibrationPoint instance using the specified properties.
+             * @function create
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {fk_data.ICalibrationPoint=} [properties] Properties to set
+             * @returns {fk_data.CalibrationPoint} CalibrationPoint instance
+             */
+            CalibrationPoint.create = function create(properties) {
+                return new CalibrationPoint(properties);
+            };
+    
+            /**
+             * Encodes the specified CalibrationPoint message. Does not implicitly {@link fk_data.CalibrationPoint.verify|verify} messages.
+             * @function encode
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {fk_data.ICalibrationPoint} message CalibrationPoint message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CalibrationPoint.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.references != null && message.references.length) {
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                    for (var i = 0; i < message.references.length; ++i)
+                        writer.float(message.references[i]);
+                    writer.ldelim();
+                }
+                if (message.uncalibrated != null && message.uncalibrated.length) {
+                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
+                    for (var i = 0; i < message.uncalibrated.length; ++i)
+                        writer.float(message.uncalibrated[i]);
+                    writer.ldelim();
+                }
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified CalibrationPoint message, length delimited. Does not implicitly {@link fk_data.CalibrationPoint.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {fk_data.ICalibrationPoint} message CalibrationPoint message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CalibrationPoint.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a CalibrationPoint message from the specified reader or buffer.
+             * @function decode
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {fk_data.CalibrationPoint} CalibrationPoint
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CalibrationPoint.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.CalibrationPoint();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.references && message.references.length))
+                            message.references = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.references.push(reader.float());
+                        } else
+                            message.references.push(reader.float());
+                        break;
+                    case 2:
+                        if (!(message.uncalibrated && message.uncalibrated.length))
+                            message.uncalibrated = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.uncalibrated.push(reader.float());
+                        } else
+                            message.uncalibrated.push(reader.float());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a CalibrationPoint message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {fk_data.CalibrationPoint} CalibrationPoint
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CalibrationPoint.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a CalibrationPoint message.
+             * @function verify
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CalibrationPoint.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.references != null && message.hasOwnProperty("references")) {
+                    if (!Array.isArray(message.references))
+                        return "references: array expected";
+                    for (var i = 0; i < message.references.length; ++i)
+                        if (typeof message.references[i] !== "number")
+                            return "references: number[] expected";
+                }
+                if (message.uncalibrated != null && message.hasOwnProperty("uncalibrated")) {
+                    if (!Array.isArray(message.uncalibrated))
+                        return "uncalibrated: array expected";
+                    for (var i = 0; i < message.uncalibrated.length; ++i)
+                        if (typeof message.uncalibrated[i] !== "number")
+                            return "uncalibrated: number[] expected";
+                }
+                return null;
+            };
+    
+            /**
+             * Creates a CalibrationPoint message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {fk_data.CalibrationPoint} CalibrationPoint
+             */
+            CalibrationPoint.fromObject = function fromObject(object) {
+                if (object instanceof $root.fk_data.CalibrationPoint)
+                    return object;
+                var message = new $root.fk_data.CalibrationPoint();
+                if (object.references) {
+                    if (!Array.isArray(object.references))
+                        throw TypeError(".fk_data.CalibrationPoint.references: array expected");
+                    message.references = [];
+                    for (var i = 0; i < object.references.length; ++i)
+                        message.references[i] = Number(object.references[i]);
+                }
+                if (object.uncalibrated) {
+                    if (!Array.isArray(object.uncalibrated))
+                        throw TypeError(".fk_data.CalibrationPoint.uncalibrated: array expected");
+                    message.uncalibrated = [];
+                    for (var i = 0; i < object.uncalibrated.length; ++i)
+                        message.uncalibrated[i] = Number(object.uncalibrated[i]);
+                }
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a CalibrationPoint message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof fk_data.CalibrationPoint
+             * @static
+             * @param {fk_data.CalibrationPoint} message CalibrationPoint
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CalibrationPoint.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults) {
+                    object.references = [];
+                    object.uncalibrated = [];
+                }
+                if (message.references && message.references.length) {
+                    object.references = [];
+                    for (var j = 0; j < message.references.length; ++j)
+                        object.references[j] = options.json && !isFinite(message.references[j]) ? String(message.references[j]) : message.references[j];
+                }
+                if (message.uncalibrated && message.uncalibrated.length) {
+                    object.uncalibrated = [];
+                    for (var j = 0; j < message.uncalibrated.length; ++j)
+                        object.uncalibrated[j] = options.json && !isFinite(message.uncalibrated[j]) ? String(message.uncalibrated[j]) : message.uncalibrated[j];
+                }
+                return object;
+            };
+    
+            /**
+             * Converts this CalibrationPoint to JSON.
+             * @function toJSON
+             * @memberof fk_data.CalibrationPoint
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CalibrationPoint.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return CalibrationPoint;
+        })();
+    
+        fk_data.CalibrationCoefficients = (function() {
+    
+            /**
+             * Properties of a CalibrationCoefficients.
+             * @memberof fk_data
+             * @interface ICalibrationCoefficients
+             * @property {Array.<number>|null} [values] CalibrationCoefficients values
+             */
+    
+            /**
+             * Constructs a new CalibrationCoefficients.
+             * @memberof fk_data
+             * @classdesc Represents a CalibrationCoefficients.
+             * @implements ICalibrationCoefficients
+             * @constructor
+             * @param {fk_data.ICalibrationCoefficients=} [properties] Properties to set
+             */
+            function CalibrationCoefficients(properties) {
+                this.values = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * CalibrationCoefficients values.
+             * @member {Array.<number>} values
+             * @memberof fk_data.CalibrationCoefficients
+             * @instance
+             */
+            CalibrationCoefficients.prototype.values = $util.emptyArray;
+    
+            /**
+             * Creates a new CalibrationCoefficients instance using the specified properties.
+             * @function create
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {fk_data.ICalibrationCoefficients=} [properties] Properties to set
+             * @returns {fk_data.CalibrationCoefficients} CalibrationCoefficients instance
+             */
+            CalibrationCoefficients.create = function create(properties) {
+                return new CalibrationCoefficients(properties);
+            };
+    
+            /**
+             * Encodes the specified CalibrationCoefficients message. Does not implicitly {@link fk_data.CalibrationCoefficients.verify|verify} messages.
+             * @function encode
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {fk_data.ICalibrationCoefficients} message CalibrationCoefficients message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CalibrationCoefficients.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.values != null && message.values.length) {
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                    for (var i = 0; i < message.values.length; ++i)
+                        writer.float(message.values[i]);
+                    writer.ldelim();
+                }
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified CalibrationCoefficients message, length delimited. Does not implicitly {@link fk_data.CalibrationCoefficients.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {fk_data.ICalibrationCoefficients} message CalibrationCoefficients message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CalibrationCoefficients.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a CalibrationCoefficients message from the specified reader or buffer.
+             * @function decode
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {fk_data.CalibrationCoefficients} CalibrationCoefficients
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CalibrationCoefficients.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.CalibrationCoefficients();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.values && message.values.length))
+                            message.values = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.values.push(reader.float());
+                        } else
+                            message.values.push(reader.float());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a CalibrationCoefficients message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {fk_data.CalibrationCoefficients} CalibrationCoefficients
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CalibrationCoefficients.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a CalibrationCoefficients message.
+             * @function verify
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CalibrationCoefficients.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.values != null && message.hasOwnProperty("values")) {
+                    if (!Array.isArray(message.values))
+                        return "values: array expected";
+                    for (var i = 0; i < message.values.length; ++i)
+                        if (typeof message.values[i] !== "number")
+                            return "values: number[] expected";
+                }
+                return null;
+            };
+    
+            /**
+             * Creates a CalibrationCoefficients message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {fk_data.CalibrationCoefficients} CalibrationCoefficients
+             */
+            CalibrationCoefficients.fromObject = function fromObject(object) {
+                if (object instanceof $root.fk_data.CalibrationCoefficients)
+                    return object;
+                var message = new $root.fk_data.CalibrationCoefficients();
+                if (object.values) {
+                    if (!Array.isArray(object.values))
+                        throw TypeError(".fk_data.CalibrationCoefficients.values: array expected");
+                    message.values = [];
+                    for (var i = 0; i < object.values.length; ++i)
+                        message.values[i] = Number(object.values[i]);
+                }
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a CalibrationCoefficients message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof fk_data.CalibrationCoefficients
+             * @static
+             * @param {fk_data.CalibrationCoefficients} message CalibrationCoefficients
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CalibrationCoefficients.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.values = [];
+                if (message.values && message.values.length) {
+                    object.values = [];
+                    for (var j = 0; j < message.values.length; ++j)
+                        object.values[j] = options.json && !isFinite(message.values[j]) ? String(message.values[j]) : message.values[j];
+                }
+                return object;
+            };
+    
+            /**
+             * Converts this CalibrationCoefficients to JSON.
+             * @function toJSON
+             * @memberof fk_data.CalibrationCoefficients
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CalibrationCoefficients.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return CalibrationCoefficients;
+        })();
+    
+        fk_data.Calibration = (function() {
+    
+            /**
+             * Properties of a Calibration.
+             * @memberof fk_data
+             * @interface ICalibration
+             * @property {fk_data.CurveType|null} [type] Calibration type
+             * @property {number|null} [time] Calibration time
+             * @property {Array.<fk_data.ICalibrationPoint>|null} [points] Calibration points
+             * @property {fk_data.ICalibrationCoefficients|null} [coefficients] Calibration coefficients
+             */
+    
+            /**
+             * Constructs a new Calibration.
+             * @memberof fk_data
+             * @classdesc Represents a Calibration.
+             * @implements ICalibration
+             * @constructor
+             * @param {fk_data.ICalibration=} [properties] Properties to set
+             */
+            function Calibration(properties) {
+                this.points = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Calibration type.
+             * @member {fk_data.CurveType} type
+             * @memberof fk_data.Calibration
+             * @instance
+             */
+            Calibration.prototype.type = 0;
+    
+            /**
+             * Calibration time.
+             * @member {number} time
+             * @memberof fk_data.Calibration
+             * @instance
+             */
+            Calibration.prototype.time = 0;
+    
+            /**
+             * Calibration points.
+             * @member {Array.<fk_data.ICalibrationPoint>} points
+             * @memberof fk_data.Calibration
+             * @instance
+             */
+            Calibration.prototype.points = $util.emptyArray;
+    
+            /**
+             * Calibration coefficients.
+             * @member {fk_data.ICalibrationCoefficients|null|undefined} coefficients
+             * @memberof fk_data.Calibration
+             * @instance
+             */
+            Calibration.prototype.coefficients = null;
+    
+            /**
+             * Creates a new Calibration instance using the specified properties.
+             * @function create
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {fk_data.ICalibration=} [properties] Properties to set
+             * @returns {fk_data.Calibration} Calibration instance
+             */
+            Calibration.create = function create(properties) {
+                return new Calibration(properties);
+            };
+    
+            /**
+             * Encodes the specified Calibration message. Does not implicitly {@link fk_data.Calibration.verify|verify} messages.
+             * @function encode
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {fk_data.ICalibration} message Calibration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Calibration.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.type != null && message.hasOwnProperty("type"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                if (message.time != null && message.hasOwnProperty("time"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.time);
+                if (message.points != null && message.points.length)
+                    for (var i = 0; i < message.points.length; ++i)
+                        $root.fk_data.CalibrationPoint.encode(message.points[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.coefficients != null && message.hasOwnProperty("coefficients"))
+                    $root.fk_data.CalibrationCoefficients.encode(message.coefficients, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified Calibration message, length delimited. Does not implicitly {@link fk_data.Calibration.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {fk_data.ICalibration} message Calibration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Calibration.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a Calibration message from the specified reader or buffer.
+             * @function decode
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {fk_data.Calibration} Calibration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Calibration.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.Calibration();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.type = reader.int32();
+                        break;
+                    case 2:
+                        message.time = reader.uint32();
+                        break;
+                    case 3:
+                        if (!(message.points && message.points.length))
+                            message.points = [];
+                        message.points.push($root.fk_data.CalibrationPoint.decode(reader, reader.uint32()));
+                        break;
+                    case 4:
+                        message.coefficients = $root.fk_data.CalibrationCoefficients.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a Calibration message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {fk_data.Calibration} Calibration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Calibration.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a Calibration message.
+             * @function verify
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Calibration.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
+                if (message.time != null && message.hasOwnProperty("time"))
+                    if (!$util.isInteger(message.time))
+                        return "time: integer expected";
+                if (message.points != null && message.hasOwnProperty("points")) {
+                    if (!Array.isArray(message.points))
+                        return "points: array expected";
+                    for (var i = 0; i < message.points.length; ++i) {
+                        var error = $root.fk_data.CalibrationPoint.verify(message.points[i]);
+                        if (error)
+                            return "points." + error;
+                    }
+                }
+                if (message.coefficients != null && message.hasOwnProperty("coefficients")) {
+                    var error = $root.fk_data.CalibrationCoefficients.verify(message.coefficients);
+                    if (error)
+                        return "coefficients." + error;
+                }
+                return null;
+            };
+    
+            /**
+             * Creates a Calibration message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {fk_data.Calibration} Calibration
+             */
+            Calibration.fromObject = function fromObject(object) {
+                if (object instanceof $root.fk_data.Calibration)
+                    return object;
+                var message = new $root.fk_data.Calibration();
+                switch (object.type) {
+                case "CURVE_NONE":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "CURVE_LINEAR":
+                case 1:
+                    message.type = 1;
+                    break;
+                case "CURVE_LOGARITHMIC":
+                case 2:
+                    message.type = 2;
+                    break;
+                }
+                if (object.time != null)
+                    message.time = object.time >>> 0;
+                if (object.points) {
+                    if (!Array.isArray(object.points))
+                        throw TypeError(".fk_data.Calibration.points: array expected");
+                    message.points = [];
+                    for (var i = 0; i < object.points.length; ++i) {
+                        if (typeof object.points[i] !== "object")
+                            throw TypeError(".fk_data.Calibration.points: object expected");
+                        message.points[i] = $root.fk_data.CalibrationPoint.fromObject(object.points[i]);
+                    }
+                }
+                if (object.coefficients != null) {
+                    if (typeof object.coefficients !== "object")
+                        throw TypeError(".fk_data.Calibration.coefficients: object expected");
+                    message.coefficients = $root.fk_data.CalibrationCoefficients.fromObject(object.coefficients);
+                }
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a Calibration message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof fk_data.Calibration
+             * @static
+             * @param {fk_data.Calibration} message Calibration
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Calibration.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.points = [];
+                if (options.defaults) {
+                    object.type = options.enums === String ? "CURVE_NONE" : 0;
+                    object.time = 0;
+                    object.coefficients = null;
+                }
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.fk_data.CurveType[message.type] : message.type;
+                if (message.time != null && message.hasOwnProperty("time"))
+                    object.time = message.time;
+                if (message.points && message.points.length) {
+                    object.points = [];
+                    for (var j = 0; j < message.points.length; ++j)
+                        object.points[j] = $root.fk_data.CalibrationPoint.toObject(message.points[j], options);
+                }
+                if (message.coefficients != null && message.hasOwnProperty("coefficients"))
+                    object.coefficients = $root.fk_data.CalibrationCoefficients.toObject(message.coefficients, options);
+                return object;
+            };
+    
+            /**
+             * Converts this Calibration to JSON.
+             * @function toJSON
+             * @memberof fk_data.Calibration
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Calibration.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return Calibration;
+        })();
+    
         return fk_data;
     })();
 
