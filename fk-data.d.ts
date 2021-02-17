@@ -582,8 +582,8 @@ export namespace fk_data {
         /** ModuleInfo flags */
         flags?: (number|null);
 
-        /** ModuleInfo status */
-        status?: (Uint8Array|null);
+        /** ModuleInfo configuration */
+        configuration?: (Uint8Array|null);
     }
 
     /** Represents a ModuleInfo. */
@@ -619,8 +619,8 @@ export namespace fk_data {
         /** ModuleInfo flags. */
         public flags: number;
 
-        /** ModuleInfo status. */
-        public status: Uint8Array;
+        /** ModuleInfo configuration. */
+        public configuration: Uint8Array;
 
         /**
          * Creates a new ModuleInfo instance using the specified properties.

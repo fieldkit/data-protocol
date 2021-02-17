@@ -1430,7 +1430,7 @@
              * @property {Array.<fk_data.ISensorInfo>|null} [sensors] ModuleInfo sensors
              * @property {Uint8Array|null} [id] ModuleInfo id
              * @property {number|null} [flags] ModuleInfo flags
-             * @property {Uint8Array|null} [status] ModuleInfo status
+             * @property {Uint8Array|null} [configuration] ModuleInfo configuration
              */
     
             /**
@@ -1514,12 +1514,12 @@
             ModuleInfo.prototype.flags = 0;
     
             /**
-             * ModuleInfo status.
-             * @member {Uint8Array} status
+             * ModuleInfo configuration.
+             * @member {Uint8Array} configuration
              * @memberof fk_data.ModuleInfo
              * @instance
              */
-            ModuleInfo.prototype.status = $util.newBuffer([]);
+            ModuleInfo.prototype.configuration = $util.newBuffer([]);
     
             /**
              * Creates a new ModuleInfo instance using the specified properties.
@@ -1562,8 +1562,8 @@
                     writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.id);
                 if (message.flags != null && message.hasOwnProperty("flags"))
                     writer.uint32(/* id 8, wireType 0 =*/64).uint32(message.flags);
-                if (message.status != null && message.hasOwnProperty("status"))
-                    writer.uint32(/* id 9, wireType 2 =*/74).bytes(message.status);
+                if (message.configuration != null && message.hasOwnProperty("configuration"))
+                    writer.uint32(/* id 9, wireType 2 =*/74).bytes(message.configuration);
                 return writer;
             };
     
@@ -1625,7 +1625,7 @@
                         message.flags = reader.uint32();
                         break;
                     case 9:
-                        message.status = reader.bytes();
+                        message.configuration = reader.bytes();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -1696,9 +1696,9 @@
                 if (message.flags != null && message.hasOwnProperty("flags"))
                     if (!$util.isInteger(message.flags))
                         return "flags: integer expected";
-                if (message.status != null && message.hasOwnProperty("status"))
-                    if (!(message.status && typeof message.status.length === "number" || $util.isString(message.status)))
-                        return "status: buffer expected";
+                if (message.configuration != null && message.hasOwnProperty("configuration"))
+                    if (!(message.configuration && typeof message.configuration.length === "number" || $util.isString(message.configuration)))
+                        return "configuration: buffer expected";
                 return null;
             };
     
@@ -1747,11 +1747,11 @@
                         message.id = object.id;
                 if (object.flags != null)
                     message.flags = object.flags >>> 0;
-                if (object.status != null)
-                    if (typeof object.status === "string")
-                        $util.base64.decode(object.status, message.status = $util.newBuffer($util.base64.length(object.status)), 0);
-                    else if (object.status.length)
-                        message.status = object.status;
+                if (object.configuration != null)
+                    if (typeof object.configuration === "string")
+                        $util.base64.decode(object.configuration, message.configuration = $util.newBuffer($util.base64.length(object.configuration)), 0);
+                    else if (object.configuration.length)
+                        message.configuration = object.configuration;
                 return message;
             };
     
@@ -1778,7 +1778,7 @@
                     object.firmware = null;
                     object.id = options.bytes === String ? "" : [];
                     object.flags = 0;
-                    object.status = options.bytes === String ? "" : [];
+                    object.configuration = options.bytes === String ? "" : [];
                 }
                 if (message.position != null && message.hasOwnProperty("position"))
                     object.position = message.position;
@@ -1799,8 +1799,8 @@
                     object.id = options.bytes === String ? $util.base64.encode(message.id, 0, message.id.length) : options.bytes === Array ? Array.prototype.slice.call(message.id) : message.id;
                 if (message.flags != null && message.hasOwnProperty("flags"))
                     object.flags = message.flags;
-                if (message.status != null && message.hasOwnProperty("status"))
-                    object.status = options.bytes === String ? $util.base64.encode(message.status, 0, message.status.length) : options.bytes === Array ? Array.prototype.slice.call(message.status) : message.status;
+                if (message.configuration != null && message.hasOwnProperty("configuration"))
+                    object.configuration = options.bytes === String ? $util.base64.encode(message.configuration, 0, message.configuration.length) : options.bytes === Array ? Array.prototype.slice.call(message.configuration) : message.configuration;
                 return object;
             };
     

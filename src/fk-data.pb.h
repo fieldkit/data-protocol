@@ -237,7 +237,7 @@ typedef struct _fk_data_ModuleInfo {
     pb_callback_t sensors;
     pb_callback_t id;
     uint32_t flags;
-    pb_callback_t status;
+    pb_callback_t configuration;
 } fk_data_ModuleInfo;
 
 typedef struct _fk_data_Readings {
@@ -497,7 +497,7 @@ extern "C" {
 #define fk_data_ModuleInfo_sensors_tag           6
 #define fk_data_ModuleInfo_id_tag                7
 #define fk_data_ModuleInfo_flags_tag             8
-#define fk_data_ModuleInfo_status_tag            9
+#define fk_data_ModuleInfo_configuration_tag     9
 #define fk_data_Readings_time_tag                1
 #define fk_data_Readings_reading_tag             2
 #define fk_data_Readings_flags_tag               3
@@ -580,7 +580,7 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  firmware,          5) \
 X(a, CALLBACK, REPEATED, MESSAGE,  sensors,           6) \
 X(a, CALLBACK, SINGULAR, BYTES,    id,                7) \
 X(a, STATIC,   SINGULAR, UINT32,   flags,             8) \
-X(a, CALLBACK, SINGULAR, BYTES,    status,            9)
+X(a, CALLBACK, SINGULAR, BYTES,    configuration,     9)
 #define fk_data_ModuleInfo_CALLBACK pb_default_field_callback
 #define fk_data_ModuleInfo_DEFAULT NULL
 #define fk_data_ModuleInfo_header_MSGTYPE fk_data_ModuleHeader

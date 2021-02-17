@@ -48,7 +48,7 @@ message ModuleInfo {
   repeated SensorInfo sensors = 6;
   bytes id = 7;
   uint32 flags = 8;
-  bytes status = 9;
+  bytes configuration = 9;
 }
 
 message SensorInfo {

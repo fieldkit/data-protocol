@@ -2946,10 +2946,10 @@ public final class FkData {
     int getFlags();
 
     /**
-     * <code>bytes status = 9;</code>
-     * @return The status.
+     * <code>bytes configuration = 9;</code>
+     * @return The configuration.
      */
-    com.google.protobuf.ByteString getStatus();
+    com.google.protobuf.ByteString getConfiguration();
   }
   /**
    * Protobuf type {@code fk_data.ModuleInfo}
@@ -2963,7 +2963,7 @@ public final class FkData {
       name_ = "";
       sensors_ = emptyProtobufList();
       id_ = com.google.protobuf.ByteString.EMPTY;
-      status_ = com.google.protobuf.ByteString.EMPTY;
+      configuration_ = com.google.protobuf.ByteString.EMPTY;
     }
     public static final int POSITION_FIELD_NUMBER = 1;
     private int position_;
@@ -3302,31 +3302,31 @@ public final class FkData {
       flags_ = 0;
     }
 
-    public static final int STATUS_FIELD_NUMBER = 9;
-    private com.google.protobuf.ByteString status_;
+    public static final int CONFIGURATION_FIELD_NUMBER = 9;
+    private com.google.protobuf.ByteString configuration_;
     /**
-     * <code>bytes status = 9;</code>
-     * @return The status.
+     * <code>bytes configuration = 9;</code>
+     * @return The configuration.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getStatus() {
-      return status_;
+    public com.google.protobuf.ByteString getConfiguration() {
+      return configuration_;
     }
     /**
-     * <code>bytes status = 9;</code>
-     * @param value The status to set.
+     * <code>bytes configuration = 9;</code>
+     * @param value The configuration to set.
      */
-    private void setStatus(com.google.protobuf.ByteString value) {
+    private void setConfiguration(com.google.protobuf.ByteString value) {
       value.getClass();
   
-      status_ = value;
+      configuration_ = value;
     }
     /**
-     * <code>bytes status = 9;</code>
+     * <code>bytes configuration = 9;</code>
      */
-    private void clearStatus() {
+    private void clearConfiguration() {
       
-      status_ = getDefaultInstance().getStatus();
+      configuration_ = getDefaultInstance().getConfiguration();
     }
 
     public static org.conservify.fieldkit.data.pb.FkData.ModuleInfo parseFrom(
@@ -3782,30 +3782,30 @@ public final class FkData {
       }
 
       /**
-       * <code>bytes status = 9;</code>
-       * @return The status.
+       * <code>bytes configuration = 9;</code>
+       * @return The configuration.
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString getStatus() {
-        return instance.getStatus();
+      public com.google.protobuf.ByteString getConfiguration() {
+        return instance.getConfiguration();
       }
       /**
-       * <code>bytes status = 9;</code>
-       * @param value The status to set.
+       * <code>bytes configuration = 9;</code>
+       * @param value The configuration to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(com.google.protobuf.ByteString value) {
+      public Builder setConfiguration(com.google.protobuf.ByteString value) {
         copyOnWrite();
-        instance.setStatus(value);
+        instance.setConfiguration(value);
         return this;
       }
       /**
-       * <code>bytes status = 9;</code>
+       * <code>bytes configuration = 9;</code>
        * @return This builder for chaining.
        */
-      public Builder clearStatus() {
+      public Builder clearConfiguration() {
         copyOnWrite();
-        instance.clearStatus();
+        instance.clearConfiguration();
         return this;
       }
 
@@ -3834,7 +3834,7 @@ public final class FkData {
               org.conservify.fieldkit.data.pb.FkData.SensorInfo.class,
               "id_",
               "flags_",
-              "status_",
+              "configuration_",
             };
             java.lang.String info =
                 "\u0000\t\u0000\u0000\u0001\t\t\u0000\u0001\u0000\u0001\u000b\u0002\u000b\u0003\u0208" +

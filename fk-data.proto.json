@@ -149,7 +149,7 @@
               "type": "uint32",
               "id": 8
             },
-            "status": {
+            "configuration": {
               "type": "bytes",
               "id": 9
             }
