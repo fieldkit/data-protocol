@@ -221,6 +221,11 @@ typedef struct _fk_data_Metadata {
     pb_callback_t generation;
 } fk_data_Metadata;
 
+typedef struct _fk_data_ModuleConfiguration {
+    bool has_calibration;
+    fk_data_Calibration calibration;
+} fk_data_ModuleConfiguration;
+
 typedef struct _fk_data_ModuleInfo {
     uint32_t position;
     uint32_t address;
@@ -345,6 +350,7 @@ extern "C" {
 #define fk_data_CalibrationPoint_init_default    {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_CalibrationCoefficients_init_default {{{NULL}, NULL}}
 #define fk_data_Calibration_init_default         {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_default}
+#define fk_data_ModuleConfiguration_init_default {false, fk_data_Calibration_init_default}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0, 0, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, false, fk_data_DeviceLocation_init_zero, false, fk_data_SensorReading_init_zero}
@@ -375,6 +381,7 @@ extern "C" {
 #define fk_data_CalibrationPoint_init_zero       {{{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_CalibrationCoefficients_init_zero {{{NULL}, NULL}}
 #define fk_data_Calibration_init_zero            {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_zero}
+#define fk_data_ModuleConfiguration_init_zero    {false, fk_data_Calibration_init_zero}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_CalibrationCoefficients_values_tag 1
@@ -481,6 +488,7 @@ extern "C" {
 #define fk_data_Metadata_build_tag               7
 #define fk_data_Metadata_firmware_tag            8
 #define fk_data_Metadata_generation_tag          9
+#define fk_data_ModuleConfiguration_calibration_tag 1
 #define fk_data_ModuleInfo_position_tag          1
 #define fk_data_ModuleInfo_address_tag           2
 #define fk_data_ModuleInfo_name_tag              3
@@ -813,6 +821,12 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  coefficients,      4)
 #define fk_data_Calibration_points_MSGTYPE fk_data_CalibrationPoint
 #define fk_data_Calibration_coefficients_MSGTYPE fk_data_CalibrationCoefficients
 
+#define fk_data_ModuleConfiguration_FIELDLIST(X, a) \
+X(a, STATIC,   OPTIONAL, MESSAGE,  calibration,       1)
+#define fk_data_ModuleConfiguration_CALLBACK NULL
+#define fk_data_ModuleConfiguration_DEFAULT NULL
+#define fk_data_ModuleConfiguration_calibration_MSGTYPE fk_data_Calibration
+
 extern const pb_msgdesc_t fk_data_DeviceLocation_msg;
 extern const pb_msgdesc_t fk_data_SensorReading_msg;
 extern const pb_msgdesc_t fk_data_LoggedReading_msg;
@@ -843,6 +857,7 @@ extern const pb_msgdesc_t fk_data_LoraRecord_msg;
 extern const pb_msgdesc_t fk_data_CalibrationPoint_msg;
 extern const pb_msgdesc_t fk_data_CalibrationCoefficients_msg;
 extern const pb_msgdesc_t fk_data_Calibration_msg;
+extern const pb_msgdesc_t fk_data_ModuleConfiguration_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define fk_data_DeviceLocation_fields &fk_data_DeviceLocation_msg
@@ -875,6 +890,7 @@ extern const pb_msgdesc_t fk_data_Calibration_msg;
 #define fk_data_CalibrationPoint_fields &fk_data_CalibrationPoint_msg
 #define fk_data_CalibrationCoefficients_fields &fk_data_CalibrationCoefficients_msg
 #define fk_data_Calibration_fields &fk_data_Calibration_msg
+#define fk_data_ModuleConfiguration_fields &fk_data_ModuleConfiguration_msg
 
 /* Maximum encoded size of messages (where known) */
 /* fk_data_DeviceLocation_size depends on runtime parameters */
@@ -907,6 +923,7 @@ extern const pb_msgdesc_t fk_data_Calibration_msg;
 /* fk_data_CalibrationPoint_size depends on runtime parameters */
 /* fk_data_CalibrationCoefficients_size depends on runtime parameters */
 /* fk_data_Calibration_size depends on runtime parameters */
+/* fk_data_ModuleConfiguration_size depends on runtime parameters */
 
 #ifdef __cplusplus
 } /* extern "C" */

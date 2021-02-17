@@ -8997,6 +8997,198 @@
             return Calibration;
         })();
     
+        fk_data.ModuleConfiguration = (function() {
+    
+            /**
+             * Properties of a ModuleConfiguration.
+             * @memberof fk_data
+             * @interface IModuleConfiguration
+             * @property {fk_data.ICalibration|null} [calibration] ModuleConfiguration calibration
+             */
+    
+            /**
+             * Constructs a new ModuleConfiguration.
+             * @memberof fk_data
+             * @classdesc Represents a ModuleConfiguration.
+             * @implements IModuleConfiguration
+             * @constructor
+             * @param {fk_data.IModuleConfiguration=} [properties] Properties to set
+             */
+            function ModuleConfiguration(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * ModuleConfiguration calibration.
+             * @member {fk_data.ICalibration|null|undefined} calibration
+             * @memberof fk_data.ModuleConfiguration
+             * @instance
+             */
+            ModuleConfiguration.prototype.calibration = null;
+    
+            /**
+             * Creates a new ModuleConfiguration instance using the specified properties.
+             * @function create
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {fk_data.IModuleConfiguration=} [properties] Properties to set
+             * @returns {fk_data.ModuleConfiguration} ModuleConfiguration instance
+             */
+            ModuleConfiguration.create = function create(properties) {
+                return new ModuleConfiguration(properties);
+            };
+    
+            /**
+             * Encodes the specified ModuleConfiguration message. Does not implicitly {@link fk_data.ModuleConfiguration.verify|verify} messages.
+             * @function encode
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {fk_data.IModuleConfiguration} message ModuleConfiguration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ModuleConfiguration.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.calibration != null && message.hasOwnProperty("calibration"))
+                    $root.fk_data.Calibration.encode(message.calibration, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified ModuleConfiguration message, length delimited. Does not implicitly {@link fk_data.ModuleConfiguration.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {fk_data.IModuleConfiguration} message ModuleConfiguration message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ModuleConfiguration.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a ModuleConfiguration message from the specified reader or buffer.
+             * @function decode
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {fk_data.ModuleConfiguration} ModuleConfiguration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ModuleConfiguration.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.ModuleConfiguration();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.calibration = $root.fk_data.Calibration.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a ModuleConfiguration message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {fk_data.ModuleConfiguration} ModuleConfiguration
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ModuleConfiguration.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a ModuleConfiguration message.
+             * @function verify
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ModuleConfiguration.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.calibration != null && message.hasOwnProperty("calibration")) {
+                    var error = $root.fk_data.Calibration.verify(message.calibration);
+                    if (error)
+                        return "calibration." + error;
+                }
+                return null;
+            };
+    
+            /**
+             * Creates a ModuleConfiguration message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {fk_data.ModuleConfiguration} ModuleConfiguration
+             */
+            ModuleConfiguration.fromObject = function fromObject(object) {
+                if (object instanceof $root.fk_data.ModuleConfiguration)
+                    return object;
+                var message = new $root.fk_data.ModuleConfiguration();
+                if (object.calibration != null) {
+                    if (typeof object.calibration !== "object")
+                        throw TypeError(".fk_data.ModuleConfiguration.calibration: object expected");
+                    message.calibration = $root.fk_data.Calibration.fromObject(object.calibration);
+                }
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a ModuleConfiguration message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof fk_data.ModuleConfiguration
+             * @static
+             * @param {fk_data.ModuleConfiguration} message ModuleConfiguration
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ModuleConfiguration.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.calibration = null;
+                if (message.calibration != null && message.hasOwnProperty("calibration"))
+                    object.calibration = $root.fk_data.Calibration.toObject(message.calibration, options);
+                return object;
+            };
+    
+            /**
+             * Converts this ModuleConfiguration to JSON.
+             * @function toJSON
+             * @memberof fk_data.ModuleConfiguration
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ModuleConfiguration.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return ModuleConfiguration;
+        })();
+    
         return fk_data;
     })();
 

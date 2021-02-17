@@ -731,6 +731,14 @@
               "id": 4
             }
           }
+        },
+        "ModuleConfiguration": {
+          "fields": {
+            "calibration": {
+              "type": "Calibration",
+              "id": 1
+            }
+          }
         }
       }
     }

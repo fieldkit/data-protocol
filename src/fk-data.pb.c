@@ -96,6 +96,9 @@ PB_BIND(fk_data_CalibrationCoefficients, fk_data_CalibrationCoefficients, AUTO)
 PB_BIND(fk_data_Calibration, fk_data_Calibration, AUTO)
 
 
+PB_BIND(fk_data_ModuleConfiguration, fk_data_ModuleConfiguration, AUTO)
+
+
 
 
 

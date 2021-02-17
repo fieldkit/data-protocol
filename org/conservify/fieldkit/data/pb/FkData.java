@@ -18564,6 +18564,293 @@ public final class FkData {
     }
   }
 
+  public interface ModuleConfigurationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.ModuleConfiguration)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>.fk_data.Calibration calibration = 1;</code>
+     * @return Whether the calibration field is set.
+     */
+    boolean hasCalibration();
+    /**
+     * <code>.fk_data.Calibration calibration = 1;</code>
+     * @return The calibration.
+     */
+    org.conservify.fieldkit.data.pb.FkData.Calibration getCalibration();
+  }
+  /**
+   * Protobuf type {@code fk_data.ModuleConfiguration}
+   */
+  public  static final class ModuleConfiguration extends
+      com.google.protobuf.GeneratedMessageLite<
+          ModuleConfiguration, ModuleConfiguration.Builder> implements
+      // @@protoc_insertion_point(message_implements:fk_data.ModuleConfiguration)
+      ModuleConfigurationOrBuilder {
+    private ModuleConfiguration() {
+    }
+    public static final int CALIBRATION_FIELD_NUMBER = 1;
+    private org.conservify.fieldkit.data.pb.FkData.Calibration calibration_;
+    /**
+     * <code>.fk_data.Calibration calibration = 1;</code>
+     */
+    @java.lang.Override
+    public boolean hasCalibration() {
+      return calibration_ != null;
+    }
+    /**
+     * <code>.fk_data.Calibration calibration = 1;</code>
+     */
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.Calibration getCalibration() {
+      return calibration_ == null ? org.conservify.fieldkit.data.pb.FkData.Calibration.getDefaultInstance() : calibration_;
+    }
+    /**
+     * <code>.fk_data.Calibration calibration = 1;</code>
+     */
+    private void setCalibration(org.conservify.fieldkit.data.pb.FkData.Calibration value) {
+      value.getClass();
+  calibration_ = value;
+      
+      }
+    /**
+     * <code>.fk_data.Calibration calibration = 1;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeCalibration(org.conservify.fieldkit.data.pb.FkData.Calibration value) {
+      value.getClass();
+  if (calibration_ != null &&
+          calibration_ != org.conservify.fieldkit.data.pb.FkData.Calibration.getDefaultInstance()) {
+        calibration_ =
+          org.conservify.fieldkit.data.pb.FkData.Calibration.newBuilder(calibration_).mergeFrom(value).buildPartial();
+      } else {
+        calibration_ = value;
+      }
+      
+    }
+    /**
+     * <code>.fk_data.Calibration calibration = 1;</code>
+     */
+    private void clearCalibration() {  calibration_ = null;
+      
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code fk_data.ModuleConfiguration}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration, Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.ModuleConfiguration)
+        org.conservify.fieldkit.data.pb.FkData.ModuleConfigurationOrBuilder {
+      // Construct using org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>.fk_data.Calibration calibration = 1;</code>
+       */
+      @java.lang.Override
+      public boolean hasCalibration() {
+        return instance.hasCalibration();
+      }
+      /**
+       * <code>.fk_data.Calibration calibration = 1;</code>
+       */
+      @java.lang.Override
+      public org.conservify.fieldkit.data.pb.FkData.Calibration getCalibration() {
+        return instance.getCalibration();
+      }
+      /**
+       * <code>.fk_data.Calibration calibration = 1;</code>
+       */
+      public Builder setCalibration(org.conservify.fieldkit.data.pb.FkData.Calibration value) {
+        copyOnWrite();
+        instance.setCalibration(value);
+        return this;
+        }
+      /**
+       * <code>.fk_data.Calibration calibration = 1;</code>
+       */
+      public Builder setCalibration(
+          org.conservify.fieldkit.data.pb.FkData.Calibration.Builder builderForValue) {
+        copyOnWrite();
+        instance.setCalibration(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>.fk_data.Calibration calibration = 1;</code>
+       */
+      public Builder mergeCalibration(org.conservify.fieldkit.data.pb.FkData.Calibration value) {
+        copyOnWrite();
+        instance.mergeCalibration(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.Calibration calibration = 1;</code>
+       */
+      public Builder clearCalibration() {  copyOnWrite();
+        instance.clearCalibration();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:fk_data.ModuleConfiguration)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "calibration_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\t";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:fk_data.ModuleConfiguration)
+    private static final org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration DEFAULT_INSTANCE;
+    static {
+      ModuleConfiguration defaultInstance = new ModuleConfiguration();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        ModuleConfiguration.class, defaultInstance);
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.ModuleConfiguration getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<ModuleConfiguration> PARSER;
+
+    public static com.google.protobuf.Parser<ModuleConfiguration> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
 
   static {
   }

@@ -261,3 +261,7 @@ message Calibration {
   repeated CalibrationPoint points = 3;
   CalibrationCoefficients coefficients = 4;
 }
+
+message ModuleConfiguration {
+  Calibration calibration = 1;
+}
