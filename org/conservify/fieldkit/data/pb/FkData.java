@@ -343,9 +343,9 @@ public final class FkData {
      */
     CURVE_LINEAR(1),
     /**
-     * <code>CURVE_LOGARITHMIC = 2;</code>
+     * <code>CURVE_EXPONENTIAL = 2;</code>
      */
-    CURVE_LOGARITHMIC(2),
+    CURVE_EXPONENTIAL(2),
     UNRECOGNIZED(-1),
     ;
 
@@ -358,9 +358,9 @@ public final class FkData {
      */
     public static final int CURVE_LINEAR_VALUE = 1;
     /**
-     * <code>CURVE_LOGARITHMIC = 2;</code>
+     * <code>CURVE_EXPONENTIAL = 2;</code>
      */
-    public static final int CURVE_LOGARITHMIC_VALUE = 2;
+    public static final int CURVE_EXPONENTIAL_VALUE = 2;
 
 
     @java.lang.Override
@@ -386,7 +386,7 @@ public final class FkData {
       switch (value) {
         case 0: return CURVE_NONE;
         case 1: return CURVE_LINEAR;
-        case 2: return CURVE_LOGARITHMIC;
+        case 2: return CURVE_EXPONENTIAL;
         default: return null;
       }
     }

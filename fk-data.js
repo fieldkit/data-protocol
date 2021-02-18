@@ -8219,13 +8219,13 @@
          * @enum {string}
          * @property {number} CURVE_NONE=0 CURVE_NONE value
          * @property {number} CURVE_LINEAR=1 CURVE_LINEAR value
-         * @property {number} CURVE_LOGARITHMIC=2 CURVE_LOGARITHMIC value
+         * @property {number} CURVE_EXPONENTIAL=2 CURVE_EXPONENTIAL value
          */
         fk_data.CurveType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "CURVE_NONE"] = 0;
             values[valuesById[1] = "CURVE_LINEAR"] = 1;
-            values[valuesById[2] = "CURVE_LOGARITHMIC"] = 2;
+            values[valuesById[2] = "CURVE_EXPONENTIAL"] = 2;
             return values;
         })();
     
@@ -8924,7 +8924,7 @@
                 case 1:
                     message.type = 1;
                     break;
-                case "CURVE_LOGARITHMIC":
+                case "CURVE_EXPONENTIAL":
                 case 2:
                     message.type = 2;
                     break;

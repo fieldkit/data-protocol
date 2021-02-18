@@ -243,7 +243,7 @@ message LoraRecord {
 enum CurveType {
   CURVE_NONE = 0;
   CURVE_LINEAR = 1;
-  CURVE_LOGARITHMIC = 2;
+  CURVE_EXPONENTIAL = 2;
 }
 
 message CalibrationPoint {
