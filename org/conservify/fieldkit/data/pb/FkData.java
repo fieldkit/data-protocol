@@ -346,6 +346,10 @@ public final class FkData {
      * <code>CURVE_EXPONENTIAL = 2;</code>
      */
     CURVE_EXPONENTIAL(2),
+    /**
+     * <code>CURVE_LOGARITHMIC = 3;</code>
+     */
+    CURVE_LOGARITHMIC(3),
     UNRECOGNIZED(-1),
     ;
 
@@ -361,6 +365,10 @@ public final class FkData {
      * <code>CURVE_EXPONENTIAL = 2;</code>
      */
     public static final int CURVE_EXPONENTIAL_VALUE = 2;
+    /**
+     * <code>CURVE_LOGARITHMIC = 3;</code>
+     */
+    public static final int CURVE_LOGARITHMIC_VALUE = 3;
 
 
     @java.lang.Override
@@ -387,6 +395,7 @@ public final class FkData {
         case 0: return CURVE_NONE;
         case 1: return CURVE_LINEAR;
         case 2: return CURVE_EXPONENTIAL;
+        case 3: return CURVE_LOGARITHMIC;
         default: return null;
       }
     }

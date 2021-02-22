@@ -3097,7 +3097,8 @@ export namespace fk_data {
     enum CurveType {
         CURVE_NONE = 0,
         CURVE_LINEAR = 1,
-        CURVE_EXPONENTIAL = 2
+        CURVE_EXPONENTIAL = 2,
+        CURVE_LOGARITHMIC = 3
     }
 
     /** Properties of a CalibrationPoint. */
