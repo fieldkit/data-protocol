@@ -10,291 +10,293 @@
 #endif
 
 /* Enum definitions */
-typedef enum _fk_data_DownloadFlags {
-    fk_data_DownloadFlags_READING_FLAGS_NONE = 0,
-    fk_data_DownloadFlags_READING_FLAGS_NOT_RECORDING = 1,
-    fk_data_DownloadFlags_READING_FLAGS_MANUAL = 2
+typedef enum _fk_data_DownloadFlags { 
+    fk_data_DownloadFlags_READING_FLAGS_NONE = 0, 
+    fk_data_DownloadFlags_READING_FLAGS_NOT_RECORDING = 1, 
+    fk_data_DownloadFlags_READING_FLAGS_MANUAL = 2 
 } fk_data_DownloadFlags;
 
-typedef enum _fk_data_ConditionFlags {
-    fk_data_ConditionFlags_CONDITION_FLAGS_NONE = 0,
-    fk_data_ConditionFlags_CONDITION_FLAGS_RECORDING = 1
+typedef enum _fk_data_ConditionFlags { 
+    fk_data_ConditionFlags_CONDITION_FLAGS_NONE = 0, 
+    fk_data_ConditionFlags_CONDITION_FLAGS_RECORDING = 1 
 } fk_data_ConditionFlags;
 
-typedef enum _fk_data_SignedRecordKind {
-    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_NONE = 0,
-    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_MODULES = 1,
-    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_SCHEDULE = 2,
-    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_STATE = 3,
-    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_RAW_STATE = 4,
-    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_FAULTS = 5,
-    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER = 255
+typedef enum _fk_data_SignedRecordKind { 
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_NONE = 0, 
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_MODULES = 1, 
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_SCHEDULE = 2, 
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_STATE = 3, 
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_RAW_STATE = 4, 
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_FAULTS = 5, 
+    fk_data_SignedRecordKind_SIGNED_RECORD_KIND_OTHER = 255 
 } fk_data_SignedRecordKind;
 
-typedef enum _fk_data_CurveType {
-    fk_data_CurveType_CURVE_NONE = 0,
-    fk_data_CurveType_CURVE_LINEAR = 1,
-    fk_data_CurveType_CURVE_EXPONENTIAL = 2,
-    fk_data_CurveType_CURVE_LOGARITHMIC = 3
+typedef enum _fk_data_CurveType { 
+    fk_data_CurveType_CURVE_NONE = 0, 
+    fk_data_CurveType_CURVE_LINEAR = 1, 
+    fk_data_CurveType_CURVE_EXPONENTIAL = 2, 
+    fk_data_CurveType_CURVE_LOGARITHMIC = 3 
 } fk_data_CurveType;
 
 /* Struct definitions */
-typedef struct _fk_data_CalibrationCoefficients {
-    pb_callback_t values;
+typedef struct _fk_data_CalibrationCoefficients { 
+    pb_callback_t values; 
 } fk_data_CalibrationCoefficients;
 
-typedef struct _fk_data_CalibrationPoint {
-    pb_callback_t references;
-    pb_callback_t uncalibrated;
+typedef struct _fk_data_CalibrationPoint { 
+    pb_callback_t references; 
+    pb_callback_t uncalibrated; 
 } fk_data_CalibrationPoint;
 
-typedef struct _fk_data_Identity {
-    pb_callback_t name;
+typedef struct _fk_data_Identity { 
+    pb_callback_t name; 
 } fk_data_Identity;
 
-typedef struct _fk_data_NetworkSettings {
-    pb_callback_t networks;
+typedef struct _fk_data_NetworkSettings { 
+    pb_callback_t networks; 
 } fk_data_NetworkSettings;
 
-typedef struct _fk_data_Calibration {
-    fk_data_CurveType type;
-    uint32_t time;
-    pb_callback_t points;
+typedef struct _fk_data_Calibration { 
+    fk_data_CurveType type; 
+    uint32_t time; 
+    pb_callback_t points; 
     bool has_coefficients;
-    fk_data_CalibrationCoefficients coefficients;
+    fk_data_CalibrationCoefficients coefficients; 
 } fk_data_Calibration;
 
-typedef struct _fk_data_Condition {
-    uint32_t flags;
-    uint32_t recording;
+typedef struct _fk_data_Condition { 
+    uint32_t flags; 
+    uint32_t recording; 
 } fk_data_Condition;
 
-typedef struct _fk_data_DeviceLocation {
-    uint32_t fix;
-    int64_t time;
-    float longitude;
-    float latitude;
-    float altitude;
-    pb_callback_t coordinates;
-    uint32_t enabled;
-    uint32_t satellites;
-    uint32_t hdop;
+typedef struct _fk_data_DeviceLocation { 
+    uint32_t fix; 
+    int64_t time; 
+    float longitude; 
+    float latitude; 
+    float altitude; 
+    pb_callback_t coordinates; 
+    uint32_t enabled; 
+    uint32_t satellites; 
+    uint32_t hdop; 
 } fk_data_DeviceLocation;
 
-typedef struct _fk_data_Fault {
-    uint32_t time;
-    uint32_t code;
-    pb_callback_t description;
-    pb_callback_t debug;
+typedef struct _fk_data_Fault { 
+    uint32_t time; 
+    uint32_t code; 
+    pb_callback_t description; 
+    pb_callback_t debug; 
 } fk_data_Fault;
 
-typedef struct _fk_data_Firmware {
-    pb_callback_t version;
-    pb_callback_t build;
-    pb_callback_t number;
-    uint64_t timestamp;
-    pb_callback_t hash;
+typedef struct _fk_data_Firmware { 
+    pb_callback_t version; 
+    pb_callback_t build; 
+    pb_callback_t number; 
+    uint64_t timestamp; 
+    pb_callback_t hash; 
 } fk_data_Firmware;
 
-typedef struct _fk_data_Interval {
-    uint64_t start;
-    uint64_t end;
-    uint32_t interval;
+typedef struct _fk_data_Interval { 
+    uint64_t start; 
+    uint64_t end; 
+    uint32_t interval; 
 } fk_data_Interval;
 
-typedef struct _fk_data_JobSchedule {
-    pb_callback_t cron;
-    uint32_t interval;
-    uint32_t repeated;
-    uint32_t duration;
-    uint32_t jitter;
-    pb_callback_t intervals;
+typedef struct _fk_data_JobSchedule { 
+    pb_callback_t cron; 
+    uint32_t interval; 
+    uint32_t repeated; 
+    uint32_t duration; 
+    uint32_t jitter; 
+    pb_callback_t intervals; 
 } fk_data_JobSchedule;
 
-typedef struct _fk_data_LogMessage {
-    int64_t time;
-    uint32_t uptime;
-    uint32_t level;
-    pb_callback_t facility;
-    pb_callback_t message;
+typedef struct _fk_data_LogMessage { 
+    int64_t time; 
+    uint32_t uptime; 
+    uint32_t level; 
+    pb_callback_t facility; 
+    pb_callback_t message; 
 } fk_data_LogMessage;
 
-typedef struct _fk_data_LoraRecord {
-    pb_callback_t deviceId;
-    int64_t time;
-    uint64_t number;
-    uint32_t module;
-    uint64_t sensor;
-    pb_callback_t values;
-    pb_callback_t data;
+typedef struct _fk_data_LoraRecord { 
+    pb_callback_t deviceId; 
+    int64_t time; 
+    uint64_t number; 
+    uint32_t module; 
+    uint64_t sensor; 
+    pb_callback_t values; 
+    pb_callback_t data; 
 } fk_data_LoraRecord;
 
-typedef struct _fk_data_LoraSettings {
-    pb_callback_t deviceEui;
-    pb_callback_t appKey;
-    pb_callback_t appEui;
-    uint32_t frequencyBand;
-    pb_callback_t deviceAddress;
-    pb_callback_t networkSessionKey;
-    pb_callback_t appSessionKey;
-    uint32_t uplinkCounter;
-    uint32_t downlinkCounter;
+typedef struct _fk_data_LoraSettings { 
+    pb_callback_t deviceEui; 
+    pb_callback_t appKey; 
+    pb_callback_t appEui; 
+    uint32_t frequencyBand; 
+    pb_callback_t deviceAddress; 
+    pb_callback_t networkSessionKey; 
+    pb_callback_t appSessionKey; 
+    uint32_t uplinkCounter; 
+    uint32_t downlinkCounter; 
 } fk_data_LoraSettings;
 
-typedef struct _fk_data_ModuleHeader {
-    uint32_t manufacturer;
-    uint32_t kind;
-    uint32_t version;
+typedef struct _fk_data_ModuleHeader { 
+    uint32_t manufacturer; 
+    uint32_t kind; 
+    uint32_t version; 
 } fk_data_ModuleHeader;
 
-typedef struct _fk_data_NetworkInfo {
-    pb_callback_t ssid;
-    pb_callback_t password;
-    bool create;
-    bool preferred;
+typedef struct _fk_data_NetworkInfo { 
+    pb_callback_t ssid; 
+    pb_callback_t password; 
+    bool create; 
+    bool preferred; 
 } fk_data_NetworkInfo;
 
-typedef struct _fk_data_SensorAndValue {
-    uint32_t sensor;
-    float value;
-    float uncalibrated;
+typedef struct _fk_data_SensorAndValue { 
+    uint32_t sensor; 
+    float value; 
+    float uncalibrated; 
 } fk_data_SensorAndValue;
 
-typedef struct _fk_data_SensorGroup {
-    uint32_t module;
-    pb_callback_t readings;
+typedef struct _fk_data_SensorGroup { 
+    uint32_t module; 
+    pb_callback_t readings; 
 } fk_data_SensorGroup;
 
-typedef struct _fk_data_SensorInfo {
-    uint32_t number;
-    pb_callback_t name;
-    pb_callback_t unitOfMeasure;
-    uint32_t flags;
+typedef struct _fk_data_SensorInfo { 
+    uint32_t number; 
+    pb_callback_t name; 
+    pb_callback_t unitOfMeasure; 
+    uint32_t flags; 
 } fk_data_SensorInfo;
 
-typedef struct _fk_data_SensorReading {
-    uint64_t reading;
-    int64_t time;
-    uint32_t sensor;
-    float value;
+typedef struct _fk_data_SensorReading { 
+    uint64_t reading; 
+    int64_t time; 
+    uint32_t sensor; 
+    float value; 
 } fk_data_SensorReading;
 
-typedef struct _fk_data_SignedRecord {
-    fk_data_SignedRecordKind kind;
-    int64_t time;
-    pb_callback_t data;
-    pb_callback_t hash;
-    uint64_t record;
+typedef struct _fk_data_SignedRecord { 
+    fk_data_SignedRecordKind kind; 
+    int64_t time; 
+    pb_callback_t data; 
+    pb_callback_t hash; 
+    uint64_t record; 
 } fk_data_SignedRecord;
 
-typedef struct _fk_data_Status {
-    int64_t time;
-    uint32_t uptime;
-    float battery;
-    uint32_t memory;
-    uint64_t busy;
+typedef struct _fk_data_Status { 
+    int64_t time; 
+    uint32_t uptime; 
+    float battery; 
+    uint32_t memory; 
+    uint64_t busy; 
 } fk_data_Status;
 
-typedef struct _fk_data_WifiTransmission {
-    pb_callback_t url;
-    pb_callback_t token;
-    bool enabled;
+typedef struct _fk_data_WifiTransmission { 
+    pb_callback_t url; 
+    pb_callback_t token; 
+    bool enabled; 
 } fk_data_WifiTransmission;
 
-typedef struct _fk_data_LoggedReading {
-    uint32_t version;
+typedef struct _fk_data_LoggedReading { 
+    uint32_t version; 
     bool has_location;
-    fk_data_DeviceLocation location;
+    fk_data_DeviceLocation location; 
     bool has_reading;
-    fk_data_SensorReading reading;
+    fk_data_SensorReading reading; 
 } fk_data_LoggedReading;
 
-typedef struct _fk_data_Metadata {
-    pb_callback_t deviceId;
-    int64_t time;
-    pb_callback_t git;
-    uint32_t resetCause;
-    pb_callback_t sensors;
-    pb_callback_t modules;
-    pb_callback_t build;
+typedef struct _fk_data_Metadata { 
+    pb_callback_t deviceId; 
+    int64_t time; 
+    pb_callback_t git; 
+    uint32_t resetCause; 
+    pb_callback_t sensors; 
+    pb_callback_t modules; 
+    pb_callback_t build; 
     bool has_firmware;
-    fk_data_Firmware firmware;
-    pb_callback_t generation;
+    fk_data_Firmware firmware; 
+    pb_callback_t generation; 
 } fk_data_Metadata;
 
-typedef struct _fk_data_ModuleConfiguration {
+typedef struct _fk_data_ModuleConfiguration { 
     bool has_calibration;
-    fk_data_Calibration calibration;
+    fk_data_Calibration calibration; 
 } fk_data_ModuleConfiguration;
 
-typedef struct _fk_data_ModuleInfo {
-    uint32_t position;
-    uint32_t address;
-    pb_callback_t name;
+typedef struct _fk_data_ModuleInfo { 
+    uint32_t position; 
+    uint32_t address; 
+    pb_callback_t name; 
     bool has_header;
-    fk_data_ModuleHeader header;
+    fk_data_ModuleHeader header; 
     bool has_firmware;
-    fk_data_Firmware firmware;
-    pb_callback_t sensors;
-    pb_callback_t id;
-    uint32_t flags;
-    pb_callback_t configuration;
+    fk_data_Firmware firmware; 
+    pb_callback_t sensors; 
+    pb_callback_t id; 
+    uint32_t flags; 
+    pb_callback_t configuration; 
 } fk_data_ModuleInfo;
 
-typedef struct _fk_data_Readings {
-    int64_t time;
-    uint64_t reading;
-    uint32_t flags;
+typedef struct _fk_data_Readings { 
+    int64_t time; 
+    uint64_t reading; 
+    uint32_t flags; 
     bool has_location;
-    fk_data_DeviceLocation location;
-    pb_callback_t sensorGroups;
-    uint64_t meta;
-    uint32_t uptime;
+    fk_data_DeviceLocation location; 
+    pb_callback_t sensorGroups; 
+    uint64_t meta; 
+    uint32_t uptime; 
 } fk_data_Readings;
 
-typedef struct _fk_data_Schedule {
+typedef struct _fk_data_Schedule { 
     bool has_readings;
-    fk_data_JobSchedule readings;
+    fk_data_JobSchedule readings; 
     bool has_network;
-    fk_data_JobSchedule network;
+    fk_data_JobSchedule network; 
     bool has_lora;
-    fk_data_JobSchedule lora;
+    fk_data_JobSchedule lora; 
     bool has_gps;
-    fk_data_JobSchedule gps;
+    fk_data_JobSchedule gps; 
 } fk_data_Schedule;
 
-typedef struct _fk_data_TransmissionSettings {
+typedef struct _fk_data_TransmissionSettings { 
     bool has_wifi;
-    fk_data_WifiTransmission wifi;
+    fk_data_WifiTransmission wifi; 
 } fk_data_TransmissionSettings;
 
-typedef struct _fk_data_DataRecord {
+/* *
+ I may break this into a MetaRecord. */
+typedef struct _fk_data_DataRecord { 
     bool has_loggedReading;
-    fk_data_LoggedReading loggedReading;
+    fk_data_LoggedReading loggedReading; 
     bool has_metadata;
-    fk_data_Metadata metadata;
+    fk_data_Metadata metadata; 
     bool has_log;
-    fk_data_LogMessage log;
+    fk_data_LogMessage log; 
     bool has_status;
-    fk_data_Status status;
+    fk_data_Status status; 
     bool has_readings;
-    fk_data_Readings readings;
-    pb_callback_t modules;
+    fk_data_Readings readings; 
+    pb_callback_t modules; 
     bool has_schedule;
-    fk_data_Schedule schedule;
-    uint64_t meta;
+    fk_data_Schedule schedule; 
+    uint64_t meta; 
     bool has_identity;
-    fk_data_Identity identity;
+    fk_data_Identity identity; 
     bool has_condition;
-    fk_data_Condition condition;
+    fk_data_Condition condition; 
     bool has_lora;
-    fk_data_LoraSettings lora;
+    fk_data_LoraSettings lora; 
     bool has_network;
-    fk_data_NetworkSettings network;
-    pb_callback_t logs;
+    fk_data_NetworkSettings network; 
+    pb_callback_t logs; 
     bool has_transmission;
-    fk_data_TransmissionSettings transmission;
-    pb_callback_t faults;
+    fk_data_TransmissionSettings transmission; 
+    pb_callback_t faults; 
 } fk_data_DataRecord;
 
 
