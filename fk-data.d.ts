@@ -3109,6 +3109,9 @@ export namespace fk_data {
 
         /** CalibrationPoint uncalibrated */
         uncalibrated?: (number[]|null);
+
+        /** CalibrationPoint factory */
+        factory?: (number[]|null);
     }
 
     /** Represents a CalibrationPoint. */
@@ -3125,6 +3128,9 @@ export namespace fk_data {
 
         /** CalibrationPoint uncalibrated. */
         public uncalibrated: number[];
+
+        /** CalibrationPoint factory. */
+        public factory: number[];
 
         /**
          * Creates a new CalibrationPoint instance using the specified properties.

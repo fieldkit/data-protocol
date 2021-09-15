@@ -251,6 +251,7 @@ enum CurveType {
 message CalibrationPoint {
   repeated float references = 1;
   repeated float uncalibrated = 2;
+  repeated float factory = 3;
 }
 
 message CalibrationCoefficients {

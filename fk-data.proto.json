@@ -701,6 +701,11 @@
               "rule": "repeated",
               "type": "float",
               "id": 2
+            },
+            "factory": {
+              "rule": "repeated",
+              "type": "float",
+              "id": 3
             }
           }
         },

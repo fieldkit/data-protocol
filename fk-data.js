@@ -8239,6 +8239,7 @@
              * @interface ICalibrationPoint
              * @property {Array.<number>|null} [references] CalibrationPoint references
              * @property {Array.<number>|null} [uncalibrated] CalibrationPoint uncalibrated
+             * @property {Array.<number>|null} [factory] CalibrationPoint factory
              */
     
             /**
@@ -8252,6 +8253,7 @@
             function CalibrationPoint(properties) {
                 this.references = [];
                 this.uncalibrated = [];
+                this.factory = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -8273,6 +8275,14 @@
              * @instance
              */
             CalibrationPoint.prototype.uncalibrated = $util.emptyArray;
+    
+            /**
+             * CalibrationPoint factory.
+             * @member {Array.<number>} factory
+             * @memberof fk_data.CalibrationPoint
+             * @instance
+             */
+            CalibrationPoint.prototype.factory = $util.emptyArray;
     
             /**
              * Creates a new CalibrationPoint instance using the specified properties.
@@ -8308,6 +8318,12 @@
                     writer.uint32(/* id 2, wireType 2 =*/18).fork();
                     for (var i = 0; i < message.uncalibrated.length; ++i)
                         writer.float(message.uncalibrated[i]);
+                    writer.ldelim();
+                }
+                if (message.factory != null && message.factory.length) {
+                    writer.uint32(/* id 3, wireType 2 =*/26).fork();
+                    for (var i = 0; i < message.factory.length; ++i)
+                        writer.float(message.factory[i]);
                     writer.ldelim();
                 }
                 return writer;
@@ -8364,6 +8380,16 @@
                         } else
                             message.uncalibrated.push(reader.float());
                         break;
+                    case 3:
+                        if (!(message.factory && message.factory.length))
+                            message.factory = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.factory.push(reader.float());
+                        } else
+                            message.factory.push(reader.float());
+                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -8413,6 +8439,13 @@
                         if (typeof message.uncalibrated[i] !== "number")
                             return "uncalibrated: number[] expected";
                 }
+                if (message.factory != null && message.hasOwnProperty("factory")) {
+                    if (!Array.isArray(message.factory))
+                        return "factory: array expected";
+                    for (var i = 0; i < message.factory.length; ++i)
+                        if (typeof message.factory[i] !== "number")
+                            return "factory: number[] expected";
+                }
                 return null;
             };
     
@@ -8442,6 +8475,13 @@
                     for (var i = 0; i < object.uncalibrated.length; ++i)
                         message.uncalibrated[i] = Number(object.uncalibrated[i]);
                 }
+                if (object.factory) {
+                    if (!Array.isArray(object.factory))
+                        throw TypeError(".fk_data.CalibrationPoint.factory: array expected");
+                    message.factory = [];
+                    for (var i = 0; i < object.factory.length; ++i)
+                        message.factory[i] = Number(object.factory[i]);
+                }
                 return message;
             };
     
@@ -8461,6 +8501,7 @@
                 if (options.arrays || options.defaults) {
                     object.references = [];
                     object.uncalibrated = [];
+                    object.factory = [];
                 }
                 if (message.references && message.references.length) {
                     object.references = [];
@@ -8471,6 +8512,11 @@
                     object.uncalibrated = [];
                     for (var j = 0; j < message.uncalibrated.length; ++j)
                         object.uncalibrated[j] = options.json && !isFinite(message.uncalibrated[j]) ? String(message.uncalibrated[j]) : message.uncalibrated[j];
+                }
+                if (message.factory && message.factory.length) {
+                    object.factory = [];
+                    for (var j = 0; j < message.factory.length; ++j)
+                        object.factory[j] = options.json && !isFinite(message.factory[j]) ? String(message.factory[j]) : message.factory[j];
                 }
                 return object;
             };
