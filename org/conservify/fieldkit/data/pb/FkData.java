@@ -7437,6 +7437,12 @@ public final class FkData {
     int getModule();
 
     /**
+     * <code>int64 time = 3;</code>
+     * @return The time.
+     */
+    long getTime();
+
+    /**
      * <code>repeated .fk_data.SensorAndValue readings = 2;</code>
      */
     java.util.List<org.conservify.fieldkit.data.pb.FkData.SensorAndValue> 
@@ -7485,6 +7491,32 @@ public final class FkData {
     private void clearModule() {
       
       module_ = 0;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 3;
+    private long time_;
+    /**
+     * <code>int64 time = 3;</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public long getTime() {
+      return time_;
+    }
+    /**
+     * <code>int64 time = 3;</code>
+     * @param value The time to set.
+     */
+    private void setTime(long value) {
+      
+      time_ = value;
+    }
+    /**
+     * <code>int64 time = 3;</code>
+     */
+    private void clearTime() {
+      
+      time_ = 0L;
     }
 
     public static final int READINGS_FIELD_NUMBER = 2;
@@ -7704,6 +7736,34 @@ public final class FkData {
       }
 
       /**
+       * <code>int64 time = 3;</code>
+       * @return The time.
+       */
+      @java.lang.Override
+      public long getTime() {
+        return instance.getTime();
+      }
+      /**
+       * <code>int64 time = 3;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTime(long value) {
+        copyOnWrite();
+        instance.setTime(value);
+        return this;
+      }
+      /**
+       * <code>int64 time = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTime() {
+        copyOnWrite();
+        instance.clearTime();
+        return this;
+      }
+
+      /**
        * <code>repeated .fk_data.SensorAndValue readings = 2;</code>
        */
       @java.lang.Override
@@ -7824,10 +7884,11 @@ public final class FkData {
               "module_",
               "readings_",
               org.conservify.fieldkit.data.pb.FkData.SensorAndValue.class,
+              "time_",
             };
             java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0001\u0000\u0001\u000b\u0002\u001b" +
-                "";
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0001\u0000\u0001\u000b\u0002\u001b" +
+                "\u0003\u0002";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

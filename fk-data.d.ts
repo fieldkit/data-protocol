@@ -1300,6 +1300,9 @@ export namespace fk_data {
         /** SensorGroup module */
         module?: (number|null);
 
+        /** SensorGroup time */
+        time?: (number|Long|null);
+
         /** SensorGroup readings */
         readings?: (fk_data.ISensorAndValue[]|null);
     }
@@ -1315,6 +1318,9 @@ export namespace fk_data {
 
         /** SensorGroup module. */
         public module: number;
+
+        /** SensorGroup time. */
+        public time: (number|Long);
 
         /** SensorGroup readings. */
         public readings: fk_data.ISensorAndValue[];

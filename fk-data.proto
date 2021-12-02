@@ -104,6 +104,7 @@ enum DownloadFlags {
 
 message SensorGroup {
   uint32 module = 1;
+  int64 time = 3;
   repeated SensorAndValue readings = 2;
 }
 

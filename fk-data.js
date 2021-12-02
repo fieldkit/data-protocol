@@ -3448,6 +3448,7 @@
              * @memberof fk_data
              * @interface ISensorGroup
              * @property {number|null} [module] SensorGroup module
+             * @property {number|Long|null} [time] SensorGroup time
              * @property {Array.<fk_data.ISensorAndValue>|null} [readings] SensorGroup readings
              */
     
@@ -3474,6 +3475,14 @@
              * @instance
              */
             SensorGroup.prototype.module = 0;
+    
+            /**
+             * SensorGroup time.
+             * @member {number|Long} time
+             * @memberof fk_data.SensorGroup
+             * @instance
+             */
+            SensorGroup.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
     
             /**
              * SensorGroup readings.
@@ -3512,6 +3521,8 @@
                 if (message.readings != null && message.readings.length)
                     for (var i = 0; i < message.readings.length; ++i)
                         $root.fk_data.SensorAndValue.encode(message.readings[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.time != null && message.hasOwnProperty("time"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.time);
                 return writer;
             };
     
@@ -3548,6 +3559,9 @@
                     switch (tag >>> 3) {
                     case 1:
                         message.module = reader.uint32();
+                        break;
+                    case 3:
+                        message.time = reader.int64();
                         break;
                     case 2:
                         if (!(message.readings && message.readings.length))
@@ -3592,6 +3606,9 @@
                 if (message.module != null && message.hasOwnProperty("module"))
                     if (!$util.isInteger(message.module))
                         return "module: integer expected";
+                if (message.time != null && message.hasOwnProperty("time"))
+                    if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                        return "time: integer|Long expected";
                 if (message.readings != null && message.hasOwnProperty("readings")) {
                     if (!Array.isArray(message.readings))
                         return "readings: array expected";
@@ -3618,6 +3635,15 @@
                 var message = new $root.fk_data.SensorGroup();
                 if (object.module != null)
                     message.module = object.module >>> 0;
+                if (object.time != null)
+                    if ($util.Long)
+                        (message.time = $util.Long.fromValue(object.time)).unsigned = false;
+                    else if (typeof object.time === "string")
+                        message.time = parseInt(object.time, 10);
+                    else if (typeof object.time === "number")
+                        message.time = object.time;
+                    else if (typeof object.time === "object")
+                        message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber();
                 if (object.readings) {
                     if (!Array.isArray(object.readings))
                         throw TypeError(".fk_data.SensorGroup.readings: array expected");
@@ -3646,8 +3672,14 @@
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.readings = [];
-                if (options.defaults)
+                if (options.defaults) {
                     object.module = 0;
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.time = options.longs === String ? "0" : 0;
+                }
                 if (message.module != null && message.hasOwnProperty("module"))
                     object.module = message.module;
                 if (message.readings && message.readings.length) {
@@ -3655,6 +3687,11 @@
                     for (var j = 0; j < message.readings.length; ++j)
                         object.readings[j] = $root.fk_data.SensorAndValue.toObject(message.readings[j], options);
                 }
+                if (message.time != null && message.hasOwnProperty("time"))
+                    if (typeof message.time === "number")
+                        object.time = options.longs === String ? String(message.time) : message.time;
+                    else
+                        object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber() : message.time;
                 return object;
             };
     

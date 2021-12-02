@@ -166,6 +166,7 @@ typedef struct _fk_data_SensorAndValue {
 typedef struct _fk_data_SensorGroup { 
     uint32_t module; 
     pb_callback_t readings; 
+    int64_t time; 
 } fk_data_SensorGroup;
 
 typedef struct _fk_data_SensorInfo { 
@@ -338,7 +339,7 @@ extern "C" {
 #define fk_data_Metadata_init_default            {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, false, fk_data_Firmware_init_default, {{NULL}, NULL}, 0}
 #define fk_data_Status_init_default              {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_default          {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}}
+#define fk_data_SensorGroup_init_default         {0, {{NULL}, NULL}, 0}
 #define fk_data_Readings_init_default            {0, 0, 0, false, fk_data_DeviceLocation_init_default, {{NULL}, NULL}, 0, 0}
 #define fk_data_Interval_init_default            {0, 0, 0}
 #define fk_data_JobSchedule_init_default         {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}}
@@ -369,7 +370,7 @@ extern "C" {
 #define fk_data_Metadata_init_zero               {{{NULL}, NULL}, 0, {{NULL}, NULL}, 0, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, false, fk_data_Firmware_init_zero, {{NULL}, NULL}, 0}
 #define fk_data_Status_init_zero                 {0, 0, 0, 0, 0}
 #define fk_data_LogMessage_init_zero             {0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
-#define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}}
+#define fk_data_SensorGroup_init_zero            {0, {{NULL}, NULL}, 0}
 #define fk_data_Readings_init_zero               {0, 0, 0, false, fk_data_DeviceLocation_init_zero, {{NULL}, NULL}, 0, 0}
 #define fk_data_Interval_init_zero               {0, 0, 0}
 #define fk_data_JobSchedule_init_zero            {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}}
@@ -465,6 +466,7 @@ extern "C" {
 #define fk_data_SensorAndValue_uncalibrated_tag  3
 #define fk_data_SensorGroup_module_tag           1
 #define fk_data_SensorGroup_readings_tag         2
+#define fk_data_SensorGroup_time_tag             3
 #define fk_data_SensorInfo_number_tag            1
 #define fk_data_SensorInfo_name_tag              2
 #define fk_data_SensorInfo_unitOfMeasure_tag     3
@@ -652,7 +654,8 @@ X(a, CALLBACK, SINGULAR, STRING,   message,           5)
 
 #define fk_data_SensorGroup_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, UINT32,   module,            1) \
-X(a, CALLBACK, REPEATED, MESSAGE,  readings,          2)
+X(a, CALLBACK, REPEATED, MESSAGE,  readings,          2) \
+X(a, STATIC,   SINGULAR, INT64,    time,              3)
 #define fk_data_SensorGroup_CALLBACK pb_default_field_callback
 #define fk_data_SensorGroup_DEFAULT NULL
 #define fk_data_SensorGroup_readings_MSGTYPE fk_data_SensorAndValue

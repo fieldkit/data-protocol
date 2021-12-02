@@ -307,6 +307,10 @@
               "type": "uint32",
               "id": 1
             },
+            "time": {
+              "type": "int64",
+              "id": 3
+            },
             "readings": {
               "rule": "repeated",
               "type": "SensorAndValue",
