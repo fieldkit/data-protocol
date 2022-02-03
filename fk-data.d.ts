@@ -3136,6 +3136,9 @@ export namespace fk_data {
 
         /** CalibrationPoint factory */
         factory?: (number[]|null);
+
+        /** CalibrationPoint adc */
+        adc?: (Uint8Array[]|null);
     }
 
     /** Represents a CalibrationPoint. */
@@ -3155,6 +3158,9 @@ export namespace fk_data {
 
         /** CalibrationPoint factory. */
         public factory: number[];
+
+        /** CalibrationPoint adc. */
+        public adc: Uint8Array[];
 
         /**
          * Creates a new CalibrationPoint instance using the specified properties.
@@ -3331,6 +3337,9 @@ export namespace fk_data {
 
         /** Calibration coefficients */
         coefficients?: (fk_data.ICalibrationCoefficients|null);
+
+        /** Calibration firmware */
+        firmware?: (fk_data.IFirmware|null);
     }
 
     /** Represents a Calibration. */
@@ -3353,6 +3362,9 @@ export namespace fk_data {
 
         /** Calibration coefficients. */
         public coefficients?: (fk_data.ICalibrationCoefficients|null);
+
+        /** Calibration firmware. */
+        public firmware?: (fk_data.IFirmware|null);
 
         /**
          * Creates a new Calibration instance using the specified properties.

@@ -722,6 +722,11 @@
               "rule": "repeated",
               "type": "float",
               "id": 3
+            },
+            "adc": {
+              "rule": "repeated",
+              "type": "bytes",
+              "id": 4
             }
           }
         },
@@ -752,6 +757,10 @@
             "coefficients": {
               "type": "CalibrationCoefficients",
               "id": 4
+            },
+            "firmware": {
+              "type": "Firmware",
+              "id": 5
             }
           }
         },
