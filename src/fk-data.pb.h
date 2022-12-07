@@ -207,6 +207,7 @@ typedef struct _fk_data_Calibration {
     fk_data_CalibrationCoefficients coefficients;
     bool has_firmware;
     fk_data_Firmware firmware;
+    uint32_t kind;
 } fk_data_Calibration;
 
 typedef struct _fk_data_LoggedReading { 
@@ -305,7 +306,8 @@ typedef struct _fk_data_DataRecord {
 
 typedef struct _fk_data_ModuleConfiguration { 
     bool has_calibration;
-    fk_data_Calibration calibration;
+    fk_data_Calibration calibration; /* DEPRECATED */
+    pb_callback_t calibrations;
 } fk_data_ModuleConfiguration;
 
 
@@ -361,8 +363,8 @@ extern "C" {
 #define fk_data_LoraRecord_init_default          {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_CalibrationPoint_init_default    {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_CalibrationCoefficients_init_default {{{NULL}, NULL}}
-#define fk_data_Calibration_init_default         {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_default, false, fk_data_Firmware_init_default}
-#define fk_data_ModuleConfiguration_init_default {false, fk_data_Calibration_init_default}
+#define fk_data_Calibration_init_default         {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_default, false, fk_data_Firmware_init_default, 0}
+#define fk_data_ModuleConfiguration_init_default {false, fk_data_Calibration_init_default, {{NULL}, NULL}}
 #define fk_data_DeviceLocation_init_zero         {0, 0, 0, 0, 0, {{NULL}, NULL}, 0, 0, 0}
 #define fk_data_SensorReading_init_zero          {0, 0, 0, 0}
 #define fk_data_LoggedReading_init_zero          {0, false, fk_data_DeviceLocation_init_zero, false, fk_data_SensorReading_init_zero}
@@ -392,8 +394,8 @@ extern "C" {
 #define fk_data_LoraRecord_init_zero             {{{NULL}, NULL}, 0, 0, 0, 0, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_CalibrationPoint_init_zero       {{{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}, {{NULL}, NULL}}
 #define fk_data_CalibrationCoefficients_init_zero {{{NULL}, NULL}}
-#define fk_data_Calibration_init_zero            {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_zero, false, fk_data_Firmware_init_zero}
-#define fk_data_ModuleConfiguration_init_zero    {false, fk_data_Calibration_init_zero}
+#define fk_data_Calibration_init_zero            {_fk_data_CurveType_MIN, 0, {{NULL}, NULL}, false, fk_data_CalibrationCoefficients_init_zero, false, fk_data_Firmware_init_zero, 0}
+#define fk_data_ModuleConfiguration_init_zero    {false, fk_data_Calibration_init_zero, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define fk_data_CalibrationCoefficients_values_tag 1
@@ -494,6 +496,7 @@ extern "C" {
 #define fk_data_Calibration_points_tag           3
 #define fk_data_Calibration_coefficients_tag     4
 #define fk_data_Calibration_firmware_tag         5
+#define fk_data_Calibration_kind_tag             6
 #define fk_data_LoggedReading_version_tag        1
 #define fk_data_LoggedReading_location_tag       2
 #define fk_data_LoggedReading_reading_tag        3
@@ -544,6 +547,7 @@ extern "C" {
 #define fk_data_DataRecord_transmission_tag      14
 #define fk_data_DataRecord_faults_tag            15
 #define fk_data_ModuleConfiguration_calibration_tag 1
+#define fk_data_ModuleConfiguration_calibrations_tag 2
 
 /* Struct field encoding specification for nanopb */
 #define fk_data_DeviceLocation_FIELDLIST(X, a) \
@@ -841,7 +845,8 @@ X(a, STATIC,   SINGULAR, UENUM,    type,              1) \
 X(a, STATIC,   SINGULAR, UINT32,   time,              2) \
 X(a, CALLBACK, REPEATED, MESSAGE,  points,            3) \
 X(a, STATIC,   OPTIONAL, MESSAGE,  coefficients,      4) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  firmware,          5)
+X(a, STATIC,   OPTIONAL, MESSAGE,  firmware,          5) \
+X(a, STATIC,   SINGULAR, UINT32,   kind,              6)
 #define fk_data_Calibration_CALLBACK pb_default_field_callback
 #define fk_data_Calibration_DEFAULT NULL
 #define fk_data_Calibration_points_MSGTYPE fk_data_CalibrationPoint
@@ -849,10 +854,12 @@ X(a, STATIC,   OPTIONAL, MESSAGE,  firmware,          5)
 #define fk_data_Calibration_firmware_MSGTYPE fk_data_Firmware
 
 #define fk_data_ModuleConfiguration_FIELDLIST(X, a) \
-X(a, STATIC,   OPTIONAL, MESSAGE,  calibration,       1)
-#define fk_data_ModuleConfiguration_CALLBACK NULL
+X(a, STATIC,   OPTIONAL, MESSAGE,  calibration,       1) \
+X(a, CALLBACK, REPEATED, MESSAGE,  calibrations,      2)
+#define fk_data_ModuleConfiguration_CALLBACK pb_default_field_callback
 #define fk_data_ModuleConfiguration_DEFAULT NULL
 #define fk_data_ModuleConfiguration_calibration_MSGTYPE fk_data_Calibration
+#define fk_data_ModuleConfiguration_calibrations_MSGTYPE fk_data_Calibration
 
 extern const pb_msgdesc_t fk_data_DeviceLocation_msg;
 extern const pb_msgdesc_t fk_data_SensorReading_msg;
