@@ -24,7 +24,7 @@ $(PROTO_NAME)_pb2.py: build $(PROTO_NAME).proto
 	PATH=$(PATH):$(PROTOC_BIN) $(PROTOC) --python_out=./ $(PROTO_NAME).proto
 
 $(PROTO_NAME).dart: build $(PROTO_NAME).proto
-	dart pub global activate protoc_plugin
+	dart pub global activate protoc_plugin 20.0.1
 	PATH=$(PATH):$(PROTOC_BIN):$(HOME)/.pub-cache/bin $(PROTOC) --dart_out=./ $(PROTO_NAME).proto
 
 $(PROTO_NAME).pb.go: build $(PROTO_NAME).proto
