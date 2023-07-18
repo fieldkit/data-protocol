@@ -486,12 +486,12 @@ type SensorAndValue struct {
 	//
 	//	*SensorAndValue_CalibratedNull
 	//	*SensorAndValue_CalibratedValue
-	Calibrated isSensorAndValue_Calibrated `protobuf_oneof:"calibrated"`
+	Calibrated isSensorAndValue_Calibrated `protobuf_oneof:"calibrated" json:"calibrated,omitempty"`
 	// Types that are assignable to Uncalibrated:
 	//
 	//	*SensorAndValue_UncalibratedNull
 	//	*SensorAndValue_UncalibratedValue
-	Uncalibrated isSensorAndValue_Uncalibrated `protobuf_oneof:"uncalibrated"`
+	Uncalibrated isSensorAndValue_Uncalibrated `protobuf_oneof:"uncalibrated" json:"uncalibrated,omitempty"`
 }
 
 func (x *SensorAndValue) Reset() {
@@ -580,11 +580,11 @@ type isSensorAndValue_Calibrated interface {
 }
 
 type SensorAndValue_CalibratedNull struct {
-	CalibratedNull bool `protobuf:"varint,4,opt,name=calibratedNull,proto3,oneof"`
+	CalibratedNull bool `protobuf:"varint,4,opt,name=calibratedNull,proto3,oneof" json:"null,omitempty"`
 }
 
 type SensorAndValue_CalibratedValue struct {
-	CalibratedValue float32 `protobuf:"fixed32,2,opt,name=calibratedValue,proto3,oneof"`
+	CalibratedValue float32 `protobuf:"fixed32,2,opt,name=calibratedValue,proto3,oneof" json:"value,omitempty"`
 }
 
 func (*SensorAndValue_CalibratedNull) isSensorAndValue_Calibrated() {}
@@ -596,11 +596,11 @@ type isSensorAndValue_Uncalibrated interface {
 }
 
 type SensorAndValue_UncalibratedNull struct {
-	UncalibratedNull bool `protobuf:"varint,5,opt,name=uncalibratedNull,proto3,oneof"`
+	UncalibratedNull bool `protobuf:"varint,5,opt,name=uncalibratedNull,proto3,oneof" json:"null,omitempty"`
 }
 
 type SensorAndValue_UncalibratedValue struct {
-	UncalibratedValue float32 `protobuf:"fixed32,3,opt,name=uncalibratedValue,proto3,oneof"`
+	UncalibratedValue float32 `protobuf:"fixed32,3,opt,name=uncalibratedValue,proto3,oneof" json:"value,omitempty"`
 }
 
 func (*SensorAndValue_UncalibratedNull) isSensorAndValue_Uncalibrated() {}
