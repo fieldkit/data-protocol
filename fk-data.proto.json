@@ -3,7 +3,7 @@
     "fk_data": {
       "options": {
         "java_package": "org.conservify.fieldkit.data.pb",
-        "go_package": "github.com/fieldkit/data-protocol"
+        "go_package": "gitlab.com/fieldkit/libraries/data-protocol"
       },
       "nested": {
         "DeviceLocation": {
@@ -707,7 +707,7 @@
             "SIGNED_RECORD_KIND_SCHEDULE": 2,
             "SIGNED_RECORD_KIND_STATE": 3,
             "SIGNED_RECORD_KIND_RAW_STATE": 4,
-            "SIGNED_RECORD_KIND_FAULTS": 5,
+            "SIGNED_RECORD_KIND_EVENTS": 5,
             "SIGNED_RECORD_KIND_OTHER": 255
           }
         },

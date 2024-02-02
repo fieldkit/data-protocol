@@ -1,4 +1,4 @@
-module github.com/fieldkit/data-protocol
+module gitlab.com/fieldkit/libraries/data-protocol
 
 go 1.12
 

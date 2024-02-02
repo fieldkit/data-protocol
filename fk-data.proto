@@ -1,7 +1,7 @@
 syntax = "proto3";
 package fk_data;
 option java_package = "org.conservify.fieldkit.data.pb";
-option go_package = "github.com/fieldkit/data-protocol";
+option go_package = "gitlab.com/fieldkit/libraries/data-protocol";
 
 message DeviceLocation {
   uint32 enabled = 7;

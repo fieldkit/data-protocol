@@ -30,7 +30,7 @@ $(PROTO_NAME).dart: build $(PROTO_NAME).proto
 $(PROTO_NAME).pb.go: build $(PROTO_NAME).proto
 	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 	$(PROTOC) --go_out=./ $(PROTO_NAME).proto
-	mv github.com/*/*/*.go .
+	mv gitlab.com/*/*/*/*.go .
 
 $(JAVA_DEP): build $(PROTO_NAME).proto
 	$(PROTOC) --java_out=lite:./ $(PROTO_NAME).proto

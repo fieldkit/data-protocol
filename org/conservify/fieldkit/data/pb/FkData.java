@@ -453,9 +453,9 @@ public final class FkData {
      */
     SIGNED_RECORD_KIND_RAW_STATE(4),
     /**
-     * <code>SIGNED_RECORD_KIND_FAULTS = 5;</code>
+     * <code>SIGNED_RECORD_KIND_EVENTS = 5;</code>
      */
-    SIGNED_RECORD_KIND_FAULTS(5),
+    SIGNED_RECORD_KIND_EVENTS(5),
     /**
      * <code>SIGNED_RECORD_KIND_OTHER = 255;</code>
      */
@@ -484,9 +484,9 @@ public final class FkData {
      */
     public static final int SIGNED_RECORD_KIND_RAW_STATE_VALUE = 4;
     /**
-     * <code>SIGNED_RECORD_KIND_FAULTS = 5;</code>
+     * <code>SIGNED_RECORD_KIND_EVENTS = 5;</code>
      */
-    public static final int SIGNED_RECORD_KIND_FAULTS_VALUE = 5;
+    public static final int SIGNED_RECORD_KIND_EVENTS_VALUE = 5;
     /**
      * <code>SIGNED_RECORD_KIND_OTHER = 255;</code>
      */
@@ -519,7 +519,7 @@ public final class FkData {
         case 2: return SIGNED_RECORD_KIND_SCHEDULE;
         case 3: return SIGNED_RECORD_KIND_STATE;
         case 4: return SIGNED_RECORD_KIND_RAW_STATE;
-        case 5: return SIGNED_RECORD_KIND_FAULTS;
+        case 5: return SIGNED_RECORD_KIND_EVENTS;
         case 255: return SIGNED_RECORD_KIND_OTHER;
         default: return null;
       }

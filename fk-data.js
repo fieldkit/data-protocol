@@ -8114,7 +8114,7 @@
          * @property {number} SIGNED_RECORD_KIND_SCHEDULE=2 SIGNED_RECORD_KIND_SCHEDULE value
          * @property {number} SIGNED_RECORD_KIND_STATE=3 SIGNED_RECORD_KIND_STATE value
          * @property {number} SIGNED_RECORD_KIND_RAW_STATE=4 SIGNED_RECORD_KIND_RAW_STATE value
-         * @property {number} SIGNED_RECORD_KIND_FAULTS=5 SIGNED_RECORD_KIND_FAULTS value
+         * @property {number} SIGNED_RECORD_KIND_EVENTS=5 SIGNED_RECORD_KIND_EVENTS value
          * @property {number} SIGNED_RECORD_KIND_OTHER=255 SIGNED_RECORD_KIND_OTHER value
          */
         fk_data.SignedRecordKind = (function() {
@@ -8124,7 +8124,7 @@
             values[valuesById[2] = "SIGNED_RECORD_KIND_SCHEDULE"] = 2;
             values[valuesById[3] = "SIGNED_RECORD_KIND_STATE"] = 3;
             values[valuesById[4] = "SIGNED_RECORD_KIND_RAW_STATE"] = 4;
-            values[valuesById[5] = "SIGNED_RECORD_KIND_FAULTS"] = 5;
+            values[valuesById[5] = "SIGNED_RECORD_KIND_EVENTS"] = 5;
             values[valuesById[255] = "SIGNED_RECORD_KIND_OTHER"] = 255;
             return values;
         })();
@@ -8376,7 +8376,7 @@
                 case 4:
                     message.kind = 4;
                     break;
-                case "SIGNED_RECORD_KIND_FAULTS":
+                case "SIGNED_RECORD_KIND_EVENTS":
                 case 5:
                     message.kind = 5;
                     break;
