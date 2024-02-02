@@ -6789,27 +6789,68 @@
             return LoraSettings;
         })();
     
-        fk_data.Fault = (function() {
+        /**
+         * EventSystem enum.
+         * @name fk_data.EventSystem
+         * @enum {string}
+         * @property {number} EVENT_SYSTEM_NONE=0 EVENT_SYSTEM_NONE value
+         * @property {number} EVENT_SYSTEM_RESTART=1 EVENT_SYSTEM_RESTART value
+         * @property {number} EVENT_SYSTEM_BATTERY=2 EVENT_SYSTEM_BATTERY value
+         * @property {number} EVENT_SYSTEM_MEMORY=3 EVENT_SYSTEM_MEMORY value
+         * @property {number} EVENT_SYSTEM_SENSOR=4 EVENT_SYSTEM_SENSOR value
+         * @property {number} EVENT_SYSTEM_WIFI=5 EVENT_SYSTEM_WIFI value
+         * @property {number} EVENT_SYSTEM_LORA=6 EVENT_SYSTEM_LORA value
+         */
+        fk_data.EventSystem = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "EVENT_SYSTEM_NONE"] = 0;
+            values[valuesById[1] = "EVENT_SYSTEM_RESTART"] = 1;
+            values[valuesById[2] = "EVENT_SYSTEM_BATTERY"] = 2;
+            values[valuesById[3] = "EVENT_SYSTEM_MEMORY"] = 3;
+            values[valuesById[4] = "EVENT_SYSTEM_SENSOR"] = 4;
+            values[valuesById[5] = "EVENT_SYSTEM_WIFI"] = 5;
+            values[valuesById[6] = "EVENT_SYSTEM_LORA"] = 6;
+            return values;
+        })();
+    
+        /**
+         * Severity enum.
+         * @name fk_data.Severity
+         * @enum {string}
+         * @property {number} SEVERITY_INFO=0 SEVERITY_INFO value
+         * @property {number} SEVERITY_WARNING=1 SEVERITY_WARNING value
+         * @property {number} SEVERITY_ERROR=2 SEVERITY_ERROR value
+         */
+        fk_data.Severity = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "SEVERITY_INFO"] = 0;
+            values[valuesById[1] = "SEVERITY_WARNING"] = 1;
+            values[valuesById[2] = "SEVERITY_ERROR"] = 2;
+            return values;
+        })();
+    
+        fk_data.EventDetails = (function() {
     
             /**
-             * Properties of a Fault.
+             * Properties of an EventDetails.
              * @memberof fk_data
-             * @interface IFault
-             * @property {number|null} [time] Fault time
-             * @property {number|null} [code] Fault code
-             * @property {string|null} [description] Fault description
-             * @property {Uint8Array|null} [debug] Fault debug
+             * @interface IEventDetails
+             * @property {Uint8Array|null} [data] EventDetails data
+             * @property {Array.<number>|null} [integers] EventDetails integers
+             * @property {Array.<number>|null} [reals] EventDetails reals
              */
     
             /**
-             * Constructs a new Fault.
+             * Constructs a new EventDetails.
              * @memberof fk_data
-             * @classdesc Represents a Fault.
-             * @implements IFault
+             * @classdesc Represents an EventDetails.
+             * @implements IEventDetails
              * @constructor
-             * @param {fk_data.IFault=} [properties] Properties to set
+             * @param {fk_data.IEventDetails=} [properties] Properties to set
              */
-            function Fault(properties) {
+            function EventDetails(properties) {
+                this.integers = [];
+                this.reals = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -6817,113 +6858,424 @@
             }
     
             /**
-             * Fault time.
-             * @member {number} time
-             * @memberof fk_data.Fault
+             * EventDetails data.
+             * @member {Uint8Array} data
+             * @memberof fk_data.EventDetails
              * @instance
              */
-            Fault.prototype.time = 0;
+            EventDetails.prototype.data = $util.newBuffer([]);
     
             /**
-             * Fault code.
-             * @member {number} code
-             * @memberof fk_data.Fault
+             * EventDetails integers.
+             * @member {Array.<number>} integers
+             * @memberof fk_data.EventDetails
              * @instance
              */
-            Fault.prototype.code = 0;
+            EventDetails.prototype.integers = $util.emptyArray;
     
             /**
-             * Fault description.
-             * @member {string} description
-             * @memberof fk_data.Fault
+             * EventDetails reals.
+             * @member {Array.<number>} reals
+             * @memberof fk_data.EventDetails
              * @instance
              */
-            Fault.prototype.description = "";
+            EventDetails.prototype.reals = $util.emptyArray;
     
             /**
-             * Fault debug.
-             * @member {Uint8Array} debug
-             * @memberof fk_data.Fault
-             * @instance
-             */
-            Fault.prototype.debug = $util.newBuffer([]);
-    
-            /**
-             * Creates a new Fault instance using the specified properties.
+             * Creates a new EventDetails instance using the specified properties.
              * @function create
-             * @memberof fk_data.Fault
+             * @memberof fk_data.EventDetails
              * @static
-             * @param {fk_data.IFault=} [properties] Properties to set
-             * @returns {fk_data.Fault} Fault instance
+             * @param {fk_data.IEventDetails=} [properties] Properties to set
+             * @returns {fk_data.EventDetails} EventDetails instance
              */
-            Fault.create = function create(properties) {
-                return new Fault(properties);
+            EventDetails.create = function create(properties) {
+                return new EventDetails(properties);
             };
     
             /**
-             * Encodes the specified Fault message. Does not implicitly {@link fk_data.Fault.verify|verify} messages.
+             * Encodes the specified EventDetails message. Does not implicitly {@link fk_data.EventDetails.verify|verify} messages.
              * @function encode
-             * @memberof fk_data.Fault
+             * @memberof fk_data.EventDetails
              * @static
-             * @param {fk_data.IFault} message Fault message or plain object to encode
+             * @param {fk_data.IEventDetails} message EventDetails message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Fault.encode = function encode(message, writer) {
+            EventDetails.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.time != null && message.hasOwnProperty("time"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.time);
-                if (message.code != null && message.hasOwnProperty("code"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.code);
-                if (message.description != null && message.hasOwnProperty("description"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
-                if (message.debug != null && message.hasOwnProperty("debug"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.debug);
+                if (message.data != null && message.hasOwnProperty("data"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.data);
+                if (message.integers != null && message.integers.length) {
+                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
+                    for (var i = 0; i < message.integers.length; ++i)
+                        writer.int32(message.integers[i]);
+                    writer.ldelim();
+                }
+                if (message.reals != null && message.reals.length) {
+                    writer.uint32(/* id 3, wireType 2 =*/26).fork();
+                    for (var i = 0; i < message.reals.length; ++i)
+                        writer.float(message.reals[i]);
+                    writer.ldelim();
+                }
                 return writer;
             };
     
             /**
-             * Encodes the specified Fault message, length delimited. Does not implicitly {@link fk_data.Fault.verify|verify} messages.
+             * Encodes the specified EventDetails message, length delimited. Does not implicitly {@link fk_data.EventDetails.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof fk_data.Fault
+             * @memberof fk_data.EventDetails
              * @static
-             * @param {fk_data.IFault} message Fault message or plain object to encode
+             * @param {fk_data.IEventDetails} message EventDetails message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            Fault.encodeDelimited = function encodeDelimited(message, writer) {
+            EventDetails.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
     
             /**
-             * Decodes a Fault message from the specified reader or buffer.
+             * Decodes an EventDetails message from the specified reader or buffer.
              * @function decode
-             * @memberof fk_data.Fault
+             * @memberof fk_data.EventDetails
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {fk_data.Fault} Fault
+             * @returns {fk_data.EventDetails} EventDetails
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Fault.decode = function decode(reader, length) {
+            EventDetails.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.Fault();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.EventDetails();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.time = reader.uint32();
+                        message.data = reader.bytes();
                         break;
                     case 2:
-                        message.code = reader.uint32();
+                        if (!(message.integers && message.integers.length))
+                            message.integers = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.integers.push(reader.int32());
+                        } else
+                            message.integers.push(reader.int32());
                         break;
                     case 3:
-                        message.description = reader.string();
+                        if (!(message.reals && message.reals.length))
+                            message.reals = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.reals.push(reader.float());
+                        } else
+                            message.reals.push(reader.float());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes an EventDetails message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof fk_data.EventDetails
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {fk_data.EventDetails} EventDetails
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            EventDetails.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies an EventDetails message.
+             * @function verify
+             * @memberof fk_data.EventDetails
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            EventDetails.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.data != null && message.hasOwnProperty("data"))
+                    if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
+                        return "data: buffer expected";
+                if (message.integers != null && message.hasOwnProperty("integers")) {
+                    if (!Array.isArray(message.integers))
+                        return "integers: array expected";
+                    for (var i = 0; i < message.integers.length; ++i)
+                        if (!$util.isInteger(message.integers[i]))
+                            return "integers: integer[] expected";
+                }
+                if (message.reals != null && message.hasOwnProperty("reals")) {
+                    if (!Array.isArray(message.reals))
+                        return "reals: array expected";
+                    for (var i = 0; i < message.reals.length; ++i)
+                        if (typeof message.reals[i] !== "number")
+                            return "reals: number[] expected";
+                }
+                return null;
+            };
+    
+            /**
+             * Creates an EventDetails message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof fk_data.EventDetails
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {fk_data.EventDetails} EventDetails
+             */
+            EventDetails.fromObject = function fromObject(object) {
+                if (object instanceof $root.fk_data.EventDetails)
+                    return object;
+                var message = new $root.fk_data.EventDetails();
+                if (object.data != null)
+                    if (typeof object.data === "string")
+                        $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
+                    else if (object.data.length)
+                        message.data = object.data;
+                if (object.integers) {
+                    if (!Array.isArray(object.integers))
+                        throw TypeError(".fk_data.EventDetails.integers: array expected");
+                    message.integers = [];
+                    for (var i = 0; i < object.integers.length; ++i)
+                        message.integers[i] = object.integers[i] | 0;
+                }
+                if (object.reals) {
+                    if (!Array.isArray(object.reals))
+                        throw TypeError(".fk_data.EventDetails.reals: array expected");
+                    message.reals = [];
+                    for (var i = 0; i < object.reals.length; ++i)
+                        message.reals[i] = Number(object.reals[i]);
+                }
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from an EventDetails message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof fk_data.EventDetails
+             * @static
+             * @param {fk_data.EventDetails} message EventDetails
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            EventDetails.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults) {
+                    object.integers = [];
+                    object.reals = [];
+                }
+                if (options.defaults)
+                    object.data = options.bytes === String ? "" : [];
+                if (message.data != null && message.hasOwnProperty("data"))
+                    object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
+                if (message.integers && message.integers.length) {
+                    object.integers = [];
+                    for (var j = 0; j < message.integers.length; ++j)
+                        object.integers[j] = message.integers[j];
+                }
+                if (message.reals && message.reals.length) {
+                    object.reals = [];
+                    for (var j = 0; j < message.reals.length; ++j)
+                        object.reals[j] = options.json && !isFinite(message.reals[j]) ? String(message.reals[j]) : message.reals[j];
+                }
+                return object;
+            };
+    
+            /**
+             * Converts this EventDetails to JSON.
+             * @function toJSON
+             * @memberof fk_data.EventDetails
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            EventDetails.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            return EventDetails;
+        })();
+    
+        fk_data.Event = (function() {
+    
+            /**
+             * Properties of an Event.
+             * @memberof fk_data
+             * @interface IEvent
+             * @property {fk_data.EventSystem|null} [system] Event system
+             * @property {fk_data.Severity|null} [severity] Event severity
+             * @property {number|null} [code] Event code
+             * @property {number|null} [time] Event time
+             * @property {fk_data.IEventDetails|null} [details] Event details
+             * @property {Uint8Array|null} [debug] Event debug
+             */
+    
+            /**
+             * Constructs a new Event.
+             * @memberof fk_data
+             * @classdesc Represents an Event.
+             * @implements IEvent
+             * @constructor
+             * @param {fk_data.IEvent=} [properties] Properties to set
+             */
+            function Event(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * Event system.
+             * @member {fk_data.EventSystem} system
+             * @memberof fk_data.Event
+             * @instance
+             */
+            Event.prototype.system = 0;
+    
+            /**
+             * Event severity.
+             * @member {fk_data.Severity} severity
+             * @memberof fk_data.Event
+             * @instance
+             */
+            Event.prototype.severity = 0;
+    
+            /**
+             * Event code.
+             * @member {number} code
+             * @memberof fk_data.Event
+             * @instance
+             */
+            Event.prototype.code = 0;
+    
+            /**
+             * Event time.
+             * @member {number} time
+             * @memberof fk_data.Event
+             * @instance
+             */
+            Event.prototype.time = 0;
+    
+            /**
+             * Event details.
+             * @member {fk_data.IEventDetails|null|undefined} details
+             * @memberof fk_data.Event
+             * @instance
+             */
+            Event.prototype.details = null;
+    
+            /**
+             * Event debug.
+             * @member {Uint8Array} debug
+             * @memberof fk_data.Event
+             * @instance
+             */
+            Event.prototype.debug = $util.newBuffer([]);
+    
+            /**
+             * Creates a new Event instance using the specified properties.
+             * @function create
+             * @memberof fk_data.Event
+             * @static
+             * @param {fk_data.IEvent=} [properties] Properties to set
+             * @returns {fk_data.Event} Event instance
+             */
+            Event.create = function create(properties) {
+                return new Event(properties);
+            };
+    
+            /**
+             * Encodes the specified Event message. Does not implicitly {@link fk_data.Event.verify|verify} messages.
+             * @function encode
+             * @memberof fk_data.Event
+             * @static
+             * @param {fk_data.IEvent} message Event message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Event.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.system != null && message.hasOwnProperty("system"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.system);
+                if (message.severity != null && message.hasOwnProperty("severity"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.severity);
+                if (message.code != null && message.hasOwnProperty("code"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.code);
+                if (message.time != null && message.hasOwnProperty("time"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.time);
+                if (message.details != null && message.hasOwnProperty("details"))
+                    $root.fk_data.EventDetails.encode(message.details, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                if (message.debug != null && message.hasOwnProperty("debug"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.debug);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified Event message, length delimited. Does not implicitly {@link fk_data.Event.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof fk_data.Event
+             * @static
+             * @param {fk_data.IEvent} message Event message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Event.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes an Event message from the specified reader or buffer.
+             * @function decode
+             * @memberof fk_data.Event
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {fk_data.Event} Event
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Event.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.fk_data.Event();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.system = reader.int32();
+                        break;
+                    case 2:
+                        message.severity = reader.int32();
+                        break;
+                    case 3:
+                        message.code = reader.uint32();
                         break;
                     case 4:
+                        message.time = reader.uint32();
+                        break;
+                    case 5:
+                        message.details = $root.fk_data.EventDetails.decode(reader, reader.uint32());
+                        break;
+                    case 6:
                         message.debug = reader.bytes();
                         break;
                     default:
@@ -6935,41 +7287,65 @@
             };
     
             /**
-             * Decodes a Fault message from the specified reader or buffer, length delimited.
+             * Decodes an Event message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof fk_data.Fault
+             * @memberof fk_data.Event
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {fk_data.Fault} Fault
+             * @returns {fk_data.Event} Event
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            Fault.decodeDelimited = function decodeDelimited(reader) {
+            Event.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
     
             /**
-             * Verifies a Fault message.
+             * Verifies an Event message.
              * @function verify
-             * @memberof fk_data.Fault
+             * @memberof fk_data.Event
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            Fault.verify = function verify(message) {
+            Event.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.time != null && message.hasOwnProperty("time"))
-                    if (!$util.isInteger(message.time))
-                        return "time: integer expected";
+                if (message.system != null && message.hasOwnProperty("system"))
+                    switch (message.system) {
+                    default:
+                        return "system: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        break;
+                    }
+                if (message.severity != null && message.hasOwnProperty("severity"))
+                    switch (message.severity) {
+                    default:
+                        return "severity: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
                 if (message.code != null && message.hasOwnProperty("code"))
                     if (!$util.isInteger(message.code))
                         return "code: integer expected";
-                if (message.description != null && message.hasOwnProperty("description"))
-                    if (!$util.isString(message.description))
-                        return "description: string expected";
+                if (message.time != null && message.hasOwnProperty("time"))
+                    if (!$util.isInteger(message.time))
+                        return "time: integer expected";
+                if (message.details != null && message.hasOwnProperty("details")) {
+                    var error = $root.fk_data.EventDetails.verify(message.details);
+                    if (error)
+                        return "details." + error;
+                }
                 if (message.debug != null && message.hasOwnProperty("debug"))
                     if (!(message.debug && typeof message.debug.length === "number" || $util.isString(message.debug)))
                         return "debug: buffer expected";
@@ -6977,23 +7353,70 @@
             };
     
             /**
-             * Creates a Fault message from a plain object. Also converts values to their respective internal types.
+             * Creates an Event message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof fk_data.Fault
+             * @memberof fk_data.Event
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {fk_data.Fault} Fault
+             * @returns {fk_data.Event} Event
              */
-            Fault.fromObject = function fromObject(object) {
-                if (object instanceof $root.fk_data.Fault)
+            Event.fromObject = function fromObject(object) {
+                if (object instanceof $root.fk_data.Event)
                     return object;
-                var message = new $root.fk_data.Fault();
-                if (object.time != null)
-                    message.time = object.time >>> 0;
+                var message = new $root.fk_data.Event();
+                switch (object.system) {
+                case "EVENT_SYSTEM_NONE":
+                case 0:
+                    message.system = 0;
+                    break;
+                case "EVENT_SYSTEM_RESTART":
+                case 1:
+                    message.system = 1;
+                    break;
+                case "EVENT_SYSTEM_BATTERY":
+                case 2:
+                    message.system = 2;
+                    break;
+                case "EVENT_SYSTEM_MEMORY":
+                case 3:
+                    message.system = 3;
+                    break;
+                case "EVENT_SYSTEM_SENSOR":
+                case 4:
+                    message.system = 4;
+                    break;
+                case "EVENT_SYSTEM_WIFI":
+                case 5:
+                    message.system = 5;
+                    break;
+                case "EVENT_SYSTEM_LORA":
+                case 6:
+                    message.system = 6;
+                    break;
+                }
+                switch (object.severity) {
+                case "SEVERITY_INFO":
+                case 0:
+                    message.severity = 0;
+                    break;
+                case "SEVERITY_WARNING":
+                case 1:
+                    message.severity = 1;
+                    break;
+                case "SEVERITY_ERROR":
+                case 2:
+                    message.severity = 2;
+                    break;
+                }
                 if (object.code != null)
                     message.code = object.code >>> 0;
-                if (object.description != null)
-                    message.description = String(object.description);
+                if (object.time != null)
+                    message.time = object.time >>> 0;
+                if (object.details != null) {
+                    if (typeof object.details !== "object")
+                        throw TypeError(".fk_data.Event.details: object expected");
+                    message.details = $root.fk_data.EventDetails.fromObject(object.details);
+                }
                 if (object.debug != null)
                     if (typeof object.debug === "string")
                         $util.base64.decode(object.debug, message.debug = $util.newBuffer($util.base64.length(object.debug)), 0);
@@ -7003,47 +7426,53 @@
             };
     
             /**
-             * Creates a plain object from a Fault message. Also converts values to other types if specified.
+             * Creates a plain object from an Event message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof fk_data.Fault
+             * @memberof fk_data.Event
              * @static
-             * @param {fk_data.Fault} message Fault
+             * @param {fk_data.Event} message Event
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            Fault.toObject = function toObject(message, options) {
+            Event.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
                 if (options.defaults) {
-                    object.time = 0;
+                    object.system = options.enums === String ? "EVENT_SYSTEM_NONE" : 0;
+                    object.severity = options.enums === String ? "SEVERITY_INFO" : 0;
                     object.code = 0;
-                    object.description = "";
+                    object.time = 0;
+                    object.details = null;
                     object.debug = options.bytes === String ? "" : [];
                 }
-                if (message.time != null && message.hasOwnProperty("time"))
-                    object.time = message.time;
+                if (message.system != null && message.hasOwnProperty("system"))
+                    object.system = options.enums === String ? $root.fk_data.EventSystem[message.system] : message.system;
+                if (message.severity != null && message.hasOwnProperty("severity"))
+                    object.severity = options.enums === String ? $root.fk_data.Severity[message.severity] : message.severity;
                 if (message.code != null && message.hasOwnProperty("code"))
                     object.code = message.code;
-                if (message.description != null && message.hasOwnProperty("description"))
-                    object.description = message.description;
+                if (message.time != null && message.hasOwnProperty("time"))
+                    object.time = message.time;
+                if (message.details != null && message.hasOwnProperty("details"))
+                    object.details = $root.fk_data.EventDetails.toObject(message.details, options);
                 if (message.debug != null && message.hasOwnProperty("debug"))
                     object.debug = options.bytes === String ? $util.base64.encode(message.debug, 0, message.debug.length) : options.bytes === Array ? Array.prototype.slice.call(message.debug) : message.debug;
                 return object;
             };
     
             /**
-             * Converts this Fault to JSON.
+             * Converts this Event to JSON.
              * @function toJSON
-             * @memberof fk_data.Fault
+             * @memberof fk_data.Event
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            Fault.prototype.toJSON = function toJSON() {
+            Event.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
     
-            return Fault;
+            return Event;
         })();
     
         fk_data.DataRecord = (function() {
@@ -7066,13 +7495,13 @@
              * @property {fk_data.ILoraSettings|null} [lora] DataRecord lora
              * @property {fk_data.INetworkSettings|null} [network] DataRecord network
              * @property {fk_data.ITransmissionSettings|null} [transmission] DataRecord transmission
-             * @property {Array.<fk_data.IFault>|null} [faults] DataRecord faults
+             * @property {Array.<fk_data.IEvent>|null} [events] DataRecord events
              */
     
             /**
              * Constructs a new DataRecord.
              * @memberof fk_data
-             * @classdesc I may break this into a MetaRecord.
+             * @classdesc Represents a DataRecord.
              * @implements IDataRecord
              * @constructor
              * @param {fk_data.IDataRecord=} [properties] Properties to set
@@ -7080,7 +7509,7 @@
             function DataRecord(properties) {
                 this.logs = [];
                 this.modules = [];
-                this.faults = [];
+                this.events = [];
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -7200,12 +7629,12 @@
             DataRecord.prototype.transmission = null;
     
             /**
-             * DataRecord faults.
-             * @member {Array.<fk_data.IFault>} faults
+             * DataRecord events.
+             * @member {Array.<fk_data.IEvent>} events
              * @memberof fk_data.DataRecord
              * @instance
              */
-            DataRecord.prototype.faults = $util.emptyArray;
+            DataRecord.prototype.events = $util.emptyArray;
     
             /**
              * Creates a new DataRecord instance using the specified properties.
@@ -7261,9 +7690,9 @@
                         $root.fk_data.LogMessage.encode(message.logs[i], writer.uint32(/* id 13, wireType 2 =*/106).fork()).ldelim();
                 if (message.transmission != null && message.hasOwnProperty("transmission"))
                     $root.fk_data.TransmissionSettings.encode(message.transmission, writer.uint32(/* id 14, wireType 2 =*/114).fork()).ldelim();
-                if (message.faults != null && message.faults.length)
-                    for (var i = 0; i < message.faults.length; ++i)
-                        $root.fk_data.Fault.encode(message.faults[i], writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
+                if (message.events != null && message.events.length)
+                    for (var i = 0; i < message.events.length; ++i)
+                        $root.fk_data.Event.encode(message.events[i], writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
                 return writer;
             };
     
@@ -7345,9 +7774,9 @@
                         message.transmission = $root.fk_data.TransmissionSettings.decode(reader, reader.uint32());
                         break;
                     case 15:
-                        if (!(message.faults && message.faults.length))
-                            message.faults = [];
-                        message.faults.push($root.fk_data.Fault.decode(reader, reader.uint32()));
+                        if (!(message.events && message.events.length))
+                            message.events = [];
+                        message.events.push($root.fk_data.Event.decode(reader, reader.uint32()));
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -7460,13 +7889,13 @@
                     if (error)
                         return "transmission." + error;
                 }
-                if (message.faults != null && message.hasOwnProperty("faults")) {
-                    if (!Array.isArray(message.faults))
-                        return "faults: array expected";
-                    for (var i = 0; i < message.faults.length; ++i) {
-                        var error = $root.fk_data.Fault.verify(message.faults[i]);
+                if (message.events != null && message.hasOwnProperty("events")) {
+                    if (!Array.isArray(message.events))
+                        return "events: array expected";
+                    for (var i = 0; i < message.events.length; ++i) {
+                        var error = $root.fk_data.Event.verify(message.events[i]);
                         if (error)
-                            return "faults." + error;
+                            return "events." + error;
                     }
                 }
                 return null;
@@ -7568,14 +7997,14 @@
                         throw TypeError(".fk_data.DataRecord.transmission: object expected");
                     message.transmission = $root.fk_data.TransmissionSettings.fromObject(object.transmission);
                 }
-                if (object.faults) {
-                    if (!Array.isArray(object.faults))
-                        throw TypeError(".fk_data.DataRecord.faults: array expected");
-                    message.faults = [];
-                    for (var i = 0; i < object.faults.length; ++i) {
-                        if (typeof object.faults[i] !== "object")
-                            throw TypeError(".fk_data.DataRecord.faults: object expected");
-                        message.faults[i] = $root.fk_data.Fault.fromObject(object.faults[i]);
+                if (object.events) {
+                    if (!Array.isArray(object.events))
+                        throw TypeError(".fk_data.DataRecord.events: array expected");
+                    message.events = [];
+                    for (var i = 0; i < object.events.length; ++i) {
+                        if (typeof object.events[i] !== "object")
+                            throw TypeError(".fk_data.DataRecord.events: object expected");
+                        message.events[i] = $root.fk_data.Event.fromObject(object.events[i]);
                     }
                 }
                 return message;
@@ -7597,7 +8026,7 @@
                 if (options.arrays || options.defaults) {
                     object.modules = [];
                     object.logs = [];
-                    object.faults = [];
+                    object.events = [];
                 }
                 if (options.defaults) {
                     object.loggedReading = null;
@@ -7654,10 +8083,10 @@
                 }
                 if (message.transmission != null && message.hasOwnProperty("transmission"))
                     object.transmission = $root.fk_data.TransmissionSettings.toObject(message.transmission, options);
-                if (message.faults && message.faults.length) {
-                    object.faults = [];
-                    for (var j = 0; j < message.faults.length; ++j)
-                        object.faults[j] = $root.fk_data.Fault.toObject(message.faults[j], options);
+                if (message.events && message.events.length) {
+                    object.events = [];
+                    for (var j = 0; j < message.events.length; ++j)
+                        object.events[j] = $root.fk_data.Event.toObject(message.events[j], options);
                 }
                 return object;
             };

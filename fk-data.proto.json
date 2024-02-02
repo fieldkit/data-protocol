@@ -569,23 +569,67 @@
             }
           }
         },
-        "Fault": {
+        "EventSystem": {
+          "values": {
+            "EVENT_SYSTEM_NONE": 0,
+            "EVENT_SYSTEM_RESTART": 1,
+            "EVENT_SYSTEM_BATTERY": 2,
+            "EVENT_SYSTEM_MEMORY": 3,
+            "EVENT_SYSTEM_SENSOR": 4,
+            "EVENT_SYSTEM_WIFI": 5,
+            "EVENT_SYSTEM_LORA": 6
+          }
+        },
+        "Severity": {
+          "values": {
+            "SEVERITY_INFO": 0,
+            "SEVERITY_WARNING": 1,
+            "SEVERITY_ERROR": 2
+          }
+        },
+        "EventDetails": {
           "fields": {
-            "time": {
-              "type": "uint32",
+            "data": {
+              "type": "bytes",
               "id": 1
+            },
+            "integers": {
+              "rule": "repeated",
+              "type": "int32",
+              "id": 2
+            },
+            "reals": {
+              "rule": "repeated",
+              "type": "float",
+              "id": 3
+            }
+          }
+        },
+        "Event": {
+          "fields": {
+            "system": {
+              "type": "EventSystem",
+              "id": 1
+            },
+            "severity": {
+              "type": "Severity",
+              "id": 2
             },
             "code": {
               "type": "uint32",
-              "id": 2
-            },
-            "description": {
-              "type": "string",
               "id": 3
+            },
+            "time": {
+              "type": "uint32",
+              "id": 4
+            },
+            "details": {
+              "type": "EventDetails",
+              "id": 5
             },
             "debug": {
               "type": "bytes",
-              "id": 4
+              "id": 6
             }
           }
         },
@@ -649,9 +693,9 @@
               "type": "TransmissionSettings",
               "id": 14
             },
-            "faults": {
+            "events": {
               "rule": "repeated",
-              "type": "Fault",
+              "type": "Event",
               "id": 15
             }
           }

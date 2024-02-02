@@ -41,6 +41,48 @@ class ConditionFlags extends $pb.ProtobufEnum {
   const ConditionFlags._($core.int v, $core.String n) : super(v, n);
 }
 
+class EventSystem extends $pb.ProtobufEnum {
+  static const EventSystem EVENT_SYSTEM_NONE = EventSystem._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EVENT_SYSTEM_NONE');
+  static const EventSystem EVENT_SYSTEM_RESTART = EventSystem._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EVENT_SYSTEM_RESTART');
+  static const EventSystem EVENT_SYSTEM_BATTERY = EventSystem._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EVENT_SYSTEM_BATTERY');
+  static const EventSystem EVENT_SYSTEM_MEMORY = EventSystem._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EVENT_SYSTEM_MEMORY');
+  static const EventSystem EVENT_SYSTEM_SENSOR = EventSystem._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EVENT_SYSTEM_SENSOR');
+  static const EventSystem EVENT_SYSTEM_WIFI = EventSystem._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EVENT_SYSTEM_WIFI');
+  static const EventSystem EVENT_SYSTEM_LORA = EventSystem._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EVENT_SYSTEM_LORA');
+
+  static const $core.List<EventSystem> values = <EventSystem> [
+    EVENT_SYSTEM_NONE,
+    EVENT_SYSTEM_RESTART,
+    EVENT_SYSTEM_BATTERY,
+    EVENT_SYSTEM_MEMORY,
+    EVENT_SYSTEM_SENSOR,
+    EVENT_SYSTEM_WIFI,
+    EVENT_SYSTEM_LORA,
+  ];
+
+  static final $core.Map<$core.int, EventSystem> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static EventSystem? valueOf($core.int value) => _byValue[value];
+
+  const EventSystem._($core.int v, $core.String n) : super(v, n);
+}
+
+class Severity extends $pb.ProtobufEnum {
+  static const Severity SEVERITY_INFO = Severity._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'SEVERITY_INFO');
+  static const Severity SEVERITY_WARNING = Severity._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'SEVERITY_WARNING');
+  static const Severity SEVERITY_ERROR = Severity._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'SEVERITY_ERROR');
+
+  static const $core.List<Severity> values = <Severity> [
+    SEVERITY_INFO,
+    SEVERITY_WARNING,
+    SEVERITY_ERROR,
+  ];
+
+  static final $core.Map<$core.int, Severity> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static Severity? valueOf($core.int value) => _byValue[value];
+
+  const Severity._($core.int v, $core.String n) : super(v, n);
+}
+
 class SignedRecordKind extends $pb.ProtobufEnum {
   static const SignedRecordKind SIGNED_RECORD_KIND_NONE = SignedRecordKind._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'SIGNED_RECORD_KIND_NONE');
   static const SignedRecordKind SIGNED_RECORD_KIND_MODULES = SignedRecordKind._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'SIGNED_RECORD_KIND_MODULES');

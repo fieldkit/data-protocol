@@ -196,6 +196,238 @@ public final class FkData {
   }
 
   /**
+   * Protobuf enum {@code fk_data.EventSystem}
+   */
+  public enum EventSystem
+      implements com.google.protobuf.Internal.EnumLite {
+    /**
+     * <code>EVENT_SYSTEM_NONE = 0;</code>
+     */
+    EVENT_SYSTEM_NONE(0),
+    /**
+     * <code>EVENT_SYSTEM_RESTART = 1;</code>
+     */
+    EVENT_SYSTEM_RESTART(1),
+    /**
+     * <code>EVENT_SYSTEM_BATTERY = 2;</code>
+     */
+    EVENT_SYSTEM_BATTERY(2),
+    /**
+     * <code>EVENT_SYSTEM_MEMORY = 3;</code>
+     */
+    EVENT_SYSTEM_MEMORY(3),
+    /**
+     * <code>EVENT_SYSTEM_SENSOR = 4;</code>
+     */
+    EVENT_SYSTEM_SENSOR(4),
+    /**
+     * <code>EVENT_SYSTEM_WIFI = 5;</code>
+     */
+    EVENT_SYSTEM_WIFI(5),
+    /**
+     * <code>EVENT_SYSTEM_LORA = 6;</code>
+     */
+    EVENT_SYSTEM_LORA(6),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>EVENT_SYSTEM_NONE = 0;</code>
+     */
+    public static final int EVENT_SYSTEM_NONE_VALUE = 0;
+    /**
+     * <code>EVENT_SYSTEM_RESTART = 1;</code>
+     */
+    public static final int EVENT_SYSTEM_RESTART_VALUE = 1;
+    /**
+     * <code>EVENT_SYSTEM_BATTERY = 2;</code>
+     */
+    public static final int EVENT_SYSTEM_BATTERY_VALUE = 2;
+    /**
+     * <code>EVENT_SYSTEM_MEMORY = 3;</code>
+     */
+    public static final int EVENT_SYSTEM_MEMORY_VALUE = 3;
+    /**
+     * <code>EVENT_SYSTEM_SENSOR = 4;</code>
+     */
+    public static final int EVENT_SYSTEM_SENSOR_VALUE = 4;
+    /**
+     * <code>EVENT_SYSTEM_WIFI = 5;</code>
+     */
+    public static final int EVENT_SYSTEM_WIFI_VALUE = 5;
+    /**
+     * <code>EVENT_SYSTEM_LORA = 6;</code>
+     */
+    public static final int EVENT_SYSTEM_LORA_VALUE = 6;
+
+
+    @java.lang.Override
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static EventSystem valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static EventSystem forNumber(int value) {
+      switch (value) {
+        case 0: return EVENT_SYSTEM_NONE;
+        case 1: return EVENT_SYSTEM_RESTART;
+        case 2: return EVENT_SYSTEM_BATTERY;
+        case 3: return EVENT_SYSTEM_MEMORY;
+        case 4: return EVENT_SYSTEM_SENSOR;
+        case 5: return EVENT_SYSTEM_WIFI;
+        case 6: return EVENT_SYSTEM_LORA;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EventSystem>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        EventSystem> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EventSystem>() {
+            @java.lang.Override
+            public EventSystem findValueByNumber(int number) {
+              return EventSystem.forNumber(number);
+            }
+          };
+
+    public static com.google.protobuf.Internal.EnumVerifier 
+        internalGetVerifier() {
+      return EventSystemVerifier.INSTANCE;
+    }
+
+    private static final class EventSystemVerifier implements 
+         com.google.protobuf.Internal.EnumVerifier { 
+            static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new EventSystemVerifier();
+            @java.lang.Override
+            public boolean isInRange(int number) {
+              return EventSystem.forNumber(number) != null;
+            }
+          };
+
+    private final int value;
+
+    private EventSystem(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:fk_data.EventSystem)
+  }
+
+  /**
+   * Protobuf enum {@code fk_data.Severity}
+   */
+  public enum Severity
+      implements com.google.protobuf.Internal.EnumLite {
+    /**
+     * <code>SEVERITY_INFO = 0;</code>
+     */
+    SEVERITY_INFO(0),
+    /**
+     * <code>SEVERITY_WARNING = 1;</code>
+     */
+    SEVERITY_WARNING(1),
+    /**
+     * <code>SEVERITY_ERROR = 2;</code>
+     */
+    SEVERITY_ERROR(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SEVERITY_INFO = 0;</code>
+     */
+    public static final int SEVERITY_INFO_VALUE = 0;
+    /**
+     * <code>SEVERITY_WARNING = 1;</code>
+     */
+    public static final int SEVERITY_WARNING_VALUE = 1;
+    /**
+     * <code>SEVERITY_ERROR = 2;</code>
+     */
+    public static final int SEVERITY_ERROR_VALUE = 2;
+
+
+    @java.lang.Override
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Severity valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static Severity forNumber(int value) {
+      switch (value) {
+        case 0: return SEVERITY_INFO;
+        case 1: return SEVERITY_WARNING;
+        case 2: return SEVERITY_ERROR;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Severity>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Severity> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Severity>() {
+            @java.lang.Override
+            public Severity findValueByNumber(int number) {
+              return Severity.forNumber(number);
+            }
+          };
+
+    public static com.google.protobuf.Internal.EnumVerifier 
+        internalGetVerifier() {
+      return SeverityVerifier.INSTANCE;
+    }
+
+    private static final class SeverityVerifier implements 
+         com.google.protobuf.Internal.EnumVerifier { 
+            static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new SeverityVerifier();
+            @java.lang.Override
+            public boolean isInRange(int number) {
+              return Severity.forNumber(number) != null;
+            }
+          };
+
+    private final int value;
+
+    private Severity(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:fk_data.Severity)
+  }
+
+  /**
    * Protobuf enum {@code fk_data.SignedRecordKind}
    */
   public enum SignedRecordKind
@@ -13923,245 +14155,297 @@ public final class FkData {
     }
   }
 
-  public interface FaultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:fk_data.Fault)
+  public interface EventDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.EventDetails)
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint32 time = 1;</code>
-     * @return The time.
+     * <code>bytes data = 1;</code>
+     * @return The data.
      */
-    int getTime();
+    com.google.protobuf.ByteString getData();
 
     /**
-     * <code>uint32 code = 2;</code>
-     * @return The code.
+     * <code>repeated int32 integers = 2;</code>
+     * @return A list containing the integers.
      */
-    int getCode();
+    java.util.List<java.lang.Integer> getIntegersList();
+    /**
+     * <code>repeated int32 integers = 2;</code>
+     * @return The count of integers.
+     */
+    int getIntegersCount();
+    /**
+     * <code>repeated int32 integers = 2;</code>
+     * @param index The index of the element to return.
+     * @return The integers at the given index.
+     */
+    int getIntegers(int index);
 
     /**
-     * <code>string description = 3;</code>
-     * @return The description.
+     * <code>repeated float reals = 3;</code>
+     * @return A list containing the reals.
      */
-    java.lang.String getDescription();
+    java.util.List<java.lang.Float> getRealsList();
     /**
-     * <code>string description = 3;</code>
-     * @return The bytes for description.
+     * <code>repeated float reals = 3;</code>
+     * @return The count of reals.
      */
-    com.google.protobuf.ByteString
-        getDescriptionBytes();
-
+    int getRealsCount();
     /**
-     * <code>bytes debug = 4;</code>
-     * @return The debug.
+     * <code>repeated float reals = 3;</code>
+     * @param index The index of the element to return.
+     * @return The reals at the given index.
      */
-    com.google.protobuf.ByteString getDebug();
+    float getReals(int index);
   }
   /**
-   * Protobuf type {@code fk_data.Fault}
+   * Protobuf type {@code fk_data.EventDetails}
    */
-  public  static final class Fault extends
+  public  static final class EventDetails extends
       com.google.protobuf.GeneratedMessageLite<
-          Fault, Fault.Builder> implements
-      // @@protoc_insertion_point(message_implements:fk_data.Fault)
-      FaultOrBuilder {
-    private Fault() {
-      description_ = "";
-      debug_ = com.google.protobuf.ByteString.EMPTY;
+          EventDetails, EventDetails.Builder> implements
+      // @@protoc_insertion_point(message_implements:fk_data.EventDetails)
+      EventDetailsOrBuilder {
+    private EventDetails() {
+      data_ = com.google.protobuf.ByteString.EMPTY;
+      integers_ = emptyIntList();
+      reals_ = emptyFloatList();
     }
-    public static final int TIME_FIELD_NUMBER = 1;
-    private int time_;
+    public static final int DATA_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString data_;
     /**
-     * <code>uint32 time = 1;</code>
-     * @return The time.
+     * <code>bytes data = 1;</code>
+     * @return The data.
      */
     @java.lang.Override
-    public int getTime() {
-      return time_;
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
     /**
-     * <code>uint32 time = 1;</code>
-     * @param value The time to set.
+     * <code>bytes data = 1;</code>
+     * @param value The data to set.
      */
-    private void setTime(int value) {
-      
-      time_ = value;
-    }
-    /**
-     * <code>uint32 time = 1;</code>
-     */
-    private void clearTime() {
-      
-      time_ = 0;
-    }
-
-    public static final int CODE_FIELD_NUMBER = 2;
-    private int code_;
-    /**
-     * <code>uint32 code = 2;</code>
-     * @return The code.
-     */
-    @java.lang.Override
-    public int getCode() {
-      return code_;
-    }
-    /**
-     * <code>uint32 code = 2;</code>
-     * @param value The code to set.
-     */
-    private void setCode(int value) {
-      
-      code_ = value;
-    }
-    /**
-     * <code>uint32 code = 2;</code>
-     */
-    private void clearCode() {
-      
-      code_ = 0;
-    }
-
-    public static final int DESCRIPTION_FIELD_NUMBER = 3;
-    private java.lang.String description_;
-    /**
-     * <code>string description = 3;</code>
-     * @return The description.
-     */
-    @java.lang.Override
-    public java.lang.String getDescription() {
-      return description_;
-    }
-    /**
-     * <code>string description = 3;</code>
-     * @return The bytes for description.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(description_);
-    }
-    /**
-     * <code>string description = 3;</code>
-     * @param value The description to set.
-     */
-    private void setDescription(
-        java.lang.String value) {
+    private void setData(com.google.protobuf.ByteString value) {
       value.getClass();
   
-      description_ = value;
+      data_ = value;
     }
     /**
-     * <code>string description = 3;</code>
+     * <code>bytes data = 1;</code>
      */
-    private void clearDescription() {
+    private void clearData() {
       
-      description_ = getDefaultInstance().getDescription();
-    }
-    /**
-     * <code>string description = 3;</code>
-     * @param value The bytes for description to set.
-     */
-    private void setDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      description_ = value.toStringUtf8();
-      
+      data_ = getDefaultInstance().getData();
     }
 
-    public static final int DEBUG_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString debug_;
+    public static final int INTEGERS_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.IntList integers_;
     /**
-     * <code>bytes debug = 4;</code>
-     * @return The debug.
+     * <code>repeated int32 integers = 2;</code>
+     * @return A list containing the integers.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getDebug() {
-      return debug_;
+    public java.util.List<java.lang.Integer>
+        getIntegersList() {
+      return integers_;
     }
     /**
-     * <code>bytes debug = 4;</code>
-     * @param value The debug to set.
+     * <code>repeated int32 integers = 2;</code>
+     * @return The count of integers.
      */
-    private void setDebug(com.google.protobuf.ByteString value) {
-      value.getClass();
-  
-      debug_ = value;
+    @java.lang.Override
+    public int getIntegersCount() {
+      return integers_.size();
     }
     /**
-     * <code>bytes debug = 4;</code>
+     * <code>repeated int32 integers = 2;</code>
+     * @param index The index of the element to return.
+     * @return The integers at the given index.
      */
-    private void clearDebug() {
-      
-      debug_ = getDefaultInstance().getDebug();
+    @java.lang.Override
+    public int getIntegers(int index) {
+      return integers_.getInt(index);
+    }
+    private int integersMemoizedSerializedSize = -1;
+    private void ensureIntegersIsMutable() {
+      if (!integers_.isModifiable()) {
+        integers_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(integers_);
+       }
+    }
+    /**
+     * <code>repeated int32 integers = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The integers to set.
+     */
+    private void setIntegers(
+        int index, int value) {
+      ensureIntegersIsMutable();
+      integers_.setInt(index, value);
+    }
+    /**
+     * <code>repeated int32 integers = 2;</code>
+     * @param value The integers to add.
+     */
+    private void addIntegers(int value) {
+      ensureIntegersIsMutable();
+      integers_.addInt(value);
+    }
+    /**
+     * <code>repeated int32 integers = 2;</code>
+     * @param values The integers to add.
+     */
+    private void addAllIntegers(
+        java.lang.Iterable<? extends java.lang.Integer> values) {
+      ensureIntegersIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, integers_);
+    }
+    /**
+     * <code>repeated int32 integers = 2;</code>
+     */
+    private void clearIntegers() {
+      integers_ = emptyIntList();
     }
 
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static final int REALS_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.FloatList reals_;
+    /**
+     * <code>repeated float reals = 3;</code>
+     * @return A list containing the reals.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getRealsList() {
+      return reals_;
+    }
+    /**
+     * <code>repeated float reals = 3;</code>
+     * @return The count of reals.
+     */
+    @java.lang.Override
+    public int getRealsCount() {
+      return reals_.size();
+    }
+    /**
+     * <code>repeated float reals = 3;</code>
+     * @param index The index of the element to return.
+     * @return The reals at the given index.
+     */
+    @java.lang.Override
+    public float getReals(int index) {
+      return reals_.getFloat(index);
+    }
+    private int realsMemoizedSerializedSize = -1;
+    private void ensureRealsIsMutable() {
+      if (!reals_.isModifiable()) {
+        reals_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(reals_);
+       }
+    }
+    /**
+     * <code>repeated float reals = 3;</code>
+     * @param index The index to set the value at.
+     * @param value The reals to set.
+     */
+    private void setReals(
+        int index, float value) {
+      ensureRealsIsMutable();
+      reals_.setFloat(index, value);
+    }
+    /**
+     * <code>repeated float reals = 3;</code>
+     * @param value The reals to add.
+     */
+    private void addReals(float value) {
+      ensureRealsIsMutable();
+      reals_.addFloat(value);
+    }
+    /**
+     * <code>repeated float reals = 3;</code>
+     * @param values The reals to add.
+     */
+    private void addAllReals(
+        java.lang.Iterable<? extends java.lang.Float> values) {
+      ensureRealsIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, reals_);
+    }
+    /**
+     * <code>repeated float reals = 3;</code>
+     */
+    private void clearReals() {
+      reals_ = emptyFloatList();
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(byte[] data)
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, data, extensionRegistry);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(java.io.InputStream input)
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseDelimitedFrom(java.io.InputStream input)
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseDelimitedFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageLite.parseFrom(
           DEFAULT_INSTANCE, input);
     }
-    public static org.conservify.fieldkit.data.pb.FkData.Fault parseFrom(
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14172,158 +14456,191 @@ public final class FkData {
     public static Builder newBuilder() {
       return (Builder) DEFAULT_INSTANCE.createBuilder();
     }
-    public static Builder newBuilder(org.conservify.fieldkit.data.pb.FkData.Fault prototype) {
+    public static Builder newBuilder(org.conservify.fieldkit.data.pb.FkData.EventDetails prototype) {
       return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
-     * Protobuf type {@code fk_data.Fault}
+     * Protobuf type {@code fk_data.EventDetails}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
-          org.conservify.fieldkit.data.pb.FkData.Fault, Builder> implements
-        // @@protoc_insertion_point(builder_implements:fk_data.Fault)
-        org.conservify.fieldkit.data.pb.FkData.FaultOrBuilder {
-      // Construct using org.conservify.fieldkit.data.pb.FkData.Fault.newBuilder()
+          org.conservify.fieldkit.data.pb.FkData.EventDetails, Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.EventDetails)
+        org.conservify.fieldkit.data.pb.FkData.EventDetailsOrBuilder {
+      // Construct using org.conservify.fieldkit.data.pb.FkData.EventDetails.newBuilder()
       private Builder() {
         super(DEFAULT_INSTANCE);
       }
 
 
       /**
-       * <code>uint32 time = 1;</code>
-       * @return The time.
+       * <code>bytes data = 1;</code>
+       * @return The data.
        */
       @java.lang.Override
-      public int getTime() {
-        return instance.getTime();
+      public com.google.protobuf.ByteString getData() {
+        return instance.getData();
       }
       /**
-       * <code>uint32 time = 1;</code>
-       * @param value The time to set.
+       * <code>bytes data = 1;</code>
+       * @param value The data to set.
        * @return This builder for chaining.
        */
-      public Builder setTime(int value) {
+      public Builder setData(com.google.protobuf.ByteString value) {
         copyOnWrite();
-        instance.setTime(value);
+        instance.setData(value);
         return this;
       }
       /**
-       * <code>uint32 time = 1;</code>
+       * <code>bytes data = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTime() {
+      public Builder clearData() {
         copyOnWrite();
-        instance.clearTime();
+        instance.clearData();
         return this;
       }
 
       /**
-       * <code>uint32 code = 2;</code>
-       * @return The code.
+       * <code>repeated int32 integers = 2;</code>
+       * @return A list containing the integers.
        */
       @java.lang.Override
-      public int getCode() {
-        return instance.getCode();
+      public java.util.List<java.lang.Integer>
+          getIntegersList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getIntegersList());
       }
       /**
-       * <code>uint32 code = 2;</code>
-       * @param value The code to set.
+       * <code>repeated int32 integers = 2;</code>
+       * @return The count of integers.
+       */
+      @java.lang.Override
+      public int getIntegersCount() {
+        return instance.getIntegersCount();
+      }
+      /**
+       * <code>repeated int32 integers = 2;</code>
+       * @param index The index of the element to return.
+       * @return The integers at the given index.
+       */
+      @java.lang.Override
+      public int getIntegers(int index) {
+        return instance.getIntegers(index);
+      }
+      /**
+       * <code>repeated int32 integers = 2;</code>
+       * @param value The integers to set.
        * @return This builder for chaining.
        */
-      public Builder setCode(int value) {
+      public Builder setIntegers(
+          int index, int value) {
         copyOnWrite();
-        instance.setCode(value);
+        instance.setIntegers(index, value);
         return this;
       }
       /**
-       * <code>uint32 code = 2;</code>
+       * <code>repeated int32 integers = 2;</code>
+       * @param value The integers to add.
        * @return This builder for chaining.
        */
-      public Builder clearCode() {
+      public Builder addIntegers(int value) {
         copyOnWrite();
-        instance.clearCode();
+        instance.addIntegers(value);
+        return this;
+      }
+      /**
+       * <code>repeated int32 integers = 2;</code>
+       * @param values The integers to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllIntegers(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        copyOnWrite();
+        instance.addAllIntegers(values);
+        return this;
+      }
+      /**
+       * <code>repeated int32 integers = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIntegers() {
+        copyOnWrite();
+        instance.clearIntegers();
         return this;
       }
 
       /**
-       * <code>string description = 3;</code>
-       * @return The description.
+       * <code>repeated float reals = 3;</code>
+       * @return A list containing the reals.
        */
       @java.lang.Override
-      public java.lang.String getDescription() {
-        return instance.getDescription();
+      public java.util.List<java.lang.Float>
+          getRealsList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getRealsList());
       }
       /**
-       * <code>string description = 3;</code>
-       * @return The bytes for description.
+       * <code>repeated float reals = 3;</code>
+       * @return The count of reals.
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString
-          getDescriptionBytes() {
-        return instance.getDescriptionBytes();
+      public int getRealsCount() {
+        return instance.getRealsCount();
       }
       /**
-       * <code>string description = 3;</code>
-       * @param value The description to set.
+       * <code>repeated float reals = 3;</code>
+       * @param index The index of the element to return.
+       * @return The reals at the given index.
+       */
+      @java.lang.Override
+      public float getReals(int index) {
+        return instance.getReals(index);
+      }
+      /**
+       * <code>repeated float reals = 3;</code>
+       * @param value The reals to set.
        * @return This builder for chaining.
        */
-      public Builder setDescription(
-          java.lang.String value) {
+      public Builder setReals(
+          int index, float value) {
         copyOnWrite();
-        instance.setDescription(value);
+        instance.setReals(index, value);
         return this;
       }
       /**
-       * <code>string description = 3;</code>
+       * <code>repeated float reals = 3;</code>
+       * @param value The reals to add.
        * @return This builder for chaining.
        */
-      public Builder clearDescription() {
+      public Builder addReals(float value) {
         copyOnWrite();
-        instance.clearDescription();
+        instance.addReals(value);
         return this;
       }
       /**
-       * <code>string description = 3;</code>
-       * @param value The bytes for description to set.
+       * <code>repeated float reals = 3;</code>
+       * @param values The reals to add.
        * @return This builder for chaining.
        */
-      public Builder setDescriptionBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder addAllReals(
+          java.lang.Iterable<? extends java.lang.Float> values) {
         copyOnWrite();
-        instance.setDescriptionBytes(value);
+        instance.addAllReals(values);
+        return this;
+      }
+      /**
+       * <code>repeated float reals = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReals() {
+        copyOnWrite();
+        instance.clearReals();
         return this;
       }
 
-      /**
-       * <code>bytes debug = 4;</code>
-       * @return The debug.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getDebug() {
-        return instance.getDebug();
-      }
-      /**
-       * <code>bytes debug = 4;</code>
-       * @param value The debug to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDebug(com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setDebug(value);
-        return this;
-      }
-      /**
-       * <code>bytes debug = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDebug() {
-        copyOnWrite();
-        instance.clearDebug();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:fk_data.Fault)
+      // @@protoc_insertion_point(builder_scope:fk_data.EventDetails)
     }
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
@@ -14332,21 +14649,20 @@ public final class FkData {
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
         case NEW_MUTABLE_INSTANCE: {
-          return new org.conservify.fieldkit.data.pb.FkData.Fault();
+          return new org.conservify.fieldkit.data.pb.FkData.EventDetails();
         }
         case NEW_BUILDER: {
           return new Builder();
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
-              "time_",
-              "code_",
-              "description_",
-              "debug_",
+              "data_",
+              "integers_",
+              "reals_",
             };
             java.lang.String info =
-                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u000b\u0002\u000b" +
-                "\u0003\u0208\u0004\n";
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0002\u0000\u0001\n\u0002\'\u0003" +
+                "$";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -14354,13 +14670,13 @@ public final class FkData {
           return DEFAULT_INSTANCE;
         }
         case GET_PARSER: {
-          com.google.protobuf.Parser<org.conservify.fieldkit.data.pb.FkData.Fault> parser = PARSER;
+          com.google.protobuf.Parser<org.conservify.fieldkit.data.pb.FkData.EventDetails> parser = PARSER;
           if (parser == null) {
-            synchronized (org.conservify.fieldkit.data.pb.FkData.Fault.class) {
+            synchronized (org.conservify.fieldkit.data.pb.FkData.EventDetails.class) {
               parser = PARSER;
               if (parser == null) {
                 parser =
-                    new DefaultInstanceBasedParser<org.conservify.fieldkit.data.pb.FkData.Fault>(
+                    new DefaultInstanceBasedParser<org.conservify.fieldkit.data.pb.FkData.EventDetails>(
                         DEFAULT_INSTANCE);
                 PARSER = parser;
               }
@@ -14379,24 +14695,697 @@ public final class FkData {
     }
 
 
-    // @@protoc_insertion_point(class_scope:fk_data.Fault)
-    private static final org.conservify.fieldkit.data.pb.FkData.Fault DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:fk_data.EventDetails)
+    private static final org.conservify.fieldkit.data.pb.FkData.EventDetails DEFAULT_INSTANCE;
     static {
-      Fault defaultInstance = new Fault();
+      EventDetails defaultInstance = new EventDetails();
       // New instances are implicitly immutable so no need to make
       // immutable.
       DEFAULT_INSTANCE = defaultInstance;
       com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        Fault.class, defaultInstance);
+        EventDetails.class, defaultInstance);
     }
 
-    public static org.conservify.fieldkit.data.pb.FkData.Fault getDefaultInstance() {
+    public static org.conservify.fieldkit.data.pb.FkData.EventDetails getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static volatile com.google.protobuf.Parser<Fault> PARSER;
+    private static volatile com.google.protobuf.Parser<EventDetails> PARSER;
 
-    public static com.google.protobuf.Parser<Fault> parser() {
+    public static com.google.protobuf.Parser<EventDetails> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface EventOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fk_data.Event)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>.fk_data.EventSystem system = 1;</code>
+     * @return The enum numeric value on the wire for system.
+     */
+    int getSystemValue();
+    /**
+     * <code>.fk_data.EventSystem system = 1;</code>
+     * @return The system.
+     */
+    org.conservify.fieldkit.data.pb.FkData.EventSystem getSystem();
+
+    /**
+     * <code>.fk_data.Severity severity = 2;</code>
+     * @return The enum numeric value on the wire for severity.
+     */
+    int getSeverityValue();
+    /**
+     * <code>.fk_data.Severity severity = 2;</code>
+     * @return The severity.
+     */
+    org.conservify.fieldkit.data.pb.FkData.Severity getSeverity();
+
+    /**
+     * <code>uint32 code = 3;</code>
+     * @return The code.
+     */
+    int getCode();
+
+    /**
+     * <code>uint32 time = 4;</code>
+     * @return The time.
+     */
+    int getTime();
+
+    /**
+     * <code>.fk_data.EventDetails details = 5;</code>
+     * @return Whether the details field is set.
+     */
+    boolean hasDetails();
+    /**
+     * <code>.fk_data.EventDetails details = 5;</code>
+     * @return The details.
+     */
+    org.conservify.fieldkit.data.pb.FkData.EventDetails getDetails();
+
+    /**
+     * <code>bytes debug = 6;</code>
+     * @return The debug.
+     */
+    com.google.protobuf.ByteString getDebug();
+  }
+  /**
+   * Protobuf type {@code fk_data.Event}
+   */
+  public  static final class Event extends
+      com.google.protobuf.GeneratedMessageLite<
+          Event, Event.Builder> implements
+      // @@protoc_insertion_point(message_implements:fk_data.Event)
+      EventOrBuilder {
+    private Event() {
+      debug_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    public static final int SYSTEM_FIELD_NUMBER = 1;
+    private int system_;
+    /**
+     * <code>.fk_data.EventSystem system = 1;</code>
+     * @return The enum numeric value on the wire for system.
+     */
+    @java.lang.Override
+    public int getSystemValue() {
+      return system_;
+    }
+    /**
+     * <code>.fk_data.EventSystem system = 1;</code>
+     * @return The system.
+     */
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.EventSystem getSystem() {
+      org.conservify.fieldkit.data.pb.FkData.EventSystem result = org.conservify.fieldkit.data.pb.FkData.EventSystem.forNumber(system_);
+      return result == null ? org.conservify.fieldkit.data.pb.FkData.EventSystem.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.fk_data.EventSystem system = 1;</code>
+     * @param value The enum numeric value on the wire for system to set.
+     */
+    private void setSystemValue(int value) {
+        system_ = value;
+    }
+    /**
+     * <code>.fk_data.EventSystem system = 1;</code>
+     * @param value The system to set.
+     */
+    private void setSystem(org.conservify.fieldkit.data.pb.FkData.EventSystem value) {
+      system_ = value.getNumber();
+      
+    }
+    /**
+     * <code>.fk_data.EventSystem system = 1;</code>
+     */
+    private void clearSystem() {
+      
+      system_ = 0;
+    }
+
+    public static final int SEVERITY_FIELD_NUMBER = 2;
+    private int severity_;
+    /**
+     * <code>.fk_data.Severity severity = 2;</code>
+     * @return The enum numeric value on the wire for severity.
+     */
+    @java.lang.Override
+    public int getSeverityValue() {
+      return severity_;
+    }
+    /**
+     * <code>.fk_data.Severity severity = 2;</code>
+     * @return The severity.
+     */
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.Severity getSeverity() {
+      org.conservify.fieldkit.data.pb.FkData.Severity result = org.conservify.fieldkit.data.pb.FkData.Severity.forNumber(severity_);
+      return result == null ? org.conservify.fieldkit.data.pb.FkData.Severity.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.fk_data.Severity severity = 2;</code>
+     * @param value The enum numeric value on the wire for severity to set.
+     */
+    private void setSeverityValue(int value) {
+        severity_ = value;
+    }
+    /**
+     * <code>.fk_data.Severity severity = 2;</code>
+     * @param value The severity to set.
+     */
+    private void setSeverity(org.conservify.fieldkit.data.pb.FkData.Severity value) {
+      severity_ = value.getNumber();
+      
+    }
+    /**
+     * <code>.fk_data.Severity severity = 2;</code>
+     */
+    private void clearSeverity() {
+      
+      severity_ = 0;
+    }
+
+    public static final int CODE_FIELD_NUMBER = 3;
+    private int code_;
+    /**
+     * <code>uint32 code = 3;</code>
+     * @return The code.
+     */
+    @java.lang.Override
+    public int getCode() {
+      return code_;
+    }
+    /**
+     * <code>uint32 code = 3;</code>
+     * @param value The code to set.
+     */
+    private void setCode(int value) {
+      
+      code_ = value;
+    }
+    /**
+     * <code>uint32 code = 3;</code>
+     */
+    private void clearCode() {
+      
+      code_ = 0;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 4;
+    private int time_;
+    /**
+     * <code>uint32 time = 4;</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public int getTime() {
+      return time_;
+    }
+    /**
+     * <code>uint32 time = 4;</code>
+     * @param value The time to set.
+     */
+    private void setTime(int value) {
+      
+      time_ = value;
+    }
+    /**
+     * <code>uint32 time = 4;</code>
+     */
+    private void clearTime() {
+      
+      time_ = 0;
+    }
+
+    public static final int DETAILS_FIELD_NUMBER = 5;
+    private org.conservify.fieldkit.data.pb.FkData.EventDetails details_;
+    /**
+     * <code>.fk_data.EventDetails details = 5;</code>
+     */
+    @java.lang.Override
+    public boolean hasDetails() {
+      return details_ != null;
+    }
+    /**
+     * <code>.fk_data.EventDetails details = 5;</code>
+     */
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.EventDetails getDetails() {
+      return details_ == null ? org.conservify.fieldkit.data.pb.FkData.EventDetails.getDefaultInstance() : details_;
+    }
+    /**
+     * <code>.fk_data.EventDetails details = 5;</code>
+     */
+    private void setDetails(org.conservify.fieldkit.data.pb.FkData.EventDetails value) {
+      value.getClass();
+  details_ = value;
+      
+      }
+    /**
+     * <code>.fk_data.EventDetails details = 5;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeDetails(org.conservify.fieldkit.data.pb.FkData.EventDetails value) {
+      value.getClass();
+  if (details_ != null &&
+          details_ != org.conservify.fieldkit.data.pb.FkData.EventDetails.getDefaultInstance()) {
+        details_ =
+          org.conservify.fieldkit.data.pb.FkData.EventDetails.newBuilder(details_).mergeFrom(value).buildPartial();
+      } else {
+        details_ = value;
+      }
+      
+    }
+    /**
+     * <code>.fk_data.EventDetails details = 5;</code>
+     */
+    private void clearDetails() {  details_ = null;
+      
+    }
+
+    public static final int DEBUG_FIELD_NUMBER = 6;
+    private com.google.protobuf.ByteString debug_;
+    /**
+     * <code>bytes debug = 6;</code>
+     * @return The debug.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getDebug() {
+      return debug_;
+    }
+    /**
+     * <code>bytes debug = 6;</code>
+     * @param value The debug to set.
+     */
+    private void setDebug(com.google.protobuf.ByteString value) {
+      value.getClass();
+  
+      debug_ = value;
+    }
+    /**
+     * <code>bytes debug = 6;</code>
+     */
+    private void clearDebug() {
+      
+      debug_ = getDefaultInstance().getDebug();
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static org.conservify.fieldkit.data.pb.FkData.Event parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(org.conservify.fieldkit.data.pb.FkData.Event prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code fk_data.Event}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          org.conservify.fieldkit.data.pb.FkData.Event, Builder> implements
+        // @@protoc_insertion_point(builder_implements:fk_data.Event)
+        org.conservify.fieldkit.data.pb.FkData.EventOrBuilder {
+      // Construct using org.conservify.fieldkit.data.pb.FkData.Event.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>.fk_data.EventSystem system = 1;</code>
+       * @return The enum numeric value on the wire for system.
+       */
+      @java.lang.Override
+      public int getSystemValue() {
+        return instance.getSystemValue();
+      }
+      /**
+       * <code>.fk_data.EventSystem system = 1;</code>
+       * @param value The system to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSystemValue(int value) {
+        copyOnWrite();
+        instance.setSystemValue(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.EventSystem system = 1;</code>
+       * @return The system.
+       */
+      @java.lang.Override
+      public org.conservify.fieldkit.data.pb.FkData.EventSystem getSystem() {
+        return instance.getSystem();
+      }
+      /**
+       * <code>.fk_data.EventSystem system = 1;</code>
+       * @param value The enum numeric value on the wire for system to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSystem(org.conservify.fieldkit.data.pb.FkData.EventSystem value) {
+        copyOnWrite();
+        instance.setSystem(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.EventSystem system = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSystem() {
+        copyOnWrite();
+        instance.clearSystem();
+        return this;
+      }
+
+      /**
+       * <code>.fk_data.Severity severity = 2;</code>
+       * @return The enum numeric value on the wire for severity.
+       */
+      @java.lang.Override
+      public int getSeverityValue() {
+        return instance.getSeverityValue();
+      }
+      /**
+       * <code>.fk_data.Severity severity = 2;</code>
+       * @param value The severity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSeverityValue(int value) {
+        copyOnWrite();
+        instance.setSeverityValue(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.Severity severity = 2;</code>
+       * @return The severity.
+       */
+      @java.lang.Override
+      public org.conservify.fieldkit.data.pb.FkData.Severity getSeverity() {
+        return instance.getSeverity();
+      }
+      /**
+       * <code>.fk_data.Severity severity = 2;</code>
+       * @param value The enum numeric value on the wire for severity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSeverity(org.conservify.fieldkit.data.pb.FkData.Severity value) {
+        copyOnWrite();
+        instance.setSeverity(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.Severity severity = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSeverity() {
+        copyOnWrite();
+        instance.clearSeverity();
+        return this;
+      }
+
+      /**
+       * <code>uint32 code = 3;</code>
+       * @return The code.
+       */
+      @java.lang.Override
+      public int getCode() {
+        return instance.getCode();
+      }
+      /**
+       * <code>uint32 code = 3;</code>
+       * @param value The code to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCode(int value) {
+        copyOnWrite();
+        instance.setCode(value);
+        return this;
+      }
+      /**
+       * <code>uint32 code = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCode() {
+        copyOnWrite();
+        instance.clearCode();
+        return this;
+      }
+
+      /**
+       * <code>uint32 time = 4;</code>
+       * @return The time.
+       */
+      @java.lang.Override
+      public int getTime() {
+        return instance.getTime();
+      }
+      /**
+       * <code>uint32 time = 4;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTime(int value) {
+        copyOnWrite();
+        instance.setTime(value);
+        return this;
+      }
+      /**
+       * <code>uint32 time = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTime() {
+        copyOnWrite();
+        instance.clearTime();
+        return this;
+      }
+
+      /**
+       * <code>.fk_data.EventDetails details = 5;</code>
+       */
+      @java.lang.Override
+      public boolean hasDetails() {
+        return instance.hasDetails();
+      }
+      /**
+       * <code>.fk_data.EventDetails details = 5;</code>
+       */
+      @java.lang.Override
+      public org.conservify.fieldkit.data.pb.FkData.EventDetails getDetails() {
+        return instance.getDetails();
+      }
+      /**
+       * <code>.fk_data.EventDetails details = 5;</code>
+       */
+      public Builder setDetails(org.conservify.fieldkit.data.pb.FkData.EventDetails value) {
+        copyOnWrite();
+        instance.setDetails(value);
+        return this;
+        }
+      /**
+       * <code>.fk_data.EventDetails details = 5;</code>
+       */
+      public Builder setDetails(
+          org.conservify.fieldkit.data.pb.FkData.EventDetails.Builder builderForValue) {
+        copyOnWrite();
+        instance.setDetails(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>.fk_data.EventDetails details = 5;</code>
+       */
+      public Builder mergeDetails(org.conservify.fieldkit.data.pb.FkData.EventDetails value) {
+        copyOnWrite();
+        instance.mergeDetails(value);
+        return this;
+      }
+      /**
+       * <code>.fk_data.EventDetails details = 5;</code>
+       */
+      public Builder clearDetails() {  copyOnWrite();
+        instance.clearDetails();
+        return this;
+      }
+
+      /**
+       * <code>bytes debug = 6;</code>
+       * @return The debug.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getDebug() {
+        return instance.getDebug();
+      }
+      /**
+       * <code>bytes debug = 6;</code>
+       * @param value The debug to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDebug(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setDebug(value);
+        return this;
+      }
+      /**
+       * <code>bytes debug = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDebug() {
+        copyOnWrite();
+        instance.clearDebug();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:fk_data.Event)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new org.conservify.fieldkit.data.pb.FkData.Event();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "system_",
+              "severity_",
+              "code_",
+              "time_",
+              "details_",
+              "debug_",
+            };
+            java.lang.String info =
+                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\f\u0002\f\u0003" +
+                "\u000b\u0004\u000b\u0005\t\u0006\n";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<org.conservify.fieldkit.data.pb.FkData.Event> parser = PARSER;
+          if (parser == null) {
+            synchronized (org.conservify.fieldkit.data.pb.FkData.Event.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<org.conservify.fieldkit.data.pb.FkData.Event>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:fk_data.Event)
+    private static final org.conservify.fieldkit.data.pb.FkData.Event DEFAULT_INSTANCE;
+    static {
+      Event defaultInstance = new Event();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Event.class, defaultInstance);
+    }
+
+    public static org.conservify.fieldkit.data.pb.FkData.Event getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Event> PARSER;
+
+    public static com.google.protobuf.Parser<Event> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -14561,25 +15550,20 @@ public final class FkData {
     org.conservify.fieldkit.data.pb.FkData.TransmissionSettings getTransmission();
 
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    java.util.List<org.conservify.fieldkit.data.pb.FkData.Fault> 
-        getFaultsList();
+    java.util.List<org.conservify.fieldkit.data.pb.FkData.Event> 
+        getEventsList();
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    org.conservify.fieldkit.data.pb.FkData.Fault getFaults(int index);
+    org.conservify.fieldkit.data.pb.FkData.Event getEvents(int index);
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    int getFaultsCount();
+    int getEventsCount();
   }
   /**
-   * <pre>
-   **
-   * I may break this into a MetaRecord.
-   * </pre>
-   *
    * Protobuf type {@code fk_data.DataRecord}
    */
   public  static final class DataRecord extends
@@ -14590,7 +15574,7 @@ public final class FkData {
     private DataRecord() {
       logs_ = emptyProtobufList();
       modules_ = emptyProtobufList();
-      faults_ = emptyProtobufList();
+      events_ = emptyProtobufList();
     }
     public static final int LOGGEDREADING_FIELD_NUMBER = 1;
     private org.conservify.fieldkit.data.pb.FkData.LoggedReading loggedReading_;
@@ -15310,97 +16294,97 @@ public final class FkData {
       
     }
 
-    public static final int FAULTS_FIELD_NUMBER = 15;
-    private com.google.protobuf.Internal.ProtobufList<org.conservify.fieldkit.data.pb.FkData.Fault> faults_;
+    public static final int EVENTS_FIELD_NUMBER = 15;
+    private com.google.protobuf.Internal.ProtobufList<org.conservify.fieldkit.data.pb.FkData.Event> events_;
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
     @java.lang.Override
-    public java.util.List<org.conservify.fieldkit.data.pb.FkData.Fault> getFaultsList() {
-      return faults_;
+    public java.util.List<org.conservify.fieldkit.data.pb.FkData.Event> getEventsList() {
+      return events_;
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    public java.util.List<? extends org.conservify.fieldkit.data.pb.FkData.FaultOrBuilder> 
-        getFaultsOrBuilderList() {
-      return faults_;
+    public java.util.List<? extends org.conservify.fieldkit.data.pb.FkData.EventOrBuilder> 
+        getEventsOrBuilderList() {
+      return events_;
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
-     */
-    @java.lang.Override
-    public int getFaultsCount() {
-      return faults_.size();
-    }
-    /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
     @java.lang.Override
-    public org.conservify.fieldkit.data.pb.FkData.Fault getFaults(int index) {
-      return faults_.get(index);
+    public int getEventsCount() {
+      return events_.size();
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    public org.conservify.fieldkit.data.pb.FkData.FaultOrBuilder getFaultsOrBuilder(
+    @java.lang.Override
+    public org.conservify.fieldkit.data.pb.FkData.Event getEvents(int index) {
+      return events_.get(index);
+    }
+    /**
+     * <code>repeated .fk_data.Event events = 15;</code>
+     */
+    public org.conservify.fieldkit.data.pb.FkData.EventOrBuilder getEventsOrBuilder(
         int index) {
-      return faults_.get(index);
+      return events_.get(index);
     }
-    private void ensureFaultsIsMutable() {
-      if (!faults_.isModifiable()) {
-        faults_ =
-            com.google.protobuf.GeneratedMessageLite.mutableCopy(faults_);
+    private void ensureEventsIsMutable() {
+      if (!events_.isModifiable()) {
+        events_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(events_);
        }
     }
 
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    private void setFaults(
-        int index, org.conservify.fieldkit.data.pb.FkData.Fault value) {
+    private void setEvents(
+        int index, org.conservify.fieldkit.data.pb.FkData.Event value) {
       value.getClass();
-  ensureFaultsIsMutable();
-      faults_.set(index, value);
+  ensureEventsIsMutable();
+      events_.set(index, value);
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    private void addFaults(org.conservify.fieldkit.data.pb.FkData.Fault value) {
+    private void addEvents(org.conservify.fieldkit.data.pb.FkData.Event value) {
       value.getClass();
-  ensureFaultsIsMutable();
-      faults_.add(value);
+  ensureEventsIsMutable();
+      events_.add(value);
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    private void addFaults(
-        int index, org.conservify.fieldkit.data.pb.FkData.Fault value) {
+    private void addEvents(
+        int index, org.conservify.fieldkit.data.pb.FkData.Event value) {
       value.getClass();
-  ensureFaultsIsMutable();
-      faults_.add(index, value);
+  ensureEventsIsMutable();
+      events_.add(index, value);
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    private void addAllFaults(
-        java.lang.Iterable<? extends org.conservify.fieldkit.data.pb.FkData.Fault> values) {
-      ensureFaultsIsMutable();
+    private void addAllEvents(
+        java.lang.Iterable<? extends org.conservify.fieldkit.data.pb.FkData.Event> values) {
+      ensureEventsIsMutable();
       com.google.protobuf.AbstractMessageLite.addAll(
-          values, faults_);
+          values, events_);
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    private void clearFaults() {
-      faults_ = emptyProtobufList();
+    private void clearEvents() {
+      events_ = emptyProtobufList();
     }
     /**
-     * <code>repeated .fk_data.Fault faults = 15;</code>
+     * <code>repeated .fk_data.Event events = 15;</code>
      */
-    private void removeFaults(int index) {
-      ensureFaultsIsMutable();
-      faults_.remove(index);
+    private void removeEvents(int index) {
+      ensureEventsIsMutable();
+      events_.remove(index);
     }
 
     public static org.conservify.fieldkit.data.pb.FkData.DataRecord parseFrom(
@@ -15485,11 +16469,6 @@ public final class FkData {
     }
 
     /**
-     * <pre>
-     **
-     * I may break this into a MetaRecord.
-     * </pre>
-     *
      * Protobuf type {@code fk_data.DataRecord}
      */
     public static final class Builder extends
@@ -16253,104 +17232,104 @@ public final class FkData {
       }
 
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
       @java.lang.Override
-      public java.util.List<org.conservify.fieldkit.data.pb.FkData.Fault> getFaultsList() {
+      public java.util.List<org.conservify.fieldkit.data.pb.FkData.Event> getEventsList() {
         return java.util.Collections.unmodifiableList(
-            instance.getFaultsList());
+            instance.getEventsList());
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
       @java.lang.Override
-      public int getFaultsCount() {
-        return instance.getFaultsCount();
+      public int getEventsCount() {
+        return instance.getEventsCount();
       }/**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
       @java.lang.Override
-      public org.conservify.fieldkit.data.pb.FkData.Fault getFaults(int index) {
-        return instance.getFaults(index);
+      public org.conservify.fieldkit.data.pb.FkData.Event getEvents(int index) {
+        return instance.getEvents(index);
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder setFaults(
-          int index, org.conservify.fieldkit.data.pb.FkData.Fault value) {
+      public Builder setEvents(
+          int index, org.conservify.fieldkit.data.pb.FkData.Event value) {
         copyOnWrite();
-        instance.setFaults(index, value);
+        instance.setEvents(index, value);
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder setFaults(
-          int index, org.conservify.fieldkit.data.pb.FkData.Fault.Builder builderForValue) {
+      public Builder setEvents(
+          int index, org.conservify.fieldkit.data.pb.FkData.Event.Builder builderForValue) {
         copyOnWrite();
-        instance.setFaults(index,
+        instance.setEvents(index,
             builderForValue.build());
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder addFaults(org.conservify.fieldkit.data.pb.FkData.Fault value) {
+      public Builder addEvents(org.conservify.fieldkit.data.pb.FkData.Event value) {
         copyOnWrite();
-        instance.addFaults(value);
+        instance.addEvents(value);
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder addFaults(
-          int index, org.conservify.fieldkit.data.pb.FkData.Fault value) {
+      public Builder addEvents(
+          int index, org.conservify.fieldkit.data.pb.FkData.Event value) {
         copyOnWrite();
-        instance.addFaults(index, value);
+        instance.addEvents(index, value);
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder addFaults(
-          org.conservify.fieldkit.data.pb.FkData.Fault.Builder builderForValue) {
+      public Builder addEvents(
+          org.conservify.fieldkit.data.pb.FkData.Event.Builder builderForValue) {
         copyOnWrite();
-        instance.addFaults(builderForValue.build());
+        instance.addEvents(builderForValue.build());
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder addFaults(
-          int index, org.conservify.fieldkit.data.pb.FkData.Fault.Builder builderForValue) {
+      public Builder addEvents(
+          int index, org.conservify.fieldkit.data.pb.FkData.Event.Builder builderForValue) {
         copyOnWrite();
-        instance.addFaults(index,
+        instance.addEvents(index,
             builderForValue.build());
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder addAllFaults(
-          java.lang.Iterable<? extends org.conservify.fieldkit.data.pb.FkData.Fault> values) {
+      public Builder addAllEvents(
+          java.lang.Iterable<? extends org.conservify.fieldkit.data.pb.FkData.Event> values) {
         copyOnWrite();
-        instance.addAllFaults(values);
+        instance.addAllEvents(values);
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder clearFaults() {
+      public Builder clearEvents() {
         copyOnWrite();
-        instance.clearFaults();
+        instance.clearEvents();
         return this;
       }
       /**
-       * <code>repeated .fk_data.Fault faults = 15;</code>
+       * <code>repeated .fk_data.Event events = 15;</code>
        */
-      public Builder removeFaults(int index) {
+      public Builder removeEvents(int index) {
         copyOnWrite();
-        instance.removeFaults(index);
+        instance.removeEvents(index);
         return this;
       }
 
@@ -16386,8 +17365,8 @@ public final class FkData {
               "logs_",
               org.conservify.fieldkit.data.pb.FkData.LogMessage.class,
               "transmission_",
-              "faults_",
-              org.conservify.fieldkit.data.pb.FkData.Fault.class,
+              "events_",
+              org.conservify.fieldkit.data.pb.FkData.Event.class,
             };
             java.lang.String info =
                 "\u0000\u000f\u0000\u0000\u0001\u000f\u000f\u0000\u0003\u0000\u0001\t\u0002\t\u0003" +

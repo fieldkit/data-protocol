@@ -198,16 +198,37 @@ message LoraSettings {
   uint32 rxDelay2 = 11;
 }
 
-message Fault {
-  uint32 time = 1;
-  uint32 code = 2;
-  string description = 3;
-  bytes debug = 4;
+enum EventSystem {
+  EVENT_SYSTEM_NONE = 0;
+  EVENT_SYSTEM_RESTART = 1;
+  EVENT_SYSTEM_BATTERY = 2;
+  EVENT_SYSTEM_MEMORY = 3;
+  EVENT_SYSTEM_SENSOR = 4;
+  EVENT_SYSTEM_WIFI = 5;
+  EVENT_SYSTEM_LORA = 6;
 }
 
-/**
- * I may break this into a MetaRecord.
- */
+enum Severity {
+  SEVERITY_INFO = 0;
+  SEVERITY_WARNING = 1;
+  SEVERITY_ERROR = 2;
+}
+
+message EventDetails {
+  bytes data = 1;
+  repeated int32 integers = 2;
+  repeated float reals = 3;
+}
+
+message Event {
+  EventSystem system = 1;
+  Severity severity = 2;
+  uint32 code = 3;
+  uint32 time = 4;
+  EventDetails details = 5;
+  bytes debug = 6;
+}
+
 message DataRecord {
   LoggedReading loggedReading = 1;
   Metadata metadata = 2;
@@ -223,7 +244,7 @@ message DataRecord {
   LoraSettings lora = 11;
   NetworkSettings network = 12;
   TransmissionSettings transmission = 14;
-  repeated Fault faults = 15;
+  repeated Event events = 15;
 }
 
 enum SignedRecordKind {
@@ -232,7 +253,7 @@ enum SignedRecordKind {
   SIGNED_RECORD_KIND_SCHEDULE = 2;
   SIGNED_RECORD_KIND_STATE = 3;
   SIGNED_RECORD_KIND_RAW_STATE = 4;
-  SIGNED_RECORD_KIND_FAULTS = 5;
+  SIGNED_RECORD_KIND_EVENTS = 5;
   SIGNED_RECORD_KIND_OTHER = 0xff;
 }
 

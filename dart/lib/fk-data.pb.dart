@@ -2303,93 +2303,186 @@ class LoraSettings extends $pb.GeneratedMessage {
   void clearRxDelay2() => clearField(11);
 }
 
-class Fault extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Fault', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'fk_data'), createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'time', $pb.PbFieldType.OU3)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'code', $pb.PbFieldType.OU3)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
-    ..a<$core.List<$core.int>>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'debug', $pb.PbFieldType.OY)
+class EventDetails extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'EventDetails', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'fk_data'), createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'data', $pb.PbFieldType.OY)
+    ..p<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'integers', $pb.PbFieldType.K3)
+    ..p<$core.double>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'reals', $pb.PbFieldType.KF)
     ..hasRequiredFields = false
   ;
 
-  Fault._() : super();
-  factory Fault({
-    $core.int? time,
+  EventDetails._() : super();
+  factory EventDetails({
+    $core.List<$core.int>? data,
+    $core.Iterable<$core.int>? integers,
+    $core.Iterable<$core.double>? reals,
+  }) {
+    final _result = create();
+    if (data != null) {
+      _result.data = data;
+    }
+    if (integers != null) {
+      _result.integers.addAll(integers);
+    }
+    if (reals != null) {
+      _result.reals.addAll(reals);
+    }
+    return _result;
+  }
+  factory EventDetails.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory EventDetails.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  EventDetails clone() => EventDetails()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  EventDetails copyWith(void Function(EventDetails) updates) => super.copyWith((message) => updates(message as EventDetails)) as EventDetails; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static EventDetails create() => EventDetails._();
+  EventDetails createEmptyInstance() => create();
+  static $pb.PbList<EventDetails> createRepeated() => $pb.PbList<EventDetails>();
+  @$core.pragma('dart2js:noInline')
+  static EventDetails getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EventDetails>(create);
+  static EventDetails? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get data => $_getN(0);
+  @$pb.TagNumber(1)
+  set data($core.List<$core.int> v) { $_setBytes(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasData() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearData() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<$core.int> get integers => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.List<$core.double> get reals => $_getList(2);
+}
+
+class Event extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Event', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'fk_data'), createEmptyInstance: create)
+    ..e<EventSystem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'system', $pb.PbFieldType.OE, defaultOrMaker: EventSystem.EVENT_SYSTEM_NONE, valueOf: EventSystem.valueOf, enumValues: EventSystem.values)
+    ..e<Severity>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'severity', $pb.PbFieldType.OE, defaultOrMaker: Severity.SEVERITY_INFO, valueOf: Severity.valueOf, enumValues: Severity.values)
+    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'code', $pb.PbFieldType.OU3)
+    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'time', $pb.PbFieldType.OU3)
+    ..aOM<EventDetails>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'details', subBuilder: EventDetails.create)
+    ..a<$core.List<$core.int>>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'debug', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false
+  ;
+
+  Event._() : super();
+  factory Event({
+    EventSystem? system,
+    Severity? severity,
     $core.int? code,
-    $core.String? description,
+    $core.int? time,
+    EventDetails? details,
     $core.List<$core.int>? debug,
   }) {
     final _result = create();
-    if (time != null) {
-      _result.time = time;
+    if (system != null) {
+      _result.system = system;
+    }
+    if (severity != null) {
+      _result.severity = severity;
     }
     if (code != null) {
       _result.code = code;
     }
-    if (description != null) {
-      _result.description = description;
+    if (time != null) {
+      _result.time = time;
+    }
+    if (details != null) {
+      _result.details = details;
     }
     if (debug != null) {
       _result.debug = debug;
     }
     return _result;
   }
-  factory Fault.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Fault.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory Event.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Event.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Fault clone() => Fault()..mergeFromMessage(this);
+  Event clone() => Event()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Fault copyWith(void Function(Fault) updates) => super.copyWith((message) => updates(message as Fault)) as Fault; // ignore: deprecated_member_use
+  Event copyWith(void Function(Event) updates) => super.copyWith((message) => updates(message as Event)) as Event; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static Fault create() => Fault._();
-  Fault createEmptyInstance() => create();
-  static $pb.PbList<Fault> createRepeated() => $pb.PbList<Fault>();
+  static Event create() => Event._();
+  Event createEmptyInstance() => create();
+  static $pb.PbList<Event> createRepeated() => $pb.PbList<Event>();
   @$core.pragma('dart2js:noInline')
-  static Fault getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Fault>(create);
-  static Fault? _defaultInstance;
+  static Event getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Event>(create);
+  static Event? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get time => $_getIZ(0);
+  EventSystem get system => $_getN(0);
   @$pb.TagNumber(1)
-  set time($core.int v) { $_setUnsignedInt32(0, v); }
+  set system(EventSystem v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasTime() => $_has(0);
+  $core.bool hasSystem() => $_has(0);
   @$pb.TagNumber(1)
-  void clearTime() => clearField(1);
+  void clearSystem() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get code => $_getIZ(1);
+  Severity get severity => $_getN(1);
   @$pb.TagNumber(2)
-  set code($core.int v) { $_setUnsignedInt32(1, v); }
+  set severity(Severity v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCode() => $_has(1);
+  $core.bool hasSeverity() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCode() => clearField(2);
+  void clearSeverity() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get description => $_getSZ(2);
+  $core.int get code => $_getIZ(2);
   @$pb.TagNumber(3)
-  set description($core.String v) { $_setString(2, v); }
+  set code($core.int v) { $_setUnsignedInt32(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDescription() => $_has(2);
+  $core.bool hasCode() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDescription() => clearField(3);
+  void clearCode() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$core.int> get debug => $_getN(3);
+  $core.int get time => $_getIZ(3);
   @$pb.TagNumber(4)
-  set debug($core.List<$core.int> v) { $_setBytes(3, v); }
+  set time($core.int v) { $_setUnsignedInt32(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasDebug() => $_has(3);
+  $core.bool hasTime() => $_has(3);
   @$pb.TagNumber(4)
-  void clearDebug() => clearField(4);
+  void clearTime() => clearField(4);
+
+  @$pb.TagNumber(5)
+  EventDetails get details => $_getN(4);
+  @$pb.TagNumber(5)
+  set details(EventDetails v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasDetails() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearDetails() => clearField(5);
+  @$pb.TagNumber(5)
+  EventDetails ensureDetails() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $core.List<$core.int> get debug => $_getN(5);
+  @$pb.TagNumber(6)
+  set debug($core.List<$core.int> v) { $_setBytes(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasDebug() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearDebug() => clearField(6);
 }
 
 class DataRecord extends $pb.GeneratedMessage {
@@ -2408,7 +2501,7 @@ class DataRecord extends $pb.GeneratedMessage {
     ..aOM<NetworkSettings>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'network', subBuilder: NetworkSettings.create)
     ..pc<LogMessage>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logs', $pb.PbFieldType.PM, subBuilder: LogMessage.create)
     ..aOM<TransmissionSettings>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'transmission', subBuilder: TransmissionSettings.create)
-    ..pc<Fault>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'faults', $pb.PbFieldType.PM, subBuilder: Fault.create)
+    ..pc<Event>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'events', $pb.PbFieldType.PM, subBuilder: Event.create)
     ..hasRequiredFields = false
   ;
 
@@ -2428,7 +2521,7 @@ class DataRecord extends $pb.GeneratedMessage {
     NetworkSettings? network,
     $core.Iterable<LogMessage>? logs,
     TransmissionSettings? transmission,
-    $core.Iterable<Fault>? faults,
+    $core.Iterable<Event>? events,
   }) {
     final _result = create();
     if (loggedReading != null) {
@@ -2473,8 +2566,8 @@ class DataRecord extends $pb.GeneratedMessage {
     if (transmission != null) {
       _result.transmission = transmission;
     }
-    if (faults != null) {
-      _result.faults.addAll(faults);
+    if (events != null) {
+      _result.events.addAll(events);
     }
     return _result;
   }
@@ -2636,7 +2729,7 @@ class DataRecord extends $pb.GeneratedMessage {
   TransmissionSettings ensureTransmission() => $_ensure(13);
 
   @$pb.TagNumber(15)
-  $core.List<Fault> get faults => $_getList(14);
+  $core.List<Event> get events => $_getList(14);
 }
 
 class SignedRecord extends $pb.GeneratedMessage {

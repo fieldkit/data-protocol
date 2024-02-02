@@ -2608,109 +2608,241 @@ export namespace fk_data {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a Fault. */
-    interface IFault {
-
-        /** Fault time */
-        time?: (number|null);
-
-        /** Fault code */
-        code?: (number|null);
-
-        /** Fault description */
-        description?: (string|null);
-
-        /** Fault debug */
-        debug?: (Uint8Array|null);
+    /** EventSystem enum. */
+    enum EventSystem {
+        EVENT_SYSTEM_NONE = 0,
+        EVENT_SYSTEM_RESTART = 1,
+        EVENT_SYSTEM_BATTERY = 2,
+        EVENT_SYSTEM_MEMORY = 3,
+        EVENT_SYSTEM_SENSOR = 4,
+        EVENT_SYSTEM_WIFI = 5,
+        EVENT_SYSTEM_LORA = 6
     }
 
-    /** Represents a Fault. */
-    class Fault implements IFault {
+    /** Severity enum. */
+    enum Severity {
+        SEVERITY_INFO = 0,
+        SEVERITY_WARNING = 1,
+        SEVERITY_ERROR = 2
+    }
+
+    /** Properties of an EventDetails. */
+    interface IEventDetails {
+
+        /** EventDetails data */
+        data?: (Uint8Array|null);
+
+        /** EventDetails integers */
+        integers?: (number[]|null);
+
+        /** EventDetails reals */
+        reals?: (number[]|null);
+    }
+
+    /** Represents an EventDetails. */
+    class EventDetails implements IEventDetails {
 
         /**
-         * Constructs a new Fault.
+         * Constructs a new EventDetails.
          * @param [properties] Properties to set
          */
-        constructor(properties?: fk_data.IFault);
+        constructor(properties?: fk_data.IEventDetails);
 
-        /** Fault time. */
-        public time: number;
+        /** EventDetails data. */
+        public data: Uint8Array;
 
-        /** Fault code. */
-        public code: number;
+        /** EventDetails integers. */
+        public integers: number[];
 
-        /** Fault description. */
-        public description: string;
-
-        /** Fault debug. */
-        public debug: Uint8Array;
+        /** EventDetails reals. */
+        public reals: number[];
 
         /**
-         * Creates a new Fault instance using the specified properties.
+         * Creates a new EventDetails instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Fault instance
+         * @returns EventDetails instance
          */
-        public static create(properties?: fk_data.IFault): fk_data.Fault;
+        public static create(properties?: fk_data.IEventDetails): fk_data.EventDetails;
 
         /**
-         * Encodes the specified Fault message. Does not implicitly {@link fk_data.Fault.verify|verify} messages.
-         * @param message Fault message or plain object to encode
+         * Encodes the specified EventDetails message. Does not implicitly {@link fk_data.EventDetails.verify|verify} messages.
+         * @param message EventDetails message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: fk_data.IFault, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: fk_data.IEventDetails, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified Fault message, length delimited. Does not implicitly {@link fk_data.Fault.verify|verify} messages.
-         * @param message Fault message or plain object to encode
+         * Encodes the specified EventDetails message, length delimited. Does not implicitly {@link fk_data.EventDetails.verify|verify} messages.
+         * @param message EventDetails message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: fk_data.IFault, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: fk_data.IEventDetails, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Fault message from the specified reader or buffer.
+         * Decodes an EventDetails message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Fault
+         * @returns EventDetails
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): fk_data.Fault;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): fk_data.EventDetails;
 
         /**
-         * Decodes a Fault message from the specified reader or buffer, length delimited.
+         * Decodes an EventDetails message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Fault
+         * @returns EventDetails
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): fk_data.Fault;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): fk_data.EventDetails;
 
         /**
-         * Verifies a Fault message.
+         * Verifies an EventDetails message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Fault message from a plain object. Also converts values to their respective internal types.
+         * Creates an EventDetails message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns Fault
+         * @returns EventDetails
          */
-        public static fromObject(object: { [k: string]: any }): fk_data.Fault;
+        public static fromObject(object: { [k: string]: any }): fk_data.EventDetails;
 
         /**
-         * Creates a plain object from a Fault message. Also converts values to other types if specified.
-         * @param message Fault
+         * Creates a plain object from an EventDetails message. Also converts values to other types if specified.
+         * @param message EventDetails
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: fk_data.Fault, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: fk_data.EventDetails, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this Fault to JSON.
+         * Converts this EventDetails to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an Event. */
+    interface IEvent {
+
+        /** Event system */
+        system?: (fk_data.EventSystem|null);
+
+        /** Event severity */
+        severity?: (fk_data.Severity|null);
+
+        /** Event code */
+        code?: (number|null);
+
+        /** Event time */
+        time?: (number|null);
+
+        /** Event details */
+        details?: (fk_data.IEventDetails|null);
+
+        /** Event debug */
+        debug?: (Uint8Array|null);
+    }
+
+    /** Represents an Event. */
+    class Event implements IEvent {
+
+        /**
+         * Constructs a new Event.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: fk_data.IEvent);
+
+        /** Event system. */
+        public system: fk_data.EventSystem;
+
+        /** Event severity. */
+        public severity: fk_data.Severity;
+
+        /** Event code. */
+        public code: number;
+
+        /** Event time. */
+        public time: number;
+
+        /** Event details. */
+        public details?: (fk_data.IEventDetails|null);
+
+        /** Event debug. */
+        public debug: Uint8Array;
+
+        /**
+         * Creates a new Event instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Event instance
+         */
+        public static create(properties?: fk_data.IEvent): fk_data.Event;
+
+        /**
+         * Encodes the specified Event message. Does not implicitly {@link fk_data.Event.verify|verify} messages.
+         * @param message Event message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: fk_data.IEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Event message, length delimited. Does not implicitly {@link fk_data.Event.verify|verify} messages.
+         * @param message Event message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: fk_data.IEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an Event message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Event
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): fk_data.Event;
+
+        /**
+         * Decodes an Event message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Event
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): fk_data.Event;
+
+        /**
+         * Verifies an Event message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an Event message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Event
+         */
+        public static fromObject(object: { [k: string]: any }): fk_data.Event;
+
+        /**
+         * Creates a plain object from an Event message. Also converts values to other types if specified.
+         * @param message Event
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: fk_data.Event, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Event to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -2761,11 +2893,11 @@ export namespace fk_data {
         /** DataRecord transmission */
         transmission?: (fk_data.ITransmissionSettings|null);
 
-        /** DataRecord faults */
-        faults?: (fk_data.IFault[]|null);
+        /** DataRecord events */
+        events?: (fk_data.IEvent[]|null);
     }
 
-    /** I may break this into a MetaRecord. */
+    /** Represents a DataRecord. */
     class DataRecord implements IDataRecord {
 
         /**
@@ -2816,8 +2948,8 @@ export namespace fk_data {
         /** DataRecord transmission. */
         public transmission?: (fk_data.ITransmissionSettings|null);
 
-        /** DataRecord faults. */
-        public faults: fk_data.IFault[];
+        /** DataRecord events. */
+        public events: fk_data.IEvent[];
 
         /**
          * Creates a new DataRecord instance using the specified properties.

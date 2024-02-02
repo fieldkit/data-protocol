@@ -31,6 +31,34 @@ const ConditionFlags$json = const {
 
 /// Descriptor for `ConditionFlags`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List conditionFlagsDescriptor = $convert.base64Decode('Cg5Db25kaXRpb25GbGFncxIYChRDT05ESVRJT05fRkxBR1NfTk9ORRAAEh0KGUNPTkRJVElPTl9GTEFHU19SRUNPUkRJTkcQAQ==');
+@$core.Deprecated('Use eventSystemDescriptor instead')
+const EventSystem$json = const {
+  '1': 'EventSystem',
+  '2': const [
+    const {'1': 'EVENT_SYSTEM_NONE', '2': 0},
+    const {'1': 'EVENT_SYSTEM_RESTART', '2': 1},
+    const {'1': 'EVENT_SYSTEM_BATTERY', '2': 2},
+    const {'1': 'EVENT_SYSTEM_MEMORY', '2': 3},
+    const {'1': 'EVENT_SYSTEM_SENSOR', '2': 4},
+    const {'1': 'EVENT_SYSTEM_WIFI', '2': 5},
+    const {'1': 'EVENT_SYSTEM_LORA', '2': 6},
+  ],
+};
+
+/// Descriptor for `EventSystem`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List eventSystemDescriptor = $convert.base64Decode('CgtFdmVudFN5c3RlbRIVChFFVkVOVF9TWVNURU1fTk9ORRAAEhgKFEVWRU5UX1NZU1RFTV9SRVNUQVJUEAESGAoURVZFTlRfU1lTVEVNX0JBVFRFUlkQAhIXChNFVkVOVF9TWVNURU1fTUVNT1JZEAMSFwoTRVZFTlRfU1lTVEVNX1NFTlNPUhAEEhUKEUVWRU5UX1NZU1RFTV9XSUZJEAUSFQoRRVZFTlRfU1lTVEVNX0xPUkEQBg==');
+@$core.Deprecated('Use severityDescriptor instead')
+const Severity$json = const {
+  '1': 'Severity',
+  '2': const [
+    const {'1': 'SEVERITY_INFO', '2': 0},
+    const {'1': 'SEVERITY_WARNING', '2': 1},
+    const {'1': 'SEVERITY_ERROR', '2': 2},
+  ],
+};
+
+/// Descriptor for `Severity`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List severityDescriptor = $convert.base64Decode('CghTZXZlcml0eRIRCg1TRVZFUklUWV9JTkZPEAASFAoQU0VWRVJJVFlfV0FSTklORxABEhIKDlNFVkVSSVRZX0VSUk9SEAI=');
 @$core.Deprecated('Use signedRecordKindDescriptor instead')
 const SignedRecordKind$json = const {
   '1': 'SignedRecordKind',
@@ -381,19 +409,33 @@ const LoraSettings$json = const {
 
 /// Descriptor for `LoraSettings`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List loraSettingsDescriptor = $convert.base64Decode('CgxMb3JhU2V0dGluZ3MSHAoJZGV2aWNlRXVpGAEgASgMUglkZXZpY2VFdWkSFgoGYXBwS2V5GAIgASgMUgZhcHBLZXkSGAoHam9pbkV1aRgDIAEoDFIHam9pbkV1aRIkCg1mcmVxdWVuY3lCYW5kGAQgASgNUg1mcmVxdWVuY3lCYW5kEiQKDWRldmljZUFkZHJlc3MYBSABKAxSDWRldmljZUFkZHJlc3MSLAoRbmV0d29ya1Nlc3Npb25LZXkYBiABKAxSEW5ldHdvcmtTZXNzaW9uS2V5EiQKDWFwcFNlc3Npb25LZXkYByABKAxSDWFwcFNlc3Npb25LZXkSJAoNdXBsaW5rQ291bnRlchgIIAEoDVINdXBsaW5rQ291bnRlchIoCg9kb3dubGlua0NvdW50ZXIYCSABKA1SD2Rvd25saW5rQ291bnRlchIaCghyeERlbGF5MRgKIAEoDVIIcnhEZWxheTESGgoIcnhEZWxheTIYCyABKA1SCHJ4RGVsYXky');
-@$core.Deprecated('Use faultDescriptor instead')
-const Fault$json = const {
-  '1': 'Fault',
+@$core.Deprecated('Use eventDetailsDescriptor instead')
+const EventDetails$json = const {
+  '1': 'EventDetails',
   '2': const [
-    const {'1': 'time', '3': 1, '4': 1, '5': 13, '10': 'time'},
-    const {'1': 'code', '3': 2, '4': 1, '5': 13, '10': 'code'},
-    const {'1': 'description', '3': 3, '4': 1, '5': 9, '10': 'description'},
-    const {'1': 'debug', '3': 4, '4': 1, '5': 12, '10': 'debug'},
+    const {'1': 'data', '3': 1, '4': 1, '5': 12, '10': 'data'},
+    const {'1': 'integers', '3': 2, '4': 3, '5': 5, '10': 'integers'},
+    const {'1': 'reals', '3': 3, '4': 3, '5': 2, '10': 'reals'},
   ],
 };
 
-/// Descriptor for `Fault`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List faultDescriptor = $convert.base64Decode('CgVGYXVsdBISCgR0aW1lGAEgASgNUgR0aW1lEhIKBGNvZGUYAiABKA1SBGNvZGUSIAoLZGVzY3JpcHRpb24YAyABKAlSC2Rlc2NyaXB0aW9uEhQKBWRlYnVnGAQgASgMUgVkZWJ1Zw==');
+/// Descriptor for `EventDetails`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventDetailsDescriptor = $convert.base64Decode('CgxFdmVudERldGFpbHMSEgoEZGF0YRgBIAEoDFIEZGF0YRIaCghpbnRlZ2VycxgCIAMoBVIIaW50ZWdlcnMSFAoFcmVhbHMYAyADKAJSBXJlYWxz');
+@$core.Deprecated('Use eventDescriptor instead')
+const Event$json = const {
+  '1': 'Event',
+  '2': const [
+    const {'1': 'system', '3': 1, '4': 1, '5': 14, '6': '.fk_data.EventSystem', '10': 'system'},
+    const {'1': 'severity', '3': 2, '4': 1, '5': 14, '6': '.fk_data.Severity', '10': 'severity'},
+    const {'1': 'code', '3': 3, '4': 1, '5': 13, '10': 'code'},
+    const {'1': 'time', '3': 4, '4': 1, '5': 13, '10': 'time'},
+    const {'1': 'details', '3': 5, '4': 1, '5': 11, '6': '.fk_data.EventDetails', '10': 'details'},
+    const {'1': 'debug', '3': 6, '4': 1, '5': 12, '10': 'debug'},
+  ],
+};
+
+/// Descriptor for `Event`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List eventDescriptor = $convert.base64Decode('CgVFdmVudBIsCgZzeXN0ZW0YASABKA4yFC5ma19kYXRhLkV2ZW50U3lzdGVtUgZzeXN0ZW0SLQoIc2V2ZXJpdHkYAiABKA4yES5ma19kYXRhLlNldmVyaXR5UghzZXZlcml0eRISCgRjb2RlGAMgASgNUgRjb2RlEhIKBHRpbWUYBCABKA1SBHRpbWUSLwoHZGV0YWlscxgFIAEoCzIVLmZrX2RhdGEuRXZlbnREZXRhaWxzUgdkZXRhaWxzEhQKBWRlYnVnGAYgASgMUgVkZWJ1Zw==');
 @$core.Deprecated('Use dataRecordDescriptor instead')
 const DataRecord$json = const {
   '1': 'DataRecord',
@@ -412,12 +454,12 @@ const DataRecord$json = const {
     const {'1': 'lora', '3': 11, '4': 1, '5': 11, '6': '.fk_data.LoraSettings', '10': 'lora'},
     const {'1': 'network', '3': 12, '4': 1, '5': 11, '6': '.fk_data.NetworkSettings', '10': 'network'},
     const {'1': 'transmission', '3': 14, '4': 1, '5': 11, '6': '.fk_data.TransmissionSettings', '10': 'transmission'},
-    const {'1': 'faults', '3': 15, '4': 3, '5': 11, '6': '.fk_data.Fault', '10': 'faults'},
+    const {'1': 'events', '3': 15, '4': 3, '5': 11, '6': '.fk_data.Event', '10': 'events'},
   ],
 };
 
 /// Descriptor for `DataRecord`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dataRecordDescriptor = $convert.base64Decode('CgpEYXRhUmVjb3JkEjwKDWxvZ2dlZFJlYWRpbmcYASABKAsyFi5ma19kYXRhLkxvZ2dlZFJlYWRpbmdSDWxvZ2dlZFJlYWRpbmcSLQoIbWV0YWRhdGEYAiABKAsyES5ma19kYXRhLk1ldGFkYXRhUghtZXRhZGF0YRIlCgNsb2cYAyABKAsyEy5ma19kYXRhLkxvZ01lc3NhZ2VSA2xvZxInCgRsb2dzGA0gAygLMhMuZmtfZGF0YS5Mb2dNZXNzYWdlUgRsb2dzEicKBnN0YXR1cxgEIAEoCzIPLmZrX2RhdGEuU3RhdHVzUgZzdGF0dXMSLQoIcmVhZGluZ3MYBSABKAsyES5ma19kYXRhLlJlYWRpbmdzUghyZWFkaW5ncxItCgdtb2R1bGVzGAYgAygLMhMuZmtfZGF0YS5Nb2R1bGVJbmZvUgdtb2R1bGVzEi0KCHNjaGVkdWxlGAcgASgLMhEuZmtfZGF0YS5TY2hlZHVsZVIIc2NoZWR1bGUSEgoEbWV0YRgIIAEoBFIEbWV0YRItCghpZGVudGl0eRgJIAEoCzIRLmZrX2RhdGEuSWRlbnRpdHlSCGlkZW50aXR5EjAKCWNvbmRpdGlvbhgKIAEoCzISLmZrX2RhdGEuQ29uZGl0aW9uUgljb25kaXRpb24SKQoEbG9yYRgLIAEoCzIVLmZrX2RhdGEuTG9yYVNldHRpbmdzUgRsb3JhEjIKB25ldHdvcmsYDCABKAsyGC5ma19kYXRhLk5ldHdvcmtTZXR0aW5nc1IHbmV0d29yaxJBCgx0cmFuc21pc3Npb24YDiABKAsyHS5ma19kYXRhLlRyYW5zbWlzc2lvblNldHRpbmdzUgx0cmFuc21pc3Npb24SJgoGZmF1bHRzGA8gAygLMg4uZmtfZGF0YS5GYXVsdFIGZmF1bHRz');
+final $typed_data.Uint8List dataRecordDescriptor = $convert.base64Decode('CgpEYXRhUmVjb3JkEjwKDWxvZ2dlZFJlYWRpbmcYASABKAsyFi5ma19kYXRhLkxvZ2dlZFJlYWRpbmdSDWxvZ2dlZFJlYWRpbmcSLQoIbWV0YWRhdGEYAiABKAsyES5ma19kYXRhLk1ldGFkYXRhUghtZXRhZGF0YRIlCgNsb2cYAyABKAsyEy5ma19kYXRhLkxvZ01lc3NhZ2VSA2xvZxInCgRsb2dzGA0gAygLMhMuZmtfZGF0YS5Mb2dNZXNzYWdlUgRsb2dzEicKBnN0YXR1cxgEIAEoCzIPLmZrX2RhdGEuU3RhdHVzUgZzdGF0dXMSLQoIcmVhZGluZ3MYBSABKAsyES5ma19kYXRhLlJlYWRpbmdzUghyZWFkaW5ncxItCgdtb2R1bGVzGAYgAygLMhMuZmtfZGF0YS5Nb2R1bGVJbmZvUgdtb2R1bGVzEi0KCHNjaGVkdWxlGAcgASgLMhEuZmtfZGF0YS5TY2hlZHVsZVIIc2NoZWR1bGUSEgoEbWV0YRgIIAEoBFIEbWV0YRItCghpZGVudGl0eRgJIAEoCzIRLmZrX2RhdGEuSWRlbnRpdHlSCGlkZW50aXR5EjAKCWNvbmRpdGlvbhgKIAEoCzISLmZrX2RhdGEuQ29uZGl0aW9uUgljb25kaXRpb24SKQoEbG9yYRgLIAEoCzIVLmZrX2RhdGEuTG9yYVNldHRpbmdzUgRsb3JhEjIKB25ldHdvcmsYDCABKAsyGC5ma19kYXRhLk5ldHdvcmtTZXR0aW5nc1IHbmV0d29yaxJBCgx0cmFuc21pc3Npb24YDiABKAsyHS5ma19kYXRhLlRyYW5zbWlzc2lvblNldHRpbmdzUgx0cmFuc21pc3Npb24SJgoGZXZlbnRzGA8gAygLMg4uZmtfZGF0YS5FdmVudFIGZXZlbnRz');
 @$core.Deprecated('Use signedRecordDescriptor instead')
 const SignedRecord$json = const {
   '1': 'SignedRecord',

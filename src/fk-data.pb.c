@@ -75,7 +75,10 @@ PB_BIND(fk_data_NetworkSettings, fk_data_NetworkSettings, AUTO)
 PB_BIND(fk_data_LoraSettings, fk_data_LoraSettings, AUTO)
 
 
-PB_BIND(fk_data_Fault, fk_data_Fault, AUTO)
+PB_BIND(fk_data_EventDetails, fk_data_EventDetails, AUTO)
+
+
+PB_BIND(fk_data_Event, fk_data_Event, AUTO)
 
 
 PB_BIND(fk_data_DataRecord, fk_data_DataRecord, 2)
@@ -97,6 +100,8 @@ PB_BIND(fk_data_Calibration, fk_data_Calibration, AUTO)
 
 
 PB_BIND(fk_data_ModuleConfiguration, fk_data_ModuleConfiguration, AUTO)
+
+
 
 
 
